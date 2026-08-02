@@ -61,14 +61,15 @@ python3 scripts/build_pdfs.py
 
 ## Публикация на домене AlovLab
 
-Сайт статический — подойдёт любой способ. Короткая версия:
+Сайт статический — подойдёт любой способ.
 
-- **Свой хостинг / VPS (nginx):** скопировать содержимое папки в корень сайта
-  (например, `/var/www/alovlab.ru/avtokontent-2026/`).
-- **GitHub Pages / Netlify / Vercel:** указать корень репозитория как каталог публикации.
+**GitHub Pages (текущий способ).** Сайт уже в ветке `main`. Включите Pages один раз:
+Settings → Pages → Source: **Deploy from a branch** → Branch `main`, папка `/ (root)` → Save.
+Через минуту сайт будет на **https://olivkawest.github.io/alovlab-autocontent-2026/**
+и станет пересобираться при каждом пуше в `main`.
 
-После деплоя обновите `og:url` в `<head>` на боевой адрес. Полная инструкция — в
-[`docs/README.md`](docs/README.md).
+**Свой домен alovlab.ru.** Скопировать содержимое папки в корень сайта (nginx) или
+привязать домен к GitHub Pages. Полная инструкция — в [`docs/README.md`](docs/README.md).
 
 ---
 

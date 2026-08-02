@@ -210,28 +210,40 @@ python3 scripts/build_pdfs.py
 
 ---
 
-## 9. Публикация на домене AlovLab
+## 9. Публикация
 
 Сайт статический, сборка не нужна.
 
-**Вариант A — nginx на своём сервере**
+### Вариант A — GitHub Pages (текущий способ)
+
+Сайт лежит в ветке `main`. Осталось один раз включить Pages:
+
+1. Откройте **Settings → Pages** репозитория.
+2. В разделе **Build and deployment** → **Source** выберите **Deploy from a branch**.
+3. **Branch:** `main`, папка **`/ (root)`** → **Save**.
+4. Через ~1 минуту сайт будет доступен по адресу:
+   **https://olivkawest.github.io/alovlab-autocontent-2026/**
+
+Дальше при каждом пуше в `main` GitHub пересобирает сайт сам. Файл `.nojekyll`
+в корне гарантирует, что все ресурсы (шрифты, PDF, картинки) отдаются как есть.
+
+### Вариант B — свой домен alovlab.ru (nginx)
+
 ```bash
 scp -r * user@server:/var/www/alovlab.ru/avtokontent-2026/
 ```
-Пример location:
 ```nginx
 location /avtokontent-2026/ {
     root /var/www/alovlab.ru;
     try_files $uri $uri/ /avtokontent-2026/index.html;
 }
 ```
-Если кладёте в корень домена — все пути относительные, ничего менять не нужно.
+Все пути относительные — в корне домена ничего менять не нужно.
+Можно также привязать свой домен прямо к GitHub Pages (Settings → Pages → Custom domain).
 
-**Вариант B — GitHub Pages / Netlify / Vercel**
-Каталог публикации = корень репозитория. Никакой команды сборки.
+### После публикации
 
-**После деплоя:**
-1. Обновите `og:url` в `<head>` `index.html` на боевой адрес.
+1. Обновите `og:url` в `<head>` `index.html`, если адрес отличается от GitHub Pages.
 2. Проверьте OG-превью (Telegram, ВК) — при необходимости пересоберите `og-image.png`.
 3. Убедитесь, что PDF открываются по прямым ссылкам.
 4. Заполните `CONFIG` (регистрация, endpoint, политика) и подключите аналитику.
