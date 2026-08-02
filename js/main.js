@@ -16,10 +16,15 @@
     // Если пусто — кнопки плавно скроллят к форме внизу страницы.
     REGISTRATION_URL: "", // [ВСТАВИТЬ ССЫЛКУ НА РЕГИСТРАЦИЮ]
 
-    // Endpoint приёма данных формы: webhook (Make/n8n), Telegram-бот,
-    // CRM или email-сервис. Ожидает POST с JSON { name, contact, telegram }.
-    // Если пусто — форма не отправляет данные и покажет техническое сообщение.
-    FORM_ENDPOINT: "", // [ВСТАВИТЬ WEBHOOK / ENDPOINT]
+    // Endpoint приёма заявок формы. Сейчас подключён FormSubmit — заявки
+    // приходят на почту без бэкенда и без регистрации.
+    //  • ВАЖНО: при первой отправке FormSubmit пришлёт на этот адрес письмо
+    //    активации — перейдите по ссылке в нём один раз, и заявки начнут доходить.
+    //  • Чтобы скрыть адрес в коде, после активации замените e-mail на выданный
+    //    FormSubmit хеш-алиас (вида https://formsubmit.co/ajax/xxxxxxxx).
+    //  • Можно заменить на свой webhook (Make/n8n), CRM или Telegram-бот —
+    //    ожидается POST c JSON-полями заявки.
+    FORM_ENDPOINT: "https://formsubmit.co/ajax/westolivka@gmail.com",
 
     // Ссылка на политику конфиденциальности (PDF или страница).
     PRIVACY_URL: "" // [ВСТАВИТЬ ССЫЛКУ НА ПОЛИТИКУ]
@@ -297,12 +302,16 @@
         }
 
         var payload = {
-          name: name.value.trim(),
-          contact: contact.value.trim(),
-          telegram: tg.value.trim(),
-          source: "avtokontent-2026-landing"
+          "Имя": name.value.trim(),
+          "Контакт": contact.value.trim(),
+          "Telegram": tg.value.trim() || "—",
+          "Источник": "Лендинг «Автоконтент 2026»",
+          // Служебные поля FormSubmit (игнорируются другими бэкендами):
+          "_subject": "Заявка на интенсив «Автоконтент 2026»",
+          "_template": "table",
+          "_captcha": "false"
         };
-        track("form_submit", { has_telegram: !!payload.telegram });
+        track("form_submit", { has_telegram: !!tg.value.trim() });
 
         // Если задан внешний адрес регистрации — уводим туда.
         if (CONFIG.REGISTRATION_URL) {
@@ -328,7 +337,7 @@
         if (btn) btn.disabled = true;
         fetch(CONFIG.FORM_ENDPOINT, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
           body: JSON.stringify(payload)
         }).then(function (r) {
           if (!r.ok) throw new Error("HTTP " + r.status);
