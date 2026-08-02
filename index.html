@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Автоконтент 2026 — интенсив по ИИ-контент-заводам | AlovLab</title>
+  <meta name="description" content="Практический интенсив по созданию ИИ-контент-систем, автоматизаций и цифровых аватаров для бизнеса.">
+  <meta name="theme-color" content="#0b0a09">
+  <meta name="author" content="Илья Алов, AlovLab">
+  <!-- Флаг JS: если скрипты не загрузятся, контент останется видимым (не скрытым анимацией появления). -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Open Graph / соцсети -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AlovLab">
+  <meta property="og:title" content="Автоконтент 2026 — интенсив по ИИ-контент-заводам">
+  <meta property="og:description" content="За три дня — как соединить нейросети, автоматизации и ИИ-аватара в работающую систему для бизнеса.">
+  <meta property="og:image" content="assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ru_RU">
+  <!-- ЗАМЕНИТЬ на боевой адрес перед публикацией: -->
+  <meta property="og:url" content="https://alovlab.ru/avtokontent-2026/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon из логотипа -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/img/favicon.svg">
+
+  <!-- Шрифты: Manrope (латиница+кириллица), самостоятельный хостинг — работает офлайн, без внешних запросов. -->
+  <link rel="preload" href="assets/fonts/manrope-cyrillic-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/fonts/manrope.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Разметка мероприятия для поисковиков -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationEvent",
+    "name": "Автоконтент 2026 — интенсив по ИИ-контент-заводам",
+    "description": "Бесплатный практический интенсив: как соединить нейросети, автоматизации и ИИ-аватара в работающую контент-систему для бизнеса.",
+    "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+    "isAccessibleForFree": true,
+    "organizer": { "@type": "Organization", "name": "AlovLab", "url": "https://alovlab.ru" },
+    "performer": { "@type": "Person", "name": "Илья Алов" }
+  }
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+
+<!-- ======================= ШАПКА ======================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="logo" href="#top" aria-label="AlovLab — на главную">
+      <img src="assets/img/logo.svg" alt="AlovLab" width="150" height="30">
+    </a>
+
+    <nav class="nav" id="primaryNav" aria-label="Основная навигация">
+      <a href="#how">Как это работает</a>
+      <a href="#program">Программа</a>
+      <a href="#result">Результат</a>
+      <a href="#materials">Материалы</a>
+      <a href="#author">Об авторе</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#register" class="btn btn-primary btn-sm js-register" data-cta="header">Участвовать</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ======================= ПЕРВЫЙ ЭКРАН ======================= -->
+<section class="hero" id="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <span class="badge"><span class="badge-dot"></span>Бесплатный практический интенсив</span>
+      <h1>Соберите свой первый<br><em>ИИ-контент-завод</em></h1>
+      <p class="hero-sub">За три дня разберитесь, как соединить нейросети, автоматизации и ИИ-аватара в работающую систему для бизнеса.</p>
+      <p class="hero-note">Без программирования. На понятном примере. С первым результатом уже во время интенсива.</p>
+
+      <div class="hero-cta">
+        <a href="#register" class="btn btn-primary btn-lg js-register" data-cta="hero">Записаться бесплатно</a>
+        <a href="assets/pdf/startovy-gayd-avtokontent-2026.pdf" class="btn btn-ghost btn-lg js-download" download data-cta="guide-hero">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+          Скачать стартовый гайд
+        </a>
+      </div>
+
+      <ul class="hero-facts">
+        <li><strong>3 дня</strong><span>основная программа</span></li>
+        <li><strong>+ VIP-день</strong><span>сборка завода</span></li>
+        <li><strong>Онлайн</strong><span>формат участия</span></li>
+      </ul>
+    </div>
+
+    <!-- Визуальная цепочка системы -->
+    <div class="hero-visual reveal" aria-hidden="false">
+      <figure class="chain-card">
+        <figcaption class="chain-title">Один сигнал проходит всю систему</figcaption>
+        <ol class="chain" id="signalChain" aria-label="Цепочка контент-завода">
+          <li class="chain-node" data-i="0"><span class="chain-ico">✎</span>Тема</li>
+          <li class="chain-node" data-i="1"><span class="chain-ico">✦</span>Сценарий</li>
+          <li class="chain-node" data-i="2"><span class="chain-ico">◈</span>Визуал</li>
+          <li class="chain-node" data-i="3"><span class="chain-ico">☺</span>ИИ-аватар</li>
+          <li class="chain-node" data-i="4"><span class="chain-ico">➤</span>Публикация</li>
+        </ol>
+        <p class="chain-foot">ИИ создаёт черновики, человек проверяет, система готовит к публикации.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= КОНФЛИКТ ======================= -->
+<section class="section" id="conflict">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">В чём разница</span>
+      <h2>Пока одни пишут отдельные промпты — другие собирают систему</h2>
+      <p class="section-lead">Одна картинка — это не продукт. Один хороший текст — не услуга. Бизнес покупает не «красивую генерацию», а стабильный поток контента без срывов.</p>
+    </div>
+
+    <div class="versus">
+      <article class="vs-card vs-old reveal">
+        <h3>Отдельные промпты</h3>
+        <ul>
+          <li>всё вручную</li>
+          <li>разные сервисы вразнобой</li>
+          <li>постоянное переключение</li>
+          <li>контент зависит от одного человека</li>
+          <li>сложно масштабировать</li>
+        </ul>
+      </article>
+      <div class="vs-arrow" aria-hidden="true">
+        <svg viewBox="0 0 48 24"><path d="M2 12h42m0 0l-8-7m8 7l-8 7"/></svg>
+      </div>
+      <article class="vs-card vs-new reveal">
+        <h3>ИИ-контент-система</h3>
+        <ul>
+          <li>единый процесс</li>
+          <li>понятная структура</li>
+          <li>повторяемый результат</li>
+          <li>контроль человеком</li>
+          <li>можно превратить в услугу</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= КАК РАБОТАЕТ ЗАВОД ======================= -->
+<section class="section section-alt" id="how">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Как это работает</span>
+      <h2>Контент-завод — это конвейер из восьми шагов</h2>
+      <p class="section-lead">Каждый шаг предсказуем, а результат стабилен изо дня в день. Нажмите на этап, чтобы увидеть, что происходит внутри.</p>
+    </div>
+
+    <ol class="pipeline" id="pipeline">
+      <li class="stage" data-title="Данные о бизнесе" data-desc="Паспорт бизнеса: продукт, аудитория, tone of voice, стоп-слова. Это память системы — без неё нейросеть пишет общими словами.">
+        <span class="stage-num">01</span><span class="stage-name">Данные о бизнесе</span>
+      </li>
+      <li class="stage" data-title="Анализ аудитории" data-desc="Боли, страхи, скрытые желания, возражения и живой язык аудитории. Гипотезы, которые экономят часы — но их проверяет человек.">
+        <span class="stage-num">02</span><span class="stage-name">Анализ аудитории</span>
+      </li>
+      <li class="stage" data-title="Поиск тем" data-desc="20–30 тем из реальных вопросов и болей клиентов, размеченных по типу и уровню осведомлённости. Отбираем топ-10.">
+        <span class="stage-num">03</span><span class="stage-name">Поиск тем</span>
+      </li>
+      <li class="stage" data-title="Создание сценария" data-desc="Хук → конфликт → раскрытие → доказательство → решение → CTA. Сильный хук бьёт в боль или ломает ожидание.">
+        <span class="stage-num">04</span><span class="stage-name">Сценарий</span>
+      </li>
+      <li class="stage" data-title="Генерация визуала" data-desc="Универсальная формула из девяти блоков даёт управляемый визуал в нужном формате: 9:16 для Reels, 4:5 для постов.">
+        <span class="stage-num">05</span><span class="stage-name">Визуал</span>
+      </li>
+      <li class="stage" data-title="ИИ-аватар" data-desc="Стабильный бренд-персонаж с паспортом внешности и голосом. Одно лицо компании от ролика к ролику.">
+        <span class="stage-num">06</span><span class="stage-name">ИИ-аватар</span>
+      </li>
+      <li class="stage" data-title="Проверка" data-desc="Чек-лист редактора и ИИ-критик по 10 критериям. Ни один материал не уходит в эфир, минуя статус «одобрено».">
+        <span class="stage-num">07</span><span class="stage-name">Проверка</span>
+      </li>
+      <li class="stage" data-title="Подготовка публикации" data-desc="Готовый материал с визуалом и хештегами попадает в очередь. Человек публикует или ставит отложенный выход — надёжно и под контролем.">
+        <span class="stage-num">08</span><span class="stage-name">Публикация</span>
+      </li>
+    </ol>
+
+    <div class="stage-detail" id="stageDetail" aria-live="polite">
+      <h3 id="stageDetailTitle">Данные о бизнесе</h3>
+      <p id="stageDetailDesc">Паспорт бизнеса: продукт, аудитория, tone of voice, стоп-слова. Это память системы — без неё нейросеть пишет общими словами.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ПРОГРАММА ======================= -->
+<section class="section" id="program">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Программа интенсива</span>
+      <h2>Три дня основной программы и VIP-день сборки</h2>
+      <p class="section-lead">День 1 даёт содержание. День 2 соединяет его в систему. День 3 добавляет лицо и видео. VIP собирает всё в продаваемый продукт.</p>
+    </div>
+
+    <div class="program-grid">
+      <!-- Дни рендерятся из шаблона в JS для чистоты; статичный фолбэк ниже -->
+      <article class="day-card reveal">
+        <div class="day-top">
+          <span class="day-label">День 1</span>
+          <span class="day-tag">Нейросети и контент</span>
+        </div>
+        <h3>Из отдельных нейросетей — в единый контент-процесс</h3>
+        <p class="day-result"><span>Результат:</span> основа контент-системы для выбранного бизнеса.</p>
+        <button class="btn btn-outline btn-block day-toggle" aria-expanded="false">Посмотреть программу</button>
+        <div class="day-body" hidden>
+          <ul>
+            <li>паспорт бизнеса</li>
+            <li>аудитория</li>
+            <li>поиск тем</li>
+            <li>контент-план</li>
+            <li>сценарии</li>
+            <li>визуальные материалы</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="day-card reveal">
+        <div class="day-top">
+          <span class="day-label">День 2</span>
+          <span class="day-tag">Автоматизация</span>
+        </div>
+        <h3>Как соединить нейросети в работающую систему</h3>
+        <p class="day-result"><span>Результат:</span> первая рабочая автоматизированная цепочка.</p>
+        <button class="btn btn-outline btn-block day-toggle" aria-expanded="false">Посмотреть программу</button>
+        <div class="day-body" hidden>
+          <ul>
+            <li>логика триггеров и действий</li>
+            <li>Google Sheets</li>
+            <li>Make или n8n</li>
+            <li>передача данных в нейросеть</li>
+            <li>сохранение результата</li>
+            <li>проверка человеком</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="day-card reveal">
+        <div class="day-top">
+          <span class="day-label">День 3</span>
+          <span class="day-tag">ИИ-аватар и видео</span>
+        </div>
+        <h3>Как создать цифрового ведущего и производить видео</h3>
+        <p class="day-result"><span>Результат:</span> первый ИИ-аватар и мини-видеопродакшн.</p>
+        <button class="btn btn-outline btn-block day-toggle" aria-expanded="false">Посмотреть программу</button>
+        <div class="day-body" hidden>
+          <ul>
+            <li>выбор аватара</li>
+            <li>Avatar V</li>
+            <li>голос</li>
+            <li>сценарий</li>
+            <li>инструкции для HeyGen</li>
+            <li>визуальные вставки и сборка ролика</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="day-card day-vip reveal">
+        <div class="day-top">
+          <span class="day-label">VIP-день</span>
+          <span class="day-tag">Сборка завода</span>
+        </div>
+        <h3>Сборка коммерческого ИИ-контент-завода</h3>
+        <p class="day-result"><span>Результат:</span> расширенная система, которую можно адаптировать под задачи бизнеса.</p>
+        <button class="btn btn-outline btn-block day-toggle" aria-expanded="false">Посмотреть программу</button>
+        <div class="day-body" hidden>
+          <ul>
+            <li>расширение базы и архитектуры</li>
+            <li>сборка модулей по шагам</li>
+            <li>системные промпты и ИИ-критик</li>
+            <li>обработка ошибок</li>
+            <li>инструкция для клиента</li>
+            <li>упаковка в услугу с ценой</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="section-cta reveal">
+      <a href="#register" class="btn btn-primary btn-lg js-register" data-cta="after-program">Записаться бесплатно</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ЧТО ЧЕЛОВЕК ПОЛУЧИТ ======================= -->
+<section class="section section-alt" id="result">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Что вы получите</span>
+      <h2>Не абстрактные преимущества, а папка готовых артефактов</h2>
+      <p class="section-lead">К финалу у вас на руках материалы, которые можно показать заказчику уже на следующей неделе.</p>
+    </div>
+
+    <div class="artifacts">
+      <div class="artifact reveal"><span class="artifact-ico">📄</span><h3>Паспорт бизнеса</h3><p>Фундамент всей контент-системы.</p></div>
+      <div class="artifact reveal"><span class="artifact-ico">▦</span><h3>Контент-матрица</h3><p>Шесть ролей контента из одной боли.</p></div>
+      <div class="artifact reveal"><span class="artifact-ico">☰</span><h3>Список тем</h3><p>20–30 тем, размеченных по типу и уровню.</p></div>
+      <div class="artifact reveal"><span class="artifact-ico">✎</span><h3>Готовые сценарии</h3><p>По разным формулам, с сильными хуками.</p></div>
+      <div class="artifact reveal"><span class="artifact-ico">⚙</span><h3>Схема автоматизации</h3><p>Форма → нейросеть → база → уведомление.</p></div>
+      <div class="artifact reveal"><span class="artifact-ico">▤</span><h3>База контента</h3><p>Единое хранилище материалов и статусов.</p></div>
+      <div class="artifact reveal"><span class="artifact-ico">⌘</span><h3>Системные промпты</h3><p>Контент-агент и ИИ-критик под ваш бренд.</p></div>
+      <div class="artifact reveal"><span class="artifact-ico">☺</span><h3>Паспорт ИИ-персонажа</h3><p>Стабильный бренд-персонаж на годы.</p></div>
+      <div class="artifact reveal"><span class="artifact-ico">▶</span><h3>Первое видео с аватаром</h3><p>Готовый ролик 9:16 с субтитрами.</p></div>
+      <div class="artifact reveal"><span class="artifact-ico">◎</span><h3>Понимание услуги</h3><p>Что и кому предложить как первый шаг.</p></div>
+      <div class="artifact reveal"><span class="artifact-ico">🗓</span><h3>План на 30 дней</h3><p>От фундамента до первого клиента.</p></div>
+      <div class="artifact reveal"><span class="artifact-ico">🗺</span><h3>Карта сборки завода</h3><p>Что достроить после интенсива.</p></div>
+    </div>
+
+    <div class="section-cta reveal">
+      <a href="#register" class="btn btn-primary btn-lg js-register" data-cta="after-result">Записаться бесплатно</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= МАТЕРИАЛЫ ======================= -->
+<section class="section" id="materials">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Материалы</span>
+      <h2>Рабочие файлы интенсива</h2>
+      <p class="section-lead">Скачайте подготовительные материалы прямо сейчас. Полную методичку и библиотеку промптов участники получают на интенсиве.</p>
+    </div>
+
+    <div class="materials-grid">
+      <article class="material reveal">
+        <div class="material-icon">PDF</div>
+        <h3>Стартовый гайд</h3>
+        <p>Подготовка к интенсиву за 20–30 минут: выбор бизнеса, доступы, настройка.</p>
+        <a href="assets/pdf/startovy-gayd-avtokontent-2026.pdf" class="btn btn-primary btn-block js-download" download data-cta="guide-materials">Скачать PDF</a>
+      </article>
+
+      <article class="material reveal">
+        <div class="material-icon">PDF</div>
+        <h3>Рабочая тетрадь</h3>
+        <p>Шаблоны и поля для практики трёх дней: паспорт, план, сценарии, чек-листы.</p>
+        <a href="assets/pdf/rabochaya-tetrad-avtokontent-2026.pdf" class="btn btn-outline btn-block js-download" download data-cta="workbook-materials">Открыть материал</a>
+      </article>
+
+      <article class="material material-locked reveal">
+        <div class="material-icon">🔒</div>
+        <h3>Полная методичка</h3>
+        <p>Практический справочник по ИИ-контент-заводам: 3 дня, VIP, промпты, чек-листы.</p>
+        <a href="#register" class="btn btn-ghost btn-block js-register" data-cta="methodichka">Получить после интенсива</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ДЛЯ КОГО ======================= -->
+<section class="section section-alt" id="audience">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Для кого</span>
+      <h2>Интенсив для тех, кто уже открывал ChatGPT</h2>
+    </div>
+
+    <div class="audience-grid">
+      <div class="audience-fit reveal">
+        <h3><span class="tick tick-yes">✓</span>Подойдёт</h3>
+        <ul class="chips">
+          <li>новичок, уже пробовал ChatGPT</li>
+          <li>SMM-специалист</li>
+          <li>маркетолог</li>
+          <li>дизайнер</li>
+          <li>предприниматель</li>
+          <li>фрилансер</li>
+          <li>эксперт</li>
+          <li>ищет удалённый навык</li>
+        </ul>
+      </div>
+      <div class="audience-nofit reveal">
+        <h3><span class="tick tick-no">✕</span>Не подойдёт</h3>
+        <p>Тем, кто ищет волшебную кнопку и не готов выполнять практику. Мы не обещаем лёгких денег — мы показываем рабочий путь для тех, кто делает вместе с эфиром.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= СТЕК ======================= -->
+<section class="section" id="stack">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Минимальный стек</span>
+      <h2>Понятные роли инструментов, а не стена логотипов</h2>
+      <p class="section-lead">Один основной инструмент, доведённый до автоматизма, сильнее пяти открытых вкладок.</p>
+    </div>
+
+    <div class="stack-grid">
+      <div class="stack-item reveal"><h3>ChatGPT / Claude</h3><p>логика и тексты</p></div>
+      <div class="stack-item reveal"><h3>Perplexity</h3><p>поиск и проверка фактов</p></div>
+      <div class="stack-item reveal"><h3>Google Sheets</h3><p>база контента</p></div>
+      <div class="stack-item reveal"><h3>Make / n8n</h3><p>автоматизация без кода</p></div>
+      <div class="stack-item reveal"><h3>HeyGen</h3><p>ИИ-аватар и видео</p></div>
+      <div class="stack-item reveal"><h3>Генератор изображений</h3><p>визуал под контент</p></div>
+      <div class="stack-item reveal"><h3>Telegram</h3><p>уведомления и управление</p></div>
+    </div>
+    <p class="stack-note reveal">Сервисы и тарифы меняются быстро — актуальные условия проверяются перед каждым интенсивом.</p>
+  </div>
+</section>
+
+<!-- ======================= ОБ АВТОРЕ ======================= -->
+<section class="section section-alt" id="author">
+  <div class="container">
+    <div class="author-grid">
+      <div class="author-photo reveal">
+        <!-- ЗАМЕНИТЬ на реальное фото Ильи Алова: assets/img/ilya-alov.jpg (alt оставить) -->
+        <div class="photo-placeholder" role="img" aria-label="Фотография Ильи Алова — добавьте файл assets/img/ilya-alov.jpg">
+          <span class="ph-mono">A</span>
+          <span class="ph-cap">Фото Ильи Алова</span>
+          <span class="ph-hint">заменить: assets/img/ilya-alov.jpg</span>
+        </div>
+      </div>
+      <div class="author-copy reveal">
+        <span class="eyebrow">Об авторе</span>
+        <h2>Илья Алов</h2>
+        <p class="author-role">Основатель AlovLab · Нейромонах</p>
+        <p>Создаёт образовательные продукты, ИИ-контент, цифровых аватаров и системы автоматизации для бизнеса. Ведёт интенсив «Автоконтент 2026» — от первой минуты до финальной сборки контент-завода.</p>
+        <p class="author-quote">«Мы учимся собирать не генерации, а конвейер. Отдельная нейросеть — это станок. Контент-завод — это цех, где станки соединены в линию».</p>
+        <div class="author-links">
+          <a href="https://t.me/AlovLab" class="btn btn-outline js-social" target="_blank" rel="noopener" data-cta="tg-author">Telegram</a>
+          <a href="https://vk.com/alovlab" class="btn btn-outline js-social" target="_blank" rel="noopener" data-cta="vk-author">ВКонтакте</a>
+          <a href="https://alovlab.ru" class="btn btn-outline js-social" target="_blank" rel="noopener" data-cta="site-author">Сайт AlovLab</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= КОМАНДА ======================= -->
+<section class="section" id="team">
+  <div class="container">
+    <div class="team-block reveal">
+      <span class="eyebrow">Команда</span>
+      <h2>Лучших учеников я готов подключать к реальным задачам</h2>
+      <div class="team-tasks">
+        <span>Создание ИИ-аватара</span>
+        <span>Производство видео</span>
+        <span>Настройка контент-системы</span>
+        <span>Сборка автоматизации</span>
+        <span>Адаптация контента</span>
+      </div>
+      <p class="team-honest">Сильные работы и ответственный подход могут стать основанием для приглашения в командные проекты AlovLab. Трудоустройство не гарантируется.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FAQ ======================= -->
+<section class="section section-alt" id="faq">
+  <div class="container container-narrow">
+    <div class="section-head reveal">
+      <span class="eyebrow">Вопросы</span>
+      <h2>Частые вопросы</h2>
+    </div>
+
+    <div class="faq" id="faqList">
+      <details class="faq-item reveal">
+        <summary>Нужно ли уметь программировать?</summary>
+        <div class="faq-a"><p>Нет. Автоматизация — это не программирование, а маршрут задач из готовых блоков, как в конструкторе. Вы собираете цепочку, а не пишете код.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Подойдёт ли интенсив новичку?</summary>
+        <div class="faq-a"><p>Да, если вы на «ты» с компьютером и хотя бы раз открывали ChatGPT. Каждый термин объясняется один раз простыми словами и на бытовом примере.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Нужно ли покупать платные тарифы?</summary>
+        <div class="faq-a"><p>Для старта нет: базовый минимум — одна текстовая нейросеть (ChatGPT или Claude) и Google Таблицы. Часть сервисов (например, HeyGen) может требовать оплаты или иностранной карты — мы предупреждаем заранее и показываем, где можно работать на бесплатном уровне.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Что нужно подготовить заранее?</summary>
+        <div class="faq-a"><p>Выбрать один бизнес для сквозного проекта, завести рабочую папку в облаке, проверить доступ к ChatGPT или Claude, установить Telegram и приготовить Google Таблицы. Всё это есть в стартовом гайде.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Можно ли работать со своим бизнесом?</summary>
+        <div class="faq-a"><p>Да. Весь интенсив построен вокруг одного вашего бизнеса как сквозного проекта — лучше брать тот, который вы понимаете: свой, знакомого или нишу, где уже работали.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Что получится после трёх дней?</summary>
+        <div class="faq-a"><p>Папка материалов: паспорт бизнеса, портрет аудитории, темы, контент-план, сценарии, визуал, схема автоматизации, паспорт ИИ-персонажа, первое видео с аватаром и план действий на 30 дней.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Чем контент-завод отличается от обычного ChatGPT?</summary>
+        <div class="faq-a"><p>ChatGPT даёт разовую генерацию — она зависит от настроения и завтра даст другой результат. Контент-завод — это система, где шаги предсказуемы, результат стабилен изо дня в день, а человек контролирует финал.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Как получить методичку?</summary>
+        <div class="faq-a"><p>Стартовый гайд и рабочую тетрадь можно скачать сразу в разделе «Материалы». Полную методичку и библиотеку промптов участники получают на интенсиве.</p></div>
+      </details>
+      <!-- Вопросы ниже требуют данных от владельца проекта (см. docs/README) -->
+      <details class="faq-item reveal" data-needs-owner="true">
+        <summary>Будет ли запись?<span class="faq-flag">уточняется</span></summary>
+        <div class="faq-a"><p>Условие уточняется организатором. <em>Владельцу проекта: заменить этот ответ фактической информацией о записи.</em></p></div>
+      </details>
+      <details class="faq-item reveal" data-needs-owner="true">
+        <summary>Как попасть на VIP-день?<span class="faq-flag">уточняется</span></summary>
+        <div class="faq-a"><p>Условия участия в VIP-дне уточняются организатором. <em>Владельцу проекта: заменить этот ответ фактическими условиями (доступ, стоимость, порядок регистрации).</em></p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ФИНАЛЬНЫЙ CTA + ФОРМА ======================= -->
+<section class="section final-cta" id="register">
+  <div class="final-glow" aria-hidden="true"></div>
+  <div class="container container-narrow">
+    <div class="final-head reveal">
+      <h2>Не просто используйте нейросети.<br><em>Соберите из них работающую систему.</em></h2>
+      <p>После регистрации вы получите подготовительный материал и список того, что нужно сделать до первого дня.</p>
+    </div>
+
+    <form class="reg-form reveal" id="regForm" novalidate>
+      <div class="field">
+        <label for="regName">Имя</label>
+        <input type="text" id="regName" name="name" autocomplete="name" placeholder="Как к вам обращаться" required>
+      </div>
+      <div class="field">
+        <label for="regContact">Email или телефон</label>
+        <input type="text" id="regContact" name="contact" autocomplete="email" placeholder="Куда прислать материалы" required>
+      </div>
+      <div class="field">
+        <label for="regTg">Telegram <span class="opt">(по желанию)</span></label>
+        <input type="text" id="regTg" name="telegram" placeholder="@username">
+      </div>
+      <label class="consent">
+        <input type="checkbox" id="regConsent" name="consent" required>
+        <span>Согласен на обработку персональных данных и с <a href="#privacy" class="js-privacy">политикой конфиденциальности</a>.</span>
+      </label>
+      <button type="submit" class="btn btn-primary btn-lg btn-block js-register-submit" data-cta="form-submit">Записаться бесплатно</button>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="final-alt reveal">
+      <span>или</span>
+      <a href="assets/pdf/startovy-gayd-avtokontent-2026.pdf" class="btn btn-ghost js-download" download data-cta="guide-final">Скачать стартовый гайд</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= ПОДВАЛ ======================= -->
+<footer class="site-footer" id="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo.svg" alt="AlovLab" width="150" height="30">
+      <p>Образовательная экосистема Ильи Алова: ИИ-контент, цифровые аватары и системы автоматизации для бизнеса.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Разделы">
+      <a href="#how">Как это работает</a>
+      <a href="#program">Программа</a>
+      <a href="#result">Результат</a>
+      <a href="#materials">Материалы</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="footer-social">
+      <a href="https://t.me/AlovLab" target="_blank" rel="noopener" class="js-social" data-cta="tg-footer">Telegram</a>
+      <a href="https://vk.com/alovlab" target="_blank" rel="noopener" class="js-social" data-cta="vk-footer">ВКонтакте</a>
+      <a href="https://alovlab.ru" target="_blank" rel="noopener" class="js-social" data-cta="site-footer">alovlab.ru</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© <span id="year">2026</span> AlovLab. Автоконтент 2026.</p>
+    <p class="footer-legal">
+      <a href="#privacy" class="js-privacy">Политика конфиденциальности</a>
+      <span class="sep">·</span>
+      <a href="#privacy" class="js-privacy">Согласие на обработку данных</a>
+    </p>
+    <!-- Владельцу проекта: добавьте юридические реквизиты (ИП/ООО, ИНН) при необходимости. -->
+  </div>
+</footer>
+
+<!-- Закреплённая мобильная CTA -->
+<div class="mobile-cta" id="mobileCta">
+  <a href="#register" class="btn btn-primary btn-block js-register" data-cta="mobile-sticky">Записаться бесплатно</a>
+</div>
+
+<!-- Кнопка «Наверх» -->
+<button class="to-top" id="toTop" aria-label="Наверх">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0l-6 6m6-6l6 6"/></svg>
+</button>
+
+<!-- Тост-уведомление -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
