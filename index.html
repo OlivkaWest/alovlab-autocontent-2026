@@ -23,9 +23,10 @@
   <meta property="og:url" content="https://olivkawest.github.io/alovlab-autocontent-2026/">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Favicon из логотипа -->
+  <!-- Favicon из логотипа (реальный знак, с SVG-фолбэком) -->
+  <link rel="icon" type="image/png" href="assets/img/logo-mark.png">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-  <link rel="apple-touch-icon" href="assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/img/logo-mark.png">
 
   <!-- Шрифты: Manrope (латиница+кириллица), самостоятельный хостинг — работает офлайн, без внешних запросов. -->
   <link rel="preload" href="assets/fonts/manrope-cyrillic-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -53,7 +54,8 @@
 <header class="site-header" id="siteHeader">
   <div class="container header-inner">
     <a class="logo" href="#top" aria-label="AlovLab — на главную">
-      <img src="assets/img/logo.svg" alt="AlovLab" width="150" height="30">
+      <img class="logo-mark" src="assets/img/logo-mark.png" alt="" width="34" height="34" onerror="this.style.display='none'">
+      <span class="logo-word">Alov<span>Lab</span></span>
     </a>
 
     <nav class="nav" id="primaryNav" aria-label="Основная навигация">
@@ -102,10 +104,15 @@
       </ul>
     </div>
 
-    <!-- Визуальная цепочка системы -->
-    <div class="hero-visual reveal" aria-hidden="false">
-      <figure class="chain-card">
-        <figcaption class="chain-title">Один сигнал проходит всю систему</figcaption>
+    <!-- Автор + визуальная цепочка системы -->
+    <div class="hero-visual reveal">
+      <div class="hero-portrait" style="background-image:url('assets/img/ilya-alov.jpg')"
+           role="img" aria-label="Илья Алов ведёт интенсив «Автоконтент 2026»">
+        <span class="portrait-fallback" aria-hidden="true">Илья&nbsp;Алов</span>
+        <span class="portrait-tag">Илья Алов · Нейромонах</span>
+      </div>
+      <figure class="chain-card chain-float">
+        <figcaption class="chain-title">Один сигнал — вся система</figcaption>
         <ol class="chain" id="signalChain" aria-label="Цепочка контент-завода">
           <li class="chain-node" data-i="0"><span class="chain-ico">✎</span>Тема</li>
           <li class="chain-node" data-i="1"><span class="chain-ico">✦</span>Сценарий</li>
@@ -113,7 +120,6 @@
           <li class="chain-node" data-i="3"><span class="chain-ico">☺</span>ИИ-аватар</li>
           <li class="chain-node" data-i="4"><span class="chain-ico">➤</span>Публикация</li>
         </ol>
-        <p class="chain-foot">ИИ создаёт черновики, человек проверяет, система готовит к публикации.</p>
       </figure>
     </div>
   </div>
@@ -418,11 +424,12 @@
   <div class="container">
     <div class="author-grid">
       <div class="author-photo reveal">
-        <!-- ЗАМЕНИТЬ на реальное фото Ильи Алова: assets/img/ilya-alov.jpg (alt оставить) -->
-        <div class="photo-placeholder" role="img" aria-label="Фотография Ильи Алова — добавьте файл assets/img/ilya-alov.jpg">
-          <span class="ph-mono">A</span>
-          <span class="ph-cap">Фото Ильи Алова</span>
-          <span class="ph-hint">заменить: assets/img/ilya-alov.jpg</span>
+        <div class="author-img" style="background-image:url('assets/img/ilya-alov.jpg')"
+             role="img" aria-label="Илья Алов — основатель AlovLab">
+          <span class="photo-placeholder" aria-hidden="true">
+            <span class="ph-mono">A</span>
+            <span class="ph-cap">Фото Ильи Алова</span>
+          </span>
         </div>
       </div>
       <div class="author-copy reveal">
@@ -556,7 +563,10 @@
 <footer class="site-footer" id="footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <img src="assets/img/logo.svg" alt="AlovLab" width="150" height="30">
+      <a class="logo" href="#top" aria-label="AlovLab — наверх">
+        <img class="logo-mark" src="assets/img/logo-mark.png" alt="" width="30" height="30" onerror="this.style.display='none'">
+        <span class="logo-word">Alov<span>Lab</span></span>
+      </a>
       <p>Образовательная экосистема Ильи Алова: ИИ-контент, цифровые аватары и системы автоматизации для бизнеса.</p>
     </div>
     <nav class="footer-nav" aria-label="Разделы">
