@@ -397,7 +397,13 @@ a { color: inherit; text-decoration: none; }
   display: inline-flex; align-items: center; padding: 7px 14px; border-radius: 999px;
   background: rgba(232,103,42,0.16); color: var(--amber-soft); font-weight: 700; font-size: 13px; width: fit-content;
 }
-@media (max-width: 900px) { .eco-grid { grid-template-columns: 1fr; } }
+.eco-program { margin-top: 20px; padding: 24px 28px; border-radius: var(--r-lg); border: 1px solid var(--line); background: var(--bg-2); }
+.eco-program-label { display: block; font-size: 13px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: var(--amber-soft); margin-bottom: 16px; }
+.eco-lands { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.eco-lands li { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); font-size: 14.5px; font-weight: 700; color: var(--text); }
+.eco-lands li b { color: var(--orange); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+@media (max-width: 900px) { .eco-grid { grid-template-columns: 1fr; } .eco-lands { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 480px) { .eco-lands { grid-template-columns: repeat(2, 1fr); } }
 
 /* ---------- Аудитория ---------- */
 .audience-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
