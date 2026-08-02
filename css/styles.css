@@ -574,9 +574,8 @@ a { color: inherit; text-decoration: none; }
   .footer-brand { grid-column: 1 / -1; }
 }
 
-/* Навигация сворачивается в бургер-меню раньше — длинное название бренда
-   не должно тесниться с пунктами меню. */
-@media (max-width: 1200px) {
+/* Навигация сворачивается в бургер-меню на планшете/телефоне. */
+@media (max-width: 768px) {
   .nav {
     position: fixed; inset: var(--header-h) 0 auto 0; flex-direction: column; align-items: stretch; gap: 4px;
     padding: 16px; background: var(--glass); backdrop-filter: blur(16px) saturate(140%);
