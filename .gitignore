@@ -141,3 +141,6 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Промежуточный HTML рендера методичек (в git только PDF)
+content-30-days/days/day-*/alovlab-day-*.html
