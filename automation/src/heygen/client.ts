@@ -48,8 +48,11 @@ export async function heygenFetch(
       clearTimeout(timer);
 
       if (!res.ok) {
-        const kind: HeygenErrorKind = classifyStatus(res.status);
         const detail = await res.text().catch(() => "");
+        // 403 от прокси окружения («Host not in allowlist») — это не про ключ.
+        const kind: HeygenErrorKind = /allowlist|egress|not in allow/i.test(detail)
+          ? "egress_blocked"
+          : classifyStatus(res.status);
         const err = new HeygenError(kind, detail.slice(0, 200), res.status);
         if (err.retriable && attempt < retries) {
           lastErr = err;

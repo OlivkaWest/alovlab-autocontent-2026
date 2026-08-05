@@ -2,6 +2,7 @@
 export type HeygenErrorKind =
   | "missing_key"
   | "invalid_key"
+  | "egress_blocked"
   | "avatar_unavailable"
   | "voice_unavailable"
   | "rate_limit"
@@ -19,6 +20,9 @@ const RETRIABLE: HeygenErrorKind[] = ["rate_limit", "timeout", "network", "bad_r
 const HUMAN: Record<HeygenErrorKind, string> = {
   missing_key: "HeyGen не подключён: не задан API-ключ. Добавь HEYGEN_API_KEY в настройки проекта.",
   invalid_key: "HeyGen отклонил ключ. Проверь HEYGEN_API_KEY.",
+  egress_blocked:
+    "Сеть окружения блокирует api.heygen.com (egress-политика). Ключ ни при чём. " +
+    "Добавь api.heygen.com (и api.x.ai) в разрешённые хосты окружения Claude Code или запусти automation/ локально.",
   avatar_unavailable: "Аватар недоступен. Проверь HEYGEN_AVATAR_ID.",
   voice_unavailable: "Голос недоступен. Проверь HEYGEN_VOICE_ID.",
   rate_limit: "HeyGen ограничил частоту запросов. Повторим чуть позже.",
