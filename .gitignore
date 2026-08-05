@@ -147,3 +147,6 @@ content-30-days/days/day-*/alovlab-day-*.html
 
 # Промежуточный HTML каруселей (в git только PNG)
 exports/carousels/**/*.html
+
+# Промежуточный HTML методичек (в git только PDF/MD)
+exports/guides/**/*.html
