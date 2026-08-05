@@ -234,7 +234,8 @@ def render(cfg):
     # 4 · nedelya
     rows="".join(f'<div class="r4"><div><div class="r4-lg">{lg}</div><div class="r4-en">{en}</div></div>'
                  f'<div><div class="r4-h">{h}</div><div class="r4-sub">{sub}</div></div></div>' for lg,en,h,sub in cfg['nedelya'])
-    strip="".join(reel('premium' if i in (1,3,5) else 'dull') for i in range(7))
+    wp = cfg.get('week_photos', [])
+    strip="".join(reel('premium' if i%2 else 'dull', photo=(wp[i] if i < len(wp) else None)) for i in range(7))
     s4 = f"""    <article class="slide">
       {MARK}{snum(4)}
       <div class="eyebrow">{cfg.get('nedelya_eyebrow','Из одного вечера съёмки')}</div>
@@ -269,13 +270,15 @@ def render(cfg):
     # 6 · cta
     cta_h = cfg.get('cta_h', 'Собери такую систему<br>под <span class="a">свой бренд.</span>')
     cta_sub = cfg.get('cta_sub', 'AlovLab Studio: реклама и промо, аватары и дикторы, визуальный брендинг, автоматизация контента. Опиши задачу в брифе — вернёмся с решением за 24 часа.')
+    cp = cfg.get('cta_photos', [])
+    cta_frames = "".join(reel('premium', photo=(cp[i] if i < len(cp) else None)) for i in range(4))
     s6 = f"""    <article class="slide slide--cta">
       {MARK}{snum(6)}
       <div class="cta-mid">
         <img class="cta-logo" src="data:image/png;base64,{LOGO}" alt="AlovLab">
         <h2 class="cta-h">{cta_h}</h2>
         <p class="sub">{cta_sub}</p>
-        <div class="cta-strip">{reel('premium')}{reel('premium', plate_art=True)}{reel('premium')}{reel('dull')}</div>
+        <div class="cta-strip">{cta_frames}</div>
         <div class="cta-dirs"><span>Реклама</span><span>Аватары</span><span>Брендинг</span><span>Автоматизация</span></div>
         <span class="cta-btn">Отправить бриф → @alovlab</span>
       </div>
@@ -326,7 +329,25 @@ CONFIGS = {
       "cover_rich": "content/carousel-assets/restaurant/hf_20260805_131843_164fe080-d862-4b73-a1b7-dbe6f4662e9f.png",
       "prov":       "content/carousel-assets/restaurant/hf_20260805_131843_164fe080-d862-4b73-a1b7-dbe6f4662e9f.png",
       "pik":        "content/carousel-assets/restaurant/hf_20260805_131843_27649360-b457-42af-a557-5abcdd8446fa.png",
+      "svyazka_0":  "content/carousel-assets/restaurant/hf_20260805_135919_96430fe8-fa0a-48ff-875b-097bedcaf848.png",
+      "svyazka_1":  "content/carousel-assets/restaurant/hf_20260805_135919_a369f62b-4716-4359-a170-6708128ba9a3.png",
+      "svyazka_2":  "content/carousel-assets/restaurant/hf_20260805_135919_7bbef46e-854d-4b41-b135-d37982262e6a.png",
     },
+    "week_photos": [
+      "content/carousel-assets/restaurant/hf_20260805_135919_7bbef46e-854d-4b41-b135-d37982262e6a.png",
+      "content/carousel-assets/restaurant/hf_20260805_135919_ad8f388b-6f4b-4be6-b721-79a4cadc2983.png",
+      "content/carousel-assets/restaurant/hf_20260805_135919_a369f62b-4716-4359-a170-6708128ba9a3.png",
+      "content/carousel-assets/restaurant/hf_20260805_135919_277be4a0-3f10-4ef1-8476-6322a52e1f50.png",
+      "content/carousel-assets/restaurant/hf_20260805_135919_96430fe8-fa0a-48ff-875b-097bedcaf848.png",
+      "content/carousel-assets/restaurant/hf_20260805_131843_164fe080-d862-4b73-a1b7-dbe6f4662e9f.png",
+      "content/carousel-assets/restaurant/hf_20260805_131843_27649360-b457-42af-a557-5abcdd8446fa.png",
+    ],
+    "cta_photos": [
+      "content/carousel-assets/restaurant/hf_20260805_131843_27649360-b457-42af-a557-5abcdd8446fa.png",
+      "content/carousel-assets/restaurant/hf_20260805_135919_96430fe8-fa0a-48ff-875b-097bedcaf848.png",
+      "content/carousel-assets/restaurant/hf_20260805_135919_277be4a0-3f10-4ef1-8476-6322a52e1f50.png",
+      "content/carousel-assets/restaurant/hf_20260805_135919_7bbef46e-854d-4b41-b135-d37982262e6a.png",
+    ],
   },
 }
 
