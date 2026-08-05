@@ -150,3 +150,6 @@ exports/carousels/**/*.html
 
 # Промежуточный HTML методичек (в git только PDF/MD)
 exports/guides/**/*.html
+
+exports/higgsfield-guide/**/*.html
+exports/higgsfield-guide/v2-redesign/pages/
