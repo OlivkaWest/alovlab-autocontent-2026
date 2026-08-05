@@ -6,9 +6,12 @@
     "references"
   ],
   "higgsfield_soul_id": {
-    "reference_id": null,
-    "status": "not_created",
-    "note": "Soul ID НЕ создаётся автоматически. Только по отдельной команде и после проверки качества референсов."
+    "reference_id": "d5a16aff-30c0-4304-b994-0da63542a6a9",
+    "name": "Ilya Alov",
+    "type": "soul_2",
+    "status": "ready",
+    "models": ["text2image_soul_v2", "soul_cinema_studio"],
+    "note": "Готовый обученный Soul найден в аккаунте Higgsfield (проверено через MCP). Илья Алов = нейромонах. Используется для стабильного лица в B-roll через Higgsfield. Новый Soul не обучаем без отдельной команды."
   },
   "heygen_avatar": {
     "avatar_id_env": "HEYGEN_AVATAR_ID",

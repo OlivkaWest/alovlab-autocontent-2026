@@ -3,7 +3,7 @@
   "version": 1,
   "scenes": [
     {
-      "id": "scene_e417edffe012",
+      "id": "scene_6d2201351a00",
       "durationSeconds": 4,
       "type": "avatar",
       "spokenText": "Один пост из идеи — это любитель. Профи достаёт три.",
@@ -15,7 +15,7 @@
       "disabled": false
     },
     {
-      "id": "scene_642dd429668a",
+      "id": "scene_038a055ee1b4",
       "durationSeconds": 5,
       "type": "broll",
       "spokenText": "Ты берёшь нормальную тему, публикуешь один пост и идёшь искать следующую.",
@@ -27,7 +27,7 @@
       "disabled": false
     },
     {
-      "id": "scene_ea7da496766a",
+      "id": "scene_f840105307a0",
       "durationSeconds": 9,
       "type": "broll",
       "spokenText": "Хотя внутри уже лежат карусель, Reels и серия Stories.",
@@ -39,7 +39,7 @@
       "disabled": false
     },
     {
-      "id": "scene_34f029b28715",
+      "id": "scene_a1a8bd368e3b",
       "durationSeconds": 9,
       "type": "broll",
       "spokenText": "Сначала достань конфликт. Потом разложи его по форматам.",
@@ -51,7 +51,7 @@
       "disabled": false
     },
     {
-      "id": "scene_dfa958f5aea2",
+      "id": "scene_475a4d590a27",
       "durationSeconds": 4,
       "type": "avatar",
       "spokenText": "Следующую идею не сжигай. Размножь.",

@@ -5,35 +5,35 @@
   "duration_seconds": 31,
   "scenes": [
     {
-      "id": "scene_e417edffe012",
+      "id": "scene_6d2201351a00",
       "generator": "heygen",
       "type": "avatar",
       "duration": 4,
       "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/heygen/avatar_master.mp4"
     },
     {
-      "id": "scene_642dd429668a",
+      "id": "scene_038a055ee1b4",
       "generator": "higgsfield",
       "type": "image_to_video",
       "duration": 5,
-      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_642dd429668a.mp4"
+      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_038a055ee1b4.mp4"
     },
     {
-      "id": "scene_ea7da496766a",
+      "id": "scene_f840105307a0",
       "generator": "higgsfield",
       "type": "image_to_video",
       "duration": 9,
-      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_ea7da496766a.mp4"
+      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_f840105307a0.mp4"
     },
     {
-      "id": "scene_34f029b28715",
+      "id": "scene_a1a8bd368e3b",
       "generator": "higgsfield",
       "type": "image_to_video",
       "duration": 9,
-      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_34f029b28715.mp4"
+      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_a1a8bd368e3b.mp4"
     },
     {
-      "id": "scene_dfa958f5aea2",
+      "id": "scene_475a4d590a27",
       "generator": "heygen",
       "type": "avatar",
       "duration": 4,

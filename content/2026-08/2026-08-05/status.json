@@ -8,47 +8,47 @@
   "heygen_jobs": [
     {
       "scene_id": "avatar_master",
-      "video_id": "mock_983ebe8993d3",
+      "video_id": "mock_c73c4d572b30",
       "status": "completed",
       "local_path": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/heygen/avatar_master.mp4"
     }
   ],
   "history": [
     {
-      "at": "2026-08-05T15:29:01.970Z",
+      "at": "2026-08-05T15:54:52.248Z",
       "action": "content_loaded",
       "detail": "Одна идея — это не один пост"
     },
     {
-      "at": "2026-08-05T15:29:01.973Z",
+      "at": "2026-08-05T15:54:52.251Z",
       "action": "script_generated",
       "detail": "v1, замечаний по стилю: 0, валиден: true"
     },
     {
-      "at": "2026-08-05T15:29:03.495Z",
+      "at": "2026-08-05T15:54:55.159Z",
       "action": "heygen_create",
       "detail": "avatar master"
     },
     {
-      "at": "2026-08-05T15:29:03.496Z",
+      "at": "2026-08-05T15:54:55.161Z",
       "action": "heygen_poll",
-      "detail": "mock_983ebe8993d3"
+      "detail": "mock_c73c4d572b30"
     },
     {
-      "at": "2026-08-05T15:29:15.159Z",
+      "at": "2026-08-05T15:55:07.976Z",
       "action": "avatar_downloaded",
       "detail": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/heygen/avatar_master.mp4"
     },
     {
-      "at": "2026-08-05T15:29:20.309Z",
+      "at": "2026-08-05T15:55:12.471Z",
       "action": "assemble_start",
       "detail": "v1"
     },
     {
-      "at": "2026-08-05T15:29:44.161Z",
+      "at": "2026-08-05T15:55:35.368Z",
       "action": "final_ready",
       "detail": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/render/final_reels_v1.mp4"
     }
   ],
-  "updated_at": "2026-08-05T15:29:44.161Z"
+  "updated_at": "2026-08-05T15:55:35.368Z"
 }

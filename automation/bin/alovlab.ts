@@ -16,6 +16,8 @@ import { makeReel, stepScript, stepPlan } from "../src/pipeline/make-reel";
 import { regenerateScene } from "../src/pipeline/regen-scene";
 import { hasFfmpeg, resolveFfmpeg } from "../src/video/ffmpeg";
 import { resolveFfprobe } from "../src/video/verify";
+import { listAvatars } from "../src/heygen/avatars";
+import { listVoices } from "../src/heygen/voices";
 
 function print(...a: unknown[]) {
   // eslint-disable-next-line no-console
@@ -119,6 +121,11 @@ function cmdDoctor() {
   print("\nHiggsfield (B-roll, image-to-video):");
   print(`  подключение: через MCP внутри Claude Code (не через .env)`);
   print(`  оффлайн-режим пайплайна: ${config.higgsfield.mock ? "MOCK" : "ожидает MCP"}`);
+  try {
+    const id = JSON.parse(fs.readFileSync(path.join(config.repoRoot, "assets", "characters", "neuromonk", "identity.json"), "utf8"));
+    const s = id.higgsfield_soul_id || {};
+    print(`  Soul ID нейромонаха: ${s.reference_id || "(не задан)"} [${s.status || "?"}]${s.name ? " — " + s.name : ""}`);
+  } catch { /* нет файла */ }
   print("\nFFmpeg (монтаж):");
   print(`  ffmpeg: ${hasFfmpeg() ? resolveFfmpeg() : "НЕ НАЙДЕН — задай FFMPEG_PATH"}`);
   print(`  ffprobe: ${resolveFfprobe()}`);
@@ -131,6 +138,36 @@ async function main() {
   switch (cmd) {
     case "doctor":
       return cmdDoctor();
+    case "avatars": {
+      const list = await listAvatars().catch((e) => {
+        print(`Не удалось получить аватары: ${e?.message || e}`);
+        return [];
+      });
+      print(`Аватары (${config.heygen.mock ? "MOCK" : "HeyGen"}): ${list.length}`);
+      for (const a of list.slice(0, 50)) print(`  ${a.avatarId}  —  ${a.name}`);
+      print("\nВыбери нужный и впиши в .env: HEYGEN_AVATAR_ID=<avatar_id>");
+      return;
+    }
+    case "voices": {
+      const list = await listVoices().catch((e) => {
+        print(`Не удалось получить голоса: ${e?.message || e}`);
+        return [];
+      });
+      const ru = list.filter((v) => /ru/i.test(v.language || ""));
+      print(`Голоса (${config.heygen.mock ? "MOCK" : "HeyGen"}): всего ${list.length}, русских ${ru.length}`);
+      for (const v of (ru.length ? ru : list).slice(0, 50)) print(`  ${v.voiceId}  —  ${v.name} [${v.language || "?"}]`);
+      print("\nВыбери русский голос и впиши в .env: HEYGEN_VOICE_ID=<voice_id>");
+      return;
+    }
+    case "soul": {
+      const idPath = path.join(config.repoRoot, "assets", "characters", "neuromonk", "identity.json");
+      const id = JSON.parse(fs.readFileSync(idPath, "utf8"));
+      const s = id.higgsfield_soul_id || {};
+      print("Идентичность нейромонаха:");
+      print(`  Higgsfield Soul ID: ${s.reference_id || "(не задан)"} [${s.status || "?"}] ${s.name ? "— " + s.name : ""}`);
+      print(`  HeyGen avatar_id: ${config.heygen.avatarId || "(не задан)"}  voice_id: ${config.heygen.voiceId || "(не задан)"}`);
+      return;
+    }
     case "index": {
       const idx = buildIndex();
       print(`Индекс собран: ${Object.keys(idx).length} дней → ${path.join(config.contentRoot, "index.json")}`);
@@ -214,7 +251,7 @@ async function main() {
       return;
     }
     default:
-      print("Команды: doctor | index | content <дата> | status <дата> | script <дата> | scenes <дата> | route <дата> | reel <дата> | prepare <дата> | assemble <дата> | regen-scene <дата> <сцена>");
+      print("Команды: doctor | avatars | voices | soul | index | content <дата> | status <дата> | script <дата> | scenes <дата> | route <дата> | reel <дата> | prepare <дата> | assemble <дата> | regen-scene <дата> <сцена>");
   }
 }
 
