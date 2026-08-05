@@ -322,7 +322,11 @@ CONFIGS = {
     "pik_h": 'Один ролик<br><span class="a">наполняет зал.</span>',
     "pik_cap": "Пар над фирменным блюдом. Голос шефа. Свет, в котором хочется остаться.",
     "pik_note": "Не распыляй бюджет на десять средних. Собери один сильный — и разложи на неделю.",
-    "photos": {},  # {"cover_rich":"content/carousel-assets/restaurant/hero.png","pik":"...","prov":"..."}
+    "photos": {
+      "cover_rich": "content/carousel-assets/restaurant/hf_20260805_131843_164fe080-d862-4b73-a1b7-dbe6f4662e9f.png",
+      "prov":       "content/carousel-assets/restaurant/hf_20260805_131843_164fe080-d862-4b73-a1b7-dbe6f4662e9f.png",
+      "pik":        "content/carousel-assets/restaurant/hf_20260805_131843_27649360-b457-42af-a557-5abcdd8446fa.png",
+    },
   },
 }
 
