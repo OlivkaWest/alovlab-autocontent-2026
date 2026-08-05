@@ -27,14 +27,9 @@ export async function grokCreateVideo(input: GrokVideoInput): Promise<{ requestI
   }
 
   if (!config.grok.apiKey) throw new GrokError("missing_key");
-  const endpoint = process.env.XAI_VIDEO_ENDPOINT;
-  if (!endpoint) {
-    // Не выдумываем endpoint. Честно останавливаемся.
-    throw new GrokError(
-      "unsupported",
-      "не задан XAI_VIDEO_ENDPOINT — сверь endpoint генерации видео с официальной документацией xAI и укажи его в .env"
-    );
-  }
+  // Подтверждённый по докам xAI async-паттерн: POST /v1/videos/generations → request_id.
+  // Путь переопределяется через XAI_VIDEO_ENDPOINT, если xAI изменит схему.
+  const endpoint = process.env.XAI_VIDEO_ENDPOINT || "/v1/videos/generations";
 
   const res = await withRetry(() =>
     fetch(`${config.grok.apiBase}${endpoint}`, {
@@ -51,17 +46,25 @@ export async function grokCreateVideo(input: GrokVideoInput): Promise<{ requestI
 
 export async function grokGetStatus(requestId: string): Promise<GrokVideoState> {
   if (config.grok.mock || requestId.startsWith("grok_mock_")) return mockStatus(requestId);
-  const statusEndpoint = process.env.XAI_VIDEO_STATUS_ENDPOINT;
-  if (!statusEndpoint) throw new GrokError("unsupported", "не задан XAI_VIDEO_STATUS_ENDPOINT");
+  // Подтверждено: GET /v1/videos/{request_id} → status; "done" = готово, есть url и duration.
+  const base = process.env.XAI_VIDEO_STATUS_ENDPOINT || "/v1/videos";
   const res = await withRetry(() =>
-    fetch(`${config.grok.apiBase}${statusEndpoint}?request_id=${encodeURIComponent(requestId)}`, {
+    fetch(`${config.grok.apiBase}${base}/${encodeURIComponent(requestId)}`, {
       headers: { authorization: `Bearer ${config.grok.apiKey}` },
     })
   );
   const d: any = await res.json().catch(() => ({}));
   const raw = String(d.status || "").toLowerCase();
-  const status = raw === "completed" || raw === "success" ? "completed" : raw === "failed" ? "failed" : raw === "processing" ? "processing" : "pending";
-  return { requestId, status, videoUrl: d.video_url ?? d.url ?? null, progress: status === "completed" ? 100 : 50, error: d.error ? String(d.error) : null };
+  const status =
+    raw === "done" || raw === "completed" || raw === "success"
+      ? "completed"
+      : raw === "failed" || raw === "error"
+        ? "failed"
+        : raw === "processing" || raw === "running"
+          ? "processing"
+          : "pending";
+  const videoUrl = d.video_url ?? d.url ?? d.video?.url ?? (Array.isArray(d.videos) ? d.videos[0]?.url : null) ?? null;
+  return { requestId, status, videoUrl, progress: status === "completed" ? 100 : 50, error: d.error ? String(d.error?.message ?? d.error) : null };
 }
 
 export async function grokDownload(videoUrl: string, destPath: string, requestId = ""): Promise<string> {

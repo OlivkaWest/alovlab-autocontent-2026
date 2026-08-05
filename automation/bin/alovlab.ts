@@ -115,7 +115,7 @@ function cmdDoctor() {
   print("\nGrok (xAI, B-roll):");
   print(`  режим: ${config.grok.mock ? "MOCK" : "РЕАЛЬНЫЙ"}`);
   print(`  API-ключ: ${maskSecret(config.grok.apiKey)}  модель: ${config.grok.model}`);
-  print(`  endpoint видео: ${process.env.XAI_VIDEO_ENDPOINT || "(не задан — реальный запуск остановится, сверь доки xAI)"}`);
+  print(`  endpoint видео: ${process.env.XAI_VIDEO_ENDPOINT || "/v1/videos/generations (дефолт по докам xAI)"}`);
   print("\nHiggsfield (B-roll, image-to-video):");
   print(`  подключение: через MCP внутри Claude Code (не через .env)`);
   print(`  оффлайн-режим пайплайна: ${config.higgsfield.mock ? "MOCK" : "ожидает MCP"}`);

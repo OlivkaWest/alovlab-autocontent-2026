@@ -44,8 +44,8 @@ export const config = {
   grok: {
     apiKey: process.env.XAI_API_KEY || "",
     apiBase: (process.env.XAI_API_BASE || "https://api.x.ai").replace(/\/+$/, ""),
-    model: process.env.XAI_VIDEO_MODEL || "grok-imagine-video",
-    resolution: process.env.XAI_VIDEO_RESOLUTION || "720p",
+    model: process.env.XAI_VIDEO_MODEL || "grok-imagine-video-1.5",
+    resolution: process.env.XAI_VIDEO_RESOLUTION || "1080p",
     aspectRatio: process.env.XAI_VIDEO_ASPECT_RATIO || "9:16",
     mock: bool(process.env.XAI_VIDEO_MOCK_MODE, true),
   },
