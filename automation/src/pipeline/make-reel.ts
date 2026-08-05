@@ -28,6 +28,7 @@ import {
   runFfmpeg,
   synthTestClip,
   buildCardClipArgs,
+  buildColorClipArgs,
   buildConcatArgs,
   buildAssembleArgs,
   assertSafeArg,
@@ -35,8 +36,10 @@ import {
   OUT_HEIGHT,
 } from "../video/ffmpeg";
 import { buildAvatarSegmentArgs } from "../video/assemble";
-import { verifyFinal } from "../video/verify";
+import { verifyFinal, probe } from "../video/verify";
 import { resolveNeuromonk, NEUROMONK } from "../reels/neuromonk";
+import { makeVoiceover } from "./make-voiceover";
+import { voiceReady } from "../config";
 import { createVideo } from "../heygen/create-video";
 import { getVideoStatus } from "../heygen/get-video-status";
 import { downloadVideo } from "../heygen/download-video";
@@ -74,6 +77,15 @@ export interface MakeReelResult {
   routing?: Record<string, number>;
   verify?: { passed: boolean; checks: Array<{ name: string; ok: boolean; detail?: string }> };
   incomplete?: string[];
+}
+
+// Подгоняет длительности активных сцен под реальную длину озвучки (audio-first).
+function rescaleScenes(script: ReelsScript, targetSeconds: number): void {
+  const active = script.scenes.filter((s) => !s.disabled);
+  const sum = active.reduce((a, s) => a + s.durationSeconds, 0) || 1;
+  const factor = targetSeconds / sum;
+  for (const s of active) s.durationSeconds = Math.max(1, Math.round(s.durationSeconds * factor * 10) / 10);
+  script.durationSeconds = Math.round(active.reduce((a, s) => a + s.durationSeconds, 0));
 }
 
 function contentToBrief(c: DayContent, provocative: boolean): Brief {
@@ -316,7 +328,8 @@ export async function stepAssemble(
   avatarMaster: string | null,
   brollClips: Record<string, string>,
   pngs: string[],
-  opts: MakeReelOptions
+  opts: MakeReelOptions,
+  masterAudio: string | null = null
 ): Promise<{ finalPath: string | null; srtPath: string; editPlanPath: string; verify: Awaited<ReturnType<typeof verifyFinal>> | null; incomplete: string[] }> {
   const rDir = reelsDir(date);
   const renderDir = subDir(date, "reels", "render");
@@ -352,10 +365,24 @@ export async function stepAssemble(
     setStatus(date, "failed", "assemble_blocked", "no ffmpeg");
     return { finalPath: null, srtPath, editPlanPath, verify: null, incomplete };
   }
-  if (!avatarMaster || !fs.existsSync(avatarMaster)) {
-    incomplete.push("Монтаж: нет клипа аватара (HeyGen не запускался или не завершился).");
+
+  const hasAvatar = Boolean(avatarMaster && fs.existsSync(avatarMaster));
+  // Голос: приоритет — озвучка ElevenLabs; иначе аудио аватара HeyGen.
+  const voice = masterAudio && fs.existsSync(masterAudio) ? masterAudio : hasAvatar ? avatarMaster : null;
+  if (!voice) {
+    incomplete.push("Монтаж: нет ни озвучки ElevenLabs, ни клипа аватара — нет аудиодорожки.");
     return { finalPath: null, srtPath, editPlanPath, verify: null, incomplete };
   }
+  if (!hasAvatar) {
+    incomplete.push("Ролик собран без аватара HeyGen (B-roll + мой голос): аватар недоступен.");
+  }
+
+  // Визуал для сцены, когда клипа аватара нет: карточка карусели, иначе брендовый фон.
+  const visualFallback = async (seg: string, seconds: number, png: string | null) => {
+    if (hasAvatar) return runFfmpeg(buildAvatarSegmentArgs(avatarMaster!, seg, seconds));
+    if (png && fs.existsSync(png)) return runFfmpeg(buildCardClipArgs(png, seg, seconds));
+    return runFfmpeg(buildColorClipArgs(seg, seconds));
+  };
 
   setStatus(date, "assembling", "assemble_start", `v${editVersion}`);
 
@@ -368,19 +395,15 @@ export async function stepAssemble(
     const route = plan.scenes.find((r) => r.scene_id === scene.id);
     const seg = path.join(segDir, `scene_${String(i + 1).padStart(2, "0")}.mp4`);
     const broll = brollClips[scene.id];
+    const cardPng = route ? cardPngForRoute(route, pngs) : pngs[0] || null;
     try {
       if (broll && fs.existsSync(broll) && isRealVideo(broll)) {
         await runFfmpeg(buildAvatarSegmentArgs(broll, seg, scene.durationSeconds)); // нормализуем к 9:16
-      } else if (route && (route.generator === "ffmpeg" || route.generator === "existing_asset")) {
-        const png = cardPngForRoute(route, pngs);
-        if (png && fs.existsSync(png)) {
-          await runFfmpeg(buildCardClipArgs(png, seg, scene.durationSeconds));
-        } else {
-          await runFfmpeg(buildAvatarSegmentArgs(avatarMaster, seg, scene.durationSeconds));
-        }
+      } else if (scene.type === "avatar" && hasAvatar) {
+        await runFfmpeg(buildAvatarSegmentArgs(avatarMaster!, seg, scene.durationSeconds));
       } else {
-        // avatar-сцена или недостающий b-roll → сегмент мастер-клипа аватара
-        await runFfmpeg(buildAvatarSegmentArgs(avatarMaster, seg, scene.durationSeconds));
+        // B-roll / нет аватара → карточка карусели, иначе аватар/фон (visualFallback)
+        await visualFallback(seg, scene.durationSeconds, cardPng);
       }
       segments.push(seg);
     } catch (err) {
@@ -411,11 +434,11 @@ export async function stepAssemble(
   const concatOut = path.join(renderDir, "concat.mp4");
   await runFfmpeg(buildConcatArgs(listFile, concatOut));
 
-  // Финальный мукс: видео + голос аватара (мастер) + субтитры
+  // Финальный мукс: видео + голос (уже выбран выше: ElevenLabs → иначе аватар) + субтитры.
   const { path: finalPath } = nextVersionPath(renderDir, "final_reels", "mp4");
   const args = buildAssembleArgs({
     videoInput: concatOut,
-    voiceInput: avatarMaster,
+    voiceInput: voice,
     subtitleFile: opts.burnSubtitles ? srtPath : undefined,
     output: finalPath,
     burnSubtitles: Boolean(opts.burnSubtitles),
@@ -488,7 +511,20 @@ export async function makeReel(date: string, opts: MakeReelOptions = {}): Promis
 
   const incomplete: string[] = [];
   let avatarMaster: string | null = null;
+  let voiceoverPath: string | null = null;
   const brollClips: Record<string, string> = {};
+
+  // Озвучка моим голосом (ElevenLabs) — станет мастер-дорожкой монтажа.
+  if (voiceReady().ready) {
+    const narration = script.scenes.filter((s) => !s.disabled).map((s) => s.spokenText).filter(Boolean).join("\n\n");
+    const vo = await makeVoiceover(date, narration, { label: "reels", delivery: o.provocative ? "sharp" : "confident" });
+    if (vo.ok && vo.fullPath) {
+      voiceoverPath = vo.fullPath;
+      // Audio-first: подстраиваем длительность сцен под реальную речь (не наоборот).
+      const pr = await probe(voiceoverPath).catch(() => null);
+      if (pr?.durationSeconds && pr.durationSeconds > 3) rescaleScenes(script, pr.durationSeconds);
+    } else if (vo.message) incomplete.push(`Озвучка ElevenLabs: ${vo.message}`);
+  }
 
   if (o.runHeygen) {
     if (!neuromonkReady().ready) {
@@ -513,7 +549,7 @@ export async function makeReel(date: string, opts: MakeReelOptions = {}): Promis
   let verify: MakeReelResult["verify"] = undefined;
 
   if (o.assemble) {
-    const asm = await stepAssemble(date, script, plan, content, avatarMaster, brollClips, pngs, o);
+    const asm = await stepAssemble(date, script, plan, content, avatarMaster, brollClips, pngs, o, voiceoverPath);
     finalPath = asm.finalPath;
     srtPath = asm.srtPath;
     editPlanPath = asm.editPlanPath;

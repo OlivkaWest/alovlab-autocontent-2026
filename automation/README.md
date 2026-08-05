@@ -43,7 +43,10 @@ npm run alovlab -- route   2026-08-05     # маршрутизация сцен 
 npm run alovlab -- reel    2026-08-05     # ПОЛНЫЙ цикл → готовый MP4
 npm run alovlab -- assemble 2026-08-05    # пересобрать монтаж (без HeyGen)
 npm run alovlab -- regen-scene 2026-08-05 2   # перегенерировать ОДНУ сцену
-npm run alovlab -- status  2026-08-05     # статус дня
+npm run alovlab -- voiceover 2026-08-05   # озвучка сценария моим голосом (ElevenLabs)
+npm run alovlab -- podcast  2026-08-05 [audiopost|short|full]  # подкаст моим голосом
+npm run alovlab -- telegram 2026-08-05    # черновик публикации ролика в Telegram
+npm run alovlab -- status   2026-08-05    # статус дня
 ```
 
 Дату понимает и по-русски («5 августа» → `2026-08-05`, год из текущей даты), и в ISO.
@@ -140,6 +143,34 @@ npm run test        # vitest (54 теста): сценарий, валидаци
                     # сборка FFmpeg-команды, защита от shell injection, mock
 npm run build       # компиляция в dist/
 ```
+
+## Голос, подкасты, Telegram
+
+**ElevenLabs — мой голос.** Reels, закадр и подкасты озвучиваются постоянным
+`ELEVENLABS_VOICE_ID` (клон «доктор Нейро»). Перед генерацией текст адаптируется под
+живую речь (убираются ссылки/скобки/канцелярщина) и применяется словарь произношения
+`assets/voices/ilya-alov/pronunciation.json` (AlovLab→Алов Лаб, HeyGen→Хэй Джен…).
+Голос не подменяется и не клонируется заново. Ключ только в `.env`, в лог не идёт.
+
+**Audio-first.** Сначала получаем озвучку, затем длительность сцен ролика
+подстраивается под реальную речь (не наоборот). Голос идёт мастер-дорожкой поверх
+B-roll. Если аватар HeyGen недоступен — собирается ролик **без аватара**: карточки
+карусели + мой голос (спец. так и задумано для роликов без аватара).
+
+**Режимы HeyGen×ElevenLabs.** A: голос от HeyGen. B (по умолчанию для нейромонаха):
+голос ElevenLabs. Полный lip-sync аватара к ElevenLabs-аудио требует загрузки аудио в
+HeyGen как asset — сверь актуальный HeyGen API, endpoint не выдуман.
+
+**Подкасты** (`podcast <дата> [audiopost|short|full]`): текст дня → адаптация → ElevenLabs
+→ mp3 → подпись → Telegram-черновик. Studio API не обязателен (single-voice TTS + FFmpeg).
+
+**Telegram** (`telegram <дата>`): только Bot API, бот — админ канала. По умолчанию
+`TELEGRAM_PUBLISH_MODE=draft` — файл и подпись создаются, **реальная отправка не идёт**.
+Для публикации — `live` и переменные `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHANNEL_ID`.
+
+Подключение ElevenLabs: ключ на [elevenlabs.io](https://elevenlabs.io) → профиль →
+Developers/API Keys → `ELEVENLABS_API_KEY`, `ELEVENLABS_MOCK_MODE=false`. Официальный
+`elevenlabs/elevenlabs-mcp` в этой сессии не подключён (см. `skills-lock.json`).
 
 ## Диагностика ошибок
 

@@ -111,6 +111,19 @@ export function buildCardClipArgs(png: string, output: string, seconds: number):
   ];
 }
 
+/** Брендовый фоновый видеоклип 9:16 (fallback, когда нет ни аватара, ни карточки). */
+export function buildColorClipArgs(output: string, seconds: number): string[] {
+  return [
+    "-y",
+    "-f", "lavfi",
+    "-i", `color=c=#0b0a09:s=${OUT_WIDTH}x${OUT_HEIGHT}:d=${seconds}:r=30`,
+    "-t", String(seconds),
+    "-c:v", "libx264",
+    "-pix_fmt", "yuv420p",
+    output,
+  ];
+}
+
 /** Конкатенация клипов через файл-список (concat demuxer). */
 export function buildConcatArgs(listFile: string, output: string): string[] {
   return ["-y", "-f", "concat", "-safe", "0", "-i", listFile, "-c:v", "libx264", "-pix_fmt", "yuv420p", "-r", "30", output];
@@ -169,6 +182,31 @@ export function buildAssembleArgs(o: AssembleOptions): string[] {
   if (audioMap) args.push("-c:a", "aac", "-b:a", "192k", "-shortest");
   args.push("-movflags", "+faststart", o.output);
   return args;
+}
+
+/** Тихая аудиодорожка mp3 заданной длительности (для mock-озвучки). */
+export async function synthSilentMp3(output: string, seconds: number): Promise<boolean> {
+  if (!hasFfmpeg()) return false;
+  const args = [
+    "-y",
+    "-f", "lavfi",
+    "-i", "anullsrc=channel_layout=stereo:sample_rate=44100",
+    "-t", String(Math.max(1, seconds)),
+    "-c:a", "libmp3lame", "-b:a", "128k",
+    output,
+  ];
+  try {
+    await runFfmpeg(args, { timeoutMs: 60000 });
+    return fs.existsSync(output);
+  } catch (err) {
+    log.warn("synthSilentMp3 не удался", String(err));
+    return false;
+  }
+}
+
+/** Склейка mp3-сегментов через concat demuxer (единый формат). */
+export function buildAudioConcatArgs(listFile: string, output: string): string[] {
+  return ["-y", "-f", "concat", "-safe", "0", "-i", listFile, "-c:a", "libmp3lame", "-b:a", "192k", output];
 }
 
 /** Короткий тестовый клип 9:16 (для mock-скачивания). */

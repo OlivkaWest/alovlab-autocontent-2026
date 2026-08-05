@@ -1,0 +1,5 @@
+file '/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/audio/reels/segment_01.mp3'
+file '/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/audio/reels/segment_02.mp3'
+file '/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/audio/reels/segment_03.mp3'
+file '/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/audio/reels/segment_04.mp3'
+file '/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/audio/reels/segment_05.mp3'

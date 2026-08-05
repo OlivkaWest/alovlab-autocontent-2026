@@ -1,0 +1,7 @@
+{
+  "method": "sendVideo",
+  "chat_id": "(TELEGRAM_CHANNEL_ID)",
+  "parse_mode": "HTML",
+  "caption": "<b>Одна идея — это не один пост</b>\n\n\nСохрани. Следующую идею не сжигай.\nhttps://t.me/AlovLab",
+  "file": "final_reels_v1.mp4"
+}

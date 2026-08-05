@@ -9,7 +9,7 @@
   "cta": "Забирай метод и шаблоны: https://t.me/AlovLab",
   "scenes": [
     {
-      "id": "scene_6d2201351a00",
+      "id": "scene_fac9656a7f6e",
       "durationSeconds": 4,
       "type": "avatar",
       "spokenText": "Один пост из идеи — это любитель. Профи достаёт три.",
@@ -21,7 +21,7 @@
       "disabled": false
     },
     {
-      "id": "scene_038a055ee1b4",
+      "id": "scene_c729a2e76247",
       "durationSeconds": 5,
       "type": "broll",
       "spokenText": "Ты берёшь нормальную тему, публикуешь один пост и идёшь искать следующую.",
@@ -33,7 +33,7 @@
       "disabled": false
     },
     {
-      "id": "scene_f840105307a0",
+      "id": "scene_a61891d8354c",
       "durationSeconds": 9,
       "type": "broll",
       "spokenText": "Хотя внутри уже лежат карусель, Reels и серия Stories.",
@@ -45,7 +45,7 @@
       "disabled": false
     },
     {
-      "id": "scene_a1a8bd368e3b",
+      "id": "scene_6acc53ef561e",
       "durationSeconds": 9,
       "type": "broll",
       "spokenText": "Сначала достань конфликт. Потом разложи его по форматам.",
@@ -57,7 +57,7 @@
       "disabled": false
     },
     {
-      "id": "scene_475a4d590a27",
+      "id": "scene_04eb9d0eb4df",
       "durationSeconds": 4,
       "type": "avatar",
       "spokenText": "Следующую идею не сжигай. Размножь.",

@@ -1,0 +1,42 @@
+{
+  "language": "ru",
+  "voice_id": "5CbL8es86S7G4ftc6EB6",
+  "model_id": "eleven_multilingual_v2",
+  "segments": [
+    {
+      "id": "segment_01",
+      "text": "Один пост из идеи — это любитель. Профи достаёт три.",
+      "delivery": "confident",
+      "pace": "medium",
+      "pause_after_ms": 300
+    },
+    {
+      "id": "segment_02",
+      "text": "Ты берёшь нормальную тему, публикуешь один пост и идёшь искать следующую.",
+      "delivery": "confident",
+      "pace": "medium",
+      "pause_after_ms": 300
+    },
+    {
+      "id": "segment_03",
+      "text": "Хотя внутри уже лежат карусель, Рилс и серия Сториз.",
+      "delivery": "confident",
+      "pace": "medium",
+      "pause_after_ms": 300
+    },
+    {
+      "id": "segment_04",
+      "text": "Сначала достань конфликт. Потом разложи его по форматам.",
+      "delivery": "confident",
+      "pace": "medium",
+      "pause_after_ms": 300
+    },
+    {
+      "id": "segment_05",
+      "text": "Следующую идею не сжигай. Размножь.",
+      "delivery": "confident",
+      "pace": "medium",
+      "pause_after_ms": 300
+    }
+  ]
+}

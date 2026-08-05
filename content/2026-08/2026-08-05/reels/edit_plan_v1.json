@@ -2,42 +2,42 @@
   "date": "2026-08-05",
   "version": 1,
   "resolution": "1080x1920",
-  "duration_seconds": 31,
+  "duration_seconds": 17,
   "scenes": [
     {
-      "id": "scene_6d2201351a00",
+      "id": "scene_fac9656a7f6e",
       "generator": "heygen",
       "type": "avatar",
       "duration": 4,
-      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/heygen/avatar_master.mp4"
+      "source": null
     },
     {
-      "id": "scene_038a055ee1b4",
+      "id": "scene_c729a2e76247",
       "generator": "higgsfield",
       "type": "image_to_video",
       "duration": 5,
-      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_038a055ee1b4.mp4"
+      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_c729a2e76247.mp4"
     },
     {
-      "id": "scene_f840105307a0",
+      "id": "scene_a61891d8354c",
       "generator": "higgsfield",
       "type": "image_to_video",
       "duration": 9,
-      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_f840105307a0.mp4"
+      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_a61891d8354c.mp4"
     },
     {
-      "id": "scene_a1a8bd368e3b",
+      "id": "scene_6acc53ef561e",
       "generator": "higgsfield",
       "type": "image_to_video",
       "duration": 9,
-      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_a1a8bd368e3b.mp4"
+      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_6acc53ef561e.mp4"
     },
     {
-      "id": "scene_475a4d590a27",
+      "id": "scene_04eb9d0eb4df",
       "generator": "heygen",
       "type": "avatar",
       "duration": 4,
-      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/heygen/avatar_master.mp4"
+      "source": null
     }
   ],
   "logo": "/home/user/alovlab-autocontent-2026/assets/img/logo-mark.png",

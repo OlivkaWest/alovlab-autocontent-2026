@@ -18,6 +18,11 @@ import { hasFfmpeg, resolveFfmpeg } from "../src/video/ffmpeg";
 import { resolveFfprobe } from "../src/video/verify";
 import { listAvatars } from "../src/heygen/avatars";
 import { listVoices } from "../src/heygen/voices";
+import { makeVoiceover } from "../src/pipeline/make-voiceover";
+import { makePodcast, type PodcastFormat } from "../src/podcast/generate";
+import { publish } from "../src/publishing/telegram/client";
+import { buildCaption } from "../src/publishing/telegram/caption";
+import { subDir } from "../src/project/day-store";
 
 function print(...a: unknown[]) {
   // eslint-disable-next-line no-console
@@ -126,9 +131,17 @@ function cmdDoctor() {
     const s = id.higgsfield_soul_id || {};
     print(`  Soul ID нейромонаха: ${s.reference_id || "(не задан)"} [${s.status || "?"}]${s.name ? " — " + s.name : ""}`);
   } catch { /* нет файла */ }
+  print("\nElevenLabs (мой голос, озвучка/подкасты):");
+  print(`  режим: ${config.elevenlabs.mock ? "MOCK" : "РЕАЛЬНЫЙ"}`);
+  print(`  API-ключ: ${maskSecret(config.elevenlabs.apiKey)}  voice_id: ${config.elevenlabs.voiceId || "(не задан)"}  модель: ${config.elevenlabs.modelId}`);
+
+  print("\nTelegram (публикация):");
+  print(`  режим: ${config.telegram.publishMode.toUpperCase()}${config.telegram.publishMode === "draft" ? " (реальная отправка выключена)" : ""}`);
+  print(`  bot token: ${maskSecret(config.telegram.botToken)}  channel: ${config.telegram.channelId || "(не задан)"}`);
+
   print("\nFFmpeg (монтаж):");
   print(`  ffmpeg: ${hasFfmpeg() ? resolveFfmpeg() : "НЕ НАЙДЕН — задай FFMPEG_PATH"}`);
-  print(`  ffprobe: ${resolveFfprobe()}`);
+  print(`  ffprobe: ${resolveFfprobe() || "нет (используем ffmpeg)"}`);
   print(`\nContent root: ${config.contentRoot}`);
   print(`Сегодня: ${todayIso()}`);
 }
@@ -242,6 +255,45 @@ async function main() {
       reportReel(await makeReel(d, { runHeygen: false, assemble: true }));
       return;
     }
+    case "voiceover": {
+      const d = needDate(rest);
+      if (!d) return;
+      const res = await stepScript(d, {});
+      if ("error" in res) return print(res.error);
+      const narration = res.script.scenes.filter((s) => !s.disabled).map((s) => s.spokenText).filter(Boolean).join("\n\n");
+      const vo = await makeVoiceover(d, narration, { label: "reels" });
+      if (!vo.ok) return print(`Озвучка не сделана: ${vo.message}`);
+      print(`Озвучка (${config.elevenlabs.mock ? "MOCK" : "ElevenLabs"}): ${vo.segments} сегм. → ${path.relative(config.repoRoot, vo.fullPath!)}`);
+      return;
+    }
+    case "podcast": {
+      const fmt = (["audiopost", "short", "full"] as PodcastFormat[]).find((f) => rest.includes(f));
+      const d = needDate(rest.filter((r) => !["audiopost", "short", "full"].includes(r)));
+      if (!d) return;
+      const r = await makePodcast(d, { format: fmt });
+      if (!r.ok && r.reason) return print(r.reason);
+      print(`\nПодкаст на ${r.date} (${r.format}):`);
+      if (r.audioPath) print(`  аудио: ${path.relative(config.repoRoot, r.audioPath)}${r.durationSeconds ? ` (${r.durationSeconds.toFixed(0)}с)` : ""}`);
+      if (r.scriptPath) print(`  сценарий: ${path.relative(config.repoRoot, r.scriptPath)}`);
+      if (r.telegramDraft) print(`  telegram-черновик: ${path.relative(config.repoRoot, r.telegramDraft)}`);
+      for (const i of r.incomplete || []) print(`  — ${i}`);
+      return;
+    }
+    case "telegram": {
+      const d = needDate(rest);
+      if (!d) return;
+      const content = getContentByDate(d);
+      const renderDir = path.join(reelsDir(d), "render");
+      const finals = fs.existsSync(renderDir) ? fs.readdirSync(renderDir).filter((f) => /^final_reels_v\d+\.mp4$/.test(f)).sort() : [];
+      if (!finals.length) return print(`Финального ролика на ${d} нет. Сначала: reel ${d}`);
+      const finalPath = path.join(renderDir, finals[finals.length - 1]);
+      const caption = buildCaption({ kind: "reel", title: content.topic, hook: content.topic, cta: content.cta, link: content.links[0] });
+      const pub = await publish({ method: "sendVideo", filePath: finalPath, caption }, subDir(d, "publishing"));
+      print(`Telegram (${pub.mode}): ${pub.ok ? "ок" : "ошибка: " + pub.error}`);
+      print(pub.mode === "draft" ? "Режим draft — реальная отправка выключена (TELEGRAM_PUBLISH_MODE=live чтобы публиковать)." : `message_id: ${pub.messageId}`);
+      if (pub.payloadPath) print(`payload: ${path.relative(config.repoRoot, pub.payloadPath)}`);
+      return;
+    }
     case "regen-scene": {
       const d = resolveDate(rest.slice(0, -1).join(" ") || rest[0] || "");
       const sceneRef = rest[rest.length - 1];
@@ -251,7 +303,7 @@ async function main() {
       return;
     }
     default:
-      print("Команды: doctor | avatars | voices | soul | index | content <дата> | status <дата> | script <дата> | scenes <дата> | route <дата> | reel <дата> | prepare <дата> | assemble <дата> | regen-scene <дата> <сцена>");
+      print("Команды: doctor | avatars | voices | soul | index | content <дата> | status <дата> | script <дата> | scenes <дата> | route <дата> | reel <дата> | prepare <дата> | assemble <дата> | regen-scene <дата> <сцена> | voiceover <дата> | podcast <дата> [audiopost|short|full] | telegram <дата>");
   }
 }
 

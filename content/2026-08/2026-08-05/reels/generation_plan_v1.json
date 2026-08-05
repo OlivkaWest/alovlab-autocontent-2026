@@ -5,7 +5,7 @@
   "total_duration_seconds": 31,
   "scenes": [
     {
-      "scene_id": "scene_6d2201351a00",
+      "scene_id": "scene_fac9656a7f6e",
       "type": "avatar",
       "generator": "heygen",
       "reason": "В кадре говорит Нейромонах — нужен постоянный аватар и точная русская речь.",
@@ -18,7 +18,7 @@
       "model": null
     },
     {
-      "scene_id": "scene_038a055ee1b4",
+      "scene_id": "scene_c729a2e76247",
       "type": "image_to_video",
       "generator": "higgsfield",
       "reason": "Есть готовый кадр — оживляем его управляемым cinematic image-to-video с сохранением композиции.",
@@ -33,7 +33,7 @@
       "model": null
     },
     {
-      "scene_id": "scene_f840105307a0",
+      "scene_id": "scene_a61891d8354c",
       "type": "image_to_video",
       "generator": "higgsfield",
       "reason": "Есть готовый кадр — оживляем его управляемым cinematic image-to-video с сохранением композиции.",
@@ -48,7 +48,7 @@
       "model": null
     },
     {
-      "scene_id": "scene_a1a8bd368e3b",
+      "scene_id": "scene_6acc53ef561e",
       "type": "image_to_video",
       "generator": "higgsfield",
       "reason": "Есть готовый кадр — оживляем его управляемым cinematic image-to-video с сохранением композиции.",
@@ -63,7 +63,7 @@
       "model": null
     },
     {
-      "scene_id": "scene_475a4d590a27",
+      "scene_id": "scene_04eb9d0eb4df",
       "type": "avatar",
       "generator": "heygen",
       "reason": "В кадре говорит Нейромонах — нужен постоянный аватар и точная русская речь.",

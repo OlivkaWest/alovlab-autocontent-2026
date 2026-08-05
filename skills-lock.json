@@ -9,7 +9,12 @@
     { "name": "alovlab-character-lock", "path": ".claude/skills/alovlab-character-lock", "status": "adapted", "trust": "high" },
     { "name": "alovlab-video-prompt",   "path": ".claude/skills/alovlab-video-prompt",   "status": "adapted", "trust": "high" },
     { "name": "alovlab-ffmpeg-edit",    "path": ".claude/skills/alovlab-ffmpeg-edit",    "status": "adapted", "trust": "high" },
-    { "name": "alovlab-video-review",   "path": ".claude/skills/alovlab-video-review",   "status": "adapted", "trust": "high" }
+    { "name": "alovlab-video-review",   "path": ".claude/skills/alovlab-video-review",   "status": "adapted", "trust": "high" },
+    { "name": "alovlab-elevenlabs-voice",   "path": ".claude/skills/alovlab-elevenlabs-voice",   "status": "adapted", "trust": "high" },
+    { "name": "alovlab-voice-script",       "path": ".claude/skills/alovlab-voice-script",       "status": "adapted", "trust": "high" },
+    { "name": "alovlab-podcast",            "path": ".claude/skills/alovlab-podcast",            "status": "adapted", "trust": "high" },
+    { "name": "alovlab-audio-edit",         "path": ".claude/skills/alovlab-audio-edit",         "status": "adapted", "trust": "high" },
+    { "name": "alovlab-telegram-publisher", "path": ".claude/skills/alovlab-telegram-publisher", "status": "adapted", "trust": "high" }
   ],
   "third_party_shortlist": [
     { "repository": "higgsfield-ai/skills", "role": "генерация видео, Soul ID, Virality Predictor", "status": "pending_audit", "install": "не запускалось", "note": "Higgsfield уже подключён через MCP — официальные инструменты доступны без установки репозитория." },
@@ -21,6 +26,8 @@
     { "repository": "browser-use/video-use", "role": "паттерн source→команды→final.mp4", "status": "pending_audit", "install": "не запускалось" },
     { "repository": "digitalsamba/claude-code-video-toolkit", "role": "полный цикл идея→render", "status": "pending_audit", "install": "не запускалось" },
     { "repository": "DojoCodingLabs/remotion-superpowers", "role": "программный монтаж (доп. движок)", "status": "pending_audit", "install": "не запускалось" },
-    { "repository": "shinpr/mcp-image", "role": "character-consistent кадры", "status": "pending_audit", "install": "не запускалось" }
+    { "repository": "shinpr/mcp-image", "role": "character-consistent кадры", "status": "pending_audit", "install": "не запускалось" },
+    { "repository": "elevenlabs/elevenlabs-mcp", "role": "прямой вызов ElevenLabs из Claude Code", "status": "pending_audit", "install": "не запускалось", "note": "Официальный MCP. В этой сессии НЕ подключён. Подключать отдельной командой после проверки." },
+    { "repository": "elevenlabs/skills", "role": "официальные Agent Skills ElevenLabs", "status": "pending_audit", "install": "не запускалось" }
   ]
 }

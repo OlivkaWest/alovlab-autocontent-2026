@@ -1,54 +1,37 @@
 {
   "date": "2026-08-05",
-  "status": "ready",
+  "status": "content_ready",
   "topic": "Одна идея — это не один пост",
   "content_type": "educational_reels",
   "approved_script": null,
   "approved_final": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/render/final_reels_v1.mp4",
-  "heygen_jobs": [
-    {
-      "scene_id": "avatar_master",
-      "video_id": "mock_c73c4d572b30",
-      "status": "completed",
-      "local_path": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/heygen/avatar_master.mp4"
-    }
-  ],
+  "heygen_jobs": [],
   "history": [
     {
-      "at": "2026-08-05T15:54:52.248Z",
+      "at": "2026-08-05T16:44:58.968Z",
       "action": "content_loaded",
       "detail": "Одна идея — это не один пост"
     },
     {
-      "at": "2026-08-05T15:54:52.251Z",
+      "at": "2026-08-05T16:44:58.972Z",
       "action": "script_generated",
       "detail": "v1, замечаний по стилю: 0, валиден: true"
     },
     {
-      "at": "2026-08-05T15:54:55.159Z",
-      "action": "heygen_create",
-      "detail": "avatar master"
-    },
-    {
-      "at": "2026-08-05T15:54:55.161Z",
-      "action": "heygen_poll",
-      "detail": "mock_c73c4d572b30"
-    },
-    {
-      "at": "2026-08-05T15:55:07.976Z",
-      "action": "avatar_downloaded",
-      "detail": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/heygen/avatar_master.mp4"
-    },
-    {
-      "at": "2026-08-05T15:55:12.471Z",
+      "at": "2026-08-05T16:45:06.692Z",
       "action": "assemble_start",
       "detail": "v1"
     },
     {
-      "at": "2026-08-05T15:55:35.368Z",
+      "at": "2026-08-05T16:45:25.319Z",
       "action": "final_ready",
       "detail": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/render/final_reels_v1.mp4"
+    },
+    {
+      "at": "2026-08-05T16:45:27.854Z",
+      "action": "podcast_ready",
+      "detail": "short, tg:draft"
     }
   ],
-  "updated_at": "2026-08-05T15:55:35.368Z"
+  "updated_at": "2026-08-05T16:45:27.854Z"
 }

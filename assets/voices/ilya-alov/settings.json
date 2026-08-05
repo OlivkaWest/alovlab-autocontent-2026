@@ -1,0 +1,12 @@
+{
+  "voice_id_env": "ELEVENLABS_VOICE_ID",
+  "model_id": "eleven_multilingual_v2",
+  "language": "ru",
+  "voice_settings": {
+    "stability": 0.45,
+    "similarity_boost": 0.85,
+    "style": 0.25,
+    "use_speaker_boost": true
+  },
+  "note": "Спокойная уверенность: умеренная stability, высокий similarity для узнаваемости. Не менять случайно."
+}

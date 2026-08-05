@@ -1,0 +1,33 @@
+{
+  "voice_id": "5CbL8es86S7G4ftc6EB6",
+  "model_id": "eleven_multilingual_v2",
+  "mock": true,
+  "segments": [
+    {
+      "id": "segment_01",
+      "file": "segment_01.mp3",
+      "chars": 52
+    },
+    {
+      "id": "segment_02",
+      "file": "segment_02.mp3",
+      "chars": 73
+    },
+    {
+      "id": "segment_03",
+      "file": "segment_03.mp3",
+      "chars": 52
+    },
+    {
+      "id": "segment_04",
+      "file": "segment_04.mp3",
+      "chars": 56
+    },
+    {
+      "id": "segment_05",
+      "file": "segment_05.mp3",
+      "chars": 35
+    }
+  ],
+  "total_chars": 268
+}

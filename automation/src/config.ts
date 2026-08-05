@@ -56,6 +56,26 @@ export const config = {
     mock: bool(process.env.HIGGSFIELD_MOCK_MODE, true),
   },
 
+  elevenlabs: {
+    apiKey: process.env.ELEVENLABS_API_KEY || "",
+    apiBase: (process.env.ELEVENLABS_API_BASE || "https://api.elevenlabs.io").replace(/\/+$/, ""),
+    voiceId: process.env.ELEVENLABS_VOICE_ID || "",
+    modelId: process.env.ELEVENLABS_MODEL_ID || "eleven_multilingual_v2",
+    outputFormat: process.env.ELEVENLABS_OUTPUT_FORMAT || "mp3_44100_128",
+    podcastHostVoiceId: process.env.ELEVENLABS_PODCAST_HOST_VOICE_ID || "",
+    podcastGuestVoiceId: process.env.ELEVENLABS_PODCAST_GUEST_VOICE_ID || "",
+    maxCharacters: num(process.env.ELEVENLABS_MAX_CHARACTERS),
+    maxCostUsd: num(process.env.ELEVENLABS_MAX_COST_USD),
+    mock: bool(process.env.ELEVENLABS_MOCK_MODE, true),
+  },
+
+  telegram: {
+    botToken: process.env.TELEGRAM_BOT_TOKEN || "",
+    channelId: process.env.TELEGRAM_CHANNEL_ID || "",
+    // draft — реальный запрос НЕ отправляется (по умолчанию, безопасно); live — публикуем.
+    publishMode: (process.env.TELEGRAM_PUBLISH_MODE || "draft") as "draft" | "live",
+  },
+
   video: {
     maxCostUsd: num(process.env.MAX_VIDEO_GENERATION_COST_USD),
     maxRetries: Number(process.env.VIDEO_GENERATION_MAX_RETRIES || 2),
@@ -96,6 +116,15 @@ export function neuromonkReady(): { ready: boolean; message?: string } {
       ready: false,
       message: "Добавь HEYGEN_AVATAR_ID и HEYGEN_VOICE_ID в настройки проекта",
     };
+  }
+  return { ready: true };
+}
+
+/** Готов ли голос ElevenLabs (есть voice_id). В mock всегда готов. */
+export function voiceReady(): { ready: boolean; message?: string } {
+  if (config.elevenlabs.mock) return { ready: true };
+  if (!config.elevenlabs.voiceId) {
+    return { ready: false, message: "Голос ElevenLabs не найден. Проверь ELEVENLABS_VOICE_ID." };
   }
   return { ready: true };
 }
