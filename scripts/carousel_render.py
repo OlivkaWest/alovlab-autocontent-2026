@@ -339,7 +339,7 @@ CONFIGS = {
       "content/carousel-assets/restaurant/hf_20260805_135919_a369f62b-4716-4359-a170-6708128ba9a3.png",
       "content/carousel-assets/restaurant/hf_20260805_135919_277be4a0-3f10-4ef1-8476-6322a52e1f50.png",
       "content/carousel-assets/restaurant/hf_20260805_135919_96430fe8-fa0a-48ff-875b-097bedcaf848.png",
-      "content/carousel-assets/restaurant/hf_20260805_131843_164fe080-d862-4b73-a1b7-dbe6f4662e9f.png",
+      "content/carousel-assets/restaurant/hf_20260805_140559_e09977d3-1fba-4645-8d01-95522ce3eee8.png",
       "content/carousel-assets/restaurant/hf_20260805_131843_27649360-b457-42af-a557-5abcdd8446fa.png",
     ],
     "cta_photos": [
