@@ -1,0 +1,12 @@
+{
+  "sceneId": "scene_34f029b28715",
+  "mode": "image_to_video",
+  "sourceImage": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/carousel/04_solution.png",
+  "prompt": "Vertical 9:16 cinematic B-roll. Конфликт → форматы. Slow controlled camera, premium look, warm amber light, no readable text, no logos.",
+  "motion": "slow controlled push-in",
+  "aspectRatio": "9:16",
+  "durationSeconds": 9,
+  "preserve": "Original layout, composition, brand colors",
+  "avoid": "Text deformation, flicker, sudden camera movement",
+  "model": null
+}

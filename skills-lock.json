@@ -1,0 +1,26 @@
+{
+  "generated_note": "Owned AlovLab skills — авторские, адаптированы под текущую архитектуру, стороннего кода не запускалось. Третьи репозитории НЕ установлены: только shortlist для будущего аудита. Безопасный дефолт из брифа: адаптировать SKILL.md, а не запускать чужие install-скрипты.",
+  "owned_skills": [
+    { "name": "alovlab-reel",          "path": ".claude/skills/alovlab-reel",          "status": "adapted", "trust": "high" },
+    { "name": "alovlab-research",       "path": ".claude/skills/alovlab-research",       "status": "adapted", "trust": "high" },
+    { "name": "alovlab-reels-script",   "path": ".claude/skills/alovlab-reels-script",   "status": "adapted", "trust": "high" },
+    { "name": "alovlab-director",       "path": ".claude/skills/alovlab-director",       "status": "adapted", "trust": "high" },
+    { "name": "alovlab-storyboard",     "path": ".claude/skills/alovlab-storyboard",     "status": "adapted", "trust": "high" },
+    { "name": "alovlab-character-lock", "path": ".claude/skills/alovlab-character-lock", "status": "adapted", "trust": "high" },
+    { "name": "alovlab-video-prompt",   "path": ".claude/skills/alovlab-video-prompt",   "status": "adapted", "trust": "high" },
+    { "name": "alovlab-ffmpeg-edit",    "path": ".claude/skills/alovlab-ffmpeg-edit",    "status": "adapted", "trust": "high" },
+    { "name": "alovlab-video-review",   "path": ".claude/skills/alovlab-video-review",   "status": "adapted", "trust": "high" }
+  ],
+  "third_party_shortlist": [
+    { "repository": "higgsfield-ai/skills", "role": "генерация видео, Soul ID, Virality Predictor", "status": "pending_audit", "install": "не запускалось", "note": "Higgsfield уже подключён через MCP — официальные инструменты доступны без установки репозитория." },
+    { "repository": "Square-Zero-Labs/video-prompting-skill", "role": "video-промпты, character-sheet", "status": "pending_audit", "install": "не запускалось" },
+    { "repository": "smixs/visual-skills", "role": "качество image/video промптов", "status": "pending_audit", "install": "не запускалось" },
+    { "repository": "aicontentskills/ai-video-storyboard-skill", "role": "многошотовая раскадровка", "status": "pending_audit", "install": "не запускалось" },
+    { "repository": "6missedcalls/video-editing-skill", "role": "FFmpeg-монтаж", "status": "pending_audit", "install": "не запускалось" },
+    { "repository": "ychoi-kr/claude-ffmpeg-skill", "role": "проверенные FFmpeg-процессы", "status": "pending_audit", "install": "не запускалось" },
+    { "repository": "browser-use/video-use", "role": "паттерн source→команды→final.mp4", "status": "pending_audit", "install": "не запускалось" },
+    { "repository": "digitalsamba/claude-code-video-toolkit", "role": "полный цикл идея→render", "status": "pending_audit", "install": "не запускалось" },
+    { "repository": "DojoCodingLabs/remotion-superpowers", "role": "программный монтаж (доп. движок)", "status": "pending_audit", "install": "не запускалось" },
+    { "repository": "shinpr/mcp-image", "role": "character-consistent кадры", "status": "pending_audit", "install": "не запускалось" }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "date": "2026-08-05",
+  "version": 1,
+  "resolution": "1080x1920",
+  "duration_seconds": 31,
+  "scenes": [
+    {
+      "id": "scene_e417edffe012",
+      "generator": "heygen",
+      "type": "avatar",
+      "duration": 4,
+      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/heygen/avatar_master.mp4"
+    },
+    {
+      "id": "scene_642dd429668a",
+      "generator": "higgsfield",
+      "type": "image_to_video",
+      "duration": 5,
+      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_642dd429668a.mp4"
+    },
+    {
+      "id": "scene_ea7da496766a",
+      "generator": "higgsfield",
+      "type": "image_to_video",
+      "duration": 9,
+      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_ea7da496766a.mp4"
+    },
+    {
+      "id": "scene_34f029b28715",
+      "generator": "higgsfield",
+      "type": "image_to_video",
+      "duration": 9,
+      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/broll/scene_34f029b28715.mp4"
+    },
+    {
+      "id": "scene_dfa958f5aea2",
+      "generator": "heygen",
+      "type": "avatar",
+      "duration": 4,
+      "source": "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/reels/heygen/avatar_master.mp4"
+    }
+  ],
+  "logo": "/home/user/alovlab-autocontent-2026/assets/img/logo-mark.png",
+  "subtitles": "subtitles.srt (burned)"
+}

@@ -1,0 +1,79 @@
+{
+  "date": "2026-08-05",
+  "version": 1,
+  "mode": "avatar_broll",
+  "total_duration_seconds": 31,
+  "scenes": [
+    {
+      "scene_id": "scene_e417edffe012",
+      "type": "avatar",
+      "generator": "heygen",
+      "reason": "В кадре говорит Нейромонах — нужен постоянный аватар и точная русская речь.",
+      "fallback_generator": null,
+      "requires_avatar": true,
+      "requires_generation": true,
+      "duration_seconds": 4,
+      "source_assets": [],
+      "prompt": "Один пост из идеи — это любитель. Профи достаёт три.",
+      "model": null
+    },
+    {
+      "scene_id": "scene_642dd429668a",
+      "type": "image_to_video",
+      "generator": "higgsfield",
+      "reason": "Есть готовый кадр — оживляем его управляемым cinematic image-to-video с сохранением композиции.",
+      "fallback_generator": "grok",
+      "requires_avatar": false,
+      "requires_generation": true,
+      "duration_seconds": 5,
+      "source_assets": [
+        "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/carousel/02_problem.png"
+      ],
+      "prompt": "Vertical 9:16 cinematic B-roll. Один пост — и дальше. Slow controlled camera, premium look, warm amber light, no readable text, no logos.",
+      "model": null
+    },
+    {
+      "scene_id": "scene_ea7da496766a",
+      "type": "image_to_video",
+      "generator": "higgsfield",
+      "reason": "Есть готовый кадр — оживляем его управляемым cinematic image-to-video с сохранением композиции.",
+      "fallback_generator": "grok",
+      "requires_avatar": false,
+      "requires_generation": true,
+      "duration_seconds": 9,
+      "source_assets": [
+        "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/carousel/03_insight.png"
+      ],
+      "prompt": "Vertical 9:16 cinematic B-roll. Карусель · Reels · Stories. Slow controlled camera, premium look, warm amber light, no readable text, no logos.",
+      "model": null
+    },
+    {
+      "scene_id": "scene_34f029b28715",
+      "type": "image_to_video",
+      "generator": "higgsfield",
+      "reason": "Есть готовый кадр — оживляем его управляемым cinematic image-to-video с сохранением композиции.",
+      "fallback_generator": "grok",
+      "requires_avatar": false,
+      "requires_generation": true,
+      "duration_seconds": 9,
+      "source_assets": [
+        "/home/user/alovlab-autocontent-2026/content/2026-08/2026-08-05/carousel/04_solution.png"
+      ],
+      "prompt": "Vertical 9:16 cinematic B-roll. Конфликт → форматы. Slow controlled camera, premium look, warm amber light, no readable text, no logos.",
+      "model": null
+    },
+    {
+      "scene_id": "scene_dfa958f5aea2",
+      "type": "avatar",
+      "generator": "heygen",
+      "reason": "В кадре говорит Нейромонах — нужен постоянный аватар и точная русская речь.",
+      "fallback_generator": null,
+      "requires_avatar": true,
+      "requires_generation": true,
+      "duration_seconds": 4,
+      "source_assets": [],
+      "prompt": "Следующую идею не сжигай. Размножь.",
+      "model": null
+    }
+  ]
+}

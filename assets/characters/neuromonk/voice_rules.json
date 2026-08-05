@@ -1,0 +1,13 @@
+{
+  "language": "ru",
+  "accent": "none",
+  "voice_id_env": "HEYGEN_VOICE_ID",
+  "pace": "medium, live conversational",
+  "emotion": "confidence, light challenge",
+  "delivery": "calm, human, not announcer",
+  "rules": [
+    "Не подменять русский голос англоязычным",
+    "Не выбирать случайный голос",
+    "Голос закреплён и не меняется от ролика к ролику"
+  ]
+}

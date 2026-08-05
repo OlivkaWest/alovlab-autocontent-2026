@@ -1,0 +1,15 @@
+{
+  "head": "bald, no hair, no hairstyle",
+  "skull_shape": "locked to references",
+  "beard": "groomed, medium length, not stubble",
+  "face_proportions": "locked (nose, eyes, eyebrows, ears as references)",
+  "skin": "natural texture, no plastic retouch",
+  "body": "keep build, do not slim, do not narrow shoulders",
+  "age_range": [35, 45],
+  "eye_contact": "into camera",
+  "expression": "moderate, not smiling every phrase",
+  "gestures": "restrained",
+  "light": "warm, near-black background, orange accent",
+  "aspect_ratio": "9:16",
+  "resolution": [1080, 1920]
+}

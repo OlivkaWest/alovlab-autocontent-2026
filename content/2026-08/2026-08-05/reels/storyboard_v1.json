@@ -1,0 +1,66 @@
+{
+  "date": "2026-08-05",
+  "version": 1,
+  "scenes": [
+    {
+      "id": "scene_e417edffe012",
+      "durationSeconds": 4,
+      "type": "avatar",
+      "spokenText": "Один пост из идеи — это любитель. Профи достаёт три.",
+      "onScreenText": "Любитель vs профи",
+      "visualSource": "avatar",
+      "cameraMotion": "slow push-in",
+      "transition": "cut",
+      "subtitle": "Один пост из идеи — это любитель. Профи достаёт три.",
+      "disabled": false
+    },
+    {
+      "id": "scene_642dd429668a",
+      "durationSeconds": 5,
+      "type": "broll",
+      "spokenText": "Ты берёшь нормальную тему, публикуешь один пост и идёшь искать следующую.",
+      "onScreenText": "Один пост — и дальше",
+      "visualSource": "card:1",
+      "cameraMotion": "slow pan",
+      "transition": "soft cut",
+      "subtitle": "Один пост — и ты уже ищешь новую тему",
+      "disabled": false
+    },
+    {
+      "id": "scene_ea7da496766a",
+      "durationSeconds": 9,
+      "type": "broll",
+      "spokenText": "Хотя внутри уже лежат карусель, Reels и серия Stories.",
+      "onScreenText": "Карусель · Reels · Stories",
+      "visualSource": "card:2",
+      "cameraMotion": "push-in + highlight",
+      "transition": "soft cut",
+      "subtitle": "Внутри уже лежат карусель, Reels и Stories",
+      "disabled": false
+    },
+    {
+      "id": "scene_34f029b28715",
+      "durationSeconds": 9,
+      "type": "broll",
+      "spokenText": "Сначала достань конфликт. Потом разложи его по форматам.",
+      "onScreenText": "Конфликт → форматы",
+      "visualSource": "card:3",
+      "cameraMotion": "scale key element",
+      "transition": "soft cut",
+      "subtitle": "Сначала конфликт. Потом форматы",
+      "disabled": false
+    },
+    {
+      "id": "scene_dfa958f5aea2",
+      "durationSeconds": 4,
+      "type": "avatar",
+      "spokenText": "Следующую идею не сжигай. Размножь.",
+      "onScreenText": "Размножь",
+      "visualSource": "avatar",
+      "cameraMotion": "hold",
+      "transition": "logo outro",
+      "subtitle": "Следующую идею не сжигай. Размножь.",
+      "disabled": false
+    }
+  ]
+}
