@@ -57,6 +57,19 @@ def plate_cheap():
   <path d="M56 91h28" stroke="#6c7178" stroke-width="2" stroke-linecap="round"/>
 </svg>""")
 
+def plate_gem():
+    return ("""<svg class="plate" viewBox="0 0 140 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <g stroke="#ffe2c4" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M70 44 L104 68 L70 114 L36 68 Z"/>
+    <path d="M70 44 L88 62 L70 76 L52 62 Z"/>
+    <path d="M36 68 H104 M52 62 L70 76 L88 62"/>
+  </g>
+  <g stroke="#e8862f" stroke-width="2.2" stroke-linecap="round" opacity=".9">
+    <path d="M28 46 V34 M22 40 H34"/>
+    <path d="M112 96 V86 M107 91 H117"/>
+  </g>
+</svg>""")
+
 PLAY = '<span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>'
 CAP = '<span class="reel-cap"><i></i><b></b></span>'
 
@@ -191,9 +204,10 @@ border:1px solid rgba(255,180,120,.2);box-shadow:inset 0 0 80px rgba(0,0,0,.5)}
 def render(cfg):
     ph = cfg.get("photos", {})
     def p(slot): return ph.get(slot)
+    motif = {"plate": plate, "gem": plate_gem}.get(cfg.get("motif", "plate"), plate)
 
     # 1 · cover
-    rich = reel('rich', plate_art=True, extra='vignette', photo=p('cover_rich'))
+    rich = reel('rich', plate_art=True, extra='vignette', plate_fn=motif, photo=p('cover_rich'))
     cheap = reel('cheap', plate_art=True, plate_fn=plate_cheap, photo=p('cover_cheap'))
     cl = cfg.get("cover_labels", ("как есть","как должно быть"))
     s1 = f"""    <article class="slide slide--cover slide--warm">
@@ -213,13 +227,13 @@ def render(cfg):
         <h2 class="h">{cfg['prov_h']}</h2>
         <p class="sub">{cfg['prov_sub']}</p>
       </div>
-      <div class="prov-viz">{reel('dull')}{reel('premium', plate_art=True, extra='vignette', photo=p('prov'))}{reel('dull')}</div>
+      <div class="prov-viz">{reel('dull')}{reel('premium', plate_art=True, extra='vignette', plate_fn=motif, photo=p('prov'))}{reel('dull')}</div>
     </article>"""
 
     # 3 · svyazka
     cards=""
     for i,(tag,en,h,sub) in enumerate(cfg['svyazka']):
-        thumb = reel('premium', plate_art=(i==1), photo=p(f'svyazka_{i}'))
+        thumb = reel('premium', plate_art=(i==1), plate_fn=motif, photo=p(f'svyazka_{i}'))
         cards+=(f'<div class="icard"><div><div class="ic-top"><span class="tag">{tag}</span><span class="en">{en}</span></div>'
                 f'<div class="ic-h">{h}</div><div class="ic-sub">{sub}</div></div>{thumb}</div>')
     s3 = f"""    <article class="slide">
@@ -250,7 +264,7 @@ def render(cfg):
     pik_photo = p('pik')
     hero_cls = "hero-frame reel--photo" if (pik_photo and pathlib.Path(pik_photo).exists()) else "hero-frame"
     hero_style = f' style="background-image:url(data:image/png;base64,{b64(pik_photo)})"' if (pik_photo and pathlib.Path(pik_photo).exists()) else ""
-    hero_inner = PLAY if hero_style else (plate()+PLAY)
+    hero_inner = PLAY if hero_style else (motif()+PLAY)
     s5 = f"""    <article class="slide slide--warm">
       {MARK}{snum(5)}
       <div class="eyebrow">Пик · <b>Герой недели</b></div>
@@ -348,6 +362,32 @@ CONFIGS = {
       "content/carousel-assets/restaurant/hf_20260805_135919_277be4a0-3f10-4ef1-8476-6322a52e1f50.png",
       "content/carousel-assets/restaurant/hf_20260805_135919_7bbef46e-854d-4b41-b135-d37982262e6a.png",
     ],
+  },
+
+  "jewelry": {
+    "label": "Ювелирный бренд",
+    "motif": "gem",
+    "cover_h": 'Камень настоящий.<br>Контент — <span class="a">пластик.</span>',
+    "cover_labels": ("как есть", "как должно быть"),
+    "prov_h": 'Украшение выбирают<br><span class="a">глазами.</span>',
+    "prov_sub": "В ленте камень либо горит, либо выглядит как стекло с рынка. Люкс решается за один кадр.",
+    "svyazka_eyebrow": "Ювелирный бренд",
+    "svyazka": [
+      ("Идея","Campaign Idea",'Продать не камень. Продать <span class="a">повод, который помнят.</span>',"Кольцо — это не граммы золота. Это «да», юбилей, первая большая покупка."),
+      ("Сценарий","Script Ready",'Свет <span class="a">играет</span> в камне за 10 секунд.',"Блеск, грани, движение света — история изделия без единого слова."),
+      ("Визуал","Visual System",'Не фото на белом. <span class="a">Свет,</span> в котором камень живёт.',"Глубокий фон, контровой блик, один почерк во всех роликах."),
+    ],
+    "nedelya": [
+      ("REELS","30 sec film",'Почему дорогое кольцо <span class="a">листают мимо.</span>',"Дело не в цене. В том, что оно не горит в кадре."),
+      ("КЕЙС","Content system",'<span class="a">Одна съёмка</span> — вся коллекция.',"Один вечер света → неделя роликов на каждую модель."),
+      ("AI-АВАТАР","AI avatar",'Бренд говорит с клиентом <span class="a">каждый день.</span>',"Один аватар. Десятки роликов. Голос ювелирного дома."),
+      ("BACKSTAGE","Production",'Где кончается сток и <span class="a">начинается блеск.</span>',"Идея, свет, макро и сборка — как продакшн, а не фото на телефон."),
+      ("ОФФЕР","Brand launch",'Не снимай кольцо. Собери <span class="a">витрину дома.</span>',"Одна коллекция должна работать не один пост."),
+    ],
+    "pik_h": 'Один ролик<br><span class="a">продаёт коллекцию.</span>',
+    "pik_cap": "Свет скользит по граням. Камень оживает. Тот самый блеск, за которым возвращаются.",
+    "pik_note": "Не распыляй бюджет на десять плоских фото. Собери один ролик, где камень играет.",
+    "photos": {},
   },
 }
 
