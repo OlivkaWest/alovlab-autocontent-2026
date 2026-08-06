@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import os from "node:os";
 import { chromium, type Browser } from "playwright-core";
 import { createLogger } from "../logger";
 import { cardHtml, cardFileName, CARD_WIDTH, CARD_HEIGHT } from "./template";
@@ -7,24 +8,57 @@ import type { Card } from "../store/types";
 
 const log = createLogger("render");
 
-// Ищем исполняемый Chromium: сначала env, потом преднастроенный путь Playwright.
+// Имена исполняемого файла браузера в разных сборках (Linux/macOS/Chrome for Testing).
+const CHROME_BINARIES = new Set(["chrome", "Chromium", "Google Chrome for Testing", "headless_shell"]);
+
+// Bounded-поиск бинарника Chromium внутри каталога сборки (депта ограничена).
+function findChromeBinary(root: string, depth = 0): string | undefined {
+  if (depth > 6) return undefined;
+  let entries: fs.Dirent[];
+  try {
+    entries = fs.readdirSync(root, { withFileTypes: true });
+  } catch {
+    return undefined;
+  }
+  for (const e of entries) {
+    const full = path.join(root, e.name);
+    if (e.isFile() && CHROME_BINARIES.has(e.name)) return full;
+    // .app на macOS — это каталог, заходим внутрь
+    if (e.isDirectory()) {
+      const found = findChromeBinary(full, depth + 1);
+      if (found) return found;
+    }
+  }
+  return undefined;
+}
+
+/**
+ * Ищет исполняемый Chromium в любом расположении и версии:
+ * env → преднастроенный Playwright (/opt/pw-browsers) → кэш ms-playwright
+ * (macOS ~/Library/Caches/ms-playwright, Linux ~/.cache/ms-playwright).
+ */
 function resolveChromium(): string | undefined {
   if (process.env.CHROMIUM_PATH && fs.existsSync(process.env.CHROMIUM_PATH)) {
     return process.env.CHROMIUM_PATH;
   }
-  const base = process.env.PLAYWRIGHT_BROWSERS_PATH || "/opt/pw-browsers";
-  try {
-    const dirs = fs
-      .readdirSync(base)
-      .filter((d) => d.startsWith("chromium-"))
-      .sort()
-      .reverse();
-    for (const d of dirs) {
-      const candidate = path.join(base, d, "chrome-linux", "chrome");
-      if (fs.existsSync(candidate)) return candidate;
+  const bases = [
+    process.env.PLAYWRIGHT_BROWSERS_PATH,
+    "/opt/pw-browsers",
+    path.join(os.homedir(), "Library", "Caches", "ms-playwright"),
+    path.join(os.homedir(), ".cache", "ms-playwright"),
+  ].filter(Boolean) as string[];
+
+  for (const base of bases) {
+    let dirs: string[];
+    try {
+      dirs = fs.readdirSync(base).filter((d) => d.startsWith("chromium")).sort().reverse();
+    } catch {
+      continue;
     }
-  } catch {
-    /* нет каталога — вернём undefined, playwright попробует свой дефолт */
+    for (const d of dirs) {
+      const found = findChromeBinary(path.join(base, d));
+      if (found) return found;
+    }
   }
   return undefined;
 }
