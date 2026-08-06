@@ -46,6 +46,8 @@ border:1px solid var(--line);padding:30px 28px;display:flex;flex-direction:colum
 .mark .mki{width:26px;height:26px;border-radius:7px;flex:0 0 auto;display:block}
 .mark .mw{font-weight:800;font-size:14px;color:#fff}.mark .mw b{color:var(--o2)}
 .snum{position:absolute;top:30px;right:28px;font-weight:800;font-size:12px;color:var(--dim);z-index:3;font-variant-numeric:tabular-nums}.snum b{color:var(--o2)}
+.slide-art{position:absolute;right:26px;bottom:24px;width:172px;height:172px;opacity:.42;z-index:1;pointer-events:none;color:var(--o2)}
+.slide-art svg{width:100%;height:100%}
 .eyebrow{font-weight:800;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:16px}.eyebrow b{color:var(--o2)}
 .h{font-weight:800;letter-spacing:-.028em;color:#fff;line-height:1.06;margin-top:11px}
 .h--xl{font-size:37px}.h--lg{font-size:30px}.h--md{font-size:25px}
@@ -137,6 +139,30 @@ border-radius:13px;padding:15px 24px;box-shadow:0 14px 30px -12px rgba(232,103,4
 .notes{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--dim);line-height:1.7}.notes b{color:var(--muted)}
 """
 
+def _art(inner):
+    return ('<div class="slide-art"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" '
+            'stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">' + inner + '</svg></div>')
+ART = {
+ 1: _art('<path d="M32 84C28 66 24 48 38 36C52 24 74 30 75 49C76 62 62 61 60 71C59 78 50 81 45 75"/>'
+         '<path d="M46 61C48 53 57 51 61 58"/><path d="M80 44a17 17 0 0 1 0 28" opacity=".6"/>'
+         '<path d="M88 36a27 27 0 0 1 0 44" opacity=".35"/>'),
+ 2: _art('<circle cx="40" cy="42" r="21"/><path d="M31 42h18"/><path d="M66 64h22m-8-8 8 8-8 8"/>'),
+ 3: _art('<g opacity=".45"><rect x="12" y="24" width="42" height="24" rx="9"/><path d="M22 48v9l9-9"/></g>'
+         '<g><rect x="46" y="52" width="42" height="24" rx="9" fill="rgba(255,122,51,.16)"/><path d="M78 76v9l-9-9"/></g>'),
+ 4: _art('<rect x="8" y="42" width="30" height="20" rx="8" opacity=".3"/>'
+         '<rect x="30" y="34" width="34" height="22" rx="8" opacity=".55"/>'
+         '<rect x="56" y="46" width="34" height="22" rx="8" opacity=".9"/>'),
+ 5: _art('<rect x="14" y="18" width="72" height="64" rx="11" opacity=".35"/>'
+         '<g fill="currentColor" stroke="none"><circle cx="34" cy="40" r="5"/><circle cx="66" cy="36" r="5"/>'
+         '<circle cx="40" cy="64" r="5"/><circle cx="70" cy="62" r="5"/></g>'),
+ 6: _art('<path d="M20 38h34M20 50h22" opacity=".7"/><circle cx="62" cy="56" r="16"/><path d="M74 68l14 14"/>'),
+ 7: _art('<path d="M16 24h68l-24 30v20l-20 8V54z"/>'
+         '<g fill="currentColor" stroke="none" opacity=".85"><circle cx="30" cy="17" r="3"/><circle cx="44" cy="17" r="3"/>'
+         '<circle cx="58" cy="17" r="3"/><circle cx="70" cy="17" r="3"/><circle cx="50" cy="84" r="4"/></g>'),
+ 8: _art('<rect x="26" y="22" width="46" height="58" rx="8"/><path d="M36 40h26M36 52h26M36 64h16" opacity=".7"/>'
+         '<path d="M71 19l2.6 7.4 7.4 2.6-7.4 2.6-2.6 7.4-2.6-7.4-7.4-2.6 7.4-2.6z" fill="rgba(255,122,51,.22)"/>'),
+}
+
 def chip(t, tag, on=False):
     return f'<div class="chip{" on" if on else ""}"><span class="av"></span><span class="tx">{t}</span><span class="tag">{tag}</span></div>'
 
@@ -144,7 +170,7 @@ def render(cfg):
     S = []
     # 1 · cover — живые боли с источниками
     S.append(f"""<article class="slide">
-      {MARK}{snum(1)}
+      {MARK}{snum(1)}{ART[1]}
       <div class="mid">
         <div class="eyebrow">AlovLab · как найти тему</div>
         <h2 class="h h--xl">Ты придумываешь темы.<br>А их надо <span class="a">подслушивать.</span></h2>
@@ -159,7 +185,7 @@ def render(cfg):
 
     # 2 · проблема — микро-схема + два блока
     S.append(f"""<article class="slide slide--plain">
-      {MARK}{snum(2)}
+      {MARK}{snum(2)}{ART[2]}
       <div class="mid">
         <div class="eyebrow"><b>Проблема</b></div>
         <h2 class="h h--lg">Ты выжимаешь тему<br><span class="a">из себя.</span></h2>
@@ -180,7 +206,7 @@ def render(cfg):
 
     # 3 · причина — до/после
     S.append(f"""<article class="slide">
-      {MARK}{snum(3)}
+      {MARK}{snum(3)}{ART[3]}
       <div class="mid">
         <div class="eyebrow"><b>Причина</b></div>
         <h2 class="h h--lg">Зритель не узнаёт<br>чужую тему как <span class="a">свою.</span></h2>
@@ -194,7 +220,7 @@ def render(cfg):
 
     # 4 · ошибка — вежливые ответы друзей + вывод
     S.append(f"""<article class="slide slide--plain">
-      {MARK}{snum(4)}
+      {MARK}{snum(4)}{ART[4]}
       <div class="mid">
         <div class="eyebrow"><b>Ошибка</b></div>
         <h2 class="h h--lg">Опрос друзей — это<br>не исследование. Это <span class="a">эхо.</span></h2>
@@ -210,7 +236,7 @@ def render(cfg):
 
     # 5 · решение — 4 источника с «что искать»
     S.append(f"""<article class="slide">
-      {MARK}{snum(5)}
+      {MARK}{snum(5)}{ART[5]}
       <div class="mid">
         <div class="eyebrow"><b>Решение</b></div>
         <h2 class="h h--md">Боль лежит в <span class="a">четырёх местах.</span></h2>
@@ -226,7 +252,7 @@ def render(cfg):
 
     # 6 · пример — кейсовый разбор
     S.append(f"""<article class="slide slide--plain">
-      {MARK}{snum(6)}
+      {MARK}{snum(6)}{ART[6]}
       <div class="mid">
         <div class="eyebrow"><b>Готовый пример</b></div>
         <h2 class="h h--md">Дословная боль —<br>на неё нельзя <span class="a">не кликнуть.</span></h2>
@@ -245,7 +271,7 @@ def render(cfg):
 
     # 7 · шаг — критерии + алгоритм + чек
     S.append(f"""<article class="slide">
-      {MARK}{snum(7)}
+      {MARK}{snum(7)}{ART[7]}
       <div class="mid">
         <div class="eyebrow"><b>Практический шаг</b></div>
         <h2 class="h h--md">Собери <span class="a">10 болей.</span> Выбери <span class="a">3 острые.</span></h2>
@@ -265,7 +291,7 @@ def render(cfg):
 
     # 8 · CTA — ценность + крупная кнопка
     S.append(f"""<article class="slide slide--cta">
-      {MARK}{snum(8)}
+      {MARK}{snum(8)}{ART[8]}
       <div class="cta-mid">
         <img class="cta-logo" src="data:image/png;base64,{LOGO}" alt="AlovLab">
         <h2 class="cta-h">Забери банк болей<br>и промпт для <span class="a">Perplexity.</span></h2>
