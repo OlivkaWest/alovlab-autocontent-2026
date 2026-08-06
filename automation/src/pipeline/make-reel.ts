@@ -527,7 +527,8 @@ export async function makeReel(date: string, opts: MakeReelOptions = {}): Promis
   const brollClips: Record<string, string> = {};
 
   // Озвучка моим голосом (ElevenLabs) — станет мастер-дорожкой монтажа.
-  if (voiceReady().ready) {
+  // Только при РЕАЛЬНОМ ElevenLabs: mock даёт тишину и перебил бы живой голос HeyGen.
+  if (voiceReady().ready && !config.elevenlabs.mock) {
     const narration = script.scenes.filter((s) => !s.disabled).map((s) => s.spokenText).filter(Boolean).join("\n\n");
     const vo = await makeVoiceover(date, narration, { label: "reels", delivery: o.provocative ? "sharp" : "confident" });
     if (vo.ok && vo.fullPath) {
