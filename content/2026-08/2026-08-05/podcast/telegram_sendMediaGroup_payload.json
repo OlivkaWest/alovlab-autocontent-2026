@@ -1,0 +1,36 @@
+{
+  "method": "sendMediaGroup",
+  "chat_id": "(TELEGRAM_CHANNEL_ID)",
+  "media": [
+    {
+      "type": "photo",
+      "media": "01_cover.png",
+      "caption": "<b>Ты не создаёшь мало контента. Ты слишком быстро сжигаешь хорошие идеи.</b>\n\nРазобрал тему «Одна идея — это не один пост» голосом.\n\nСохрани. Следующую идею не сжигай.\nhttps://t.me/AlovLab",
+      "parse_mode": "HTML"
+    },
+    {
+      "type": "photo",
+      "media": "02_problem.png"
+    },
+    {
+      "type": "photo",
+      "media": "03_insight.png"
+    },
+    {
+      "type": "photo",
+      "media": "04_solution.png"
+    },
+    {
+      "type": "photo",
+      "media": "05_example.png"
+    },
+    {
+      "type": "photo",
+      "media": "06_action.png"
+    },
+    {
+      "type": "photo",
+      "media": "07_cta.png"
+    }
+  ]
+}

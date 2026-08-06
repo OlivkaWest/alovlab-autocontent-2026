@@ -6,8 +6,10 @@ import { voiceReady, config } from "../config";
 import { buildVoiceScript, voiceScriptToMd } from "../elevenlabs/voice-script";
 import { generateVoiceover } from "../elevenlabs/client";
 import { buildCaption } from "../publishing/telegram/caption";
-import { publish } from "../publishing/telegram/client";
+import { publish, publishMediaGroup } from "../publishing/telegram/client";
 import { probe } from "../video/verify";
+import { renderCards } from "../carousel/render";
+import { Card } from "../store/types";
 import { createLogger } from "../logger";
 
 const log = createLogger("podcast");
@@ -97,6 +99,34 @@ export async function makePodcast(date: string, opts: { format?: PodcastFormat }
   const captionPath = path.join(pDir, "telegram_caption.md");
   fs.writeFileSync(captionPath, caption, "utf8");
 
+  // Карточки карусели → PNG (для альбома в Telegram). Требует Chromium (Playwright).
+  let cardPngs: string[] = content.carousel_png;
+  if (!cardPngs.length && content.cards.length) {
+    try {
+      const roles = ["cover", "problem", "insight", "solution", "example", "action", "cta"];
+      const cards: Card[] = content.cards.map((dc, i) =>
+        Card.parse({
+          id: `card_${i}`,
+          index: i,
+          role: (dc.role && roles.includes(dc.role) ? dc.role : roles[Math.min(i, roles.length - 1)]) as Card["role"],
+          title: dc.title,
+          body: dc.body,
+          accent: "",
+        })
+      );
+      const rendered = await renderCards(cards, subDir(date, "carousel"));
+      cardPngs = rendered.map((r) => r.file);
+      appendLog(date, `Карточки для поста: ${cardPngs.length} PNG`);
+    } catch (err) {
+      incomplete.push("Карточки карусели не отрисованы (нужен Chromium: npx playwright install chromium).");
+      appendLog(date, `Карточки не отрисованы: ${String(err).slice(0, 120)}`);
+    }
+  }
+
+  // Публикуем: сначала альбом карточек, затем аудио твоим голосом.
+  let album: Awaited<ReturnType<typeof publishMediaGroup>> | null = null;
+  if (cardPngs.length) album = await publishMediaGroup(cardPngs, caption, pDir);
+
   const pub = await publish(
     {
       method: "sendAudio",
@@ -109,8 +139,10 @@ export async function makePodcast(date: string, opts: { format?: PodcastFormat }
     pDir
   );
 
+  if (album && !album.ok && album.error) incomplete.push(`Альбом карточек не отправлен: ${album.error}`);
+  if (pub && !pub.ok && pub.error) incomplete.push(`Аудио не отправлено: ${pub.error}`);
   setStatus(date, content.found ? "content_ready" : "planned", "podcast_ready", `${format}, tg:${pub.mode}`);
-  log.info(`Подкаст ${date} готов (${format}), telegram ${pub.mode}`);
+  log.info(`Подкаст ${date} готов (${format}), карточек: ${cardPngs.length}, telegram ${pub.mode}`);
 
   return {
     ok: Boolean(audioPath),

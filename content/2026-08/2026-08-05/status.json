@@ -31,7 +31,12 @@
       "at": "2026-08-05T16:45:27.854Z",
       "action": "podcast_ready",
       "detail": "short, tg:draft"
+    },
+    {
+      "at": "2026-08-06T18:29:17.311Z",
+      "action": "podcast_ready",
+      "detail": "short, tg:draft"
     }
   ],
-  "updated_at": "2026-08-05T16:45:27.854Z"
+  "updated_at": "2026-08-06T18:29:17.311Z"
 }

@@ -91,6 +91,44 @@ export async function publish(input: PublishInput, outDir: string): Promise<Publ
   }
 }
 
+/**
+ * Публикация альбома фото (карточки карусели) через sendMediaGroup.
+ * До 10 фото за раз. Подпись — на первой карточке. Draft — только payload.
+ */
+export async function publishMediaGroup(photos: string[], caption: string, outDir: string): Promise<PublishResult> {
+  fs.mkdirSync(outDir, { recursive: true });
+  const files = photos.filter((p) => fs.existsSync(p)).slice(0, 10);
+  const media = files.map((f, i) => ({
+    type: "photo",
+    media: `attach://photo${i}`,
+    ...(i === 0 && caption ? { caption, parse_mode: "HTML" } : {}),
+  }));
+  const payloadPath = path.join(outDir, "telegram_sendMediaGroup_payload.json");
+  fs.writeFileSync(payloadPath, JSON.stringify({ method: "sendMediaGroup", chat_id: config.telegram.channelId || "(TELEGRAM_CHANNEL_ID)", media: media.map((m, i) => ({ ...m, media: path.basename(files[i]) })) }, null, 2), "utf8");
+
+  if (config.telegram.publishMode !== "live") {
+    log.info(`[draft] sendMediaGroup (${files.length} фото) → payload сохранён`);
+    return { mode: "draft", ok: true, method: "sendPhoto", payloadPath };
+  }
+  if (!config.telegram.botToken || !config.telegram.channelId) {
+    return { mode: "live", ok: false, method: "sendPhoto", error: "нет TELEGRAM_BOT_TOKEN/CHANNEL_ID", payloadPath };
+  }
+  if (!files.length) return { mode: "live", ok: false, method: "sendPhoto", error: "нет карточек для альбома", payloadPath };
+
+  try {
+    const form = new FormData();
+    form.append("chat_id", config.telegram.channelId);
+    form.append("media", JSON.stringify(media));
+    files.forEach((f, i) => form.append(`photo${i}`, new Blob([fs.readFileSync(f)]), path.basename(f)));
+    const res = await fetch(`https://api.telegram.org/bot${config.telegram.botToken}/sendMediaGroup`, { method: "POST", body: form });
+    const data: any = await res.json().catch(() => ({}));
+    if (!res.ok || !data.ok) return { mode: "live", ok: false, method: "sendPhoto", error: `Telegram: ${data.description || res.status}`, payloadPath };
+    return { mode: "live", ok: true, method: "sendPhoto", messageId: data.result?.[0]?.message_id, payloadPath };
+  } catch (err) {
+    return { mode: "live", ok: false, method: "sendPhoto", error: String(err), payloadPath };
+  }
+}
+
 /** Проверки перед первой реальной публикацией. */
 export function livePreflight(): { ok: boolean; issues: string[] } {
   const issues: string[] = [];
