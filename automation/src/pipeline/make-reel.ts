@@ -394,7 +394,7 @@ export async function stepAssemble(
     const scene = active[i];
     const route = plan.scenes.find((r) => r.scene_id === scene.id);
     const seg = path.join(segDir, `scene_${String(i + 1).padStart(2, "0")}.mp4`);
-    const broll = brollClips[scene.id];
+    const broll = brollClips[scene.id] || diskBroll(date, scene.id);
     const cardPng = route ? cardPngForRoute(route, pngs) : pngs[0] || null;
     try {
       if (broll && fs.existsSync(broll) && isRealVideo(broll)) {
@@ -457,6 +457,18 @@ export async function stepAssemble(
     incomplete.push("Финал собран, но не прошёл автоматическую проверку — см. verify.");
   }
   return { finalPath, srtPath, editPlanPath, verify, incomplete };
+}
+
+// Ищет готовый B-roll-клип сцены на диске (например, реальную генерацию Higgsfield/Grok,
+// положенную в reels/broll/<scene_id>*.mp4). Берёт последнюю версию.
+function diskBroll(date: string, sceneId: string): string | undefined {
+  const dir = path.join(reelsDir(date), "broll");
+  if (!fs.existsSync(dir)) return undefined;
+  const matches = fs
+    .readdirSync(dir)
+    .filter((f) => f.startsWith(sceneId) && f.endsWith(".mp4"))
+    .sort();
+  return matches.length ? path.join(dir, matches[matches.length - 1]) : undefined;
 }
 
 function isRealVideo(file: string): boolean {
