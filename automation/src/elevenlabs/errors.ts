@@ -6,6 +6,7 @@ export type ElevenErrorKind =
   | "timeout"
   | "network"
   | "bad_response"
+  | "bad_request"
   | "quota";
 
 const RETRIABLE: ElevenErrorKind[] = ["rate_limit", "timeout", "network", "bad_response"];
@@ -18,6 +19,7 @@ const HUMAN: Record<ElevenErrorKind, string> = {
   timeout: "ElevenLabs не ответил вовремя. Повторим.",
   network: "Сеть недоступна. Повторим.",
   bad_response: "ElevenLabs вернул неожиданный ответ. Повторим.",
+  bad_request: "ElevenLabs отклонил запрос (проверь голос, model_id и формат).",
   quota: "Исчерпан лимит символов ElevenLabs.",
 };
 

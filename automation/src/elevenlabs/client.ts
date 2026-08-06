@@ -54,8 +54,11 @@ export async function generateSegment(text: string, dest: string): Promise<strin
       if (res.status === 404) throw new ElevenError("voice_not_found");
       if (res.status === 429 && attempt < 3) { await sleep(delay); delay *= 2; continue; }
       if (!res.ok) {
+        const body = (await res.text().catch(() => "")).slice(0, 300);
+        // 400/422 — ошибка запроса, повторять бессмысленно; показываем причину.
+        if (res.status === 400 || res.status === 422) throw new ElevenError("bad_request", body, res.status);
         if (res.status >= 500 && attempt < 3) { await sleep(delay); delay *= 2; continue; }
-        throw new ElevenError("bad_response", `HTTP ${res.status}`, res.status);
+        throw new ElevenError("bad_response", `HTTP ${res.status}: ${body}`, res.status);
       }
       const buf = Buffer.from(await res.arrayBuffer());
       if (buf.length < 256) throw new ElevenError("bad_response", "пустое аудио");
