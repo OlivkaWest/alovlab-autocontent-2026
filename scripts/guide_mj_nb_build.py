@@ -784,6 +784,168 @@ lib_paginate("Не перегенерируй — исправляй", "Correcti
   "Проблема → причина → correction-промпт → что проверить.",
   [corrcard(i+1, *c) for i, c in enumerate(CORR)], per=4)
 
+# ============ БАТЧ 3 · СКВОЗНОЙ КЕЙС + МИНИ-КЕЙСЫ + ФИНАЛ ============
+B3CSS = r"""
+.fr{border:1px solid var(--line);border-radius:13px;padding:12px 15px;margin:9px 0;background:#fff}
+.fr .hd{display:flex;align-items:baseline;gap:9px;margin-bottom:6px;flex-wrap:wrap}
+.fr .num{font-weight:800;font-size:11pt;color:var(--o)}
+.fr .nm{font-weight:800;font-size:11pt;color:var(--ink)}
+.fr .tk{font-size:8.6pt;color:var(--muted)}
+.fr .blk{background:var(--dark);border-radius:9px;padding:9px 12px;margin:6px 0}
+.fr .blk .l{font-weight:800;font-size:6.8pt;letter-spacing:.08em;text-transform:uppercase;color:var(--o2);margin-bottom:5px}
+.fr .blk code{font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:8pt;line-height:1.45;color:#ffd9b8;white-space:pre-wrap;word-break:break-word;display:block}
+.fr .mrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.fr .mi{font-size:7.8pt;background:#f7f1e8;border:1px solid var(--line);border-radius:8px;padding:4px 9px}
+.fr .mi b{color:var(--o);text-transform:uppercase;letter-spacing:.03em;font-size:6.6pt;margin-right:4px}
+.stg{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.stg .s{font-size:8.4pt;font-weight:700;color:var(--body);background:#fff;border:1px solid var(--line);border-radius:9px;padding:6px 11px}
+.stg .s b{color:var(--o);margin-right:5px}
+.cf{display:grid;grid-template-columns:96px 1fr 1fr;gap:10px;align-items:start;border-top:1px solid var(--line2);padding:9px 0}
+.cf:first-of-type{border-top:none}
+.cf .cn{font-weight:800;font-size:9.4pt;color:var(--ink);line-height:1.2}
+.cf .cb{font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace;font-size:8pt;line-height:1.45;color:var(--body)}
+.cf .cb b{font-family:'Manrope',system-ui,sans-serif;font-size:6.8pt;text-transform:uppercase;letter-spacing:.04em;color:var(--o);display:block;margin-bottom:2px}
+"""
+CSS = CSS + B3CSS
+
+def framecard(n, name, task, mj, nb, ref, lock, corr):
+    return (f'<div class="fr"><div class="hd"><span class="num">{n:02d}</span><span class="nm">{name}</span>'
+            f'<span class="tk">· {task}</span></div>'
+            f'<div class="blk"><div class="l">Midjourney · создать</div><code>{mj}</code></div>'
+            f'<div class="blk"><div class="l">Nano Banana · довести</div><code>{nb}</code></div>'
+            f'<div class="mrow"><span class="mi"><b>Reference</b>{ref}</span>'
+            f'<span class="mi"><b>Lock</b>{lock}</span><span class="mi"><b>Correction</b>{corr}</span></div></div>')
+
+# --- обзор сквозного проекта ---
+addpage("Сквозной проект · ресторан", """
+  <span class="kick">Сквозной проект</span>
+  <h2>Кампания авторского ресторана: 6 кадров</h2>
+  <p class="lede2">Собираем серию из шести вертикальных кадров в одном визуальном языке — по Style Bible со стр. 17. Шеф ведёт как герой, блюда и интерьер держат атмосферу.</p>
+  <div class="flow">
+    <div class="node"><b>Шеф</b><span>герой</span></div><div class="arr">·</div>
+    <div class="node"><b>Гребешок</b></div><div class="arr">·</div>
+    <div class="node"><b>Интерьер</b></div><div class="arr">·</div>
+    <div class="node"><b>Руки</b></div><div class="arr">·</div>
+    <div class="node"><b>Трюфель</b></div><div class="arr">·</div>
+    <div class="node"><b>Hero</b><span>финал</span></div>
+  </div>
+  <span class="kick" style="display:block;margin-top:6px">Маршрут кампании</span>
+  <div class="stg">
+    <span class="s"><b>A</b>visual language в Midjourney</span>
+    <span class="s"><b>B</b>выбрать master-frame</span>
+    <span class="s"><b>C</b>Style Bible (стр. 17)</span>
+    <span class="s"><b>D</b>зафиксировать героя</span>
+    <span class="s"><b>E</b>довести кадры в Nano Banana</span>
+    <span class="s"><b>F</b>собрать серию</span>
+    <span class="s"><b>G</b>first frames под видео</span>
+  </div>
+  <div class="callout result"><div class="h">Логика связки</div><p>Master-кадр шефа даёт лицо (<code style="font-family:ui-monospace,monospace;font-size:9pt;background:#f1e9db;padding:1px 5px;border-radius:4px;color:#8a5a2a">--oref</code>) и стиль (<code style="font-family:ui-monospace,monospace;font-size:9pt;background:#f1e9db;padding:1px 5px;border-radius:4px;color:#8a5a2a">--sref</code>). Дальше каждый кадр рождается в Midjourney и доводится в Nano Banana под один свет и грейд.</p></div>
+""")
+
+FR = [
+ (1,"Шеф","master-кадр героя",
+  "portrait of a focused chef, warm kitchen light, dark background, hands near a plate, 50mm --ar 4:5 --style raw --stylize 150",
+  "KEEP the chef's face 1:1. Place into the restaurant pass with warm amber light, add contact shadow.",
+  "этот кадр → <code>--oref</code> лица","лицо шефа","keep face 1:1, no beautify"),
+ (2,"Гребешок","сигнатурное блюдо",
+  "seared scallop on dark slate, warm amber side light, rising steam, glossy reduction sauce --ar 4:5 --style raw --stylize 200 --sref [master]",
+  "KEEP the dish 1:1. Match light and grade to the series master frame.",
+  "<code>--sref</code> master","блюдо","dish stays 1:1"),
+ (3,"Интерьер","атмосфера зала",
+  "restaurant interior at dusk, candlelight, dark wood and brass, deep perspective, bokeh --ar 4:5 --style raw --stylize 180 --sref [master]",
+  "KEEP room geometry. Warm the palette to match the series. No morphing walls.",
+  "<code>--sref</code> master","геометрия","keep geometry, warm palette"),
+ (4,"Руки","деталь-история",
+  "chef's hands finishing a plate, warm amber light, dark linen, subtle steam, 50mm --ar 4:5 --style raw --stylize 150",
+  "KEEP correct hand anatomy, five fingers. Match light to the series.",
+  "<code>--sref</code> master","анатомия рук","fix hands, five fingers"),
+ (5,"Трюфель","крупный герой",
+  "luxury truffle dish, warm golden highlight travelling the rim, soft steam, near-black background --ar 4:5 --style raw --stylize 180 --sref [master]",
+  "KEEP the dish 1:1. Match to the series light, soft warm highlight, no fire.",
+  "<code>--sref</code> master","блюдо","dish 1:1, no fire"),
+ (6,"Hero shot","финал + текст",
+  "restaurant campaign key visual, signature dish centered, dramatic single warm light, deep shadows, headline space --ar 4:5 --style raw --stylize 160",
+  "KEEP the dish 1:1. Add a legible headline in warm premium type, correct spelling. Use Nano Banana Pro.",
+  "<code>--sref</code> master + Pro","блюдо + текст","text legible, correct spelling"),
+]
+for i in range(0, len(FR), 2):
+    head = ('<span class="kick">Этап A–E · кадр за кадром</span><h2>Создать в Midjourney, довести в Nano Banana</h2>'
+            '<p class="lede2">Для каждого кадра: MJ рождает, Nano Banana доводит под серию. Reference, lock и correction — рядом.</p>' if i == 0 else '')
+    addpage("Сквозной проект · кадры", head + "".join(framecard(*f) for f in FR[i:i+2]))
+
+# --- этап F–G ---
+addpage("Сквозной проект · серия и видео", """
+  <span class="kick">Этап F–G</span>
+  <h2>Собрать серию и подготовить кадры под видео</h2>
+  <p class="lede2">Шесть кадров готовы в одном языке. Теперь проверяем их как единую кампанию и готовим к передаче в видеомодели.</p>
+  <div class="callout check"><div class="h">F · серия читается как одна кампания</div>
+    <div class="row">Один свет и грейд на всех шести кадрах</div>
+    <div class="row">Лицо шефа совпадает во всех кадрах, где он есть</div>
+    <div class="row">Блюда не деформированы, руки анатомичны</div>
+    <div class="row">Текст на hero-кадре читаем, без опечаток</div>
+    <div class="row">Все кадры 4:5 (лента) и продублированы в 9:16 под видео</div>
+  </div>
+  <h3>G · first frames под Image-to-Video</h3>
+  <ul>
+    <li><strong>Формат.</strong> Продублируй кадры в 9:16 — это первый кадр будущего клипа.</li>
+    <li><strong>Воздух под движение.</strong> Оставь место сверху под пар и наезд камеры.</li>
+    <li><strong>Куда дальше.</strong> Готовые кадры уходят в Higgsfield / Kling / Seedance — это следующий этап конвейера AlovLab.</li>
+  </ul>
+  <div class="callout result"><div class="h">Что на выходе</div><p>Единая ресторанная кампания из шести кадров, собранная связкой Midjourney + Nano Banana — и готовая продолжиться в видео.</p></div>
+""")
+
+# --- 3 мини-кейса ---
+def casepage(section, title, task, glue, frames):
+    rows = "".join(f'<div class="cf"><div class="cn">{nm}</div>'
+                   f'<div class="cb"><b>Midjourney</b>{mj}</div><div class="cb"><b>Nano Banana</b>{nb}</div></div>'
+                   for nm, mj, nb in frames)
+    return addpage(section, f"""
+  <span class="kick">Мини-кейс</span>
+  <h2>{title}</h2>
+  <p class="lede2">{task}</p>
+  {rows}
+  <div class="callout result"><div class="h">Чем держится серия</div><p>{glue}</p></div>
+""")
+
+casepage("Мини-кейс · личный бренд", "Личный бренд эксперта",
+  "Задача: линейка постов с одним лицом — обложка, тёмная студия, живой кадр.",
+  "Master-кадр лица → <code style=\"font-family:ui-monospace,monospace;font-size:9pt;background:#f1e9db;padding:1px 5px;border-radius:4px;color:#8a5a2a\">--oref</code> в Midjourney и «KEEP face 1:1» в Nano Banana; единый <code style=\"font-family:ui-monospace,monospace;font-size:9pt;background:#f1e9db;padding:1px 5px;border-radius:4px;color:#8a5a2a\">--sref</code> держит свет и грейд.",
+  [("Обложка-портрет","editorial expert portrait, gradient bg, rim light, headline space --ar 4:5 --style raw --stylize 140","KEEP face 1:1, place on brand gradient, keep left space for title"),
+   ("Тёмная студия","studio portrait, near-black bg, warm side light --ar 4:5 --style raw --stylize 120 --sref [master]","KEEP face and outfit, match series light"),
+   ("Lifestyle","candid lifestyle in sunlit office, 35mm --ar 4:5 --stylize 170","KEEP face 1:1, integrate with contact shadow")])
+
+casepage("Мини-кейс · физический товар", "Физический товар",
+  "Задача: карточка и реклама одного товара — hero, lifestyle, marketplace.",
+  "Product Lock: форма, логотип и этикетка 1:1 во всех кадрах (стр. 16); единый свет и палитра держат линейку.",
+  [("Hero shot","product hero on dark gradient, soft rim light, reflection --ar 4:5 --style raw --stylize 120","KEEP product, label, logo 1:1, premium bg"),
+   ("Lifestyle","product on a breakfast table, morning light --ar 4:5 --stylize 170","KEEP product 1:1, add natural context and shadow"),
+   ("Карточка","— (собираем в Nano Banana)","KEEP product 1:1, clean gradient, space for title and price")])
+
+casepage("Мини-кейс · недвижимость / B2B", "Недвижимость и B2B",
+  "Задача: кампания объекта и услуги — фасад, интерьер, основатель.",
+  "Единый <code style=\"font-family:ui-monospace,monospace;font-size:9pt;background:#f1e9db;padding:1px 5px;border-radius:4px;color:#8a5a2a\">--sref</code> стиля и палитра держат серию; лицо основателя — через <code style=\"font-family:ui-monospace,monospace;font-size:9pt;background:#f1e9db;padding:1px 5px;border-radius:4px;color:#8a5a2a\">--oref</code> и «KEEP face 1:1».",
+  [("Фасад · blue hour","modern architecture at blue hour, glass facade, warm interior glow, symmetrical --ar 16:9 --style raw --stylize 130","KEEP geometry, match sky and glow to series"),
+   ("Интерьер","corporate interior, warm daylight, clean lines --ar 16:9 --style raw --stylize 120 --sref [master]","KEEP geometry, unify palette"),
+   ("Основатель","founder portrait, bright office bokeh, soft daylight, 85mm --ar 4:5 --style raw --stylize 130","KEEP face 1:1, integrate light")])
+
+# --- финал / CTA ---
+P.append(f"""<section class="page page--dark" style="justify-content:center;text-align:center">
+  <img src="data:image/png;base64,{LOGO}" style="width:52px;height:52px;border-radius:13px;margin:0 auto">
+  <h2 style="color:#fff;font-size:26pt;line-height:1.1;margin:18px 0 8px">Ты собрал не промпты.<br>Ты собрал <span style="color:var(--o2)">систему.</span></h2>
+  <p style="color:#b9ad9b;font-size:11pt;line-height:1.5;max-width:48ch;margin:0 auto 18px">Midjourney создаёт мир, Nano Banana его удерживает и доводит, серия говорит одним языком — и кадры готовы уйти в видео. Дальше — этап видеогенерации конвейера AlovLab.</p>
+  <div style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-bottom:18px">
+    <span style="font-size:9pt;font-weight:700;color:#e8dccb;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:6px 13px">20 промптов MJ</span>
+    <span style="font-size:9pt;font-weight:700;color:#e8dccb;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:6px 13px">25 промптов Nano Banana</span>
+    <span style="font-size:9pt;font-weight:700;color:#e8dccb;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:6px 13px">20 correction</span>
+    <span style="font-size:9pt;font-weight:700;color:#e8dccb;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:6px 13px">Lock-шаблоны + Style Bible</span>
+  </div>
+  <div style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap">
+    <span style="font-weight:800;font-size:11pt;color:#160e07;background:linear-gradient(150deg,var(--o2),var(--o));padding:11px 18px;border-radius:10px">Промпты и разборы → t.me/AlovLab</span>
+    <span style="font-weight:800;font-size:11pt;color:var(--o2);border:1px solid rgba(232,103,42,.5);padding:11px 18px;border-radius:10px">VK · vk.com/alovlab</span>
+    <span style="font-weight:800;font-size:11pt;color:var(--o2);border:1px solid rgba(232,103,42,.5);padding:11px 18px;border-radius:10px">alovlab.ru</span>
+  </div>
+</section>""")
+
 HTML = f'<meta charset="utf-8"><title>Midjourney + Nano Banana · система визуалов · AlovLab</title><style>{CSS}</style>' + "\n".join(P)
 OUT.write_text(HTML, encoding="utf-8")
 print("HTML:", OUT, f"{OUT.stat().st_size//1024} KB", "| pages:", len(P))
