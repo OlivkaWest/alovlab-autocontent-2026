@@ -427,6 +427,363 @@ P.append(page("Визуальный паспорт проекта", 17,
   '</div>'
   '<p class="note">Дальше в этой методичке весь сквозной кейс собирается ровно по этому паспорту — так серия и остаётся одной кампанией.</p>'))
 
+# ============ БАТЧ 2 · БИБЛИОТЕКИ ПРОМПТОВ ============
+LIBCSS = r"""
+.lc{border:1px solid var(--line);border-radius:13px;padding:12px 15px;margin:9px 0;background:#fff}
+.lc .hd{display:flex;align-items:baseline;gap:9px;margin-bottom:2px;flex-wrap:wrap}
+.lc .num{font-weight:800;font-size:11pt;color:var(--o)}
+.lc .cat{font-weight:800;font-size:6.8pt;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:var(--o-tint);padding:3px 8px;border-radius:20px}
+.lc .task{font-weight:800;font-size:11pt;color:var(--ink);line-height:1.15}
+.lc .prm{background:var(--dark);border-radius:10px;padding:10px 12px;margin:7px 0}
+.lc .prm code{font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:8.4pt;line-height:1.5;color:#ffd9b8;white-space:pre-wrap;word-break:break-word;display:block}
+.lc .prm code b{color:#fff;font-weight:700}
+.lc .ru{font-size:8.8pt;line-height:1.38;color:var(--body);margin:5px 0}
+.lc .ru b{color:var(--ink)}
+.lc .meta{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.lc .mi{font-size:7.8pt;line-height:1.3;background:#f7f1e8;border:1px solid var(--line);border-radius:8px;padding:5px 9px;max-width:100%}
+.lc .mi b{color:var(--o);text-transform:uppercase;letter-spacing:.03em;font-size:6.6pt;margin-right:4px}
+.lc .fix{font-size:8pt;line-height:1.4;color:var(--body);background:#fbeeea;border:1px solid #f0cabb;border-radius:9px;padding:7px 11px;margin-top:6px}
+.lc .fix b{color:#c0492a;text-transform:uppercase;font-size:6.6pt;letter-spacing:.03em;margin-right:4px}
+.lc .fix .cx{color:#3f7d34;font-family:ui-monospace,Menlo,monospace;font-size:7.6pt}
+.catband{background:linear-gradient(150deg,var(--o-tint),#fff);border:1px solid #f2d3bf;border-radius:11px;padding:10px 15px;margin:10px 0 4px}
+.catband b{font-weight:800;font-size:11pt;color:var(--ink)}.catband span{font-size:9pt;color:var(--muted);margin-left:8px}
+"""
+CSS = CSS + LIBCSS
+
+def addpage(section, inner):
+    P.append(page(section, len(P)+1, inner))
+
+def libcard(n, cat, task, code, ru, variable, keep, ref, err, fix):
+    return (f'<div class="lc"><div class="hd"><span class="num">{n:02d}</span>'
+            f'<span class="cat">{cat}</span><span class="task">{task}</span></div>'
+            f'<div class="prm"><code>{code}</code></div>'
+            f'<div class="ru">{ru}</div>'
+            f'<div class="meta"><span class="mi"><b>Переменная</b>{variable}</span>'
+            f'<span class="mi"><b>Не менять</b>{keep}</span><span class="mi"><b>Референс</b>{ref}</span></div>'
+            f'<div class="fix"><b>Ошибка</b>{err} <b class="cx" style="color:#3f7d34">→ Правка</b> <span class="cx">{fix}</span></div></div>')
+
+def lib_paginate(section, kick, title, intro, cards, per=2):
+    for i in range(0, len(cards), per):
+        head = (f'<span class="kick">{kick}</span><h2>{title}</h2><p class="lede2">{intro}</p>' if i == 0 else '')
+        addpage(section, head + "".join(cards[i:i+per]))
+
+# ---- Библиотека Midjourney (20) ----
+MJ = [
+ (1,"A · Личный бренд","Премиальный портрет эксперта",
+  "editorial portrait of a male expert, calm confident gaze, dark charcoal studio, warm amber key light "
+  "from camera-left, subtle rim light, 85mm look, matte skin texture, deep brown palette, quiet-luxury mood "
+  "--ar 4:5 --style raw --stylize 150",
+  "База личного бренда: спокойный статус, тёплый ключевой свет слева, матовая кожа.",
+  "пол, возраст, одежда","свет и палитру","<code>--oref</code> лицо",
+  "пластиковая кожа","add: natural skin texture, visible pores, no retouch"),
+ (2,"A · Личный бренд","Тёмная студийная серия",
+  "studio portrait, deep near-black background, single warm amber side light, medium close-up, 85mm, "
+  "cinematic color grade --ar 4:5 --style raw --stylize 120 --sref [ссылка на master-кадр]",
+  "Серия в одном стиле: <code>--sref</code> с master-кадра держит единый свет и грейд.",
+  "поза, ракурс","фон и свет","<code>--sref</code> стиль",
+  "кадры вразнобой","--sref одного мастера + --sw 100"),
+ (3,"A · Личный бренд","Lifestyle-портрет",
+  "candid lifestyle portrait of an entrepreneur in a sunlit loft office, natural window light, "
+  "shallow depth of field, warm neutral palette, documentary feel, 35mm --ar 4:5 --stylize 180",
+  "Живой рабочий кадр: естественный свет из окна, документальная подача.",
+  "локация, действие","естественный свет","—",
+  "постановочно и «сток»","add: candid moment, natural imperfect pose"),
+ (4,"A · Личный бренд","Key visual для Reels",
+  "vertical hero frame of a confident creator, dark moody set, single warm beam, strong empty space at top "
+  "for text, cinematic --ar 9:16 --style raw --stylize 160",
+  "Обложка Reels: вертикаль, воздух сверху под заголовок, один драматичный луч.",
+  "герой, цвет луча","формат 9:16","<code>--oref</code> лицо",
+  "нет места под текст","add: generous negative space top third"),
+ (5,"A · Личный бренд","Обложка образовательного продукта",
+  "premium course cover, expert portrait on the right, gradient background brown to black, dramatic rim "
+  "light, generous left negative space for title, editorial --ar 4:5 --style raw --stylize 140",
+  "Обложка курса: герой справа, слева воздух под тайтл, драматичный контровой.",
+  "герой, градиент","композицию под текст","<code>--oref</code> лицо",
+  "лицо по центру, текст некуда","subject to right third, keep left clear"),
+ (6,"B · Ресторан","Fine dining food photography",
+  "editorial food photograph of a seared scallop on dark slate, warm amber side light, delicate rising "
+  "steam, glossy reduction sauce, shallow depth of field, near-black background, commercial food styling "
+  "--ar 4:5 --style raw --stylize 200",
+  "Аппетитный премиум-кадр блюда: пар, блик соуса, тёмный фон, малая ГРИП.",
+  "блюдо, соус","свет и фон","<code>--sref</code> стиль серии",
+  "плоский свет, «меню»","add: single warm side light, rising steam"),
+ (7,"B · Ресторан","Интерьер зала",
+  "upscale restaurant interior at dusk, warm candlelight, dark wood and brass, deep perspective, bokeh "
+  "highlights, intimate low camera, quiet luxury --ar 4:5 --style raw --stylize 180",
+  "Атмосфера вечера: свечи, дерево и латунь, глубокая перспектива, боке.",
+  "зал, ракурс","тёплую палитру","<code>--sref</code> стиль",
+  "холодный синий свет","warm candlelight only, no blue tint"),
+ (8,"B · Ресторан","Шеф за работой",
+  "portrait of a focused chef plating a dish, warm kitchen light, hands in frame, steam, dark background, "
+  "documentary elegance, 50mm --ar 4:5 --style raw --stylize 150",
+  "Человек бренда: сосредоточенность, руки в кадре, пар, тёмный фон.",
+  "шеф, блюдо","свет и настроение","<code>--oref</code> лицо",
+  "постановочная улыбка","add: focused candid expression, no eye contact"),
+ (9,"B · Ресторан","Editorial-кадр истории",
+  "editorial restaurant story frame, close-up of hands finishing a plate, warm amber light, dark linen, "
+  "subtle film grain, magazine spread aesthetic --ar 4:5 --style raw --stylize 200",
+  "Кадр-история для карусели/разворота: крупные руки, фактура, зерно.",
+  "деталь, блюдо","свет и грейн","<code>--sref</code> стиль",
+  "слишком гладко, «CGI»","add: subtle film grain, natural texture"),
+ (10,"B · Ресторан","Key visual кампании",
+  "restaurant campaign key visual, signature dish centered, dramatic single warm light, deep shadows, "
+  "brass and stone textures, space for headline, luxury advertising --ar 4:5 --style raw --stylize 160",
+  "Рекламный ключевой кадр: центр под блюдо, воздух под заголовок, драма света.",
+  "блюдо, текстуры","драму света","<code>--sref</code> стиль",
+  "нет места под текст","keep top/bottom clear for headline"),
+ (11,"C · E-commerce","Hero shot продукта",
+  "hero product shot of a matte glass cosmetic bottle on wet dark stone, soft gradient rim light, subtle "
+  "reflection, minimal premium background, studio, high detail --ar 4:5 --style raw --stylize 120",
+  "Каталожный герой: чистый премиум-фон, мягкий контур света, отражение.",
+  "продукт, поверхность","чистоту фона","фото товара → Nano Banana",
+  "пёстрый фон отвлекает","minimal seamless background, product centered"),
+ (12,"C · E-commerce","Beauty product",
+  "beauty product still life, serum dropper on silk, soft diffused light, dewy highlights, pastel-neutral "
+  "palette, clean luxury, macro detail --ar 4:5 --style raw --stylize 130",
+  "Бьюти-натюрморт: мягкий рассеянный свет, «росистые» блики, макро.",
+  "продукт, фактура","мягкий свет","<code>--sref</code> стиль",
+  "жёсткие тени","soft diffused light, no hard shadows"),
+ (13,"C · E-commerce","Tech product",
+  "tech gadget hero shot, brushed aluminum device on dark gradient, crisp edge light, subtle neutral "
+  "accents, clean studio, sharp reflections --ar 4:5 --style raw --stylize 110",
+  "Техника: чёткий контурный свет, гладкий градиент, резкие отражения.",
+  "устройство, акцент","чистоту и резкость","фото товара → Nano Banana",
+  "мутные отражения","crisp edge light, sharp clean reflections"),
+ (14,"C · E-commerce","Fashion accessory",
+  "luxury leather handbag on marble pedestal, warm directional light, soft shadow, editorial fashion "
+  "background, rich texture, high-end retail --ar 4:5 --style raw --stylize 150",
+  "Аксессуар: подиум-подача, тёплый направленный свет, богатая фактура кожи.",
+  "предмет, фон","фактуру кожи","<code>--sref</code> стиль",
+  "дешёвый пластиковый вид","emphasize natural leather grain and stitching"),
+ (15,"C · E-commerce","Product lifestyle",
+  "product in lifestyle context, ceramic mug on a linen breakfast table, morning window light, cozy "
+  "neutral palette, shallow depth of field, natural --ar 4:5 --stylize 170",
+  "Товар в жизни: утренний свет, уютный стол, естественная сцена.",
+  "продукт, сцена","естественность","—",
+  "выглядит как реклама","add: candid natural setting, imperfect styling"),
+ (16,"D · B2B","Промышленный объект",
+  "industrial facility interior, clean modern machinery, controlled cool light with warm accents, strong "
+  "leading lines, wide perspective, corporate documentary --ar 16:9 --style raw --stylize 120",
+  "Производство премиально: порядок, ведущие линии, холодный свет с тёплым акцентом.",
+  "объект, ракурс","чистоту и линии","<code>--sref</code> стиль",
+  "хаос и грязь в кадре","clean organized space, strong leading lines"),
+ (17,"D · B2B","Архитектура",
+  "modern corporate architecture at blue hour, glass facade, warm interior glow, symmetrical composition, "
+  "crisp lines, premium real estate --ar 16:9 --style raw --stylize 130",
+  "Здание: синий час, тёплое свечение окон, симметрия, чистые линии.",
+  "объект, время суток","симметрию","<code>--sref</code> стиль",
+  "заваленный горизонт","symmetrical composition, level horizon"),
+ (18,"D · B2B","Premium service campaign",
+  "premium B2B service key visual, a confident handshake moment in a bright modern office, soft daylight, "
+  "trustworthy neutral palette, space for headline --ar 16:9 --stylize 140",
+  "Услуга: момент доверия, светлый офис, нейтральная палитра, воздух под текст.",
+  "сцена, палитра","доверительный тон","—",
+  "постановочно и фальшиво","natural candid interaction, soft daylight"),
+ (19,"D · B2B","Founder portrait",
+  "corporate founder portrait, confident posture, bright modern office bokeh, soft window daylight, "
+  "neutral professional palette, 85mm, approachable authority --ar 4:5 --style raw --stylize 130",
+  "Портрет основателя: авторитет + доступность, дневной свет, офисное боке.",
+  "герой, фон","профессиональный тон","<code>--oref</code> лицо",
+  "слишком строго/холодно","approachable warm expression, soft daylight"),
+ (20,"D · B2B","Corporate campaign visual",
+  "corporate campaign visual, team collaboration in a bright glass meeting room, natural light, clean "
+  "neutral brand palette, documentary realism, wide --ar 16:9 --stylize 130",
+  "Командный кадр: стеклянная переговорка, дневной свет, документальный реализм.",
+  "команда, сцена","чистую палитру","<code>--sref</code> стиль",
+  "«стоковые» позы","candid collaboration, natural glances, no posing"),
+]
+lib_paginate("Библиотека Midjourney", "Библиотека · Midjourney",
+  "20 профессиональных промптов", "Не вариации одной фразы — разные production-задачи. "
+  "Копируй промпт, подставляй переменную, держи «не менять», прикладывай нужный референс.",
+  [libcard(*m) for m in MJ])
+
+# ---- Библиотека Nano Banana (25) — карточка LOCK/CHANGE/CONTINUITY ----
+def nbcard(n, cat, task, code, ru, lock, change, cont, err, fix):
+    return (f'<div class="lc"><div class="hd"><span class="num">{n:02d}</span>'
+            f'<span class="cat">{cat}</span><span class="task">{task}</span></div>'
+            f'<div class="prm"><code>{code}</code></div>'
+            f'<div class="ru">{ru}</div>'
+            f'<div class="meta"><span class="mi"><b>Lock</b>{lock}</span>'
+            f'<span class="mi"><b>Change</b>{change}</span><span class="mi"><b>Continuity</b>{cont}</span></div>'
+            f'<div class="fix"><b>Ошибка</b>{err} <b class="cx" style="color:#3f7d34">→ Correction</b> <span class="cx">{fix}</span></div></div>')
+
+NB = [
+ (1,"Identity","Сохранить лицо, поменять фон",
+  "[загрузи портрет] KEEP the exact same face, hair, beard and outfit 1:1. CHANGE only the background to a "
+  "dark upscale studio with warm amber rim light. MATCH the new light to the face.",
+  "База переноса: лицо и одежда 1:1, меняем только фон, свет подгоняем.",
+  "лицо, волосы, одежда","фон","свет серии","лицо поплыло","KEEP face 1:1, do not beautify or reshape"),
+ (2,"Identity","Сохранить лицо, поменять одежду",
+  "[портрет] KEEP the exact face, hair and body proportions. CHANGE the outfit to a tailored dark suit. "
+  "Match the fabric light to the scene. Do not change the face.",
+  "Смена образа без потери человека: лицо и пропорции держим, меняем одежду.",
+  "лицо, пропорции","одежда","стиль света","изменилось лицо","restore original face and hairline 1:1"),
+ (3,"Identity","Поместить героя в новую локацию",
+  "[портрет] KEEP the person 1:1. PLACE them in a sunlit modern office. Add natural window light and a soft "
+  "contact shadow so the subject sits naturally in the scene.",
+  "Перенос в сцену: тень контакта и свет делают героя «своим» в кадре.",
+  "идентичность","локация","палитра серии","герой приклеен","add contact shadow, integrate light on subject"),
+ (4,"Identity","Серия сцен, один герой",
+  "[портрет] KEEP identity 1:1 across all frames. Generate the same person in three settings — studio, "
+  "office, outdoor — same face, hair and outfit, same warm color grade.",
+  "Три сцены одним героем: одно лицо, одна одежда, один грейд.",
+  "лицо, одежда","3 сцены","грейд серии","лица разные","same identity and grade across all frames"),
+ (5,"Identity","Изменить свет, не трогая человека",
+  "[портрет] KEEP the face, features and outfit unchanged. CHANGE only the lighting to dramatic warm side "
+  "light with soft shadows. Do not alter skin or age.",
+  "Пересвет без правки лица: меняем только светотень.",
+  "лицо, одежда","свет","мягкие тени","кожа перерисована","keep skin texture, change only lighting"),
+ (6,"Identity","Сменить позу, сохранив личность",
+  "[портрет] KEEP the exact identity and outfit. CHANGE pose to arms crossed, three-quarter turn. Keep the "
+  "face, proportions and clothing consistent.",
+  "Новая поза того же человека — лицо и одежда неизменны.",
+  "лицо, одежда","поза","пропорции","пропорции сломались","keep realistic body proportions"),
+ (7,"Identity","Рекламная композиция с тем же человеком",
+  "[портрет] KEEP identity 1:1. Compose an ad key visual: subject on the right third, dark gradient "
+  "background, warm rim light, empty left space for a headline.",
+  "Из портрета — рекламный ключевой кадр с местом под заголовок.",
+  "лицо","композиция, фон","свет бренда","нет места под текст","keep left third clear for headline"),
+ (8,"Product","Поменять фон товара",
+  "[фото товара] KEEP the product, label, logo and reflections 1:1. CHANGE only the background to a clean "
+  "warm studio. Match shadow and light to the product.",
+  "Каталожная замена фона: товар и этикетка 1:1.",
+  "форма, логотип","фон","свет серии","логотип поплыл","reproduce logo and label exactly 1:1"),
+ (9,"Product","Поместить товар в интерьер",
+  "[товар] KEEP the product 1:1. PLACE it on a marble kitchen counter with soft morning light and a "
+  "realistic contact shadow.",
+  "Товар в жизни: интерьер + честная тень контакта.",
+  "форма, этикетка","окружение","палитра","товар парит","add realistic contact shadow"),
+ (10,"Product","Поменять поверхность-подложку",
+  "[товар] KEEP the product 1:1. CHANGE only the surface under it to wet dark stone. Add a matching "
+  "reflection consistent with the product.",
+  "Смена подложки с корректным отражением.",
+  "форма, цвет","поверхность","стиль света","отражение неверное","reflection must match product shape"),
+ (11,"Product","Добавить lifestyle-контекст",
+  "[товар] KEEP the product 1:1. Add a natural lifestyle context — a hand reaching for it on a breakfast "
+  "table. Keep the product untouched.",
+  "Контекст использования без правки самого товара.",
+  "товар 1:1","контекст","палитра","товар изменился","product stays exactly as source"),
+ (12,"Product","Premium hero shot из простого фото",
+  "[товар] KEEP geometry, label and logo 1:1. Rebuild as a premium hero shot: dark gradient background, "
+  "soft rim light, subtle reflection, minimal composition.",
+  "Из бытового снимка — премиальный герой-кадр.",
+  "геометрия, логотип","фон, свет","стиль бренда","детали размылись","keep label text crisp and 1:1"),
+ (13,"Product","Один товар в нескольких сценах",
+  "[товар] KEEP the product identical 1:1. Show it in three scenes — studio, lifestyle, outdoor — same "
+  "product, consistent brand lighting.",
+  "Линейка сцен одним товаром для карусели/каталога.",
+  "товар 1:1","3 сцены","свет бренда","товар «плавает»","identical product across all scenes"),
+ (14,"Product","Сохранить логотип и упаковку 1:1",
+  "[товар] Reproduce the packaging, logo and all text exactly 1:1, sharp and undistorted. CHANGE only the "
+  "environment. Do not redraw or restyle the logo.",
+  "Юридически чистый перенос: упаковка и надписи без искажений.",
+  "упаковка, текст","окружение","—","буквы поехали","re-render text legible, correct spelling"),
+ (15,"E-commerce","Карточка товара",
+  "[товар] KEEP product 1:1. Clean white-to-warm gradient background, centered, soft shadow, empty space "
+  "at top for title and price. Marketplace-ready.",
+  "Готовая карточка: чистый фон, центр, место под тайтл и цену.",
+  "товар 1:1","фон, компоновка","—","тесно, нет полей","keep top clear for title and price"),
+ (16,"E-commerce","Инфографика по товару",
+  "[товар] KEEP product 1:1. Add three clean callout labels pointing to features, legible sans-serif text, "
+  "consistent brand colors. (Nano Banana Pro)",
+  "Инфографика с читаемыми выносками — сильная сторона Pro.",
+  "товар 1:1","выноски, текст","бренд-цвета","текст кривой","Pro model, legible aligned labels"),
+ (17,"E-commerce","Брендовый баннер",
+  "[фон-референс + товар] Compose a horizontal banner: product on the left, headline in bold legible type "
+  "on the right, warm premium scene, brand palette. (Pro)",
+  "Баннер за один проход: композиция + встроенный текст.",
+  "товар, логотип","композиция, текст","бренд-стиль","текст нечитаем","Pro model for in-image text"),
+ (18,"E-commerce","Marketplace-визуал",
+  "[товар] KEEP product 1:1. Bright even light, pure background, true colors, no heavy shadows — marketplace "
+  "compliance. Leave space for a badge.",
+  "Под требования маркетплейса: ровный свет, честный цвет.",
+  "товар, цвет","фон, свет","—","цвет искажён","keep true product color, even light"),
+ (19,"E-commerce","Text-heavy промо-креатив",
+  "[фон] Add a promo layout: headline, subhead and a CTA button, all perfectly legible, correct spelling, "
+  "aligned to a grid, brand colors. (Pro)",
+  "Плотный по тексту креатив — только Pro тянет чисто.",
+  "фон-стиль","весь текст","бренд-цвета","опечатки/каша","Pro, check spelling and alignment"),
+ (20,"Food","Сохранить блюдо, изменить окружение",
+  "[фото блюда] KEEP the dish 1:1 — plating, garnish and colors. CHANGE only the table and background to "
+  "dark linen with warm side light.",
+  "Блюдо неизменно, меняем сцену вокруг него.",
+  "блюдо 1:1","стол, фон","свет серии","подача изменилась","keep exact plating and garnish"),
+ (21,"Food","Премиальная подача",
+  "[блюдо] KEEP the dish 1:1. Rebuild the scene as fine-dining: dark slate, warm amber light, rising steam, "
+  "shallow depth of field, near-black background.",
+  "Из обычного фото — ресторанная премиум-подача.",
+  "блюдо 1:1","сцена, свет","стиль ресторана","еда «поплыла»","dish stays exactly as source"),
+ (22,"Food","Серия блюд в одном свете",
+  "[несколько блюд] KEEP each dish 1:1. Render all on the same dark surface with identical warm side light "
+  "and grade — one consistent menu series.",
+  "Меню как единая серия: один свет и грейд на все блюда.",
+  "каждое блюдо","поверхность, свет","единый грейд","кадры вразнобой","identical light and grade for all"),
+ (23,"Composite","Соединить человека и продукт",
+  "[портрет + товар] KEEP both identities 1:1 — the exact face and the exact product. Compose them into one "
+  "scene: the person presenting the product, with matched lighting.",
+  "Композит: лицо и товар держим 1:1, объединяем в один кадр.",
+  "лицо + товар","сцена","свет бренда","один из двух исказился","keep both face and product 1:1"),
+ (24,"Composite","Объединить несколько референсов",
+  "[до 14 референсов] Blend the provided references into one coherent scene, preserving each subject's "
+  "identity and a shared warm color grade. (Pro, up to 14 images)",
+  "Сборка из многих источников — до 14 референсов в Pro.",
+  "все субъекты","сцена","общий грейд","детали смешались","Pro, keep each subject identity"),
+ (25,"Composite","Рекламный key visual из источников",
+  "[герой + товар + фон] Compose a campaign key visual: keep the hero and product 1:1, place them on the "
+  "reference background, leave headline space, unify the lighting. (Pro)",
+  "Финальный композит кампании из героя, товара и фона.",
+  "герой + товар","компоновка","единый свет","несогласованный свет","unify light across all elements"),
+]
+lib_paginate("Библиотека Nano Banana", "Библиотека · Nano Banana",
+  "25 промптов-правок", "Строятся иначе: сначала LOCK (что держим 1:1), потом CHANGE (что меняем), "
+  "потом CONTINUITY (чем связываем серию). Работают и на русском.",
+  [nbcard(*x) for x in NB])
+
+# ---- Библиотека correction-промптов (20) ----
+CORRCSS = r"""
+.cc{border:1px solid var(--line);border-left:3px solid var(--o);border-radius:0 11px 11px 0;padding:10px 14px;margin:8px 0;background:#fff}
+.cc .p{font-weight:800;font-size:10pt;color:var(--ink);line-height:1.2}
+.cc .p .n{color:var(--o);margin-right:7px}
+.cc .cz{font-size:8.6pt;color:var(--muted);line-height:1.35;margin:3px 0 6px}
+.cc .cz b{color:var(--body)}
+.cc .fx{font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:8.4pt;line-height:1.45;color:#ffd9b8;background:var(--dark);border-radius:8px;padding:8px 11px}
+.cc .ck{font-size:8pt;color:#3f7d34;font-weight:700;margin-top:5px}
+.cc .ck b{text-transform:uppercase;font-size:6.8pt;letter-spacing:.04em;color:#3f7d34;margin-right:4px}
+"""
+CSS = CSS + CORRCSS
+def corrcard(n, problem, cause, fix_prompt, check):
+    return (f'<div class="cc"><div class="p"><span class="n">{n:02d}</span>{problem}</div>'
+            f'<div class="cz"><b>Причина:</b> {cause}</div>'
+            f'<div class="fx">{fix_prompt}</div>'
+            f'<div class="ck"><b>Проверь</b>{check}</div></div>')
+
+CORR = [
+ ("Лицо изменилось","слабый lock или слово «beautify»","KEEP the exact original face 1:1, do not beautify or reshape; redo only the requested edit.","черты лица 1:1 с исходником"),
+ ("Голова непропорциональна","сильная правка позы/ракурса","Restore correct head-to-body proportions, keep realistic human anatomy.","соотношение головы и тела"),
+ ("Продукт изменил форму","команда «сделай лучше»","KEEP product geometry and proportions exactly 1:1, revert any reshaping.","силуэт совпадает"),
+ ("Логотип исказился","модель перерисовала знак","Restore the logo exactly as in the source, sharp and undistorted, do not redraw.","логотип 1:1"),
+ ("Надпись нечитаемая","базовая модель или мелкий кегль","Re-render the text perfectly legible, correct spelling and clean kerning. Use Nano Banana Pro.","орфография и читаемость"),
+ ("Руки сломались","сложная поза кистей","Fix hands to correct anatomy: five fingers, natural pose.","пальцы и суставы"),
+ ("Появился лишний объект","модель «дофантазировала»","Remove the added object, keep only elements present in the original.","нет новых предметов"),
+ ("Изменился цвет продукта","свет перекрасил товар","Restore the exact original product color and finish.","цвет как в исходнике"),
+ ("Изменился материал","ретушь «улучшила» поверхность","Keep the original material and texture, do not restyle the surface.","фактура сохранена"),
+ ("Фон не совпал по свету","новый фон из другого света","Match background light direction and temperature to the subject.","свет фона = свет объекта"),
+ ("Герой выглядит приклеенным","нет тени и интеграции","Add a contact shadow and matching light so the subject sits naturally in the scene.","есть тень контакта"),
+ ("Неправильная перспектива","объект из другой оптики","Correct perspective so the subject matches the scene vanishing lines.","линии сходятся верно"),
+ ("Слишком сильная ретушь кожи","дефолтное «сглаживание»","Reduce skin retouch, restore natural texture and pores.","видна фактура кожи"),
+ ("Лицо омолодилось","модель «улучшила» возраст","Keep the original apparent age, restore age-appropriate skin and features.","возраст как в исходнике"),
+ ("Одежда изменилась","правка задела образ","Keep the exact original outfit — color, cut and details.","одежда 1:1"),
+ ("Композиция стала слабее","правка сдвинула баланс","Restore stronger composition: subject on thirds, clear focal point.","объект по третям"),
+ ("Герой слишком маленький","много воздуха вокруг","Scale the subject larger to fill the frame, keep proportions.","объект заполняет кадр"),
+ ("Изменился цветовой стиль","грейд «уехал»","Restore the original color grade and palette.","палитра серии"),
+ ("Кадр потерял глубину","всё в одном фокусе","Restore foreground-background separation and shallow depth of field.","есть отрыв плана"),
+ ("Серия распалась","у кадра свой свет/грейд","Match this frame to the series: same light, palette, grade and camera language.","единый стиль серии"),
+]
+lib_paginate("Не перегенерируй — исправляй", "Correction library",
+  "20 промптов-исправлений", "Профи отличается тем, что чинит результат, а не гонит заново. "
+  "Проблема → причина → correction-промпт → что проверить.",
+  [corrcard(i+1, *c) for i, c in enumerate(CORR)], per=4)
+
 HTML = f'<meta charset="utf-8"><title>Midjourney + Nano Banana · система визуалов · AlovLab</title><style>{CSS}</style>' + "\n".join(P)
 OUT.write_text(HTML, encoding="utf-8")
 print("HTML:", OUT, f"{OUT.stat().st_size//1024} KB", "| pages:", len(P))
