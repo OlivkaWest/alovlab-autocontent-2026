@@ -17,11 +17,13 @@
 - **day-04** «Угол, а не тема» — плановая (7 авг), 1 тема → 5 углов.
 - **ai-za-tebya** «Что нейросеть делает за тебя» — 🌟 SHOWCASE-СТИЛЬ (стеклянный шар), 8 слайдов, RU. Выход — курс.
 - **day-04-showcase** «Угол, а не тема» — showcase-версия Дня 4 (7 слайдов).
-- **prompts** «Промпт решает: дорого или дёшево» — showcase, на каждом слайде рисунок+нейросеть+бизнес+готовый промпт.
+- **day-05-showcase** «Конфликт вместо информации» — showcase, 8 слайдов: обложка → проблема/причина/ошибка → 6 механик → до/после (ниша ИИ) → промпт → CTA. Плановая (8 авг).
+- **prompts** «Midjourney и Nano Banana» — showcase-конвейер, на каждом слайде рисунок+нейросеть+бизнес+готовый промпт. Под неё собран гайд **conveyor-prompts** (см. ниже).
 
 ### Методички (премиум-PDF) → `exports/higgsfield-guide/` и `exports/guides/`
 - **higgsfield-restaurant-reel** — v1 (плотная, тёмная) → v2 (светлая A4, переверстана) → **v3** (кейс-драма + визуалы, финал). Путь PDF: `exports/higgsfield-guide/v3-redesign/...v3.pdf`.
 - **pain-bank** (День 3) «Ты придумываешь темы. А их надо подслушивать» → `exports/guides/pain-bank/...pdf`.
+- **conveyor-prompts** — гайд-тетрадь под карусель-конвейер (День 4): экспертные промпты по этапам картинка (Midjourney·Nano Banana·Ideogram) → видео (Higgsfield·Kling) → голос (ElevenLabs) → аватар (HeyGen) + сквозной кейс. 11 стр. → `exports/guides/conveyor-prompts/...pdf`. Скрипт `scripts/guide_conveyor_build.py`.
 
 ### Тексты
 - `content/carousels/restaurant/post.md` — посты B2B/B2C/Reels.
