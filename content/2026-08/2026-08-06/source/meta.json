@@ -1,0 +1,13 @@
+{
+  "topic": "Контент-конвейер на нейросетях: от картинки до говорящего аватара",
+  "content_type": "educational_podcast",
+  "goal": "save",
+  "audience": "эксперты, бренды и авторы, которые сами делают контент",
+  "platform": "telegram",
+  "desired_action": "собрать свой конвейер и забрать промпты",
+  "cta": "Забери весь набор промптов в Telegram AlovLab. Собери свой ролик за вечер.",
+  "links": ["https://t.me/AlovLab"],
+  "reels_duration_seconds": 40,
+  "card_count": 9,
+  "notes": "Источник — гайд заказчика alovlabguideconveyorprompts.pdf (лежит рядом в source/). Конвейер: MJ·Nano Banana → Higgsfield·Kling → ElevenLabs → HeyGen. Другие нейросети (Ideogram) — по смыслу."
+}
