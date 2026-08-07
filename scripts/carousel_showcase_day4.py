@@ -4,10 +4,25 @@
 Переиспользует стиль из carousel_showcase_render. Запуск: python3 scripts/carousel_showcase_day4.py
 """
 import pathlib
-from carousel_showcase_render import (CSS, DEFS, FOOT, sparks, rings, icon, ICONS, LOGO, ROOT)
+from carousel_showcase_render import (CSS as CSS0, DEFS, FOOT, sparks, rings, icon, ICONS, LOGO, ROOT)
 
 OUTDIR = ROOT / "exports" / "carousels" / "day-04-showcase"; OUTDIR.mkdir(parents=True, exist_ok=True)
 OUT = OUTDIR / "day-04-showcase.html"
+
+EXTRA = r"""
+.hsm .head h2{font-size:39px}
+.pu{position:relative;z-index:4;margin-top:14px;display:inline-block;font-weight:800;font-size:11px;text-transform:uppercase;
+ letter-spacing:.03em;color:var(--o2);background:rgba(232,103,42,.13);border:1px solid rgba(232,103,42,.3);border-radius:20px;padding:8px 14px}
+.pbox{position:relative;z-index:4;margin-top:15px;background:#120c06;border:1px solid rgba(255,150,80,.28);
+ border-left:3px solid var(--o);border-radius:14px;padding:16px 18px}
+.pbox .tag{display:inline-block;font-weight:800;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#160e07;
+ background:linear-gradient(150deg,var(--o2),var(--o));padding:5px 10px;border-radius:6px;margin-bottom:11px}
+.pbox code{display:block;font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5;
+ color:#ffd9b8;white-space:pre-wrap;word-break:break-word}
+.pbox .ru{margin-top:11px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font-size:11.5px;line-height:1.4;color:#b9ad9b}
+.pbox .ru b{color:#fff}
+"""
+CSS = CSS0 + EXTRA
 
 # новые иконки под углы (stroke-варианты — задаём stroke на путях, fill=none)
 ICONS.update({
@@ -58,6 +73,18 @@ SLIDES = [
  ang(3,"Угол","цены","Сколько уже потрачено впустую —","«Смена и команда — за вечер на ноутбуке».","price"),
  ang(4,"Взгляд","изнутри","Что обычно не говорят вслух —","«Что вырезают из красивых туториалов».","eye"),
  ang(5,"Вопрос","новичка","С чего вообще начать —","«Открыл нейросеть впервые — и что дальше?».","quest"),
+ f"""<article class="slide hsm">{DEFS}
+  <div class="sparks">{sparks()}</div>
+  <div class="top"><span class="eb">Готовый промпт</span></div>
+  <div class="head"><h2><span class="w">Промпт:</span><span class="o">5 углов за минуту.</span></h2></div>
+  <div class="pu">Польза · эксперт · блогер · SMM · бизнес</div>
+  <div class="pbox"><span class="tag">Claude / ChatGPT</span><code>Тема: [ТВОЯ ТЕМА].
+Дай 5 углов захода на неё: ошибка, миф, цена, взгляд изнутри, вопрос новичка.
+К каждому — одну дословную формулировку хука, как говорит аудитория.
+Отметь самый острый и объясни одной строкой почему.</code>
+    <div class="ru"><b>Разбор:</b> вставь свою тему — получишь 5 заходов и сильнейший за минуту. Работает в Claude или ChatGPT.</div></div>
+  {FOOT}
+</article>""",
  cta("Собери","5 углов.",
      ["<b>одна тема</b> → пять заходов → один рабочий",
       "8 типов углов и критерий силы — в тетради",
