@@ -20,6 +20,7 @@ import { listAvatars } from "../src/heygen/avatars";
 import { listVoices } from "../src/heygen/voices";
 import { makeVoiceover } from "../src/pipeline/make-voiceover";
 import { makePodcast, type PodcastFormat } from "../src/podcast/generate";
+import { makePodcastFromFile } from "../src/podcast/from-file";
 import { publish } from "../src/publishing/telegram/client";
 import { buildCaption } from "../src/publishing/telegram/caption";
 import { subDir } from "../src/project/day-store";
@@ -267,6 +268,22 @@ async function main() {
       return;
     }
     case "podcast": {
+      // Готовый markdown-скрипт в озвучку verbatim: podcast <path.md>
+      const fileArg = rest.find((r) => /\.md$/i.test(r));
+      if (fileArg) {
+        const rf = await makePodcastFromFile(fileArg, {
+          cta: "Тетрадь дня — в закрепе Telegram AlovLab. Собери свою неделю за вечер.",
+          link: "https://t.me/AlovLab",
+        });
+        if (!rf.ok && rf.reason) return print(rf.reason);
+        print(`\nПодкаст из файла: ${rf.title}`);
+        if (rf.audioPath) print(`  аудио: ${path.relative(config.repoRoot, rf.audioPath)}${rf.durationSeconds ? ` (${rf.durationSeconds.toFixed(0)}с, ${rf.segments} сегм.)` : ""}`);
+        if (rf.voiceScriptPath) print(`  голосовой сценарий: ${path.relative(config.repoRoot, rf.voiceScriptPath)}`);
+        if (rf.captionPath) print(`  подпись: ${path.relative(config.repoRoot, rf.captionPath)}`);
+        if (rf.telegramDraft) print(`  telegram-черновик: ${path.relative(config.repoRoot, rf.telegramDraft)}`);
+        for (const i of rf.incomplete || []) print(`  — ${i}`);
+        return;
+      }
       const fmt = (["audiopost", "short", "full"] as PodcastFormat[]).find((f) => rest.includes(f));
       const d = needDate(rest.filter((r) => !["audiopost", "short", "full"].includes(r)));
       if (!d) return;
@@ -303,7 +320,7 @@ async function main() {
       return;
     }
     default:
-      print("Команды: doctor | avatars | voices | soul | index | content <дата> | status <дата> | script <дата> | scenes <дата> | route <дата> | reel <дата> | prepare <дата> | assemble <дата> | regen-scene <дата> <сцена> | voiceover <дата> | podcast <дата> [audiopost|short|full] | telegram <дата>");
+      print("Команды: doctor | avatars | voices | soul | index | content <дата> | status <дата> | script <дата> | scenes <дата> | route <дата> | reel <дата> | prepare <дата> | assemble <дата> | regen-scene <дата> <сцена> | voiceover <дата> | podcast <дата> [audiopost|short|full] | podcast <path.md> | telegram <дата>");
   }
 }
 
