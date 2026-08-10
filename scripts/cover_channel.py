@@ -8,6 +8,17 @@ OUTDIR = ROOT / "exports" / "covers"; OUTDIR.mkdir(parents=True, exist_ok=True)
 OUT = OUTDIR / "channel-cover.html"
 
 EXTRA = r"""
+html,body{background:#0d0a07}
+/* непрозрачный фон без скруглений + больше свечения, меньше «мёртвой» черноты */
+.cover.slide{border-radius:0;
+ background:
+  radial-gradient(72% 44% at 85% 6%, rgba(255,150,55,.52), transparent 60%),
+  radial-gradient(82% 56% at 50% 98%, rgba(255,120,40,.36), transparent 63%),
+  radial-gradient(52% 36% at 50% 71%, rgba(255,128,48,.22), transparent 72%),
+  linear-gradient(180deg,#140f09,#0c0806)}
+.cover .orb{box-shadow:inset 0 -22px 44px rgba(255,120,40,.5),inset 0 14px 32px rgba(0,0,0,.6),
+ inset 0 0 0 1px rgba(255,165,95,.32),0 26px 100px rgba(255,110,30,.46)}
+.cover .orbw,.cover .rings{top:72%}
 .cover .sub{max-width:30ch}
 .path{position:relative;z-index:4;margin-top:22px;display:flex;flex-direction:column;gap:13px}
 .path .pi{display:flex;align-items:baseline;gap:12px}
