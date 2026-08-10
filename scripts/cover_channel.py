@@ -18,12 +18,13 @@ EXTRA = r"""
 """
 CSS = CSS0 + EXTRA
 
-# знак «вход»: стрелка входит в дверь
-ENTER = ('<svg viewBox="0 0 100 100" style="width:46%;height:46%;position:absolute;left:27%;top:27%;z-index:3" '
+# знак «вход»: дверь с порогом + стрелка входит внутрь
+ENTER = ('<svg viewBox="0 0 100 100" style="width:48%;height:48%;position:absolute;left:26%;top:26%;z-index:3" '
          'fill="none" stroke="url(#ig)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">'
-         '<rect x="50" y="18" width="32" height="64" rx="5"/>'
-         '<path d="M16 50h30M34 38l12 12-12 12"/>'
-         '<circle cx="56" cy="50" r="3" fill="url(#ig)" stroke="none"/></svg>')
+         '<path d="M52 14h30v72H52"/>'          # дверной проём справа
+         '<path d="M46 86h42"/>'                # порог
+         '<path d="M14 50h32M34 38l12 12-12 12"/>'  # стрелка входит
+         '<circle cx="58" cy="50" r="2.8" fill="url(#ig)" stroke="none"/></svg>')
 
 def pi(b, s):
     return f'<div class="pi"><i></i><b>{b}</b> <span>· {s}</span></div>'
@@ -35,9 +36,9 @@ SLIDE = f"""<article class="slide cover">{DEFS}
   <div class="head"><h2><span class="w">Вы</span><span class="o">внутри.</span></h2></div>
   <div class="sub">Курс «Нейросети и ChatGPT для каждого».</div>
   <div class="path">
-    {pi("Личный кабинет", "уроки и материалы")}
-    {pi("Ассистент", "вопросы по курсу")}
-    {pi("Этот чат", "общение и команда")}
+    {pi("Кабинет на сайте", "уроки и материалы")}
+    {pi("Ассистент", "там же, вопросы по курсу")}
+    {pi("Этот чат", "общение и команда AlovLab")}
   </div>
   {FOOT}
 </article>"""
