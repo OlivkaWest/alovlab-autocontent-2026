@@ -5,7 +5,7 @@
 Модели сверены на 11.08.2026. Запуск: python3 scripts/carousel_commercial_render.py"""
 import base64, pathlib
 from carousel_showcase_render import (CSS as CSS0, DEFS, FOOT, sparks, rings, LOGO, ROOT)
-from carousel_commercial_frames import frame, viz_svg
+from carousel_commercial_frames import frame, viz_svg, DEFS_FRAME
 
 OUTDIR = ROOT / "exports" / "commercial-ai-carousel" / "v2"; OUTDIR.mkdir(parents=True, exist_ok=True)
 OUT = OUTDIR / "commercial-ai.html"
@@ -67,16 +67,20 @@ EXTRA = r"""
 CSS = CSS0 + EXTRA
 
 def photo_frame(name, lbl, micro, good):
+    """Слот кадра на обложке. Если в content/carousel-assets/commercial/ лежит реальный
+    фотореал (Nano Banana Pro) — вшиваем его. Иначе рисуем концепт-кадр тем же SVG, что и
+    слайды 2–3: сток = плоский серый кроссовок, commercial = свет/rim/атмосфера."""
     p = ASSET / name
     if p.exists():
         b = base64.b64encode(p.read_bytes()).decode()
         media = f'style="background-image:url(data:image/png;base64,{b});background-size:cover;background-position:center"'
-        hint = ""
+        ph = f'<div class="ph" {media}></div>'
     else:
-        media = 'style="background:radial-gradient(120% 82% at 50% 38%,#241708,#0c0806)"'
-        hint = '<div class="hint">кадр Nano&nbsp;Banana&nbsp;Pro<br><span>вставляется сюда</span></div>'
+        svg = (f'<svg viewBox="0 0 240 320" preserveAspectRatio="xMidYMid meet" '
+               f'style="width:100%;height:100%;display:block">{DEFS_FRAME}{frame(0,0,240,320,good,"")}</svg>')
+        ph = f'<div class="ph">{svg}</div>'
     cls = "pf good" if good else "pf"
-    return f'<div class="{cls}"><div class="ph" {media}></div>{hint}<div class="lb"><b>{lbl}</b><span>{micro}</span></div></div>'
+    return f'<div class="{cls}">{ph}<div class="lb"><b>{lbl}</b><span>{micro}</span></div></div>'
 
 def cover():
     return f"""<article class="slide cover">{DEFS}
