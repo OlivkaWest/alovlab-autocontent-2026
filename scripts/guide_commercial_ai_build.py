@@ -7,6 +7,7 @@ Seedance 2.5 → Gemini Omni Flash → Veo 3.1 → Runway Gen-4.5 → Higgsfield
 База CSS — из v2. Запуск: python3 scripts/guide_commercial_ai_build.py"""
 import pathlib
 from guide_pdf_v2_build import CSS as V2CSS, BRAND, LOGO
+from carousel_commercial_frames import frame, DEFS_FRAME, sneaker, LIT
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUTDIR = ROOT / "exports" / "guides" / "commercial-ai-pack"; OUTDIR.mkdir(parents=True, exist_ok=True)
@@ -37,6 +38,16 @@ EXTRA = r"""
 .deliv .d{background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px 12px}
 .deliv .d b{display:block;font-weight:800;font-size:14pt;color:var(--o);line-height:1}
 .deliv .d span{display:block;margin-top:4px;font-size:8.8pt;line-height:1.35;color:var(--body)}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.shot .kadr{border-radius:12px;overflow:hidden;line-height:0}
+.shot.good .kadr{box-shadow:0 12px 30px -14px rgba(218,95,30,.55)}
+.shot .cap{margin-top:8px;font-size:9.2pt;line-height:1.35;color:var(--body)}
+.shot .cap b{color:var(--ink);font-weight:800}
+.kadr{overflow:hidden;border-radius:12px;line-height:0}
+.kadr svg{display:block;width:100%;height:auto}
+.expect{display:grid;grid-template-columns:200px 1fr;gap:15px;align-items:center;background:var(--o-tint);border:1px solid #f2d3bf;border-radius:12px;padding:13px 15px;margin:14px 0}
+.expect .h{font-weight:800;font-size:8.5pt;letter-spacing:.06em;text-transform:uppercase;color:var(--o)}
+.expect p{font-size:9.7pt;line-height:1.45;color:var(--ink);margin-top:5px}
 """
 CSS = V2CSS + EXTRA
 
@@ -55,6 +66,30 @@ def stage(b, t):
 
 def biz(txt, lbl="Бизнес"):
     return f'<div class="biz"><b>{lbl}</b>{txt}</div>'
+
+def kadr_svg(good, w=320, h=210, callouts=""):
+    """Нарисованный кадр кроссовка тем же движком, что карусель: good=commercial, иначе сток."""
+    return f'<svg viewBox="0 0 {w} {h}">{DEFS_FRAME}{frame(0,0,w,h,good,"",callouts=callouts)}</svg>'
+
+def master_svg(w=300, h=190):
+    """Чистый master-кадр продукта: LIT-кроссовок на светлой нейтральной карточке, мягкая тень."""
+    sc = w / 300.0; sw = 232 * sc; px = (w - sw) / 2; groundY = h * 0.64; py = groundY - 104 * sc
+    return (f'<svg viewBox="0 0 {w} {h}">'
+            f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="15" fill="#f4eee3" stroke="#e6dccb"/>'
+            f'<ellipse cx="{w/2:.0f}" cy="{groundY+9:.0f}" rx="{sw*0.48:.0f}" ry="9" fill="#d7c9b3" opacity="0.6"/>'
+            f'<g transform="translate({px:.1f},{py:.1f}) scale({sc:.3f})">{sneaker(**LIT)}</g></svg>')
+
+def shots():
+    return ('<div class="shots">'
+      f'<div class="shot"><div class="kadr">{kadr_svg(False)}</div>'
+      '<div class="cap"><b>Сток.</b> Ровный свет, объект по центру, нет истории.</div></div>'
+      f'<div class="shot good"><div class="kadr">{kadr_svg(True)}</div>'
+      '<div class="cap"><b>Commercial.</b> Свет, камера, действие, атмосфера.</div></div>'
+      '</div>')
+
+def expect(inner_svg, desc):
+    return (f'<div class="expect"><div class="kadr">{inner_svg}</div>'
+            f'<div><div class="h">Что должно получиться</div><p>{desc}</p></div></div>')
 
 P = []
 
@@ -95,23 +130,16 @@ P.append(page("Что внутри", 2, """
 """))
 
 # ---------- P3 · Сток против commercial ----------
-P.append(page("Диагноз", 3, """
-  <span class="kick">Главная ошибка брифа</span>
-  <h2>Почему «сделай дорого» не работает</h2>
-  <p class="lead">Модель — не режиссёр. Она исполняет ровно то, что ты задал. Расплывчатый бриф = расплывчатый кадр. Разница между стоком и рекламой рождается в задании, а не в нейросети.</p>
-  <div class="gb">
-    <div class="box bad"><div class="lbl">✕ Сток-промпт</div>«Сделай дорогую рекламу белых кроссовок. Кинематографично. Премиально. Как Nike.» — модель угадывает. Свет плоский, камера случайная, истории нет.</div>
-    <div class="box good"><div class="lbl">✓ Режиссёрский промпт</div>Заданы свет, ракурс, действие, среда и звук. Модель не угадывает — исполняет. Кадр читается как реклама, а не как сток.</div>
-  </div>
-  <span class="kick" style="display:block;margin-top:14px">Пять ручек режиссёра — что задаёшь в каждом кадре</span>
-  <div class="paramwrap">
-    <div class="param"><code>Свет</code><span><b>Характер сцены.</b> Тёмная студия, узкий тёплый контровой (rim), глубокие тени — вместо ровной заливки.</span></div>
-    <div class="param"><code>Камера</code><span><b>Взгляд.</b> Низкий макро-ракурс, короткий наезд (dolly) — а не фронтальный «фотоаппарат на штативе».</span></div>
-    <div class="param"><code>Действие</code><span><b>Жизнь в кадре.</b> Шнурки затягиваются сами, первый шаг — микро-событие держит внимание.</span></div>
-    <div class="param"><code>Среда</code><span><b>Контекст.</b> Мокрый бетон, отражение, лёгкая дымка — атмосфера, а не пустой фон.</span></div>
-    <div class="param"><code>Звук</code><span><b>Вес.</b> Натяжение шнурка, шаг по асфальту, саб-бас — нативный звук достраивает премиум.</span></div>
-  </div>
-"""))
+P.append(page("Диагноз", 3,
+  '<span class="kick">Главная ошибка брифа</span>'
+  '<h2>Один продукт. Два кадра.</h2>'
+  '<p class="lead">Модель — не режиссёр. Она исполняет ровно то, что задал. Расплывчатый бриф — расплывчатый кадр. Слева и справа — один кроссовок и одна нейросеть. Разница только в задании.</p>'
+  + shots() +
+  '<div class="gb">'
+  '<div class="box bad"><div class="lbl">✕ Сток-промпт</div>«Сделай дорогую рекламу белых кроссовок. Кинематографично. Премиально. Как Nike.» — модель угадывает. Свет плоский, камера случайная, истории нет.</div>'
+  '<div class="box good"><div class="lbl">✓ Режиссёрский промпт</div>Заданы свет, ракурс, действие, среда и звук. Модель не угадывает — исполняет. Кадр читается как реклама.</div>'
+  '</div>'
+))
 
 # ---------- P4 · Режиссёрский бриф (шаблон) ----------
 P.append(page("Режиссёрский бриф", 4, """
@@ -154,8 +182,8 @@ P.append(page("Этап 1 · Master · Nano Banana Pro", 6,
     "tread, exact geometry and true proportions, photoreal, 1:1 product master, "
     "no props, no added text. Lock the silhouette — this is the product reference.",
     "чистый master-кадр кроссовка: точная геометрия, лого, подошва, ровный свет, 1:1. Это референс продукта (@ref1), а не финальная реклама.") +
-  "<div class=\"biz\"><b>Почему Pro</b>Nano Banana Pro держит лого и мелкий текст без искажений и даёт до 4K — поэтому продукт остаётся собой, когда сцена станет драматичной. Обычная image-модель на этом ломает надпись.</div>" +
-  biz("товар с жёсткой геометрией: техника, флаконы, упаковка, украшения — там, где искажение формы = брак.")
+  expect(master_svg(), "Чистый продукт на нейтральном фоне: форма, лого и подошва — точные. Атмосферы пока нет — это референс, а не реклама.") +
+  "<div class=\"biz\"><b>Почему Pro</b>Nano Banana Pro держит лого и мелкий текст без искажений и даёт до 4K — поэтому продукт остаётся собой, когда сцена станет драматичной. Обычная image-модель на этом ломает надпись.</div>"
 ))
 
 # ---------- P7 · Этап 2 · Seedance 2.5 ----------
@@ -170,6 +198,7 @@ P.append(page("Этап 2 · Сцена · Seedance 2.5", 7,
     "controlled lateral dolly; rim light travels the material; hard cut\n"
     "to a first step, asphalt ripples. Native SFX: lace tension, wet step.",
     "продукт из @ref1 неизменен; свет из @ref2; низкий макро на мокром бетоне, шнурки затягиваются, боковой dolly, rim скользит по материалу, склейка на первый шаг, нативный звук.") +
+  expect(kadr_svg(True, 320, 200), "Кинокадр: тёмная студия, тёплый rim по материалу, отражение на мокром бетоне, низкий ракурс. Продукт из @ref1 — тот же, что в master-кадре.") +
   "<div class=\"biz\"><b>Логика</b>Сначала фиксируешь неизменное (продукт, свет), потом задаёшь движение (камера, действие) и в конце — звук. Порядок в промпте = приоритет для модели.</div>"
 ))
 
@@ -201,8 +230,11 @@ P.append(page("Этап 4 · Звук и камера · Veo 3.1 · Runway", 9,
     "slow low push-in, then hard cut to the first step. Keep product geometry,\n"
     "logo and proportions unchanged. 4K, deep blacks, warm rim light.",
     "из геройского кадра, 15 сек, нативный звук (саб-бас, скрип шнурка, шаг по мокрому асфальту на склейке); камера — медленный низкий наезд, затем жёсткая склейка на шаг; продукт не менять.") +
-  "<div class=\"biz\"><b>Runway Gen-4.5</b>Когда нужна точная траектория — прописываешь движение камеры прямо в промпте (скорость, дуга, точка фокуса). Сильная сторона — предсказуемая хореография кадра.</div>" +
-  biz("любой продукт в движении: авто, гаджет, напиток, парфюм — звук и камера превращают показ в рекламу.")
+  expect(kadr_svg(True, 320, 200,
+    callouts='<text x="15" y="23" fill="#ff9a4d" font-size="10.5" font-weight="800" font-family="Manrope">КАМЕРА · низкий наезд</text>'
+             '<text x="305" y="187" fill="#ff9a4d" font-size="10.5" font-weight="800" font-family="Manrope" text-anchor="end">ЗВУК · шаг по асфальту</text>'),
+    "Тот же кадр, но живой: камера медленно наезжает, на склейке — шаг по мокрому асфальту и его звук. Показ превращается в рекламу.") +
+  "<div class=\"biz\"><b>Runway Gen-4.5</b>Когда нужна точная траектория — прописываешь движение камеры прямо в промпте (скорость, дуга, точка фокуса). Сильная сторона — предсказуемая хореография кадра.</div>"
 ))
 
 # ---------- P10 · Карта моделей + сборка ----------
