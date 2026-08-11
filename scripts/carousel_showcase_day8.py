@@ -155,15 +155,13 @@ def brief_slide():
 </article>"""
 
 def demo_slide():
-    return f"""<article class="slide">{DEFS}
+    return f"""<article class="slide hsm">{DEFS}
   <div class="sparks">{sparks()}</div>
-  <div class="top"><span class="eb">До / после</span><span class="pg">6<b> / 8</b></span></div>
-  <div class="head"><h2><span class="w">Тот же запрос —</span><span class="o">другой ответ.</span></h2></div>
-  <div class="split">
-    <div class="sfact"><b>Задача:</b> «Напиши пост про новое меню».</div>
-    <div class="scard cold"><span class="lab">Голый запрос</span><div class="q">«Мы рады представить наше новое меню»</div><div class="r">Модель заткнула пустоту самым средним. Картон.</div></div>
-    <div class="scard hot"><span class="lab">Запрос + бриф</span><div class="q">Пасту крутят в круге пекорино при госте → бронь столика</div><div class="r">Тот же ИИ. Появились контекст, роль и критерий.</div></div>
-  </div>
+  <div class="top"><span class="eb">До / после · Seedance 2.5</span><span class="pg">6<b> / 8</b></span></div>
+  <div class="head"><h2><span class="w">Тот же ролик —</span><span class="o">другой результат.</span></h2></div>
+  <div class="sfact" style="margin-top:15px"><b>Голый запрос:</b> «видео с блюдом, красиво» — на выходе общий сток ни о чём.</div>
+  <div class="pbox"><span class="tag">Seedance 2.5 · живой промпт</span><code>Обжаренный гребешок на тёмном сланце, рука ставит тарелку, поднимается пар — уютный ресторан при свечах, тёплый янтарный свет — кинематографичная реклама еды, малая глубина резкости — медленный наезд с лёгкой сменой фокуса — тихий гул зала и лёгкое шипение.</code>
+    <div class="ru"><b>Разбор — 6 слотов Seedance:</b> субъект + действие · сцена · стиль · камера · звук. Детали вместо пустоты — модель знает, что снимать, а не гадает.</div></div>
   {FOOT}
 </article>"""
 
