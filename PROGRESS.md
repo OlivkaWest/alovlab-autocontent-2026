@@ -19,6 +19,7 @@
 - **day-04-showcase** «Угол, а не тема» — showcase-версия Дня 4 (7 слайдов).
 - **day-05-showcase** «Конфликт вместо информации» — showcase, 8 слайдов: обложка → проблема/причина/ошибка → 6 механик → до/после (ниша ИИ) → промпт → CTA. Плановая (8 авг).
 - **prompts** «Midjourney и Nano Banana» — showcase-конвейер, на каждом слайде рисунок+нейросеть+бизнес+готовый промпт. Под неё собран гайд **conveyor-prompts** (см. ниже).
+- **commercial-ai** «Одна нейросеть. Два ценника.» — монетизационная (продажа AI-рекламы брендам), 8 слайдов, сквозной кейс премиум-кроссовки. Реальные промпты (Seedance 2.5, Gemini Omni Flash), pipeline из 6 моделей (сверены 11.08), deliverables + лестница ценности. Обложка: два концепт-кадра (сток/commercial) нарисованы SVG-движком слайдов 2–3; фото-оверрайд из `content/carousel-assets/commercial/{stock,commercial}.png` (Nano Banana Pro) — слоты подхватят реальный фотореал, если положить файлы. → `exports/commercial-ai-carousel/v2/`. Скрипты `carousel_commercial_render.py` + `carousel_commercial_frames.py`.
 
 ### Методички (премиум-PDF) → `exports/higgsfield-guide/` и `exports/guides/`
 - **higgsfield-restaurant-reel** — v1 (плотная, тёмная) → v2 (светлая A4, переверстана) → **v3** (кейс-драма + визуалы, финал). Путь PDF: `exports/higgsfield-guide/v3-redesign/...v3.pdf`.
@@ -69,7 +70,7 @@
 ---
 
 ## 5. Долги / открытые вопросы
-- **Фото для каруселей**: CDN Higgsfield закрыт egress-политикой — вшить фото можно только если файлы залиты в репозиторий (`content/carousel-assets/<id>/`). Так сделан restaurant.
+- **Фото для каруселей**: CDN Higgsfield закрыт egress-политикой — вшить фото можно только если файлы залиты в репозиторий (`content/carousel-assets/<id>/`). Так сделан restaurant. Для commercial-ai обложки нужны 2 фотореал-кадра (сток/commercial премиум-кроссовки, Nano Banana Pro) — сейчас баланс Higgsfield ~0.5 кредита (NB Pro ≈ 2), сгенерить нельзя без пополнения; стоят SVG-концепт-кадры.
 - **VK-хэндл** не подтверждён — стоит плейсхолдер `vk.com/alovlab`. Уточнить.
 - Реальные скрины Higgsfield для методички v3 — слоты помечены, ждут файлов.
 - Плагины (OMNI ROUTE / claude-mem / и т.д.) — в облачной среде не ставятся; память = этот файл + git. Локальный CLI — отдельно.
