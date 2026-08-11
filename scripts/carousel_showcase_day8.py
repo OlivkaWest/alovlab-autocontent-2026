@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-"""AlovLab · День 8 «Один запрос — два ответа» (бриф для ИИ) — SHOWCASE + СВОИ ИЛЛЮСТРАЦИИ.
-На слайдах-концептах — bespoke SVG-сцены под каждую мысль (сплит, стена штампов, голова→слово, развилка).
-Нумерация N/8. RU кроме AlovLab. Запуск: python3 scripts/carousel_showcase_day8.py"""
+"""AlovLab · День 8 «Как сделать топовый рекламный ролик» (бриф/промпт для ИИ) — SHOWCASE + иллюстрации.
+Пример — реклама (кроссовок), НЕ еда. Метод — 6 слотов Seedance 2.5. Блоки с реальным содержимым.
+Нумерация N/8. RU кроме AlovLab и промптов. Запуск: python3 scripts/carousel_showcase_day8.py"""
 import pathlib
 from carousel_showcase_render import (CSS as CSS0, DEFS, FOOT, sparks, rings, LOGO, ROOT)
 
@@ -12,13 +12,12 @@ EXTRA = r"""
 .hsm .head h2{font-size:37px}
 .cover .head h2{font-size:50px}
 .cover .sub{margin-top:14px;max-width:26ch;font-size:17px}
-/* область иллюстрации */
+.mch .head h2{font-size:35px}
 .viz{flex:1;position:relative;z-index:2;display:grid;place-items:center;min-height:0;margin-top:14px}
 .viz svg{width:min(92%,480px);height:100%;max-height:360px}
 .viz::before{content:"";position:absolute;left:50%;top:55%;width:74%;height:64%;transform:translate(-50%,-50%);
  background:radial-gradient(closest-side,rgba(255,120,40,.16),transparent 72%);z-index:-1;pointer-events:none}
 .body.tight{margin-top:16px}
-/* пу + промпт-плашка */
 .pu{position:relative;z-index:4;margin-top:14px;display:inline-block;font-weight:800;font-size:11px;text-transform:uppercase;
  letter-spacing:.03em;color:var(--o2);background:rgba(232,103,42,.13);border:1px solid rgba(232,103,42,.3);border-radius:20px;padding:8px 14px}
 .pbox{position:relative;z-index:4;margin-top:15px;background:#120c06;border:1px solid rgba(255,150,80,.28);
@@ -29,75 +28,57 @@ EXTRA = r"""
  color:#ffd9b8;white-space:pre-wrap;word-break:break-word}
 .pbox .ru{margin-top:11px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font-size:11.5px;line-height:1.4;color:#b9ad9b}
 .pbox .ru b{color:#fff}
-/* список брифа */
-.mlist{position:relative;z-index:4;margin-top:18px;display:flex;flex-direction:column;gap:11px}
-.mrow{display:flex;align-items:center;gap:14px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));
- border:1px solid rgba(255,140,60,.14);border-radius:14px;padding:14px 16px}
-.mrow .n{flex:0 0 auto;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;
- font-weight:800;font-size:14px;color:#160e07;background:linear-gradient(150deg,var(--o2),var(--o))}
-.mrow .t b{font-weight:700;font-size:17px;color:#fff;line-height:1.15;display:block}
-.mrow .t span{font-weight:500;font-size:13px;color:#8a8177;line-height:1.25}
-/* до/после сплит */
-.split{position:relative;z-index:4;margin-top:16px;display:flex;flex-direction:column;gap:12px}
-.sfact{font-weight:600;font-size:14px;color:#b9ad9b;line-height:1.35}.sfact b{color:#fff}
-.scard{border-radius:14px;padding:14px 16px}
-.scard .lab{display:inline-block;font-weight:800;font-size:9px;letter-spacing:.09em;text-transform:uppercase;padding:4px 9px;border-radius:6px;margin-bottom:8px}
-.scard .q{font-weight:700;font-size:15.5px;line-height:1.3}.scard .r{margin-top:6px;font-weight:500;font-size:12px;line-height:1.3}
-.scard.cold{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
-.scard.cold .lab{background:rgba(255,255,255,.1);color:#9a9084}.scard.cold .q{color:#8f867b}.scard.cold .r{color:#6f675d}
-.scard.hot{background:#130c06;border:1px solid rgba(255,150,80,.32);border-left:3px solid var(--o)}
-.scard.hot .lab{background:linear-gradient(150deg,var(--o2),var(--o));color:#160e07}.scard.hot .q{color:#fff}.scard.hot .r{color:#c7a184}
+.sfact{font-weight:600;font-size:14px;color:#b9ad9b;line-height:1.4}.sfact b{color:#fff}
+/* список слотов */
+.mlist{position:relative;z-index:4;margin-top:16px;margin-bottom:4px;display:flex;flex-direction:column;gap:8px}
+.mrow{display:flex;align-items:center;gap:13px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));
+ border:1px solid rgba(255,140,60,.14);border-radius:13px;padding:10px 15px}
+.mrow .n{flex:0 0 auto;width:27px;height:27px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+ font-weight:800;font-size:13px;color:#160e07;background:linear-gradient(150deg,var(--o2),var(--o))}
+.mrow .t b{font-weight:700;font-size:15.5px;color:#fff;line-height:1.15;display:block}
+.mrow .t span{font-weight:500;font-size:12.5px;color:#8a8177;line-height:1.2}
 """
 CSS = CSS0 + EXTRA
 
-# ---------------- BESPOKE-СЦЕНЫ ----------------
+# ---------------- СЦЕНЫ (превью-кадры ролика, без «пустых» полосок) ----------------
 SC_COVER = '''<svg viewBox="0 0 480 250" fill="none" font-family="Manrope">
  <rect x="196" y="4" width="88" height="24" rx="12" stroke="url(#ig)" stroke-width="3"/>
- <text x="240" y="21" fill="#ffcaa0" font-size="12" font-weight="800" text-anchor="middle">запрос</text>
- <path d="M240 28 V48 M130 48 H350 M130 48 V66 M350 48 V66" stroke="#6a6157" stroke-width="2.5"/>
- <rect x="40" y="72" width="176" height="166" rx="16" fill="#ffffff08" stroke="#ffffff1f" stroke-width="2"/>
- <rect x="62" y="98" width="132" height="11" rx="5.5" fill="#574e44"/>
- <rect x="62" y="122" width="132" height="11" rx="5.5" fill="#4d463d"/>
- <rect x="62" y="146" width="100" height="11" rx="5.5" fill="#4d463d"/>
- <rect x="62" y="170" width="132" height="11" rx="5.5" fill="#443e36"/>
- <rect x="62" y="194" width="84" height="11" rx="5.5" fill="#443e36"/>
- <text x="128" y="228" fill="#8a8177" font-size="12.5" font-weight="800" text-anchor="middle" letter-spacing="1.5">КАРТОН</text>
- <rect x="264" y="72" width="176" height="166" rx="16" fill="#1a1108" stroke="url(#ig)" stroke-width="2.5"/>
- <rect x="286" y="98" width="132" height="12" rx="6" fill="url(#ig)"/>
- <rect x="286" y="123" width="90" height="12" rx="6" fill="url(#ig)" opacity="0.85"/>
- <rect x="286" y="148" width="120" height="12" rx="6" fill="url(#ig)" opacity="0.7"/>
- <rect x="286" y="173" width="72" height="12" rx="6" fill="url(#ig)" opacity="0.55"/>
- <path d="M410 190 l4.5 11 11 4.5 -11 4.5 -4.5 11 -4.5 -11 -11 -4.5 11 -4.5 z" fill="url(#ig)"/>
- <text x="352" y="228" fill="#ff9a4d" font-size="12.5" font-weight="800" text-anchor="middle" letter-spacing="1.5">ЖИВОЙ</text>
+ <text x="240" y="21" fill="#ffcaa0" font-size="12" font-weight="800" text-anchor="middle">промпт</text>
+ <path d="M240 28 V48 M130 48 H350 M130 48 V64 M350 48 V64" stroke="#6a6157" stroke-width="2.5"/>
+ <rect x="44" y="66" width="168" height="150" rx="14" fill="#ffffff08" stroke="#ffffff1f" stroke-width="2"/>
+ <circle cx="128" cy="130" r="26" stroke="#5a5148" stroke-width="3"/>
+ <path d="M121 118 l19 12 -19 12 z" fill="#5a5148"/>
+ <text x="128" y="238" fill="#8a8177" font-size="12.5" font-weight="800" text-anchor="middle" letter-spacing="1.5">СТОК</text>
+ <rect x="268" y="66" width="168" height="150" rx="14" fill="#1a1108" stroke="url(#ig)" stroke-width="2.5"/>
+ <circle cx="352" cy="130" r="26" stroke="url(#ig)" stroke-width="3"/>
+ <path d="M345 118 l19 12 -19 12 z" fill="url(#ig)"/>
+ <path d="M300 92 l3.5 9 9 3.5 -9 3.5 -3.5 9 -3.5 -9 -9 -3.5 9 -3.5 z" fill="url(#ig)"/>
+ <path d="M414 178 l3 7.5 7.5 3 -7.5 3 -3 7.5 -3 -7.5 -7.5 -3 7.5 -3 z" fill="url(#ig)" opacity="0.85"/>
+ <text x="352" y="238" fill="#ff9a4d" font-size="12.5" font-weight="800" text-anchor="middle" letter-spacing="1.5">КИНО</text>
 </svg>'''
 
 SC_PROBLEM = '''<svg viewBox="0 0 480 250" fill="none" font-family="Manrope">
- <rect x="78" y="8" width="324" height="234" rx="18" fill="#ffffff06" stroke="#ffffff1a" stroke-width="2"/>
- <rect x="100" y="30" width="156" height="28" rx="14" stroke="url(#ig)" stroke-width="2.5"/>
- <text x="112" y="48" fill="#ffcaa0" font-size="12.5" font-weight="700">напиши пост</text>
- <rect x="344" y="30" width="28" height="28" rx="9" fill="url(#ig)"/>
- <path d="M352 44 h11 M358 39 l5 5 -5 5" stroke="#160e07" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
- <rect x="100" y="82" width="272" height="12" rx="6" fill="#574e44"/>
- <rect x="100" y="104" width="272" height="12" rx="6" fill="#4f473e"/>
- <rect x="100" y="126" width="240" height="12" rx="6" fill="#4f473e"/>
- <rect x="100" y="148" width="272" height="12" rx="6" fill="#463f37"/>
- <rect x="100" y="170" width="208" height="12" rx="6" fill="#463f37"/>
- <rect x="100" y="192" width="272" height="12" rx="6" fill="#3f3931"/>
- <rect x="100" y="214" width="176" height="12" rx="6" fill="#3f3931"/>
+ <rect x="118" y="20" width="244" height="158" rx="16" fill="#ffffff06" stroke="#ffffff1a" stroke-width="2"/>
+ <circle cx="240" cy="88" r="30" stroke="#5a5148" stroke-width="3"/>
+ <path d="M231 72 l22 16 -22 16 z" fill="#5a5148"/>
+ <path d="M150 150 h180" stroke="#463f37" stroke-width="3" stroke-linecap="round"/>
+ <text x="240" y="212" fill="#8a8177" font-size="13" font-weight="800" text-anchor="middle">плоский сток</text>
+ <text x="240" y="232" fill="#6a6157" font-size="11.5" text-anchor="middle">ровный свет · ноль динамики</text>
 </svg>'''
 
 SC_CAUSE = '''<svg viewBox="0 0 480 250" fill="none" font-family="Manrope">
  <path d="M64 244 v-70 a66 66 0 0 1 132 0 v70 z" fill="#1a1108" stroke="url(#ig)" stroke-width="3"/>
  <g font-size="11.5" font-weight="700" text-anchor="middle">
-  <rect x="78" y="140" width="54" height="22" rx="11" fill="#e8672a2e" stroke="url(#ig)" stroke-width="1.4"/><text x="105" y="155" fill="#ffcaa0">ниша</text>
-  <rect x="138" y="140" width="58" height="22" rx="11" fill="#e8672a2e" stroke="url(#ig)" stroke-width="1.4"/><text x="167" y="155" fill="#ffcaa0">гость</text>
-  <rect x="78" y="168" width="46" height="22" rx="11" fill="#e8672a2e" stroke="url(#ig)" stroke-width="1.4"/><text x="101" y="183" fill="#ffcaa0">тон</text>
-  <rect x="130" y="168" width="66" height="22" rx="11" fill="#e8672a2e" stroke="url(#ig)" stroke-width="1.4"/><text x="163" y="183" fill="#ffcaa0">продукт</text>
+  <rect x="76" y="140" width="52" height="22" rx="11" fill="#e8672a2e" stroke="url(#ig)" stroke-width="1.4"/><text x="102" y="155" fill="#ffcaa0">свет</text>
+  <rect x="134" y="140" width="62" height="22" rx="11" fill="#e8672a2e" stroke="url(#ig)" stroke-width="1.4"/><text x="165" y="155" fill="#ffcaa0">ракурс</text>
+  <rect x="76" y="168" width="72" height="22" rx="11" fill="#e8672a2e" stroke="url(#ig)" stroke-width="1.4"/><text x="112" y="183" fill="#ffcaa0">движение</text>
+  <rect x="154" y="168" width="42" height="22" rx="11" fill="#e8672a2e" stroke="url(#ig)" stroke-width="1.4"/><text x="175" y="183" fill="#ffcaa0">звук</text>
  </g>
  <path d="M210 150 h58 M256 141 l12 9 -12 9" stroke="#8a8177" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
- <rect x="292" y="92" width="150" height="116" rx="15" fill="#ffffff06" stroke="#ffffff1a" stroke-width="2"/>
- <rect x="316" y="140" width="48" height="12" rx="6" fill="#574e44"/>
- <text x="367" y="150" fill="#6a6157" font-size="11" font-weight="700">одно слово</text>
+ <rect x="292" y="98" width="150" height="104" rx="15" fill="#ffffff06" stroke="#ffffff1a" stroke-width="2"/>
+ <circle cx="367" cy="140" r="18" stroke="#5a5148" stroke-width="2.6"/>
+ <path d="M362 132 l12 8 -12 8 z" fill="#5a5148"/>
+ <text x="367" y="182" fill="#6a6157" font-size="11" font-weight="700" text-anchor="middle">одно слово</text>
 </svg>'''
 
 SC_MISTAKE = '''<svg viewBox="0 0 480 250" fill="none" font-family="Manrope">
@@ -111,10 +92,8 @@ SC_MISTAKE = '''<svg viewBox="0 0 480 250" fill="none" font-family="Manrope">
  <text x="116" y="222" fill="#8a8177" font-size="12.5" font-weight="800" text-anchor="middle">сменить модель</text>
  <text x="116" y="240" fill="#6a6157" font-size="11" text-anchor="middle">— тупик</text>
  <rect x="306" y="122" width="80" height="90" rx="12" fill="#1a1108" stroke="url(#ig)" stroke-width="2.5"/>
- <rect x="324" y="142" width="46" height="8" rx="4" fill="url(#ig)"/>
- <rect x="324" y="158" width="46" height="8" rx="4" fill="url(#ig)" opacity="0.8"/>
- <rect x="324" y="174" width="30" height="8" rx="4" fill="url(#ig)" opacity="0.6"/>
- <text x="346" y="234" fill="#ff9a4d" font-size="12.5" font-weight="800" text-anchor="middle">бриф</text>
+ <path d="M322 146 h48 M322 162 h48 M322 178 h30" stroke="url(#ig)" stroke-width="5" stroke-linecap="round"/>
+ <text x="346" y="234" fill="#ff9a4d" font-size="12.5" font-weight="800" text-anchor="middle">промпт</text>
 </svg>'''
 
 def viz(scene): return f'<div class="viz">{scene}</div>'
@@ -122,7 +101,7 @@ def viz(scene): return f'<div class="viz">{scene}</div>'
 def cover(hw, ho, sub, scene):
     return f"""<article class="slide cover">{DEFS}
   <div class="sparks">{sparks()}</div>
-  <div class="top"><span class="eb">AlovLab · как ставить задачу ИИ</span><span class="pg">1<b> / 8</b></span></div>
+  <div class="top"><span class="eb">AlovLab · топовый рекламный ролик</span><span class="pg">1<b> / 8</b></span></div>
   <div class="head"><h2><span class="w">{hw}</span><span class="o">{ho}</span></h2></div>
   <div class="sub">{sub}</div>
   {viz(scene)}
@@ -139,17 +118,20 @@ def sc(eb, hw, ho, bl, bm, scene, pg):
   {FOOT}
 </article>"""
 
-BRIEF = [
- ("1","Контекст","кто ты, для кого, что за продукт"),
- ("2","Роль","кем должен быть ИИ: редактор, стратег"),
- ("3","Критерий","что считать хорошим и что запрещено"),
+SLOTS = [
+ ("1","Субъект + действие","что в кадре и что делает"),
+ ("2","Сцена","где, окружение, фон"),
+ ("3","Свет и стиль","премиум-реклама, настроение"),
+ ("4","Камера","движение и монтаж"),
+ ("5","Звук","музыка, эффекты, нативно"),
+ ("6","Референсы","до 50: продукт, стиль, лицо"),
 ]
-def brief_slide():
-    rows="".join(f'<div class="mrow"><div class="n">{n}</div><div class="t"><b>{t}</b><span>{s}</span></div></div>' for n,t,s in BRIEF)
+def method_slide():
+    rows="".join(f'<div class="mrow"><div class="n">{n}</div><div class="t"><b>{t}</b><span>{s}</span></div></div>' for n,t,s in SLOTS)
     return f"""<article class="slide mch">{DEFS}
   <div class="sparks">{sparks()}</div>
-  <div class="top"><span class="eb">Решение</span><span class="pg">5<b> / 8</b></span></div>
-  <div class="head"><h2><span class="w">Бриф — это</span><span class="o">три вещи.</span></h2></div>
+  <div class="top"><span class="eb">Метод · формула Seedance 2.5</span><span class="pg">5<b> / 8</b></span></div>
+  <div class="head"><h2><span class="w">Топовый ролик —</span><span class="o">6 слотов.</span></h2></div>
   <div class="mlist">{rows}</div>
   {FOOT}
 </article>"""
@@ -158,10 +140,10 @@ def demo_slide():
     return f"""<article class="slide hsm">{DEFS}
   <div class="sparks">{sparks()}</div>
   <div class="top"><span class="eb">До / после · Seedance 2.5</span><span class="pg">6<b> / 8</b></span></div>
-  <div class="head"><h2><span class="w">Тот же ролик —</span><span class="o">другой результат.</span></h2></div>
-  <div class="sfact" style="margin-top:15px"><b>Голый запрос:</b> «видео с блюдом, красиво» — на выходе общий сток ни о чём.</div>
-  <div class="pbox"><span class="tag">Seedance 2.5 · живой промпт</span><code>Обжаренный гребешок на тёмном сланце, рука ставит тарелку, поднимается пар — уютный ресторан при свечах, тёплый янтарный свет — кинематографичная реклама еды, малая глубина резкости — медленный наезд с лёгкой сменой фокуса — тихий гул зала и лёгкое шипение.</code>
-    <div class="ru"><b>Разбор — 6 слотов Seedance:</b> субъект + действие · сцена · стиль · камера · звук. Детали вместо пустоты — модель знает, что снимать, а не гадает.</div></div>
+  <div class="head"><h2><span class="w">Тот же продукт —</span><span class="o">другой ролик.</span></h2></div>
+  <div class="sfact" style="margin-top:15px"><b>Голый запрос:</b> «сделай рекламу кроссовок» — на выходе плоский сток.</div>
+  <div class="pbox"><span class="tag">Seedance 2.5 · живой промпт</span><code>Белый кроссовок на бетонном постаменте, шнурки затягиваются сами, взлетает пыль — тёмная студия, один движущийся луч света — премиальная спортивная реклама, глянцевые блики — быстрый облёт камерой и слоу-мо на пике — глубокий бас и чёткий щелчок.</code>
+    <div class="ru"><b>Разбор — 6 слотов:</b> субъект + действие · сцена · свет и стиль · камера · звук. Детали вместо пустоты — модель снимает кино, а не сток.</div></div>
   {FOOT}
 </article>"""
 
@@ -169,14 +151,13 @@ def prompt_slide():
     return f"""<article class="slide hsm">{DEFS}
   <div class="sparks">{sparks()}</div>
   <div class="top"><span class="eb">Готовый промпт</span><span class="pg">7<b> / 8</b></span></div>
-  <div class="head"><h2><span class="w">Шаблон</span><span class="o">брифа.</span></h2></div>
-  <div class="pu">Польза · блогер · эксперт · SMM · бизнес</div>
-  <div class="pbox"><span class="tag">Claude / ChatGPT</span><code>Контекст: ты [РОЛЬ] для [БИЗНЕС]. Аудитория: [КТО].
-Продукт: [ЧТО], деталь: [ФИШКА].
-Задача: [ЧТО НАПИСАТЬ].
-Критерий: один хук, одна деталь, живой язык.
-Запрещено: «мы рады», штампы, вода. Финал — [ДЕЙСТВИЕ].</code>
-    <div class="ru"><b>Разбор:</b> три строки сверху над задачей — контекст, роль, критерий. Меняют не модель, а качество ответа.</div></div>
+  <div class="head"><h2><span class="w">Шаблон под</span><span class="o">свой продукт.</span></h2></div>
+  <div class="pu">Польза · бренд · e-com · SMM · продакшен</div>
+  <div class="pbox"><span class="tag">Seedance 2.5 · скопировать</span><code>[ПРОДУКТ] + [действие/движение] —
+[сцена и свет] — [стиль: премиум-реклама, настроение] —
+[движение камеры и монтаж] — [звук: музыка, эффекты].
+Референсы: фото продукта, кадр-стиль, лицо (до 50).</code>
+    <div class="ru"><b>Разбор:</b> заполни 6 слотов под свой товар — и получишь рекламный кадр, а не сток. Пустых мест не оставляй.</div></div>
   {FOOT}
 </article>"""
 
@@ -193,25 +174,25 @@ def cta(hw, ho, items, btn):
 </article>"""
 
 SLIDES = [
- cover("Один запрос —", "два ответа.", "Слева картон, справа живой текст. Модель — одна и та же.", SC_COVER),
- sc("Проблема","Просишь","«напиши пост».","А получаешь картон: «мы рады представить","наше новое меню» — так ИИ отвечает на голую строку.", SC_PROBLEM, 2),
- sc("Причина","ИИ не читает","мысли.","Нишу, гостя, тон, продукт ты держишь в голове.","ИИ их не видит — и затыкает пустоту средним.", SC_CAUSE, 3),
- sc("Ошибка","Ты меняешь","модель.","А менять надо бриф. Слабый ответ —","это слабо поставленная задача, а не слабый ИИ.", SC_MISTAKE, 4),
- brief_slide(),
+ cover("Один промпт —", "два ролика.", "Слева сток, справа кино. Модель — одна и та же. Разницу делает промпт.", SC_COVER),
+ sc("Проблема","Просишь","«сделай рекламу».","И получаешь плоский сток: ровный свет, ноль динамики.","ИИ снял «что-то про продукт» — потому что так и попросили.", SC_PROBLEM, 2),
+ sc("Причина","Нейросеть не","додумает кадр.","Свет, ракурс, движение, звук — это режиссёрское решение.","Не скажешь — получишь среднее, что модель знает про всех.", SC_CAUSE, 3),
+ sc("Ошибка","Ты меняешь","модель.","А менять надо промпт. Плоский ролик —","это плоское задание, а не слабая нейросеть.", SC_MISTAKE, 4),
+ method_slide(),
  demo_slide(),
  prompt_slide(),
- cta("Добавь","три строки.",
-     ["<b>не переписывай</b> задачу — допиши сверху 3 строки",
-      "контекст · роль · критерий — и отправь заново",
-      "формула и шаблон под нишу — в тетради"],
-     "Тетрадь → t.me/AlovLab"),
+ cta("Собери","свой промпт.",
+     ["<b>6 слотов</b> под твой продукт → рекламный кадр, а не сток",
+      "формула, разбор и готовые промпты — в тетради",
+      "трендовые модели: Seedance 2.5, Kling, Higgsfield"],
+     "Промпты → t.me/AlovLab"),
 ]
 
-HTML = f"""<title>Один запрос — два ответа · showcase · AlovLab</title><meta name="viewport" content="width=device-width, initial-scale=1">
+HTML = f"""<title>Как сделать топовый рекламный ролик · showcase · AlovLab</title><meta name="viewport" content="width=device-width, initial-scale=1">
 <style>{CSS}</style>
 <div class="page">
   <div class="lead"><span class="eb">AlovLab · День 8 · 11 августа · showcase + иллюстрации</span>
-    <h1>Одним постом: обложка → проблема → бриф → было/после → промпт → CTA. Instagram и Telegram, 4:5.</h1></div>
+    <h1>Как сделать топовый рекламный ролик: обложка → проблема → 6 слотов → до/после → промпт → CTA. 4:5.</h1></div>
   <div class="grid">
 {''.join(SLIDES)}
   </div>
