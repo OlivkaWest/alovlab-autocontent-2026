@@ -15,6 +15,14 @@ const USER_AGENT =
 // Пауза между сегментами длинного скрипта — чтобы серия запросов не выглядела флудом.
 const SEGMENT_GAP_MS = 600;
 
+// Проверка, что байты — это mp3 (ID3-тег или MPEG frame sync), а не HTML-заглушка Cloudflare.
+function isMp3(buf: Buffer): boolean {
+  if (buf.length < 4) return false;
+  if (buf[0] === 0x49 && buf[1] === 0x44 && buf[2] === 0x33) return true; // "ID3"
+  if (buf[0] === 0xff && (buf[1] & 0xe0) === 0xe0) return true; // MPEG frame sync
+  return false;
+}
+
 // Русская речь ≈ 2.5 слова/сек — оценка длительности сегмента для mock.
 export function estimateSeconds(text: string): number {
   const words = text.trim().split(/\s+/).filter(Boolean).length;
@@ -78,7 +86,20 @@ export async function generateSegment(text: string, dest: string): Promise<strin
         if (res.status >= 500 && attempt < MAX) { await sleep(delay); delay = Math.min(delay * 2, 15000); continue; }
         throw new ElevenError("bad_response", `HTTP ${res.status}: ${body}`, res.status);
       }
+      const ctype = (res.headers.get("content-type") || "").toLowerCase();
       const buf = Buffer.from(await res.arrayBuffer());
+      // Cloudflare иногда отдаёт 200 с HTML-заглушкой «Just a moment…» вместо аудио.
+      // Проверяем и заголовок, и сигнатуру файла — битый сегмент не должен попасть в склейку.
+      if (!isMp3(buf) && !ctype.includes("audio") && !ctype.includes("mpeg")) {
+        const preview = buf.toString("utf8").slice(0, 160).replace(/\s+/g, " ");
+        if (attempt < MAX) {
+          log.warn(`ElevenLabs вернул не аудио (${ctype || "?"}) — пауза ${delay}мс и повтор ${attempt + 1}/${MAX}`);
+          await sleep(delay);
+          delay = Math.min(delay * 2, 15000);
+          continue;
+        }
+        throw new ElevenError("bad_response", `ответ не аудио (${ctype || "?"}): ${preview}`);
+      }
       if (buf.length < 256) throw new ElevenError("bad_response", "пустое аудио");
       fs.writeFileSync(dest, buf);
       return dest;
