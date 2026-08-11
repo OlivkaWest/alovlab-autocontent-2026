@@ -1,15 +1,24 @@
 # -*- coding: utf-8 -*-
-"""AlovLab · День 8 «Один запрос — два ответа» (бриф для ИИ) в SHOWCASE-стиле.
-Обложка → проблема → причина → ошибка → бриф (3 части) → было/стало → промпт → CTA. Нумерация N/8.
-RU кроме AlovLab. Запуск: python3 scripts/carousel_showcase_day8.py"""
+"""AlovLab · День 8 «Один запрос — два ответа» (бриф для ИИ) — SHOWCASE + СВОИ ИЛЛЮСТРАЦИИ.
+На слайдах-концептах — bespoke SVG-сцены под каждую мысль (сплит, стена штампов, голова→слово, развилка).
+Нумерация N/8. RU кроме AlovLab. Запуск: python3 scripts/carousel_showcase_day8.py"""
 import pathlib
-from carousel_showcase_render import (CSS as CSS0, DEFS, FOOT, sparks, rings, icon, ICONS, LOGO, ROOT)
+from carousel_showcase_render import (CSS as CSS0, DEFS, FOOT, sparks, rings, LOGO, ROOT)
 
 OUTDIR = ROOT / "exports" / "carousels" / "day-08-showcase"; OUTDIR.mkdir(parents=True, exist_ok=True)
 OUT = OUTDIR / "day-08-showcase.html"
 
 EXTRA = r"""
 .hsm .head h2{font-size:37px}
+.cover .head h2{font-size:50px}
+.cover .sub{margin-top:14px;max-width:26ch;font-size:17px}
+/* область иллюстрации */
+.viz{flex:1;position:relative;z-index:2;display:grid;place-items:center;min-height:0;margin-top:14px}
+.viz svg{width:min(92%,480px);height:100%;max-height:360px}
+.viz::before{content:"";position:absolute;left:50%;top:55%;width:74%;height:64%;transform:translate(-50%,-50%);
+ background:radial-gradient(closest-side,rgba(255,120,40,.16),transparent 72%);z-index:-1;pointer-events:none}
+.body.tight{margin-top:16px}
+/* пу + промпт-плашка */
 .pu{position:relative;z-index:4;margin-top:14px;display:inline-block;font-weight:800;font-size:11px;text-transform:uppercase;
  letter-spacing:.03em;color:var(--o2);background:rgba(232,103,42,.13);border:1px solid rgba(232,103,42,.3);border-radius:20px;padding:8px 14px}
 .pbox{position:relative;z-index:4;margin-top:15px;background:#120c06;border:1px solid rgba(255,150,80,.28);
@@ -20,23 +29,20 @@ EXTRA = r"""
  color:#ffd9b8;white-space:pre-wrap;word-break:break-word}
 .pbox .ru{margin-top:11px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font-size:11.5px;line-height:1.4;color:#b9ad9b}
 .pbox .ru b{color:#fff}
-/* список из 3 частей брифа */
+/* список брифа */
 .mlist{position:relative;z-index:4;margin-top:18px;display:flex;flex-direction:column;gap:11px}
 .mrow{display:flex;align-items:center;gap:14px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));
  border:1px solid rgba(255,140,60,.14);border-radius:14px;padding:14px 16px}
 .mrow .n{flex:0 0 auto;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;
  font-weight:800;font-size:14px;color:#160e07;background:linear-gradient(150deg,var(--o2),var(--o))}
-.mrow .t{display:flex;flex-direction:column;gap:2px;min-width:0}
-.mrow .t b{font-weight:700;font-size:17px;color:#fff;line-height:1.15}
+.mrow .t b{font-weight:700;font-size:17px;color:#fff;line-height:1.15;display:block}
 .mrow .t span{font-weight:500;font-size:13px;color:#8a8177;line-height:1.25}
 /* до/после сплит */
 .split{position:relative;z-index:4;margin-top:16px;display:flex;flex-direction:column;gap:12px}
-.sfact{font-weight:600;font-size:14px;color:#b9ad9b;line-height:1.35}
-.sfact b{color:#fff}
-.scard{border-radius:14px;padding:14px 16px;position:relative}
+.sfact{font-weight:600;font-size:14px;color:#b9ad9b;line-height:1.35}.sfact b{color:#fff}
+.scard{border-radius:14px;padding:14px 16px}
 .scard .lab{display:inline-block;font-weight:800;font-size:9px;letter-spacing:.09em;text-transform:uppercase;padding:4px 9px;border-radius:6px;margin-bottom:8px}
-.scard .q{font-weight:700;font-size:15.5px;line-height:1.3}
-.scard .r{margin-top:6px;font-weight:500;font-size:12px;line-height:1.3}
+.scard .q{font-weight:700;font-size:15.5px;line-height:1.3}.scard .r{margin-top:6px;font-weight:500;font-size:12px;line-height:1.3}
 .scard.cold{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
 .scard.cold .lab{background:rgba(255,255,255,.1);color:#9a9084}.scard.cold .q{color:#8f867b}.scard.cold .r{color:#6f675d}
 .scard.hot{background:#130c06;border:1px solid rgba(255,150,80,.32);border-left:3px solid var(--o)}
@@ -44,30 +50,92 @@ EXTRA = r"""
 """
 CSS = CSS0 + EXTRA
 
-ICONS.update({
- "split": '<rect x="20" y="24" width="60" height="52" rx="9" fill="none" stroke="url(#ig)" stroke-width="6"/><path d="M50 24v52" stroke="url(#ig)" stroke-width="6"/>',
- "stamp": '<rect x="24" y="30" width="52" height="8" rx="4"/><rect x="24" y="46" width="52" height="8" rx="4"/><rect x="24" y="62" width="34" height="8" rx="4"/>',
- "mind":  '<path d="M30 82V56a20 20 0 0 1 40 0v26" fill="none" stroke="url(#ig)" stroke-width="6" stroke-linecap="round"/><circle cx="44" cy="52" r="3.4"/><circle cx="58" cy="52" r="3.4"/><path d="M45 65h12" stroke="url(#ig)" stroke-width="5" stroke-linecap="round"/>',
- "fork":  '<circle cx="50" cy="74" r="6"/><path d="M50 68V54" stroke="url(#ig)" stroke-width="6" stroke-linecap="round"/><path d="M50 54 28 32M50 54 72 32" fill="none" stroke="url(#ig)" stroke-width="6" stroke-linecap="round"/>',
-})
+# ---------------- BESPOKE-СЦЕНЫ ----------------
+SC_COVER = '''<svg viewBox="0 0 480 250" fill="none" font-family="Manrope">
+ <rect x="196" y="4" width="88" height="24" rx="12" stroke="url(#ig)" stroke-width="3"/>
+ <text x="240" y="21" fill="#ffcaa0" font-size="12" font-weight="800" text-anchor="middle">запрос</text>
+ <path d="M240 28 V48 M130 48 H350 M130 48 V66 M350 48 V66" stroke="#6a6157" stroke-width="2.5"/>
+ <rect x="40" y="72" width="176" height="166" rx="16" fill="#ffffff08" stroke="#ffffff1f" stroke-width="2"/>
+ <rect x="62" y="98" width="132" height="11" rx="5.5" fill="#574e44"/>
+ <rect x="62" y="122" width="132" height="11" rx="5.5" fill="#4d463d"/>
+ <rect x="62" y="146" width="100" height="11" rx="5.5" fill="#4d463d"/>
+ <rect x="62" y="170" width="132" height="11" rx="5.5" fill="#443e36"/>
+ <rect x="62" y="194" width="84" height="11" rx="5.5" fill="#443e36"/>
+ <text x="128" y="228" fill="#8a8177" font-size="12.5" font-weight="800" text-anchor="middle" letter-spacing="1.5">КАРТОН</text>
+ <rect x="264" y="72" width="176" height="166" rx="16" fill="#1a1108" stroke="url(#ig)" stroke-width="2.5"/>
+ <rect x="286" y="98" width="132" height="12" rx="6" fill="url(#ig)"/>
+ <rect x="286" y="123" width="90" height="12" rx="6" fill="url(#ig)" opacity="0.85"/>
+ <rect x="286" y="148" width="120" height="12" rx="6" fill="url(#ig)" opacity="0.7"/>
+ <rect x="286" y="173" width="72" height="12" rx="6" fill="url(#ig)" opacity="0.55"/>
+ <path d="M410 190 l4.5 11 11 4.5 -11 4.5 -4.5 11 -4.5 -11 -11 -4.5 11 -4.5 z" fill="url(#ig)"/>
+ <text x="352" y="228" fill="#ff9a4d" font-size="12.5" font-weight="800" text-anchor="middle" letter-spacing="1.5">ЖИВОЙ</text>
+</svg>'''
 
-def cover(hw, ho, sub, ic):
+SC_PROBLEM = '''<svg viewBox="0 0 480 250" fill="none" font-family="Manrope">
+ <rect x="78" y="8" width="324" height="234" rx="18" fill="#ffffff06" stroke="#ffffff1a" stroke-width="2"/>
+ <rect x="100" y="30" width="156" height="28" rx="14" stroke="url(#ig)" stroke-width="2.5"/>
+ <text x="112" y="48" fill="#ffcaa0" font-size="12.5" font-weight="700">напиши пост</text>
+ <rect x="344" y="30" width="28" height="28" rx="9" fill="url(#ig)"/>
+ <path d="M352 44 h11 M358 39 l5 5 -5 5" stroke="#160e07" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+ <rect x="100" y="82" width="272" height="12" rx="6" fill="#574e44"/>
+ <rect x="100" y="104" width="272" height="12" rx="6" fill="#4f473e"/>
+ <rect x="100" y="126" width="240" height="12" rx="6" fill="#4f473e"/>
+ <rect x="100" y="148" width="272" height="12" rx="6" fill="#463f37"/>
+ <rect x="100" y="170" width="208" height="12" rx="6" fill="#463f37"/>
+ <rect x="100" y="192" width="272" height="12" rx="6" fill="#3f3931"/>
+ <rect x="100" y="214" width="176" height="12" rx="6" fill="#3f3931"/>
+</svg>'''
+
+SC_CAUSE = '''<svg viewBox="0 0 480 250" fill="none" font-family="Manrope">
+ <path d="M64 244 v-70 a66 66 0 0 1 132 0 v70 z" fill="#1a1108" stroke="url(#ig)" stroke-width="3"/>
+ <g font-size="11.5" font-weight="700" text-anchor="middle">
+  <rect x="78" y="140" width="54" height="22" rx="11" fill="#e8672a2e" stroke="url(#ig)" stroke-width="1.4"/><text x="105" y="155" fill="#ffcaa0">ниша</text>
+  <rect x="138" y="140" width="58" height="22" rx="11" fill="#e8672a2e" stroke="url(#ig)" stroke-width="1.4"/><text x="167" y="155" fill="#ffcaa0">гость</text>
+  <rect x="78" y="168" width="46" height="22" rx="11" fill="#e8672a2e" stroke="url(#ig)" stroke-width="1.4"/><text x="101" y="183" fill="#ffcaa0">тон</text>
+  <rect x="130" y="168" width="66" height="22" rx="11" fill="#e8672a2e" stroke="url(#ig)" stroke-width="1.4"/><text x="163" y="183" fill="#ffcaa0">продукт</text>
+ </g>
+ <path d="M210 150 h58 M256 141 l12 9 -12 9" stroke="#8a8177" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+ <rect x="292" y="92" width="150" height="116" rx="15" fill="#ffffff06" stroke="#ffffff1a" stroke-width="2"/>
+ <rect x="316" y="140" width="48" height="12" rx="6" fill="#574e44"/>
+ <text x="367" y="150" fill="#6a6157" font-size="11" font-weight="700">одно слово</text>
+</svg>'''
+
+SC_MISTAKE = '''<svg viewBox="0 0 480 250" fill="none" font-family="Manrope">
+ <circle cx="240" cy="34" r="7" fill="url(#ig)"/>
+ <path d="M240 41 C240 78 150 82 132 110" stroke="#6a6157" stroke-width="3"/>
+ <path d="M240 41 C240 78 330 82 348 110" stroke="url(#ig)" stroke-width="3.5"/>
+ <g stroke="#6a6157" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M150 168 a34 34 0 1 0 -18 -30"/>
+  <path d="M128 128 l6 16 -16 4"/>
+ </g>
+ <text x="116" y="222" fill="#8a8177" font-size="12.5" font-weight="800" text-anchor="middle">сменить модель</text>
+ <text x="116" y="240" fill="#6a6157" font-size="11" text-anchor="middle">— тупик</text>
+ <rect x="306" y="122" width="80" height="90" rx="12" fill="#1a1108" stroke="url(#ig)" stroke-width="2.5"/>
+ <rect x="324" y="142" width="46" height="8" rx="4" fill="url(#ig)"/>
+ <rect x="324" y="158" width="46" height="8" rx="4" fill="url(#ig)" opacity="0.8"/>
+ <rect x="324" y="174" width="30" height="8" rx="4" fill="url(#ig)" opacity="0.6"/>
+ <text x="346" y="234" fill="#ff9a4d" font-size="12.5" font-weight="800" text-anchor="middle">бриф</text>
+</svg>'''
+
+def viz(scene): return f'<div class="viz">{scene}</div>'
+
+def cover(hw, ho, sub, scene):
     return f"""<article class="slide cover">{DEFS}
   <div class="sparks">{sparks()}</div>
-  <div class="stage"><div class="rings">{rings()}</div><div class="orbw"><div class="orb big">{icon(ic)}</div></div></div>
   <div class="top"><span class="eb">AlovLab · как ставить задачу ИИ</span><span class="pg">1<b> / 8</b></span></div>
   <div class="head"><h2><span class="w">{hw}</span><span class="o">{ho}</span></h2></div>
   <div class="sub">{sub}</div>
+  {viz(scene)}
   {FOOT}
 </article>"""
 
-def blk(eb, hw, ho, bl, bm, ic, pg):
+def sc(eb, hw, ho, bl, bm, scene, pg):
     return f"""<article class="slide">{DEFS}
   <div class="sparks">{sparks()}</div>
-  <div class="stage"><div class="rings">{rings()}</div><div class="orbw"><div class="orb">{icon(ic)}</div></div></div>
   <div class="top"><span class="eb">{eb}</span><span class="pg">{pg}<b> / 8</b></span></div>
   <div class="head"><h2><span class="w">{hw}</span><span class="o">{ho}</span></h2></div>
-  <div class="body"><span class="l">{bl}</span> <span class="m">{bm}</span></div>
+  <div class="body tight"><span class="l">{bl}</span> <span class="m">{bm}</span></div>
+  {viz(scene)}
   {FOOT}
 </article>"""
 
@@ -77,8 +145,7 @@ BRIEF = [
  ("3","Критерий","что считать хорошим и что запрещено"),
 ]
 def brief_slide():
-    rows="".join(f'<div class="mrow"><div class="n">{n}</div><div class="t"><b>{t}</b><span>{s}</span></div></div>'
-                 for n,t,s in BRIEF)
+    rows="".join(f'<div class="mrow"><div class="n">{n}</div><div class="t"><b>{t}</b><span>{s}</span></div></div>' for n,t,s in BRIEF)
     return f"""<article class="slide mch">{DEFS}
   <div class="sparks">{sparks()}</div>
   <div class="top"><span class="eb">Решение</span><span class="pg">5<b> / 8</b></span></div>
@@ -128,10 +195,10 @@ def cta(hw, ho, items, btn):
 </article>"""
 
 SLIDES = [
- cover("Один запрос —", "два ответа.", "Слева картон, справа живой текст. Модель одна и та же. Разницу делает бриф.", "split"),
- blk("Проблема","Просишь","«напиши пост».","А получаешь картон: «мы рады представить","наше новое меню» — так ИИ отвечает на голую строку.","stamp", 2),
- blk("Причина","ИИ не читает","мысли.","Нишу, гостя, тон, продукт ты держишь в голове.","ИИ их не видит — и затыкает пустоту средним.","mind", 3),
- blk("Ошибка","Ты меняешь","модель.","А менять надо бриф. Слабый ответ —","это слабо поставленная задача, а не слабый ИИ.","fork", 4),
+ cover("Один запрос —", "два ответа.", "Слева картон, справа живой текст. Модель — одна и та же.", SC_COVER),
+ sc("Проблема","Просишь","«напиши пост».","А получаешь картон: «мы рады представить","наше новое меню» — так ИИ отвечает на голую строку.", SC_PROBLEM, 2),
+ sc("Причина","ИИ не читает","мысли.","Нишу, гостя, тон, продукт ты держишь в голове.","ИИ их не видит — и затыкает пустоту средним.", SC_CAUSE, 3),
+ sc("Ошибка","Ты меняешь","модель.","А менять надо бриф. Слабый ответ —","это слабо поставленная задача, а не слабый ИИ.", SC_MISTAKE, 4),
  brief_slide(),
  demo_slide(),
  prompt_slide(),
@@ -145,8 +212,8 @@ SLIDES = [
 HTML = f"""<title>Один запрос — два ответа · showcase · AlovLab</title><meta name="viewport" content="width=device-width, initial-scale=1">
 <style>{CSS}</style>
 <div class="page">
-  <div class="lead"><span class="eb">AlovLab · День 8 · 11 августа · showcase-стиль</span>
-    <h1>Одним постом: обложка → проблема → бриф (3 части) → было/после → промпт → CTA. Instagram и Telegram, 4:5.</h1></div>
+  <div class="lead"><span class="eb">AlovLab · День 8 · 11 августа · showcase + иллюстрации</span>
+    <h1>Одним постом: обложка → проблема → бриф → было/после → промпт → CTA. Instagram и Telegram, 4:5.</h1></div>
   <div class="grid">
 {''.join(SLIDES)}
   </div>
