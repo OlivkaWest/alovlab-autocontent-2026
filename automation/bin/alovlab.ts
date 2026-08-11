@@ -272,7 +272,7 @@ async function main() {
       const fileArg = rest.find((r) => /\.md$/i.test(r));
       if (fileArg) {
         const rf = await makePodcastFromFile(fileArg, {
-          cta: "Тетрадь дня — в закрепе Telegram AlovLab. Собери свою неделю за вечер.",
+          cta: "Рабочая тетрадь дня — в закрепе Telegram AlovLab.",
           link: "https://t.me/AlovLab",
         });
         if (!rf.ok && rf.reason) return print(rf.reason);
