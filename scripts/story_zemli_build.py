@@ -38,6 +38,10 @@ EXTRA = r"""
 .z .mid{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;min-height:0}
 .z .mc{font-size:10.5px;color:#8a8177;margin-top:8px;font-weight:600;line-height:1.2}
 .z .mc b{color:var(--o2)}
+.z.off{opacity:.4;filter:saturate(.55)}
+.z.on{border-color:var(--o);box-shadow:0 0 0 1.5px var(--o),0 16px 42px -12px rgba(232,103,42,.65);
+ background:linear-gradient(180deg,rgba(232,103,42,.16),rgba(255,255,255,.02))}
+.z.on .lab .n{box-shadow:0 0 12px 2px rgba(255,140,60,.7)}
 .thumb{height:100%;border-radius:9px;overflow:hidden;border:1px solid rgba(255,255,255,.13);line-height:0;flex:1}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .arrow{color:var(--o2);font-weight:800;font-size:16px;flex:0 0 auto}
@@ -69,47 +73,54 @@ EXTRA = r"""
 """
 CSS = BASECSS + EXTRA
 
-def z(n, name, mid, mc):
-    return f'<div class="z"><div class="lab"><span class="n">{n}</span>{name}</div><div class="mid">{mid}</div><div class="mc">{mc}</div></div>'
-
-# 1 СЛОВА — запрос → структурированный текст
-z_slova = z("1", "СЛОВА",
+CELLS = [
+ ("1", "СЛОВА",
   '<div class="txt"><span class="pill">запрос</span><div class="ln" style="width:100%"></div><div class="ln" style="width:82%"></div><div class="ln" style="width:64%"></div></div>',
-  'запрос → <b>структура</b>')
-# 2 ИЗОБРАЖЕНИЯ — реф → AI (реальные кадры)
-z_img = z("2", "ИЗОБРАЖЕНИЯ",
+  'запрос → <b>структура</b>'),
+ ("2", "ИЗОБРАЖЕНИЯ",
   f'<div class="thumb"><img src="data:image/jpeg;base64,{b64("stock.jpg")}"></div><span class="arrow">→</span><div class="thumb"><img src="data:image/jpeg;base64,{b64("commercial.jpg")}"></div>',
-  'реф → <b>AI-визуал</b>')
-# 3 ВИДЕО — кадр → движение (реальный кадр + play)
-z_video = z("3", "ВИДЕО",
+  'реф → <b>AI-визуал</b>'),
+ ("3", "ВИДЕО",
   f'<div class="thumb" style="position:relative;width:100%"><img src="data:image/jpeg;base64,{b64("commercial.jpg")}"><div class="playdot">▶</div><div class="motion"><i></i><i></i><i></i></div></div>',
-  'кадр → <b>движение</b>')
-# 4 ЗВУК — waveform
-z_zvuk = z("4", "ЗВУК",
+  'кадр → <b>движение</b>'),
+ ("4", "ЗВУК",
   f'<div style="width:100%;height:100%;display:flex;align-items:center">{wave()}</div>',
-  'текст → <b>голос</b>')
-# 5 АВАТАРЫ — портрет → говорящий (субтитры)
-z_avatar = z("5", "АВАТАРЫ",
+  'текст → <b>голос</b>'),
+ ("5", "АВАТАРЫ",
   '<div class="av"><div class="avhead"></div><span class="arrow">→</span><div class="subs"><span class="s" style="width:100%"></span><span class="s" style="width:74%"></span><span class="s" style="width:88%"></span></div></div>',
-  'фото → <b>говорящий аватар</b>')
-# 6 ЗНАНИЯ — источники → конспект
-z_know = z("6", "ЗНАНИЯ",
+  'фото → <b>говорящий аватар</b>'),
+ ("6", "ЗНАНИЯ",
   '<div class="txt"><div class="srcs"><span class="chip">источник</span><span class="chip">данные</span><span class="chip">факт</span></div>'
   '<div class="ln" style="width:100%;margin-top:3px"></div><div class="ln" style="width:88%"></div><div class="ln g" style="width:70%"></div></div>',
-  'источники → <b>конспект</b>')
+  'источники → <b>конспект</b>'),
+]
 
-STORY = f"""<section class="story">
+def z(n, name, mid, mc, active=None):
+    cls = "z"
+    if active is not None:
+        cls += " on" if str(active) == str(n) else " off"
+    return f'<div class="{cls}"><div class="lab"><span class="n">{n}</span>{name}</div><div class="mid">{mid}</div><div class="mc">{mc}</div></div>'
+
+def story(active=None):
+    cells = "".join(z(n, name, mid, mc, active) for n, name, mid, mc in CELLS)
+    return f"""<section class="story">
   <div class="sparks">{sparks()}</div>
   <div class="eb">AlovLab · курс «Нейросети для каждого»</div>
   <h2><b>6</b> Земель ИИ</h2>
   <div class="sub">6 навыков → одна система</div>
-  <div class="zgrid">{z_slova}{z_img}{z_video}{z_zvuk}{z_avatar}{z_know}</div>
+  <div class="zgrid">{cells}</div>
   <div class="foot"><div class="lg"><img src="data:image/png;base64,{LOGO}"><b>Alov<i>Lab</i></b></div>
     <div class="rt">от нуля до результата</div></div>
 </section>"""
 
-HTML = f"""<title>6 Земель ИИ · story B-roll · AlovLab</title><meta name="viewport" content="width=device-width, initial-scale=1">
-<style>{CSS}</style>
-<div class="stagewrap">{STORY}</div>"""
-OUT.write_text(HTML, encoding="utf-8")
-print("HTML:", OUT, f"{OUT.stat().st_size//1024} KB")
+def page(active=None):
+    return (f'<title>6 Земель ИИ · story B-roll · AlovLab</title>'
+            f'<meta name="viewport" content="width=device-width, initial-scale=1"><style>{CSS}</style>'
+            f'<div class="stagewrap">{story(active)}</div>')
+
+# базовый кадр (все уроки ровно) + 6 кадров с подсветкой по очереди
+OUT.write_text(page(None), encoding="utf-8")
+n = 1
+for i in range(1, 7):
+    (OUTDIR / f"scene2-hl-{i}.html").write_text(page(i), encoding="utf-8"); n += 1
+print("HTML:", OUT.name, "+ scene2-hl-1..6 (подсветка по очереди)")
