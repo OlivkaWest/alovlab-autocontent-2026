@@ -4,10 +4,22 @@
 шапка → закреп → хайлайты. Промпт — шапка через Claude. Честность: без выдуманных цифр
 (клик-статистика IG→TG не отслеживается). Ниша примеров — ИИ/контент/бизнес. Нумерация N/8.
 RU кроме AlovLab и промптов. Запуск: python3 scripts/carousel_showcase_day16.py"""
+import base64
 from carousel_showcase_render import (CSS as CSS0, DEFS, FOOT, sparks, rings, LOGO, ROOT)
 
 OUTDIR = ROOT / "exports" / "carousels" / "day-16-showcase"; OUTDIR.mkdir(parents=True, exist_ok=True)
 OUT = OUTDIR / "day-16-showcase.html"
+ASSET = ROOT / "content" / "carousel-assets" / "day-16"
+_EXTS = (".png", ".jpg", ".jpeg", ".webp")
+
+def photo_src(name):
+    """Ищет content/carousel-assets/day-16/<name>.<ext>; вернёт data-URI или None."""
+    for e in _EXTS:
+        p = ASSET / (name + e)
+        if p.exists():
+            mt = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp"}[e]
+            return f"data:{mt};base64," + base64.b64encode(p.read_bytes()).decode()
+    return None
 
 EXTRA = r"""
 .hsm .head h2{font-size:37px}
@@ -44,6 +56,14 @@ EXTRA = r"""
 .bizmap .r{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));border:1px solid rgba(255,140,60,.14);
  border-radius:11px;padding:9px 12px;font-size:12.5px;line-height:1.3;color:#c9bdac}
 .bizmap .r b{color:#ff9a4d;font-weight:800;display:block;font-size:11px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:2px}
+.viz.photo{padding:0}
+.viz.photo img{width:100%;height:100%;max-height:none;object-fit:cover;border-radius:20px;
+ border:1px solid rgba(255,150,80,.28);box-shadow:0 22px 55px -22px rgba(232,103,42,.55)}
+.pband{position:relative;z-index:4;margin-top:14px;border-radius:18px;overflow:hidden;
+ border:1px solid rgba(255,150,80,.28);box-shadow:0 20px 50px -22px rgba(232,103,42,.5)}
+.pband img{width:100%;height:230px;object-fit:cover;display:block}
+.mcap{position:relative;z-index:4;margin-top:13px;font-weight:700;font-size:14.5px;color:#c2b6a4;text-align:center}
+.mcap b{color:#fff}
 """
 CSS = CSS0 + EXTRA
 
@@ -109,25 +129,29 @@ SC_MISTAKE = f'''<svg viewBox="0 0 480 250" fill="none" font-family="Manrope">
  <text x="300" y="210" fill="#ff9a4d" font-size="12" font-weight="800" text-anchor="middle">строишь мост</text>
 </svg>'''
 
-def viz(scene): return f'<div class="viz">{scene}</div>'
+def viz(scene, name=None):
+    src = photo_src(name) if name else None
+    if src:
+        return f'<div class="viz photo"><img src="{src}"></div>'
+    return f'<div class="viz">{scene}</div>'
 
-def cover(hw, ho, sub, scene):
+def cover(hw, ho, sub, scene, name=None):
     return f"""<article class="slide cover">{DEFS}
   <div class="sparks">{sparks()}</div>
   <div class="top"><span class="eb">AlovLab · профиль как мост</span><span class="pg">1<b> / 8</b></span></div>
   <div class="head"><h2><span class="w">{hw}</span><span class="o">{ho}</span></h2></div>
   <div class="sub">{sub}</div>
-  {viz(scene)}
+  {viz(scene, name)}
   {FOOT}
 </article>"""
 
-def sc(eb, hw, ho, bl, bm, scene, pg):
+def sc(eb, hw, ho, bl, bm, scene, pg, name=None):
     return f"""<article class="slide">{DEFS}
   <div class="sparks">{sparks()}</div>
   <div class="top"><span class="eb">{eb}</span><span class="pg">{pg}<b> / 8</b></span></div>
   <div class="head"><h2><span class="w">{hw}</span><span class="o">{ho}</span></h2></div>
   <div class="body tight"><span class="l">{bl}</span> <span class="m">{bm}</span></div>
-  {viz(scene)}
+  {viz(scene, name)}
   {FOOT}
 </article>"""
 
@@ -137,13 +161,19 @@ STEPS = [
  ("3","Хайлайты","путь новичка: с чего начать → куда прийти"),
 ]
 def method_slide():
-    rows="".join(f'<div class="mrow"><div class="n">{n}</div><div class="t"><b>{t}</b><span>{s}</span></div></div>' for n,t,s in STEPS)
+    src = photo_src("s5-bridge")
+    if src:
+        body = (f'<div class="viz photo" style="margin-top:16px"><img src="{src}"></div>'
+                '<div class="mcap"><b>Шапка → Закреп → Хайлайты</b> → Telegram</div>')
+    else:
+        rows="".join(f'<div class="mrow"><div class="n">{n}</div><div class="t"><b>{t}</b><span>{s}</span></div></div>' for n,t,s in STEPS)
+        body = (f'<div class="mlist">{rows}</div>'
+                '<div class="body tight" style="margin-top:14px">Каждый узел ведёт дальше: шапка → закреп → хайлайты → <b style="color:#fff">Telegram</b>. Ни один не «для красоты».</div>')
     return f"""<article class="slide mch">{DEFS}
   <div class="sparks">{sparks()}</div>
   <div class="top"><span class="eb">Метод · мост в 3 узла</span><span class="pg">5<b> / 8</b></span></div>
   <div class="head"><h2><span class="w">Мост —</span><span class="o">три узла.</span></h2></div>
-  <div class="mlist">{rows}</div>
-  <div class="body tight" style="margin-top:14px">Каждый узел ведёт дальше: шапка → закреп → хайлайты → <b style="color:#fff">Telegram</b>. Ни один не «для красоты».</div>
+  {body}
   {FOOT}
 </article>"""
 
@@ -157,6 +187,7 @@ def prompt_slide():
 4 строки, живо, без штампов и эмодзи-мусора. Дай 3 варианта.
 Ниша: [ТВОЯ]. Что даю в Telegram: [ГАЙД / ПРОМПТ / ЧЕК-ЛИСТ].</code>
     <div class="ru"><b>Разбор:</b> шапка — не «о себе», а указатель: за чем и куда идти. Последняя строка всегда ведёт в Telegram.</div></div>
+  {('<div class="pband"><img src="'+photo_src("s6-bio")+'"></div>') if photo_src("s6-bio") else ''}
   {FOOT}
 </article>"""
 
@@ -187,14 +218,15 @@ def cta(hw, ho, items, btn):
   <div class="head"><h2><span class="w">{hw}</span><span class="o">{ho}</span></h2></div>
   <div class="clist">{lis}</div>
   <div class="btn">{btn}</div>
+  {('<div class="pband" style="margin-top:16px"><img src="'+photo_src("s8-tetrad")+'"></div>') if photo_src("s8-tetrad") else ''}
   {FOOT}
 </article>"""
 
 SLIDES = [
- cover("Профиль — не", "витрина. Развилка.", "Гость приходит с Reels и стоит на развилке. Сейчас она ведёт в никуда — а должна в Telegram.", SC_COVER),
- sc("Проблема","Приходят","и уходят.","С Reels заглянули в профиль —","и закрыли. Он не сказал, зачем оставаться и куда идти.", SC_PROBLEM, 2),
- sc("Причина","Профиль как","витрина.","Красивая лента, аватар, эмодзи —","но нет одного понятного пути. Гостю некуда шагнуть.", SC_CAUSE, 3),
- sc("Ошибка","Полируешь","витрину.","Меняешь аватар и раскладку постов.","А надо не украшать, а построить мост в Telegram.", SC_MISTAKE, 4),
+ cover("Профиль — не", "витрина. Развилка.", "Гость приходит с Reels и стоит на развилке. Сейчас она ведёт в никуда — а должна в Telegram.", SC_COVER, "s1-fork"),
+ sc("Проблема","Приходят","и уходят.","С Reels заглянули в профиль —","и закрыли. Он не сказал, зачем оставаться и куда идти.", SC_PROBLEM, 2, "s2-leaving"),
+ sc("Причина","Профиль как","витрина.","Красивая лента, аватар, эмодзи —","но нет одного понятного пути. Гостю некуда шагнуть.", SC_CAUSE, 3, "s3-vitrina"),
+ sc("Ошибка","Полируешь","витрину.","Меняешь аватар и раскладку постов.","А надо не украшать, а построить мост в Telegram.", SC_MISTAKE, 4, "s4-polish"),
  method_slide(),
  prompt_slide(),
  demo_slide(),
