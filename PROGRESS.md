@@ -104,3 +104,6 @@
 Договорённость: **на любое присланное фото сразу давать ссылку загрузки в репо** (см. раздел 3). Всё закоммичено и запушено в `claude/vercel-labs-skills-setup-c9cz6s`; рабочее дерево чистое.
 
 _Обновлено: сессия рил → методичка (фотореал) → карусель День 9. Открытые хвосты — раздел 6._
+
+## VIDEO PRODUCTION STACK (skills)
+- Исследован GitHub, установлен безопасный стек для Reels: **`.claude/skills/reel-visual`** (вендор `smixs/visual-skills`, CC BY 4.0 — режиссура/камера/Seedance 2.5/сториборд/continuity, только markdown) + **`.claude/skills/alovlab-reel`** (наш оркестратор: SCRIPT/HOOK/HEYGEN/EDITOR/QC, бренд/голос/воронка/честность). НЕ ставили `super-video-maker-skill` (ключи/скрипты/сеть, лицензия не указана). Любой рилс идёт через цепочку IDEA→HOOK→SCRIPT→DIRECTOR→STORYBOARD→VISUAL→SEEDANCE→HEYGEN→EDIT→RETENTION→QC (≥9). Детали — `content/heygen/PRODUCTION-STACK.md`.
