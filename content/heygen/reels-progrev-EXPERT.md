@@ -108,6 +108,17 @@
 
 ## 08 — B-ROLL SCENES (создаём в Seedance)
 
+> **HeyGen build instruction (обязательно, дословно):**
+> “Generate all non-avatar scenes with Seedance inside HeyGen. Do not use static overlays,
+> screenshots or slideshow-style animation.”
+>
+> **Разметка сцен:** A1/A2/A3 = `avatar_scene` (лицо чистое, никакого UI/текста поверх лица).
+> B1/B2/B4/B5 + Claude-screencast = `non_avatar_scene` → каждая генерируется через **Seedance** как
+> motion-scene: UI оживает ВНУТРИ устройства (уведомление — в телефоне, typing — в Claude, схема — на
+> экране ноутбука). Ни статичной картинки, ни скриншота, ни overlay, ни slideshow, ни простого зума.
+> **Брак-чек:** если сцена без аватара выглядит как слайд/картинка/overlay — перегенерировать в Seedance.
+> Субтитры на сценах с читаемым UI (10–25 с) — OFF (см. раздел 13).
+
 **B1 — «поднятая рука / доставлено»** (2–6, 4с)
 - PURPOSE: показать «человек уже поднял руку, а в ответ тишина».
 - SHOT: макро телефона на тёмном столе, тёплый практический свет. CAMERA: медленный push-in.
