@@ -1,13 +1,17 @@
-# HeyGen — Reels НЕДЕЛЯ 1 · День 2 (29.08) «Claude пишет не как ИИ»
+# HeyGen — Reels НЕДЕЛЯ 1 · День 2 (29.08) «5 фраз, которые выдают нейросеть» — v2 (под пользу)
 
 Линия: Claude · текст. Рубрика: «Дело не в модели». Опора: Польза. Формат: Reels 9:16, ~34 сек.
 Аватар: НЕЙРОМОНАХ. Голос: доктор Нейро · русский. Инструмент: **Claude**.
-Выход воронки: **B2C** — карточка «стоп-лист 10 фраз» + промпт **в комментариях под постом (TG + ВК)** → курс.
-Хук: **«Твой текст палит нейросеть с первой строки. Вот что её выдаёт.»**
-Крадущаяся техника (ради чего сохраняют): **стоп-лист штампов + приём «убери разгон»** — дело не в модели,
-а в том, что ты не запретил ей канцелярит и не сказал «пиши как человек».
+Выход воронки: **B2C** — карточка «стоп-лист 15 фраз» + промпт **в комментариях под постом (TG + ВК)** → курс.
+
+> **Формат — «блогер-миллионник, максимум пользы».** Не «смотри, как я показываю», а СРАЗУ отдаём
+> конкретную пользу: на экране — готовый кил-лист фраз (это скринят), одно правило и реальный промпт.
+> Хук = обещание + триггер «сохрани». Плотный список. CTA мягкий, на сохранение, без «иди в телеграм».
+
+Хук: **«Пять фраз выдают, что текст писала нейросеть. Убери их — и он оживёт. Сохраняй.»**
+Крадущаяся техника (ради чего сохраняют): **кил-лист штампов + правило «первое слово уже работает»** +
+готовый промпт-переписыватель. Дело не в модели — в том, что ты не запретил ей канцелярит.
 В озвучке — «Клод»; титром — «Claude». Показываешь Claude — реальный интерфейс Anthropic.
-Связка: неделя 1, DISCOVERY→QUICK WIN. Пара к карусели Дня 2 (стоп-лист + до/после).
 
 > **CTA-правило (с 26.08):** контент в Telegram И в ВК → CTA нейтральный: «в комментариях под постом».
 > **HeyGen build instruction (дословно):** “Generate all non-avatar scenes with Seedance inside HeyGen.
@@ -19,67 +23,68 @@
 
 | Таймкод | Тип | Текст аватара | Визуал (действие) | Текст на экране | Субтитры |
 |---|---|---|---|---|---|
-| 0–3 | avatar | Твой текст палит нейросеть с первой строки. Вот что её выдаёт. | лицо крупно, в упор, пауза после «выдаёт» | палит с первой **строки** | ON |
-| 3–8 | non_avatar (Seedance) | «В современном мире…», «Важно понимать…», «Стремительно развивается…». Штампы. | экран: абзац, штампы по очереди подсвечиваются красным | штамп · штамп · **штамп** | ON |
-| 8–13 | avatar | Дело не в модели. Любая нейросеть звучит как робот, пока ты не запретил ей штампы и не сказал: пиши как человек. | средний план, лёгкий наклон вперёд | дело не в **модели** | ON |
-| 13–26 | non_avatar (Seedance) | Даю Клоду стоп-лист и одно правило: первое слово уже работает. И канцелярит переписывается в живую речь. | скринкаст Claude: сухой абзац построчно переписывается в живой, слева-направо | канцелярит → **живая речь** | OFF |
-| 26–31 | non_avatar (Seedance) | Слева — как пишет робот. Справа — как человек. Разница видна сразу. | экран: до/после рядом, живой вариант подсвечивается тёплым | до / **после** | ON |
-| 31–34 | avatar | Стоп-лист из десяти фраз и промпт — в комментариях под постом. Забирай. | лицо + логотип A | стоп-лист ↓ **в комментариях** | ON |
+| 0–3 | avatar | Пять фраз выдают, что текст писала нейросеть. Убери — и он оживёт. Сохраняй. | лицо крупно, в упор, пауза после «Сохраняй» | 5 фраз · **сохрани** | ON |
+| 3–13 | non_avatar (Seedance) | Первая — «в современном мире». Вторая — «важно понимать». «Стремительно развивается». «Инновационное решение». «Выведем на новый уровень». | экран: нумерованный кил-лист 1→5, каждая фраза появляется и зачёркивается красным | 1…2…3…4…**5** | OFF |
+| 13–18 | avatar | Дело не в модели — в правиле. Первое слово уже работает: убери разгон, и штамп не нужен. | средний план, лёгкий наклон вперёд | первое слово **работает** | ON |
+| 18–28 | non_avatar (Seedance) | Даю Клоду этот промпт — и сухой абзац переписывается в живой. Смотри слева-направо. | скринкаст Claude: виден промпт, сухой абзац переписывается в живой построчно | промпт → **живой текст** | OFF |
+| 28–31 | non_avatar (Seedance) | Слева робот, справа человек. Одна и та же мысль. | экран: до/после рядом, живой вариант подсвечен | до / **после** | ON |
+| 31–34 | avatar | Полный список из пятнадцати фраз и промпт — в комментариях. Забирай, сохрани. | лицо + логотип A | 15 фраз ↓ **в комментариях** | ON |
 
 ---
 
 ## 2. Чистый текст для HeyGen (реплики аватара, по порядку)
 
-> Твой текст палит нейросеть с первой строки. Вот что её выдаёт.
+> Пять фраз выдают, что текст писала нейросеть. Убери — и он оживёт. Сохраняй.
 >
-> «В современном мире…», «Важно понимать…», «Стремительно развивается…». Штампы.
+> Первая — «в современном мире». Вторая — «важно понимать». «Стремительно развивается». «Инновационное решение». «Выведем на новый уровень».
 >
-> Дело не в модели. Любая нейросеть звучит как робот, пока ты не запретил ей штампы и не сказал: пиши как человек.
+> Дело не в модели — в правиле. Первое слово уже работает: убери разгон, и штамп не нужен.
 >
-> Даю Клоду стоп-лист и одно правило: первое слово уже работает. И канцелярит переписывается в живую речь.
+> Даю Клоду этот промпт — и сухой абзац переписывается в живой. Смотри слева-направо.
 >
-> Слева — как пишет робот. Справа — как человек. Разница видна сразу.
+> Слева робот, справа человек. Одна и та же мысль.
 >
-> Стоп-лист из десяти фраз и промпт — в комментариях под постом. Забирай.
+> Полный список из пятнадцати фраз и промпт — в комментариях. Забирай, сохрани.
 
 ---
 
 ## 3. Режиссёрские указания
 
 - Формат 9:16, 33–34 сек. Аватар НЕЙРОМОНАХ, голос доктор Нейро.
-- Тон: спокойный, чуть насмешливый на «штампы». Без пафоса и восклицаний.
-- Паузы: держать после «Вот что её выдаёт» и после «пиши как человек».
-- **avatar_scene:** 0–3, 8–13, 31–34 — лицо чистое, никакой UI/текст не перекрывает лицо, глаза, рот.
-- **non_avatar_scene (Seedance):** 3–8, 13–26, 26–31 — всё оживает ВНУТРИ экрана. Не статик, не скриншот, не overlay, не slideshow, не зум.
-- Ключевой приём: зритель видит **и проблему (штампы краснеют), и метод (переписывается в живое), и результат (до/после)** — не абстракция.
+- Темп плотнее обычного: пауз мало, ценность идёт сплошным потоком (формат «польза-миллионник»). Спокойная уверенность, без крика.
+- Пауза — только после «Сохраняй» (0–3) и после «штамп не нужен» (13–18).
+- **avatar_scene:** 0–3, 13–18, 31–34 — лицо чистое, никакой UI/текст не перекрывает лицо, глаза, рот.
+- **non_avatar_scene (Seedance):** 3–13, 18–28, 28–31 — всё оживает ВНУТРИ экрана. Не статик, не скриншот, не overlay, не slideshow, не зум.
+- **Сцена 2 (кил-лист) — главный «скриншот-момент»:** 5 фраз должны быть КРУПНО и читаемо, каждая зачёркивается по мере произнесения. Это то, ради чего сохраняют. Субтитры OFF — список сам читается.
 - Тёплый свет нарастает к финалу; на скрин-сценах самый яркий источник — только экран.
-- **Честность:** штампы — реальные из нашего стоп-листа; никаких «лучших нейросетей» и выдуманных цифр.
+- **Честность:** штампы реальные из нашего стоп-листа; без «лучших нейросетей» и выдуманных цифр.
 
 ---
 
 ## 4. B-roll · Seedance-сцены
 
-**S1 (3–8) — штампы краснеют**
-`Cinematic macro of a laptop screen with a paragraph of Russian text on a dark editor, cliché phrases lighting up and getting struck through in warm red one by one, warm screen glow on a dark desk, shallow depth of field, photoreal, film grain. Text animates inside the screen. No overlays, no people.`
+**S1 (3–13) — кил-лист 5 фраз (скриншот-момент)**
+`Cinematic macro of a laptop screen on a dark desk, a clean numbered kill-list of five Russian cliché phrases appearing one by one and getting struck through in warm red, large readable type, warm screen glow, shallow depth of field, photoreal, film grain. Text animates inside the screen. No overlays, no people.`
 
-**S2 (13–26) — Claude переписывает канцелярит в живую речь**
-`Macro of a laptop screen showing the Claude (Anthropic) interface: a stiff bureaucratic paragraph on the left is rewritten line by line into short living human sentences on the right, words retyping in warm amber, cursor moving, warm screen glow, keyboard bokeh, photoreal, film grain. Everything animates inside the screen. No static overlays.`
+**S2 (18–28) — Claude переписывает по промпту**
+`Macro of a laptop screen showing the Claude (Anthropic) interface: a visible prompt at the top, below it a dry bureaucratic paragraph rewritten line by line into short living human sentences, words retyping in warm amber, cursor moving, warm screen glow, keyboard bokeh, photoreal, film grain. Everything animates inside the screen. No static overlays.`
 
-**S3 (26–31) — до/после**
-`Cinematic split screen inside a laptop display: left column "robot" dry text dim, right column "human" living text glowing warm amber and highlighted, clean comparison, warm screen glow on a dark desk, photoreal, film grain. Animates inside the screen. No people.`
+**S3 (28–31) — до/после**
+`Cinematic split screen inside a laptop display: left "robot" dry text dim, right "human" living text glowing warm amber and highlighted, same idea two ways, clean comparison, warm screen glow, photoreal, film grain. Animates inside the screen. No people.`
 
 ---
 
-## 5. Готовый промпт (показать в кадре + положить в карточку)
+## 5. Готовый промпт (показать в кадре сцены 4 + положить в карточку)
 
 ```
-Перепиши этот текст живым человеческим языком: [ВСТАВЬ ТЕКСТ].
+Перепиши живым человеческим языком: [ВСТАВЬ ТЕКСТ].
 Правила:
-— первое слово уже работает, убери разгон и вступление;
+— первое слово уже работает: убери разгон и вступление;
 — короткие предложения, простые слова, одна мысль;
 — запрещены штампы: «в современном мире», «важно понимать»,
-  «стремительно развивается», «инновационное решение» и подобные.
-Дай вариант без воды и покажи, что именно ты убрал.
+  «стремительно развивается», «инновационное решение»,
+  «выведем на новый уровень» и подобные.
+Покажи готовый вариант и что именно ты убрал.
 ```
 
 ---
@@ -88,87 +93,93 @@
 
 | Таймкод | Субтитры |
 |---|---|
-| 0–13 | ON (ударные слова) |
-| 13–26 | **OFF** (на экране читаемое до→после Claude) |
-| 26–34 | ON (короткий + CTA) |
+| 0–3 | ON (хук + «сохрани») |
+| 3–13 | **OFF** (на экране крупный кил-лист — читается сам) |
+| 13–18 | ON (правило) |
+| 18–28 | **OFF** (на экране промпт + до/после Claude) |
+| 28–34 | ON (короткий + CTA) |
 
-Ключевые: `палит с первой строки` → `штамп · штамп · штамп` → `дело не в модели` → `канцелярит → живая речь` → `до / после` → `в комментариях ↓`.
+Ключевые: `5 фраз · сохрани` → `1…2…3…4…5` → `первое слово работает` → `промпт → живой текст` → `до / после` → `15 фраз ↓ в комментариях`.
 
 ---
 
 ## 7. Три заголовка на обложку
 
-1. «Твой текст палит нейросеть с первой строки»
-2. «Claude пишет не как ИИ — если дать стоп-лист»
-3. «10 фраз, которые выдают нейросеть»
+1. «5 фраз, которые выдают нейросеть»
+2. «Твой текст палит ИИ с первой строки»
+3. «Убери эти фразы — и текст оживёт»
 
 ---
 
 ## 8. Описание публикации (~360 знаков · TG и ВК)
 
-> Текст, написанный нейросетью, видно с первой строки. Не по смыслу — по штампам.
+> 5 фраз, по которым сразу видно, что текст писала нейросеть — выпиши и никогда не используй:
 >
-> «В современном мире», «важно понимать», «стремительно развивается» — и всё, читатель понял, что это робот. Но дело не в модели. Любая нейросеть звучит живо, если запретить ей штампы и дать одно правило: первое слово уже работает. Показываю на Клоде: канцелярит переписывается в человеческую речь на глазах.
+> «в современном мире», «важно понимать», «стремительно развивается», «инновационное решение», «выведем на новый уровень».
 >
-> Стоп-лист из 10 фраз и промпт — в комментариях под этим постом. Забирай.
+> Дело не в модели. Правило одно: первое слово уже работает — убери разгон, и штамп не нужен. На видео Клод переписывает сухой абзац в живой по готовому промпту.
+>
+> Полный стоп-лист из 15 фраз и промпт — в комментариях под этим постом. Забирай, сохрани.
 
 ---
 
 ## 9. Финальный CTA
 
-Голос: «Стоп-лист из десяти фраз и промпт — в комментариях под постом. Забирай.»
-Механика: лид-магнит (карточка «10 фраз, которые выдают нейросеть» + промпт-переписыватель) закреплён
+Голос: «Полный список из пятнадцати фраз и промпт — в комментариях. Забирай, сохрани.»
+Механика: лид-магнит (карточка «15 фраз, которые выдают нейросеть» + промпт-переписыватель) закреплён
 в комментариях под постом в Telegram и в ВК. Выход воронки — курс.
+Логика формата: **сам ролик = польза** (5 фраз + правило + промпт видно в кадре), поэтому его сохраняют и
+пересылают; CTA только доигрывает до полного списка. Это и даёт охват «как у миллионника».
 
 ═══════════════════════════════════════════════════════════════════
 ## 10. ГОТОВЫЙ БРИФ ДЛЯ HEYGEN-АГЕНТА (копируй целиком)
 ═══════════════════════════════════════════════════════════════════
 
 **Настройки:** Aspect 9:16 (vertical) · Length ~34s · Avatar: НЕЙРОМОНАХ · Voice: доктор Нейро (Russian) ·
-Subtitles: burned-in, bottom, bold (OFF на сцене 4) · Style: cinematic, dark graphite + warm amber.
+Subtitles: burned-in, bottom, bold (OFF на сценах 2 и 4) · Style: cinematic, dark graphite + warm amber.
 
 **Instruction to the agent (paste as-is):**
-Create a 34-second vertical (9:16) Russian Reel with avatar НЕЙРОМОНАХ (voice: доктор Нейро). Alternate
-talking-head avatar scenes with B-roll scenes. **Generate all non-avatar scenes with Seedance inside
-HeyGen. Do not use static overlays, screenshots or slideshow-style animation.** On avatar scenes keep the
-face clear — no text or UI over the face, eyes or mouth. On the Claude-screen scene turn burned-in
-subtitles OFF (readable text is in frame). Warm light grows toward the end.
+Create a 34-second vertical (9:16) Russian Reel with avatar НЕЙРОМОНАХ (voice: доктор Нейро). Fast, value-dense
+pacing like a top creator. Alternate talking-head avatar scenes with B-roll scenes. **Generate all non-avatar
+scenes with Seedance inside HeyGen. Do not use static overlays, screenshots or slideshow-style animation.** On
+avatar scenes keep the face clear — no text or UI over the face, eyes or mouth. On the kill-list scene and the
+Claude-screen scene turn burned-in subtitles OFF (readable text is in frame). Warm light grows toward the end.
 
 **SCENE 1 — AVATAR (0–3s)**
-Says: «Твой текст палит нейросеть с первой строки. Вот что её выдаёт.»
-Close-up, eyes to camera, hold a beat after «выдаёт». On-screen: «палит с первой строки».
+Says: «Пять фраз выдают, что текст писала нейросеть. Убери — и он оживёт. Сохраняй.»
+Close-up, eyes to camera, hold a beat after «Сохраняй». On-screen: «5 фраз · сохрани».
 
-**SCENE 2 — B-ROLL / SEEDANCE (3–8s)**
-Voiceover: «„В современном мире…", „Важно понимать…", „Стремительно развивается…". Штампы.»
-Seedance: Cinematic macro of a laptop screen, a Russian paragraph on a dark editor, cliché phrases lighting
-up and struck through in warm red one by one, warm screen glow, shallow depth of field, photoreal, film grain,
-text inside the screen, no people.
+**SCENE 2 — B-ROLL / SEEDANCE (3–13s) · SUBTITLES OFF**
+Voiceover: «Первая — „в современном мире". Вторая — „важно понимать". „Стремительно развивается". „Инновационное решение". „Выведем на новый уровень".»
+Seedance: Cinematic macro of a laptop screen, a clean numbered kill-list of five Russian cliché phrases appearing
+one by one and struck through in warm red, large readable type, warm screen glow, shallow depth of field, photoreal,
+film grain, text inside the screen, no people.
 
-**SCENE 3 — AVATAR (8–13s)**
-Says: «Дело не в модели. Любая нейросеть звучит как робот, пока ты не запретил ей штампы и не сказал: пиши как человек.»
-Medium, slight lean-in. On-screen: «дело не в модели».
+**SCENE 3 — AVATAR (13–18s)**
+Says: «Дело не в модели — в правиле. Первое слово уже работает: убери разгон, и штамп не нужен.»
+Medium, slight lean-in. On-screen: «первое слово работает».
 
-**SCENE 4 — B-ROLL / SEEDANCE (13–26s) · SUBTITLES OFF**
-Voiceover: «Даю Клоду стоп-лист и одно правило: первое слово уже работает. И канцелярит переписывается в живую речь.»
-Seedance: Macro of a laptop screen with the Claude (Anthropic) interface; a stiff bureaucratic paragraph on the
-left rewritten line by line into short living human sentences on the right, words retyping in warm amber, cursor
-moving, warm screen glow, keyboard bokeh, photoreal, film grain, everything inside the screen, no static overlays.
+**SCENE 4 — B-ROLL / SEEDANCE (18–28s) · SUBTITLES OFF**
+Voiceover: «Даю Клоду этот промпт — и сухой абзац переписывается в живой. Смотри слева-направо.»
+Seedance: Macro of a laptop screen with the Claude (Anthropic) interface; a visible prompt on top, a dry bureaucratic
+paragraph rewritten line by line into short living human sentences, words retyping in warm amber, cursor moving, warm
+screen glow, keyboard bokeh, photoreal, film grain, everything inside the screen, no static overlays.
 
-**SCENE 5 — B-ROLL / SEEDANCE (26–31s)**
-Voiceover: «Слева — как пишет робот. Справа — как человек. Разница видна сразу.»
-Seedance: Cinematic split screen inside a laptop display — left "robot" dry text dim, right "human" living text
-glowing warm amber and highlighted, clean comparison, warm screen glow, photoreal, film grain, inside the screen, no people.
+**SCENE 5 — B-ROLL / SEEDANCE (28–31s)**
+Voiceover: «Слева робот, справа человек. Одна и та же мысль.»
+Seedance: Cinematic split screen inside a laptop display — left "robot" dry text dim, right "human" living text glowing
+warm amber and highlighted, clean comparison, warm screen glow, photoreal, film grain, inside the screen, no people.
 
 **SCENE 6 — AVATAR (31–34s)**
-Says: «Стоп-лист из десяти фраз и промпт — в комментариях под постом. Забирай.»
-Close-up + AlovLab logo (orange A). On-screen: «стоп-лист ↓ в комментариях».
+Says: «Полный список из пятнадцати фраз и промпт — в комментариях. Забирай, сохрани.»
+Close-up + AlovLab logo (orange A). On-screen: «15 фраз ↓ в комментариях».
 
 **Full narration (voice track, in order):**
-«Твой текст палит нейросеть с первой строки. Вот что её выдаёт. „В современном мире…", „Важно понимать…",
-„Стремительно развивается…". Штампы. Дело не в модели. Любая нейросеть звучит как робот, пока ты не запретил
-ей штампы и не сказал: пиши как человек. Даю Клоду стоп-лист и одно правило: первое слово уже работает. И
-канцелярит переписывается в живую речь. Слева — как пишет робот. Справа — как человек. Разница видна сразу.
-Стоп-лист из десяти фраз и промпт — в комментариях под постом. Забирай.»
+«Пять фраз выдают, что текст писала нейросеть. Убери — и он оживёт. Сохраняй. Первая — „в современном мире".
+Вторая — „важно понимать". „Стремительно развивается". „Инновационное решение". „Выведем на новый уровень".
+Дело не в модели — в правиле. Первое слово уже работает: убери разгон, и штамп не нужен. Даю Клоду этот промпт —
+и сухой абзац переписывается в живой. Смотри слева-направо. Слева робот, справа человек. Одна и та же мысль.
+Полный список из пятнадцати фраз и промпт — в комментариях. Забирай, сохрани.»
 
 ═══════════════════════════════════════════════════════════════════
 
