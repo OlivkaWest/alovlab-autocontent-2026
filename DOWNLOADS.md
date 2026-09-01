@@ -12,6 +12,10 @@
 
 ## День 6 (02.09) — «ChatGPT против Claude»
 
+### Карусель СВЕТЛАЯ v2 (финал, 7 слайдов, 1080×1350) ⭐
+- Слайды (PNG) · [папка](https://github.com/OlivkaWest/alovlab-autocontent-2026/tree/claude/vercel-labs-skills-setup-c9cz6s/exports/carousels/day-claude-06-v2)
+- Карусель одним PDF · [Скачать сразу](https://github.com/OlivkaWest/alovlab-autocontent-2026/raw/claude/vercel-labs-skills-setup-c9cz6s/exports/carousels/day-claude-06-v2/day-claude-06-v2-carousel.pdf)
+
 ### Карусель (7 слайдов, 1080×1350)
 - Слайды (PNG) · [папка](https://github.com/OlivkaWest/alovlab-autocontent-2026/tree/claude/vercel-labs-skills-setup-c9cz6s/exports/carousels/day-claude-06)
 - Карусель одним PDF · [Скачать сразу](https://github.com/OlivkaWest/alovlab-autocontent-2026/raw/claude/vercel-labs-skills-setup-c9cz6s/exports/carousels/day-claude-06/day-claude-06-carousel.pdf)
