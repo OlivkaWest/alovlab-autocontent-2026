@@ -12,7 +12,11 @@
 
 ## День 6 (02.09) — «ChatGPT против Claude»
 
-### Шпаргалка «Какая нейросеть под задачу» (лид-магнит, 6 стр.)
+### Карусель (7 слайдов, 1080×1350)
+- Слайды (PNG) · [папка](https://github.com/OlivkaWest/alovlab-autocontent-2026/tree/claude/vercel-labs-skills-setup-c9cz6s/exports/carousels/day-claude-06)
+- Карусель одним PDF · [Скачать сразу](https://github.com/OlivkaWest/alovlab-autocontent-2026/raw/claude/vercel-labs-skills-setup-c9cz6s/exports/carousels/day-claude-06/day-claude-06-carousel.pdf)
+
+### Методичка «Какая нейросеть под задачу» (13 стр.)
 - PDF · [Открыть](https://github.com/OlivkaWest/alovlab-autocontent-2026/blob/claude/vercel-labs-skills-setup-c9cz6s/exports/guides/stack/alovlab-guide-stack.pdf) · [Скачать сразу](https://github.com/OlivkaWest/alovlab-autocontent-2026/raw/claude/vercel-labs-skills-setup-c9cz6s/exports/guides/stack/alovlab-guide-stack.pdf)
 - Страницы (JPG) · [папка](https://github.com/OlivkaWest/alovlab-autocontent-2026/tree/claude/vercel-labs-skills-setup-c9cz6s/exports/guides/stack/jpg)
 - Кит карусели (текст) · [Открыть](https://github.com/OlivkaWest/alovlab-autocontent-2026/blob/claude/vercel-labs-skills-setup-c9cz6s/content/carousels/day-claude-06/kit.md)
