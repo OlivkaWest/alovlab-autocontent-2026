@@ -146,6 +146,16 @@ Reels-демонстрация  →  комментарий под постом 
 
 ## 6. Форматы (скелеты, наполнять живой речью)
 
+> **⚡⚡⚡ GLOBAL CONTENT DELIVERY RULE (обязательно, высший приоритет для любой единицы контента):**
+> `content/rules/GLOBAL-CONTENT-DELIVERY-RULE.md`. «Сделай Reels» = **готовый REELS PRODUCTION PACKAGE**,
+> «сделай карусель» = **готовый CAROUSEL PRODUCTION PACKAGE** — всё сразу, без доп-запросов «а теперь промпты/
+> описание/хэштеги/обложку/сцены для Grok». Reels отдаём в порядке: SCORE · CORE IDEA · HOOK · FINAL VOICEOVER ·
+> SCENE MAP · HEYGEN AVATAR SCENES · GROK/AI VIDEO PROMPTS · ON SCREEN TEXT · EDITING · CTA · DESCRIPTION ·
+> HASHTAGS · COVER CONCEPT · COVER TEXT · CHATGPT IMAGE COVER PROMPT · GUIDE/COURSE/B2B CONNECTION. Каждый видео-
+> промпт — полный (SHOT/CAMERA/ACTION/LIGHTING/SCREEN CONTENT/MOTION/ENDING/CONTINUITY/NEGATIVE → READY TO COPY),
+> continuity как один фильм; UI актуальный и на русском, кириллица читается (не тянет генератор — панель отдельным
+> слоем). Reels+карусель+методичка — одна идея (§33 методологии). Перед production — жёсткая оценка 10×10, слабее 8 — переделать.
+
 > **⚡⚡ GLOBAL REELS VOICE RULE (обязательно, высший приоритет для рилсов):** `content/rules/GLOBAL-REELS-VOICE-RULE.md`.
 > Reels пишем как ЖИВУЮ РЕЧЬ Ильи перед камерой, не как текст. **В VOICEOVER TEXT ЗАПРЕЩЕНЫ ТИРЕ (— – -)** —
 > только точка/запятая/новое предложение (критично для HeyGen). Выдача каждого рила блоками: **HOOK ·
