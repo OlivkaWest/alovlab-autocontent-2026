@@ -1,72 +1,86 @@
-# Видео-промпты (Grok) для Reels Дня 5 «Разбор конкурента» — только B-roll (не-аватарные сцены)
+# Видео-промпты (Grok) для Reels Дня 5 «Разбор конкурента» — v2, профессиональный пайплайн
 
-> Эти 3 клипа генеришь в Grok (видео) и вставляешь в HeyGen-студию на места non_avatar-сцен.
-> Аватар-сцены (0–3, 9–14, 31–34) делает HeyGen сам — их тут нет.
-> Формат: 9:16 vertical. Стиль: cinematic, тёмный графит + тёплый янтарь, фотореализм, film grain.
-> ⚠️ Текст на экране (оффер/хуки/воронка/гэпы, кириллица) НЕ прописываю в промпт — генератор его «поедет».
-> Лучше: генерь чистое движение UI, а сами подписи добавь ОВЕРЛЕЕМ в HeyGen поверх клипа.
-
----
-
-## КЛИП 1 — сцена 2 (3–9 сек, ~6 сек) · копируешь ссылку конкурента
-
-**Grok prompt (EN, вставить целиком):**
-```
-Vertical 9:16 cinematic macro video. A smartphone on a dark graphite desk in warm amber light.
-On the screen, a web browser address bar; a competitor's link is being selected and copied, the
-text cursor blinking, a subtle "copied" glow pulse. Shallow depth of field, warm screen glow, soft
-reflections on the dark desk, gentle slow push-in camera move. Photoreal, cinematic, film grain.
-No people, no faces, no logos. UI animates inside the phone screen.
-```
-**Движение:** курсор выделяет ссылку → лёгкая вспышка «скопировано», медленный наезд камеры.
-**Длина:** 5–6 сек.
+> Профи-правда: **Grok (и любой AI-видеогенератор) кириллицу «поедет» и не нарисует пиксельно-точную панель
+> Claude.** Поэтому «читабельный русский + оригинальная панель Claude с последними моделями» через сам Grok
+> получить нельзя. Правильно разделить труд:
+>
+> **Grok** = кинематографичная СРЕДА (стол, руки, свет, боке, движение камеры) с **пустым светящимся экраном**.
+> **Панель Claude** (русский текст + актуальные модели) = готовый чёткий макет, который ты **накладываешь на
+> экран в HeyGen** (screen-replace / overlay). Так текст всегда резкий и читаемый.
+>
+> Готовые макеты панели (2K, вставляй в HeyGen):
+> `content/heygen/screen-inserts/reels-day5/claude-panel-chat.png` — чистый чат (основной)
+> `content/heygen/screen-inserts/reels-day5/claude-panel-models.png` — с раскрытым списком моделей (Opus 5 · Sonnet 5 · Haiku 4.5 · Fable 5.1)
+> Пересобрать/поправить: `scripts/claude_panel.html` + `scripts/shoot_panel.js`.
 
 ---
 
-## КЛИП 2 — сцена 4 (14–27 сек, ~13 сек) · Claude строит карту-разбор  ⭐ главный
+## ПАЙПЛАЙН на каждую экранную сцену
 
-**Grok prompt (EN, вставить целиком):**
-```
-Vertical 9:16 cinematic macro video. A laptop screen on a dark graphite desk showing a clean modern
-dark app interface. A structured breakdown map builds itself: five horizontal rows appear and light
-up one by one in warm amber, each row with a small glowing icon on the left and a bar filling to the
-right, like an analysis being assembled live. Cursor moves, warm screen glow, keyboard bokeh in
-foreground, slow subtle push-in. Photoreal, cinematic, film grain. Everything animates inside the
-screen. No people, no faces, no readable text, no logos.
-```
-**Движение:** 5 строк-разделов появляются и подсвечиваются по очереди (это «оффер/аудитория/хуки/воронка/гэпы»).
-**Подписи** «оффер · аудитория · хуки · воронка · гэпы» — добавь текстом-оверлеем в HeyGen поверх строк.
-**Длина:** нужно 13 сек. Если Grok даёт короткие клипы — сгенерь **2 клипа по 6–7 сек** (строки 1–3, потом 4–5 + подсветка) и склей в HeyGen. Или один клип 6 сек и чуть замедлить/растянуть.
+1. В Grok генеришь клип СРЕДЫ (ноутбук на тёмном столе, тёплый свет), экран — **чистая светящаяся поверхность без текста**.
+2. В HeyGen кладёшь поверх экрана мой PNG-макет Claude (подгоняешь по углам экрана — corner-pin / screen replace).
+3. Оживляешь макет в HeyGen: лёгкий зум/скролл/пошаговое проявление строк (оффер→…→гэпы), мигающий курсор уже есть на макете.
+4. Русский на макете уже чёткий — ничего дорисовывать в Grok не нужно.
 
 ---
 
-## КЛИП 3 — сцена 5 (27–31 сек, ~4 сек) · подсветка «гэпов»
+## КЛИП 1 — сцена 2 (3–9 сек) · копируешь ссылку конкурента
 
-**Grok prompt (EN, вставить целиком):**
+**Grok prompt (EN):**
 ```
-Vertical 9:16 cinematic macro video. Same dark laptop screen interface. The bottom row of the
-breakdown brightens and pulses in strong warm amber, a clear highlighted opening standing out from
-the dimmer rows above, hopeful confident mood, warm screen glow, shallow depth of field, slight
-camera settle. Photoreal, cinematic, film grain. Animates inside the screen. No people, no readable
-text, no logos.
+Vertical 9:16 cinematic macro video, 5 seconds. A smartphone on a dark graphite desk in warm amber light,
+a hand places it down. The phone screen glows softly with a neutral browser shape but NO readable text,
+a bright empty highlight bar where a link would be. Shallow depth of field, warm reflections, slow push-in,
+50mm look, photoreal, film grain, moody premium. No people faces, no logos, no on-screen text.
 ```
-**Движение:** нижний блок (это «гэпы — чего не делает») ярко подсвечивается на фоне притухших строк.
-**Подпись** «гэпы: чего не делает» — оверлеем в HeyGen.
-**Длина:** 4 сек.
+**В HeyGen:** на подсвеченную строку наложи маленький оверлей-ссылку (лат. буквы норм) или оставь как есть; титр «ссылка → разбор».
 
 ---
 
-## Общие настройки для Grok (для всех клипов)
+## КЛИП 2 — сцена 4 (14–27 сек) · Claude строит разбор  ⭐ главный
 
-- **Соотношение:** 9:16 (vertical).
-- **Стиль-хвост, если Grok просит:** `cinematic, dark graphite and warm amber, photoreal, film grain, shallow depth of field, no people`.
-- **Референс тона:** тёплый экран — единственный яркий источник; фон тёмный, премиум.
-- **Что НЕ включать:** людей, лица, читаемый русский текст в кадре (добавляем оверлеем), фейковые логотипы.
+**Grok prompt (EN) — только среда, экран пустой:**
+```
+Vertical 9:16 cinematic macro video, 6-8 seconds. An open laptop on a dark graphite desk, warm amber lamp
+light, keyboard bokeh in the foreground, gentle steam from a mug at the edge. The laptop screen is a clean
+bright glowing surface with NO text and NO interface — just an even warm-white glow ready for a screen
+overlay. Slow cinematic push-in toward the screen, shallow depth of field, 35mm look, photoreal, film grain,
+premium tech still-life. No people, no logos, no readable text on screen.
+```
+**В HeyGen:**
+- Наложи `claude-panel-chat.png` на экран (corner-pin по углам дисплея).
+- Оживи: строки ОФФЕР → АУДИТОРИЯ → ХУКИ → ВОРОНКА → ГЭПЫ проявляются по одной (fade/slide), курсор на «Гэпы» уже мигает.
+- Хочешь подчеркнуть свежие модели — на 1–2 сек подмени на `claude-panel-models.png` (виден список Opus 5 / Sonnet 5 / Haiku 4.5 / Fable 5.1), потом обратно на чат.
+- Субтитры OFF (панель читается сама).
 
-## Как собрать в HeyGen
+---
 
-1. Генеришь 3 клипа (клип 2 — при необходимости двумя частями).
-2. Вставляешь как B-roll на тайм-коды: 3–9 · 14–27 · 27–31.
-3. Поверх клипа 2 — текст-оверлеи «оффер · аудитория · хуки · воронка · гэпы»; поверх клипа 3 — «гэпы: чего не делает».
-4. Субтитры на клипе 2 — **OFF** (чтобы не спорили с оверлеями); на 1 и 3 — по карте субтитров из основного файла рила.
-5. Аватар-сцены (0–3, 9–14, 31–34) — по брифу из `reels-claude-day5.md` (раздел 10).
+## КЛИП 3 — сцена 5 (27–31 сек) · подсветка «гэпов»
+
+**Grok prompt (EN) — среда:**
+```
+Vertical 9:16 cinematic macro video, 4 seconds. Same laptop and desk, warm amber light intensifies slightly,
+the bright glowing screen surface stays clean with NO text, a subtle warm bloom grows from the lower part of
+the screen. Very slow camera settle, shallow depth of field, photoreal, film grain, hopeful confident mood.
+No people, no logos, no readable text.
+```
+**В HeyGen:** оставь на экране ту же панель Claude, сделай **зум/пуш на строку «ГЭПЫ»** (она уже подсвечена оранжевым) — акцент «его дыры → твой ход». Титр можно не ставить, строка читается.
+
+---
+
+## Общие настройки Grok (все клипы)
+
+- **Aspect:** 9:16 vertical.
+- **Экран — ВСЕГДА пустой светящийся** (без текста и без UI): текст добавляем макетом в HeyGen.
+- **Стиль-хвост:** `cinematic, dark graphite and warm amber, photoreal, film grain, shallow depth of field, 35–50mm, premium, no people, no logos, no on-screen text`.
+- **Движение:** медленный push-in / settle — премиум, не дёрганый.
+
+## Почему так (профи-обоснование)
+
+- Читаемость: нативно сгенерированный AI-текст на кириллице почти всегда кривой → на паузе видно брак. Оверлей-макет = резко и правильно.
+- Достоверность: панель Claude — реальный интерфейс с актуальными моделями (Opus 5 / Sonnet 5 / Haiku 4.5 / Fable 5.1), а не «нечто похожее».
+- Контроль: можешь в любой момент поменять текст разбора/модель в `scripts/claude_panel.html` и перерендерить, не трогая видео.
+
+## Honesty
+
+Разбор на панели — учебный шаблон метода (оффер/аудитория/хуки/воронка/гэпы), без выдуманных цифр о конкретном конкуренте. Показываем реальный Claude. Модели названы точно.
