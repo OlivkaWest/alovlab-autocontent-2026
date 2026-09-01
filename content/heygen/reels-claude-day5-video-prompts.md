@@ -15,12 +15,20 @@
 
 ---
 
-## ПАЙПЛАЙН на каждую экранную сцену
+## ⚡ ГЛАВНОЕ (простой путь, без наложения)
 
-1. В Grok генеришь клип СРЕДЫ (ноутбук на тёмном столе, тёплый свет), экран — **чистая светящаяся поверхность без текста**.
-2. В HeyGen кладёшь поверх экрана мой PNG-макет Claude (подгоняешь по углам экрана — corner-pin / screen replace).
-3. Оживляешь макет в HeyGen: лёгкий зум/скролл/пошаговое проявление строк (оффер→…→гэпы), мигающий курсор уже есть на макете.
-4. Русский на макете уже чёткий — ничего дорисовывать в Grok не нужно.
+Экранные сцены (клип 2 и клип 3) **НЕ генерим в Grok**. Grok кириллицу поедет, а экран выходит пустым/белым.
+Вместо этого экранную сцену делаем **прямо из готового PNG-панели** — она уже с чётким русским текстом:
+
+1. В HeyGen добавляешь сцену → фон = картинка `claude-panel-chat.png` (на весь кадр 9:16, по центру, тёмные поля по бокам ок).
+2. Ставишь лёгкий **зум-ин** (Ken Burns, ~5–8%) — панель «дышит», читается.
+3. Хочешь эффект «строится» — покажи строки по очереди (появление сверху вниз) стандартной анимацией HeyGen. Не обязательно.
+4. Всё. Русский резкий, никакого совмещения с ноутбуком.
+
+**Grok нужен только для intro-среды (клип 1)** — рука, телефон, стол. Экран там не важен.
+
+> Хочешь именно «панель внутри ноутбука» (киношнее) — это продвинутый вариант через corner-pin (наложение PNG на
+> экран Grok-клипа). Он сложнее и не обязателен. По умолчанию — панель на весь кадр (пункты 1–3 выше).
 
 ---
 
@@ -37,34 +45,20 @@ a bright empty highlight bar where a link would be. Shallow depth of field, warm
 
 ---
 
-## КЛИП 2 — сцена 4 (14–27 сек) · Claude строит разбор  ⭐ главный
+## СЦЕНА 2 (14–27 сек) · Claude строит разбор  ⭐ главный — БЕЗ GROK
 
-**Grok prompt (EN) — только среда, экран пустой:**
-```
-Vertical 9:16 cinematic macro video, 6-8 seconds. An open laptop on a dark graphite desk, warm amber lamp
-light, keyboard bokeh in the foreground, gentle steam from a mug at the edge. The laptop screen is a clean
-bright glowing surface with NO text and NO interface — just an even warm-white glow ready for a screen
-overlay. Slow cinematic push-in toward the screen, shallow depth of field, 35mm look, photoreal, film grain,
-premium tech still-life. No people, no logos, no readable text on screen.
-```
-**В HeyGen:**
-- Наложи `claude-panel-chat.png` на экран (corner-pin по углам дисплея).
-- Оживи: строки ОФФЕР → АУДИТОРИЯ → ХУКИ → ВОРОНКА → ГЭПЫ проявляются по одной (fade/slide), курсор на «Гэпы» уже мигает.
-- Хочешь подчеркнуть свежие модели — на 1–2 сек подмени на `claude-panel-models.png` (виден список Opus 5 / Sonnet 5 / Haiku 4.5 / Fable 5.1), потом обратно на чат.
+Экран = картинка-панель, НЕ видео из Grok (Grok кириллицу поедет, экран выходит пустым).
+- Фон сцены: `content/heygen/screen-inserts/reels-day5/claude-panel-chat.png` на весь кадр 9:16.
+- Анимация: медленный зум-ин 5–8% (Ken Burns). Хочешь «строится» — строки ОФФЕР → АУДИТОРИЯ → ХУКИ → ВОРОНКА → ГЭПЫ появляются по одной (штатная анимация HeyGen). Курсор на «Гэпы» уже мигает.
+- Свежие модели показать: на 1–2 сек подмени на `claude-panel-models.png` (Opus 5 / Sonnet 5 / Haiku 4.5 / Fable 5.1), потом обратно.
 - Субтитры OFF (панель читается сама).
 
 ---
 
-## КЛИП 3 — сцена 5 (27–31 сек) · подсветка «гэпов»
+## СЦЕНА 3 (27–31 сек) · подсветка «гэпов» — БЕЗ GROK
 
-**Grok prompt (EN) — среда:**
-```
-Vertical 9:16 cinematic macro video, 4 seconds. Same laptop and desk, warm amber light intensifies slightly,
-the bright glowing screen surface stays clean with NO text, a subtle warm bloom grows from the lower part of
-the screen. Very slow camera settle, shallow depth of field, photoreal, film grain, hopeful confident mood.
-No people, no logos, no readable text.
-```
-**В HeyGen:** оставь на экране ту же панель Claude, сделай **зум/пуш на строку «ГЭПЫ»** (она уже подсвечена оранжевым) — акцент «его дыры → твой ход». Титр можно не ставить, строка читается.
+Та же картинка `claude-panel-chat.png`. Сделай **зум/пуш на строку «ГЭПЫ»** (уже подсвечена оранжевым) —
+акцент «его дыры, твой ход». Отдельный Grok-клип не нужен. Титр можно не ставить.
 
 ---
 
