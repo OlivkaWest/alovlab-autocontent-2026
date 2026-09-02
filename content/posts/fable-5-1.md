@@ -1,16 +1,17 @@
-# Пост-новость · Claude Fable 5.1 (02.09.2026)
+# Пост-новость · Claude Fable 5.1 (02.09.2026) · рубрика «Весть Нейромонаха»
 
-> Голос Ильи: сленг, без канцелярита, без штампов. Факты проверены по источникам (Anthropic, VentureBeat,
-> MacRumors, The Decoder, CNBC, 01–02.09.2026). Непроверенное («−60%», «роутинг на Opus 4.8») не включено.
-> Личные наблюдения Ильи оставлены как его опыт.
+> Голос Ильи, сленг, без канцелярита. БЕЗ «Кибер-привет». Опенер рубрики + проверенные факты
+> (Anthropic/VentureBeat/MacRumors/The Decoder/CNBC). Непроверенное («−60%», роутинг на Opus 4.8) не включено.
 
 ## ВЕРСИЯ ДЛЯ TELEGRAM
 
-Вышел Claude Fable 5.1 🔥
+🔔 Весть Нейромонаха
 
-Кибер-привет, товарищи.
+Слушайте внимательно. Пришла весть, которую нельзя пролистать.
 
-У Fable путь был нервный. Fable 5 показали 9 июня. Через три дня, 12 июня, доступ прикрыли из-за экспортного запрета в США. С 1 июля вернули. Сейчас подъехал 5.1, а вместе с ним Mythos 5.1, но он только для доверенного доступа.
+Anthropic выкатил Claude Fable 5.1. А у этой модели биография как у сериала.
+
+Fable 5 показали 9 июня. Через три дня, 12 июня, доступ прикрыли из-за экспортного запрета в США. С 1 июля вернули. Теперь подъехал 5.1, а рядом Mythos 5.1, но он только для доверенного доступа.
 
 Что реально стало лучше:
 
@@ -40,11 +41,13 @@
 
 ## ВЕРСИЯ ДЛЯ ВК
 
-Claude Fable 5.1 уже в деле 🔥
+🔔 Весть Нейромонаха
 
-Товарищи, коротко и по факту.
+Слушайте внимательно. Пришла весть, которую нельзя пролистать.
 
-Напомню историю. Fable 5 вышел 9 июня, через три дня его закрыли из-за экспортного запрета в США, с 1 июля снова открыли. Теперь Anthropic выкатил 5.1. Рядом Mythos 5.1, но он не для всех, только доверенный доступ.
+Anthropic обновил Claude. Вышел Fable 5.1. Коротко и по факту, как я люблю.
+
+Сначала история. Fable 5 показали 9 июня, через три дня закрыли из-за экспортного запрета в США, с 1 июля снова открыли. Теперь подъехал 5.1. Рядом Mythos 5.1, но он не для всех, только доверенный доступ.
 
 Плюсы, которые видно сразу:
 
@@ -74,21 +77,18 @@ Claude Fable 5.1 уже в деле 🔥
 
 ## COVER PROMPT (обложка «Anthropic выпустил Fable 5.1»)
 
-Светлый премиум-вариант (основной стиль AlovLab), ChatGPT image, формат 4:5 (или 16:9 для шапки канала):
+Светлый премиум (основной стиль AlovLab), ChatGPT image, 4:5 (или 16:9 для шапки канала):
 ```
 Vertical 4:5 premium announcement cover, warm sandy cream background, clean editorial.
 Center: a radiant 3D orange star-burst emblem (Claude style), soft depth, gentle glow and light particles.
-Small badge near it reading only the version motif. Warm amber and dark-orange accents, calm and expensive look.
-Generous empty space in the upper area for a bold headline. Photoreal render, soft studio light, no clutter.
-No brand logos, no paragraphs of text, no UI. High-end tech-brand aesthetic.
+Warm amber and dark-orange accents, calm and expensive look. Generous empty space in the upper area
+for a bold headline. Photoreal render, soft studio light, no clutter. No brand logos, no paragraphs of text,
+no UI. High-end tech-brand aesthetic.
 ```
-Текст на обложку добавляешь сам: крупно **«Fable 5.1»**, ниже мельче «Anthropic обновила Claude». Держи один
-акцент, не перегружай.
-
-Тёмный вариант (если нужен драматичнее): тот же промпт, замени «warm sandy cream background» на
+Текст сам: крупно **«Fable 5.1»**, ниже мельче «Anthropic обновила Claude». Тёмный вариант — заменить фон на
 `dark graphite background with warm amber rim light`.
 
 ## Honesty
-Даты, факт экспортного запрета/возврата, +30% на агентных задачах, удешевление кеш-чтения и Mythos 5.1
-(доверенный доступ) — по источникам. Число «−60%» по блокировкам и роутинг «на Opus 4.8» не подтверждены,
-поэтому не включены. «Сжёг лимит за 45 минут» и оценки минусов — личный опыт Ильи.
+Даты, экспортный запрет/возврат, +30% на агентных задачах, удешевление кеш-чтения, Mythos 5.1 (доверенный
+доступ) — по источникам. «−60%» по блокировкам и роутинг «на Opus 4.8» не подтверждены, не включены. «Сжёг
+лимит за 45 минут» и оценка минусов — личный опыт Ильи.
