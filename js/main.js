@@ -27,7 +27,7 @@
     FORM_ENDPOINT: "https://formsubmit.co/ajax/westolivka@gmail.com",
 
     // Ссылка на политику конфиденциальности (PDF или страница).
-    PRIVACY_URL: "" // [ВСТАВИТЬ ССЫЛКУ НА ПОЛИТИКУ]
+    PRIVACY_URL: "privacy.html"
   };
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -283,6 +283,18 @@
         var contact = doc.getElementById("regContact");
         var tg = doc.getElementById("regTg");
         var consent = doc.getElementById("regConsent");
+        var honeypot = form.querySelector('[name="_honey"]');
+
+        // Anti-spam: a real visitor never sees or fills this field (it's
+        // positioned off-screen -- see .hp-field in css/styles.css). A
+        // filled honeypot means a bot submitted the form. Pretend success
+        // so the bot doesn't learn to look elsewhere, without ever sending
+        // the request or hitting the real inbox.
+        if (honeypot && honeypot.value.trim()) {
+          form.reset();
+          setStatus("Готово! Мы получили заявку и пришлём материалы на указанный контакт.", "ok");
+          return;
+        }
 
         var badName = !name.value.trim();
         var badContact = !contact.value.trim();
@@ -309,6 +321,13 @@
           // Служебные поля FormSubmit (игнорируются другими бэкендами):
           "_subject": "Заявка на интенсив «Автоконтент 2026»",
           "_template": "table",
+          // Честный honeypot (см. поле _honey и .hp-field выше) уже
+          // отсекает ботов до отправки запроса. _captcha оставлен
+          // выключенным намеренно: включение интерактивной капчи FormSubmit
+          // может не сработать (или сломать отправку) в AJAX-режиме
+          // (fetch), а проверить это в текущей песочнице не удалось --
+          // сверьтесь с https://formsubmit.co/documentation, прежде чем
+          // менять это значение.
           "_captcha": "false"
         };
         track("form_submit", { has_telegram: !!tg.value.trim() });

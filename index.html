@@ -570,6 +570,14 @@
     </div>
 
     <form class="reg-form reveal" id="regForm" novalidate>
+      <!-- Honeypot: invisible to real visitors, tabbed/skipped, autocomplete off.
+           Bots that fill every field will fill this one; a real submission with
+           it non-empty is dropped in js/main.js before the request is sent.
+           If the FORM_ENDPOINT is FormSubmit, name it "_honey" so FormSubmit's
+           own honeypot handling also applies server-side -- confirm the exact
+           field name against https://formsubmit.co/documentation before relying
+           on it, since this could not be re-verified live from this sandbox. -->
+      <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="field">
         <label for="regName">Имя</label>
         <input type="text" id="regName" name="name" autocomplete="name" placeholder="Как к вам обращаться" required>
