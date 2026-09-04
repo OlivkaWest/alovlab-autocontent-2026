@@ -53,9 +53,12 @@ ChatGPT can reshoot it so it looks like a real photographer worked with you. DSL
 
 9 prompts. One hard rule in each: your face stays yours. No plastic, no swap, no stranger in the mirror.
 
-Simple flow. Upload a photo, pick a style, swap the words in brackets, go. Save it so you don't hunt every time.
+Simple flow. Upload a photo, pick a style, swap the brackets, go.
+
+All the prompts plus the full guide are in the comments. Save it so you don't hunt every time.
 
 Want part 2? Comment "PHOTO" below.
+
 
 ## FIRST COMMENT
 Here are all 9 prompts to copy (only swap the words in [BRACKETS]):
