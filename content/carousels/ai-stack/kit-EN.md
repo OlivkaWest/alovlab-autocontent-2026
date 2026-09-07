@@ -1,11 +1,11 @@
-# PACKAGE 2 — EN · «Your AI stack: 6 tools that replace a whole team» (LIGHT)
+# PACKAGE 2 — EN · «Your AI stack: 6 tools that replace a whole team» (DARK)
 
-> Native English adaptation. Same 8 slides, same LIGHT visual system.
+> Native English adaptation. Same 8 slides, same DARK visual system.
 
 ## SLIDE 1 — COVER
 Headline: **NOT ONE AI. A WHOLE TEAM.**
 Orange: **6 AI tools** · small: that replace an entire department
-Visual: a person in the center, 6 glowing role icons around (text, image, search, video, voice, code). Light premium.
+Visual: a person in the center, 6 glowing role icons around (text, image, search, video, voice, code). Dark graphite, orange glow, premium.
 
 ## SLIDE 2 — HOOK / MYTH
 Headline: **One AI for everything = average at everything**
@@ -62,6 +62,7 @@ Role map and breakdown are here too. Want to go deeper? We build the whole conve
 ai stack · ai tools for content · claude chatgpt perplexity · ai tool combos · which ai for what ·
 content conveyor · ai instead of a team · seedance video · elevenlabs voiceover · ai for smm
 
-## VISUAL DIRECTIONS (LIGHT AlovLab)
-Sandy background, graphite text, orange accent. Slide 3 = 6-role map with colored icons (main save slide).
-Slides 4-6 = combos as icon chains with arrows (A → B → C). Slide 7 = prompt plate. Small logo bottom. 4:5.
+## VISUAL DIRECTIONS (DARK AlovLab)
+Black/graphite background, white text, orange accent (not a fill), expensive and technological. Slide 3 = 6-role map
+with colored icons on dark (main save slide). Slides 4-6 = combos as glowing icon chains with arrows (A → B → C).
+Slide 7 = dark prompt plate. Small AlovLab mark bottom. 4:5. No acid colors, no cheap neon.
