@@ -108,3 +108,30 @@ Dark cinematic vertical 9:16 cover. A premium film frame inside a video player U
 
 ## HeyGen-CHECK
 [x] в озвучке нет тире · [x] одна мысль = одно предложение · [x] хук как начало истории · [x] не-аватар сцены = Seedance motion · [x] UI/текст на русском отдельным слоем, читаемо · [x] на аватаре текст не перекрывает лицо · [x] CTA = переход в Telegram.
+
+---
+
+## HIGGSFIELD SHOT LIST (что генерить в Higgsfield)
+> Генерим в Higgsfield только кинематографичные сцены (B-roll) — они и есть «доказательство».
+> Настройки для всех: **9:16, ~5 сек, motion средний, continuity — тёплый оранжевый грейд** (единый фильм).
+> Русский текст НЕ вшивать в генерацию (поплывёт) → набиваем на монтаже отдельным слоем.
+> UI-сцены (печать текста, таймлайн монтажа) в Higgsfield НЕ генерим → скринкаст/моушн на монтаже.
+> Лицо человека — только через reference-image (сохранить идентичность), иначе будет чужое лицо.
+
+**SCENE 1 · Establishing — город на закате (для S1/S3)**
+Cinematic vertical 9:16, a city street at golden hour, warm sunlight and long shadows, shallow depth of field, slow push-in camera, cinematic color grade, premium and moody, photoreal. 5 seconds. Negative: no text, no watermark, no logos, no distorted faces, no gibberish.
+
+**SCENE 2 · Product close-up — дорогой предмет (для S3)**
+Cinematic vertical 9:16, extreme close-up of a premium product on a dark reflective surface (perfume bottle / watch / coffee cup), warm rim light, slow orbit around the object, macro detail, expensive ad look, photoreal. 5 seconds. Negative: no text, no watermark, no distorted product, no gibberish.
+
+**SCENE 3 · Portrait — уверенный герой (для S3; лицо через reference)**
+Cinematic vertical 9:16, a confident person in a dark outfit, warm cinematic side light, shallow depth of field, subtle slow push-in, expensive editorial mood, photoreal. Keep the face natural and unchanged (use reference). 5 seconds. Negative: no text, no watermark, no distorted or plastic face, no gibberish.
+
+**SCENE 4 · «Кадр из ниоткуда» — атмосферный переход (для S1)**
+Cinematic vertical 9:16, a dark scene where a rich cinematic frame slowly emerges from darkness with warm particles and soft light bloom, elegant reveal, photoreal, moody. 5 seconds. Negative: no text, no watermark, no gibberish.
+
+**SCENE 5 · Телефон играет готовый ролик (для S7 — image-to-video)**
+Cinematic vertical 9:16, a phone lying on a dark wooden desk, warm orange rim light, the phone screen plays a vertical cinematic ad, slow push-in toward the screen, photoreal, premium. 5 seconds. Negative: no text on the room, no watermark, no distorted faces, no gibberish.
+_(Лучше image-to-video: старт-кадр — телефон на столе, чтобы экран был чистым, ролик на экране добавляешь на монтаже.)_
+
+**Как собрать:** 4 сцены (1,2,3,4) → нарезка по 1–2 сек в темпе музыки = «готовые сцены» в рилсе; сцена 5 — финальный «результат в телефоне». Аватар-реплики (Илья) генерятся отдельно в HeyGen, не в Higgsfield.
