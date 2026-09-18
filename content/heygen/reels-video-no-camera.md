@@ -135,3 +135,22 @@ Cinematic vertical 9:16, a phone lying on a dark wooden desk, warm orange rim li
 _(Лучше image-to-video: старт-кадр — телефон на столе, чтобы экран был чистым, ролик на экране добавляешь на монтаже.)_
 
 **Как собрать:** 4 сцены (1,2,3,4) → нарезка по 1–2 сек в темпе музыки = «готовые сцены» в рилсе; сцена 5 — финальный «результат в телефоне». Аватар-реплики (Илья) генерятся отдельно в HeyGen, не в Higgsfield.
+
+---
+
+## GROK — ГОТОВЫЕ ПРОМПТЫ (не-аватарные кадры, кириллица вшита)
+> Grok рендерит русский текст → вшиваем прямо в промпт. 9:16, ~5 сек, единый тёплый грейд. Копируй по одному.
+
+**S1 · Кадр рождается из текста**
+Vertical 9:16 cinematic video, 5 seconds. On a dark screen a warm glowing Russian line appears: «Улица на закате, тёплый свет, медленный наезд». The text dissolves into a photoreal cinematic shot of that scene: a city street at golden hour, warm light, long shadows, slow push-in. Warm orange cinematic grade, premium, moody. Render the Russian text correctly and legibly. No watermark, no gibberish, no distorted faces.
+
+**S3 · Три готовые сцены**
+Vertical 9:16 cinematic video, 5 seconds. Three short premium ad shots back to back: a city street at golden hour, an extreme close-up of a premium product on a dark reflective surface, a confident portrait in warm side light. Subtle camera move in each, expensive cinematic grade, ends holding on the portrait. Warm orange continuity. No watermark, no gibberish, no distorted faces.
+
+**S5 · Таймлайн монтажа (UI на русском)**
+Vertical 9:16 video, 5 seconds. A modern video editor: several clips snap into a row on a timeline, a music waveform pulses below, small Russian captions appear on the clips: «сцена 1», «сцена 2», «музыка», «титры». Static camera, screen glow, clean modern UI, all Russian text crisp and legible. Warm accent. No watermark, no gibberish.
+
+**S7 · Телефон с готовым роликом**
+Vertical 9:16 cinematic video, 5 seconds. A phone on a dark wooden desk, warm orange rim light, the phone screen plays a vertical cinematic ad (city and product shots), slow push-in toward the screen, photoreal, premium. No watermark, no gibberish, no distorted faces.
+
+> Лицо человека в S3 — если нужен конкретный человек, добавь reference-фото; иначе будет собирательный портрет.
