@@ -58,6 +58,7 @@
 - **Почему сейчас:** уход от повтора серии «без кода» (сайт/бот подряд); AI-видео = чемпион-формат (топ-ролик месяца про видео) + прямая тема «учим видеоклипам».
 - **Карусель:** `content/carousels/video-no-camera/kit.md` (6 слайдов DARK, RU+EN). **Reels HeyGen:** `content/heygen/reels-video-no-camera.md`.
 - **Воронка:** курс (Земля Видео) + Studio (AI-реклама, @alovlab). CTA → Telegram (TELEGRAM-FUNNEL-CTA).
+- **Методичка (полный урок, 25 стр):** `exports/guides/video-no-camera/alovlab-guide-video-PRO.pdf` — все промпты, схемы света, движения камеры, планы, разбор кейса (кофейня), монтаж. Сборщик `scripts/guide_video_pro_build.py`.
 - _Резерв (не потерять): «Собрал Telegram-бота» — `content/carousels/tg-bot/kit.md`, отрисован в `exports/carousels/tg-bot/`. Ставим на другую дату, не подряд с «Сайтом за вечер»._
 
 ### 20.09 · REELS + МЕТОДИЧКА · «Мета-промпт: ИИ пишет промпты за тебя» · кластер B (промпты) · СТАТУС: ЧЕРНОВИК-ПРЕДЛОЖЕНО
