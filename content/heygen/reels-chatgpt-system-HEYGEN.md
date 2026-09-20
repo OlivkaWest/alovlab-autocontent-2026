@@ -127,3 +127,25 @@ Keyword-механика: «Пиши НЕЙРО» в комментах → ав
 
 ## HeyGen-CHECK
 [x] в озвучке нет тире · [x] одна мысль = одно предложение · [x] хук как начало истории · [x] не-аватар сцены = Seedance i2v (оживление слайдов) или Grok, не статикой · [x] русский текст на слайдах НЕ регенерим (остаётся точным) · [x] на аватаре текст не перекрывает лицо · [x] субтитры в safe-zone на UI · [x] CTA = переход в Telegram.
+
+---
+
+## GROK — ГОТОВЫЕ ПРОМПТЫ (не-аватарные кадры, кириллица вшита, копируй по одному)
+> 9:16, ~5 сек, тёмный премиум, тёплый оранжевый грейд, единый стиль. Русский текст Grok рисует — оставляем в кадре.
+
+**G1 · Хук — команда печатается (S1)**
+Vertical 9:16, 5 seconds. A premium smartphone floating in dark space, warm orange rim light, ChatGPT open with a clean interface. A Russian command types itself into the input field: «/audiencemap», the send button glows, then a neat structured answer appears with Russian headings «Проблемы», «Желания», «Вопросы». Slow cinematic push-in, shallow depth of field, warm grade, crisp readable Russian. No watermark, no gibberish, no distorted text.
+
+**G2 · Провокация — слабый запрос (S3)**
+Vertical 9:16, 5 seconds. A ChatGPT chat on a phone, three weak Russian requests appear as grey bubbles one by one: «Напиши мне пост», «Дай 30 идей для Reels», «Составь контент-план». Then a bold orange Russian line slides in below: «Вместо этого — контекст и команда». Dark premium look, warm accent, subtle zoom, crisp readable Russian. No watermark, no gibberish.
+
+**G3 · 4 команды сходятся в систему (S5)**
+Vertical 9:16, 5 seconds. Four glowing orange command chips float in dark premium space: «/audiencemap», «/leadidea», «/contentmix», «/funnelmap». They connect with thin light lines into one clean system diagram, each chip briefly showing a Russian mini-label (аудитория, лид-магнит, форматы, воронка). Cinematic, warm orange accent, slow orbit, readable Russian. No watermark, no gibberish, no distorted text.
+
+**G4 · Команда работает — чек-лист (S5, крупный план)**
+Vertical 9:16, 5 seconds. Close-up of a phone, a Russian command «/leadidea» is sent, ChatGPT streams a numbered Russian list: «1. Мини-урок 2. Чек-лист 3. Инструкция 4. Разбор 5. Шаблон», items appear one by one. Warm screen glow, slow push-in, premium, crisp readable Russian. No watermark, no gibberish.
+
+**G5 · Финал — готовая система в телефоне (S7)**
+Vertical 9:16, 5 seconds. A phone on a dark desk, warm rim light, the screen shows a tidy content-system dashboard in Russian with sections «Аудитория», «Идеи», «Производство», «Воронка», slow push-in toward the screen. Premium, photoreal, cinematic. No watermark, no gibberish, no distorted text.
+
+> Аватар-сцены (Илья) — не через Grok, а в HeyGen (реплики в BUILD-листе). Держи один тёплый грейд на всех G-кадрах, чтобы склеились как один фильм.
