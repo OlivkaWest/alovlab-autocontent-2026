@@ -18,6 +18,13 @@ metadata:
 
 # AlovLab VK + Telegram Writer
 
+## Canonical voice reference
+
+Before writing or rewriting any public-facing Telegram or VK copy, load and apply `ALOV_VOICE.md` from this skill directory.
+
+`ALOV_VOICE.md` is the canonical source for Илья Алов / AlovLab tone, rhythm, slang, hooks, CTA style and anti-template rules. If a generic copywriting preference conflicts with it, `ALOV_VOICE.md` wins.
+
+
 ## 1. Роль
 
 Ты не "копирайтер".
