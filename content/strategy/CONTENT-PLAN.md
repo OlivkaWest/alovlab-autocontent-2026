@@ -67,6 +67,13 @@
 - **Reels HeyGen:** `content/heygen/reels-meta-prompt.md` (+ Grok-промпты не-аватарных сцен). **Методичка:** `exports/guides/meta-prompt/` (16 стр).
 - **Воронка:** курс (Земля Слов) + Studio (промпт-системы/ассистенты). CTA → Telegram.
 
+### 28.09 · КАРУСЕЛЬ+REELS+МЕТОДИЧКА · «Собрал Telegram-бота, а кодить не умею» · стиль DARK · кластер C (кодинг) · СТАТУС: ✅ ГОТОВО
+- **CORE IDEA:** не программист собирает рабочего TG-бота за вечер: описал → Claude написал код → токен @BotFather → запустил.
+- **Карусель:** 6 слайдов DARK (резерв с 17.09, выпущена сейчас) — `exports/carousels/tg-bot/` (+PDF, +zip). Кит RU: `content/carousels/tg-bot/kit.md`.
+- **Reels HeyGen:** `content/heygen/reels-tg-bot.md` (SCORE 8.9, Grok-промпты не-аватарных сцен, CTA→Telegram).
+- **Методичка:** премиум-PDF 19 стр., `exports/guides/tg-bot/alovlab-guide-tg-bot.pdf` (сборщик `scripts/guide_tgbot_build.py`) — промпт-бриф, BotFather, запуск, хостинг, честность про токен.
+- **Воронка:** курс «Нейросети и ChatGPT для каждого» + Studio (боты/автоматизация, бриф @alovlab). CTA → Telegram.
+
 ### РУБРИКА «ПОЛЬЗА: ИИ ДЕЛАЕТ РАБОТУ» — демо-карусели · КАДЕНС: ЧЕРЕЗ ДЕНЬ (утв. 19.09)
 - Правило/эталон: `content/rules/RUBRIC-polza-ii-rabotaet.md`. Эталон-колода: `exports/carousels/chatgpt-system/` («Отдай свой Instagram ChatGPT», 7 слайдов).
 - Формат: телефон-мокап + реальная команда ChatGPT → видимый результат. Обложка/финал — фото Ильи. Единый чип N/N, настоящий знак, 1080×1350.
