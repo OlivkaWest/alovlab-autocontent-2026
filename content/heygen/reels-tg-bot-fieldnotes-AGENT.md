@@ -11,25 +11,25 @@
 ```
 Я не просил ИИ сделать бота. Я поставил ему техзадание.
 
-[Сцена: тёмный экран, крупным планом печатается техническое задание боту — не «сделай бота», а точный сценарий по шагам: /start → тема → имя → контакт → заявка администратору]
+[Сцена 1 — оживи приложенное изображение slide-01.png: лёгкий наезд камеры, текст на экране остаётся как есть, не менять]
 
 Сценарий по шагам: старт, тема, имя, контакт, заявка.
 
-[Сцена: на экране появляется диаграмма состояний — четыре карточки соединяются оранжевыми стрелками: /start, ТЕМА, ИМЯ, КОНТАКТ, и в конце оранжевая карточка «ЗАЯВКА → АДМИНУ»]
+[Сцена 2 — оживи приложенное изображение slide-03.png: диаграмма состояний, стрелки будто дорисовываются одна за другой, текст на карточках не менять]
 
 Токен я храню отдельно от кода. Не в коде, не в логах, не в Git. Claude выдал мне не файл, а проект: код, зависимости, инструкцию запуска.
 
-[Сцена: тёмная панель с файлами проекта, они появляются один за другим с галочкой — bot.py, requirements.txt, .env.example, .gitignore, README.md]
+[Сцена 3 — оживи приложенное изображение slide-06.png: файлы проекта будто появляются по одному сверху вниз, текст не менять]
 
 Перед тем как показать бота кому-то, я прогнал четыре теста. Пустой ответ, отмена, повторный запуск и настоящая заявка. Только после этого я сказал, что бот готов.
 
-[Сцена: чек-лист из четырёх пунктов на тёмном фоне, каждый отмечается оранжевой галочкой одну за другой — /start, пустой ответ, /cancel, заявка получена — все зелёные]
+[Сцена 4 — оживи приложенное изображение slide-07.png: строки таблицы подсвечиваются одна за другой сверху вниз, текст не менять]
 
 Один бот это один инструмент. Это ещё не система.
 
 Систему я собираю на курсе. Боты, тексты, видео, автоматизация — одной связкой.
 
-[Сцена: на экран выезжает карточка курса «Нейросети и ChatGPT для каждого», старая цена 99 990 рублей перечёркнута, рядом новая цена 49 990 рублей крупно, снизу светится оранжевый чип «скидка 50 процентов до 30 сентября»]
+[Сцена 5 — оживи приложенное изображение slide-10.png: лёгкий наезд камеры на карточку курса, кнопка «Начать курс» слегка пульсирует, текст и цифры не менять]
 
 Сейчас скидка пятьдесят процентов на тариф Про. Успей до тридцатого сентября. Начать курс — alovlab.ru.
 ```
@@ -41,10 +41,11 @@
 ```
 Style: premium, dark background, warm orange accent (#FF6A3D), cinematic depth, 9:16 vertical, subtle film grain.
 Avatar НЕЙРОМОНАХ speaks the narration lines directly to camera, calm and confident, no big gestures.
-For every bracketed [Сцена: ...] direction, generate a non-avatar Seedance motion scene exactly as described —
-clean dark premium UI look, orange glow accents, smooth reveals (fade/slide-in), NOT a static screenshot,
-NOT a slideshow, NOT a plain zoom on a still image. All on-screen Russian text must stay sharp, legible and
-unchanged — do not distort or regenerate the words, render them exactly as written in the scene direction.
+For every bracketed [Сцена N — оживи приложенное изображение ...] direction, use the matching attached image
+as the exact starting frame and animate it with Seedance image-to-video: subtle motion only (slow push-in,
+gentle reveal, elements highlighting in sequence as described). Do NOT redraw, regenerate or replace the
+attached image's content — do NOT invent a new scene from text. Keep every word, number and diagram on the
+attached image sharp, legible and pixel-accurate, unchanged. This is animation of a real image, not text-to-video.
 Subtitles: bottom, large, white text, key word highlighted in orange. Do not let subtitles or UI overlap the
 avatar's face, eyes or mouth. Logo only on the final scene. Cut on the beat, confident and fast pace, total
 length 34–40 seconds.
@@ -52,9 +53,22 @@ length 34–40 seconds.
 
 ---
 
-## 3. Вложения
-Прикрепи в «Вложения» слайды обновлённой карусели как визуальный референс стиля (не обязательно, но поможет агенту держать единый графический язык):
-`exports/carousels/tg-bot-fieldnotes/RU/slide-01.png` … `slide-10.png`
+## 3. Вложения — ОБЯЗАТЕЛЬНО прикрепить именно эти 5 файлов
+
+Загружай в «Вложения» ровно эти файлы (не всю папку) — на них уже готовая кириллица и точные цифры,
+Seedance должен их оживить, а не рисовать текст/диаграмму заново:
+
+| Файл | Что на нём | Сцена в сценарии |
+|---|---|---|
+| `exports/carousels/tg-bot-fieldnotes/RU/slide-01.png` | обложка, терминал «claude "собери бота"» | Сцена 1 |
+| `exports/carousels/tg-bot-fieldnotes/RU/slide-03.png` | диаграмма состояний /start→ТЕМА→ИМЯ→КОНТАКТ→ЗАЯВКА | Сцена 2 |
+| `exports/carousels/tg-bot-fieldnotes/RU/slide-06.png` | файлы проекта (bot.py, requirements.txt, .env.example…) | Сцена 3 |
+| `exports/carousels/tg-bot-fieldnotes/RU/slide-07.png` | таблица тестов (/start, пусто, /cancel, заявка) | Сцена 4 |
+| `exports/carousels/tg-bot-fieldnotes/RU/slide-10.png` | карточка курса, 99 990→49 990, скидка 50% | Сцена 5 |
+
+Порядок загрузки в HeyGen обычно не важен — агент сам сопоставит вложение со сценой по номеру,
+названному в скобках («оживи приложенное изображение slide-XX.png»). Если интерфейс просит выбрать
+файл под конкретную сцену вручную — сопоставляй строго по таблице выше.
 
 ## 4. Параметры (как на скрине)
 Аватар: **НЕЙРОМОНАХ** · Голос: **доктор Нейро** · Seedance: **Вкл** · Субтитры: **Вкл** · Формат: **Авто (9:16)**.
