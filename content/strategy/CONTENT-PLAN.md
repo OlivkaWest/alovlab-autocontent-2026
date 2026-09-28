@@ -73,6 +73,7 @@
 - **Reels HeyGen:** `content/heygen/reels-tg-bot.md` (SCORE 8.9, Grok-промпты не-аватарных сцен, CTA→Telegram).
 - **Методичка:** премиум-PDF 19 стр., `exports/guides/tg-bot/alovlab-guide-tg-bot.pdf` (сборщик `scripts/guide_tgbot_build.py`) — промпт-бриф, BotFather, запуск, хостинг, честность про токен.
 - **Воронка:** курс «Нейросети и ChatGPT для каждого» + Studio (боты/автоматизация, бриф @alovlab). CTA → Telegram.
+- **⚡ ОБНОВЛЕНО:** пользователь прислал редизайн карусели «Bot Field Notes» (RU+EN, 9 слайдов, тёмный минимал/моно-шрифт, диаграммы состояний, честный промпт с требованиями к тестам/секретам). Финальная версия для публикации: `exports/carousels/tg-bot-fieldnotes/{RU,EN}/` — добавлена нумерация N/9 и настоящий знак (не было в присланном), в стиле дизайна. Использовать ЭТУ версию, не старую DARK-колоду.
 
 ### РУБРИКА «ПОЛЬЗА: ИИ ДЕЛАЕТ РАБОТУ» — демо-карусели · КАДЕНС: ЧЕРЕЗ ДЕНЬ (утв. 19.09)
 - Правило/эталон: `content/rules/RUBRIC-polza-ii-rabotaet.md`. Эталон-колода: `exports/carousels/chatgpt-system/` («Отдай свой Instagram ChatGPT», 7 слайдов).
