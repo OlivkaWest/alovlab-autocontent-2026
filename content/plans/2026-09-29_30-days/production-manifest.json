@@ -1,0 +1,615 @@
+{
+  "plan_id": "2026-09-29_30-days",
+  "created": "2026-09-29",
+  "status_legend": [
+    "запланирован",
+    "написан",
+    "проверен_по_источникам",
+    "нужна_перепроверка",
+    "экспортирован",
+    "готов_к_публикации",
+    "опубликован"
+  ],
+  "days": [
+    {
+      "day": 1,
+      "date": "30.09.2026",
+      "block": "1-Слова",
+      "bank_id": "A1",
+      "topic": "Год пользуешься ChatGPT неправильно",
+      "update_required": true,
+      "files": {
+        "reel_md": "написан",
+        "heygen_prompt": "написан",
+        "carousel_ru_md": "написан",
+        "carousel_en_md": "написан",
+        "workbook_md": "написан",
+        "workbook_docx": "экспортирован",
+        "workbook_pdf": "экспортирован",
+        "telegram_md": "написан",
+        "quality_check_md": "написан"
+      },
+      "overall_status": "написан_и_экспортирован_ждёт_проверки_фактов"
+    },
+    {
+      "day": 2,
+      "date": "01.10.2026",
+      "block": "1-Слова",
+      "bank_id": "B2",
+      "topic": "Роль решает всё",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 3,
+      "date": "02.10.2026",
+      "block": "1-Слова",
+      "bank_id": "A4",
+      "topic": "Загрузи файл — получи ответ",
+      "update_required": true,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 4,
+      "date": "03.10.2026",
+      "block": "1-Слова",
+      "bank_id": "B1",
+      "topic": "Твой промпт — вода",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 5,
+      "date": "04.10.2026",
+      "block": "1-Слова",
+      "bank_id": "B4",
+      "topic": "Цепочка промптов",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 6,
+      "date": "05.10.2026",
+      "block": "1-Слова",
+      "bank_id": "A3",
+      "topic": "Проекты в ChatGPT",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 7,
+      "date": "06.10.2026",
+      "block": "1-Слова(капстоун)",
+      "bank_id": "B6",
+      "topic": "ИИ сам чинит твой промпт",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 8,
+      "date": "07.10.2026",
+      "block": "2-Визуал",
+      "bank_id": "E7",
+      "topic": "Кино-кадр из текста",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 9,
+      "date": "08.10.2026",
+      "block": "2-Визуал",
+      "bank_id": "A5",
+      "topic": "ChatGPT как второй мозг",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 10,
+      "date": "09.10.2026",
+      "block": "2-Визуал",
+      "bank_id": "X5",
+      "topic": "Бесплатные нейросети, которые решают",
+      "update_required": true,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 11,
+      "date": "10.10.2026",
+      "block": "2-Визуал",
+      "bank_id": "E6",
+      "topic": "Персонаж, которого нет",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 12,
+      "date": "11.10.2026",
+      "block": "2-Визуал",
+      "bank_id": "F6",
+      "topic": "Фриланс-услуга из одного промпта",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 13,
+      "date": "12.10.2026",
+      "block": "2-Визуал",
+      "bank_id": "X1",
+      "topic": "Как отличить фото от ИИ",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 14,
+      "date": "13.10.2026",
+      "block": "2-Визуал(капстоун)",
+      "bank_id": "E5",
+      "topic": "Reels на конвейере",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 15,
+      "date": "14.10.2026",
+      "block": "3-Видео",
+      "bank_id": "E2",
+      "topic": "Цифровой двойник на 90 языках",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 16,
+      "date": "15.10.2026",
+      "block": "3-Видео",
+      "bank_id": "E4",
+      "topic": "Озвучка голосом бренда",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 17,
+      "date": "16.10.2026",
+      "block": "3-Видео",
+      "bank_id": "X2",
+      "topic": "Клонируют по 10 секунд голоса",
+      "update_required": true,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 18,
+      "date": "17.10.2026",
+      "block": "3-Видео",
+      "bank_id": "E1",
+      "topic": "Ролик за 150 000 ₽ — за вечер",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 19,
+      "date": "18.10.2026",
+      "block": "3-Видео",
+      "bank_id": "E3",
+      "topic": "Подкаст с синтетическими ведущими",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 20,
+      "date": "19.10.2026",
+      "block": "3-Видео",
+      "bank_id": "X3",
+      "topic": "Заменит ли ИИ твою профессию",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 21,
+      "date": "20.10.2026",
+      "block": "3-Видео(капстоун)",
+      "bank_id": "capstone-21",
+      "topic": "Собери свой первый ролик с ИИ-диктором",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 22,
+      "date": "21.10.2026",
+      "block": "4-Агенты",
+      "bank_id": "D2",
+      "topic": "Я отдал это агенту",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 23,
+      "date": "22.10.2026",
+      "block": "4-Агенты",
+      "bank_id": "D3",
+      "topic": "Персональный ассистент-агент",
+      "update_required": true,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 24,
+      "date": "23.10.2026",
+      "block": "4-Агенты",
+      "bank_id": "C5",
+      "topic": "MCP простыми словами",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 25,
+      "date": "24.10.2026",
+      "block": "4-Агенты",
+      "bank_id": "D4",
+      "topic": "Агент продаж отвечает клиентам",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 26,
+      "date": "25.10.2026",
+      "block": "4-Агенты",
+      "bank_id": "D5",
+      "topic": "Research-агент",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 27,
+      "date": "26.10.2026",
+      "block": "4-Агенты",
+      "bank_id": "F1",
+      "topic": "Навык → продукт → клиент → деньги",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 28,
+      "date": "27.10.2026",
+      "block": "4-Агенты",
+      "bank_id": "F2",
+      "topic": "Что продавать на ИИ прямо сейчас",
+      "update_required": true,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 29,
+      "date": "28.10.2026",
+      "block": "5-Финал",
+      "bank_id": "F3",
+      "topic": "Первый клиент за неделю",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    },
+    {
+      "day": 30,
+      "date": "29.10.2026",
+      "block": "5-Финал(итог месяца)",
+      "bank_id": "D1",
+      "topic": "AI-отдел из 5 агентов без менеджера",
+      "update_required": false,
+      "files": {
+        "reel_md": "запланирован",
+        "heygen_prompt": "запланирован",
+        "carousel_ru_md": "запланирован",
+        "carousel_en_md": "запланирован",
+        "workbook_md": "запланирован",
+        "workbook_docx": "запланирован",
+        "workbook_pdf": "запланирован",
+        "telegram_md": "запланирован",
+        "quality_check_md": "запланирован"
+      },
+      "overall_status": "запланирован"
+    }
+  ]
+}
