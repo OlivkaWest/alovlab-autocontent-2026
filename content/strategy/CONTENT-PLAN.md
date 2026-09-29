@@ -83,6 +83,7 @@
 - **Файлы:** `exports/carousels/chatgpt-99/` (PNG ×10 + PDF + zip + preview.jpg). Сборщик: `scripts/carousel_chatgpt99_build.py`. Источники: `content/carousel-assets/chatgpt-99/` (обложка + референс-сетка от пользователя).
 - **Кит:** `content/carousels/chatgpt-99/kit.md` (TG/VK/IG описания, честность проверена).
 - **Честность:** все 99 команд — прямая транскрипция присланного референса, ничего не добавлено и не выдумано; дубль `/elevatorpitch` (п.32/33) воспроизведён как в источнике.
+- **⚡ Методичка (26 стр.):** `exports/guides/chatgpt-99/alovlab-guide-chatgpt-99-commands.pdf` — не просто список, а рабочий движок: универсальная промпт-формула с переменными, 3 разбора до/после, недельный ритм, полный справочник всех 99 по 9 блокам, мост в курс (тарифы без привязки к акции), «Путь в команду AlovLab». Честно объясняет природу «команд» в ChatGPT (не встроенная функция) и как их реально запустить. Сборщик: `scripts/guide_chatgpt99_build.py`. Описание выдачи — в `content/carousels/chatgpt-99/kit.md`.
 
 ### РУБРИКА «ПОЛЬЗА: ИИ ДЕЛАЕТ РАБОТУ» — демо-карусели · КАДЕНС: ЧЕРЕЗ ДЕНЬ (утв. 19.09)
 - Правило/эталон: `content/rules/RUBRIC-polza-ii-rabotaet.md`. Эталон-колода: `exports/carousels/chatgpt-system/` («Отдай свой Instagram ChatGPT», 7 слайдов).
