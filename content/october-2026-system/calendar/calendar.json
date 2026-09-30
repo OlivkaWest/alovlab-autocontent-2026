@@ -1,6 +1,6 @@
 [
   {
-    "day": "1",
+    "day": 1,
     "date": "01.10.2026",
     "weekday": "Чт",
     "id": "OCT-01",
@@ -25,13 +25,13 @@
     "prep_needed": "Голосовая заметка + доступ к ChatGPT",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_готовится_в_этой_сессии"
+    "status": "текст_написан_согласовать_с_существующим_heygen_проектом"
   },
   {
-    "day": "2",
+    "day": 2,
     "date": "02.10.2026",
     "weekday": "Пт",
     "id": "OCT-02",
@@ -56,13 +56,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 карусель-рендер (без HeyGen)",
     "main_metric": "Сохранения + пересылки + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "текст_написан_RU_EN_готов_к_экспорту"
   },
   {
-    "day": "3",
+    "day": 3,
     "date": "03.10.2026",
     "weekday": "Сб",
     "id": "OCT-03",
@@ -87,13 +87,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "текст_написан_RU_EN_готов_к_экспорту"
   },
   {
-    "day": "4",
+    "day": 4,
     "date": "04.10.2026",
     "weekday": "Вс",
     "id": "OCT-04",
@@ -118,13 +118,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 карусель-рендер (без HeyGen)",
     "main_metric": "Сохранения + пересылки + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "текст_написан_RU_EN_готов_к_экспорту"
   },
   {
-    "day": "5",
+    "day": 5,
     "date": "05.10.2026",
     "weekday": "Пн",
     "id": "OCT-05",
@@ -149,13 +149,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "текст_написан_RU_EN_готов_к_экспорту"
   },
   {
-    "day": "6",
+    "day": 6,
     "date": "06.10.2026",
     "weekday": "Вт",
     "id": "OCT-06",
@@ -180,13 +180,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "текст_написан_RU_EN_готов_к_экспорту"
   },
   {
-    "day": "7",
+    "day": 7,
     "date": "07.10.2026",
     "weekday": "Ср",
     "id": "OCT-07",
@@ -211,13 +211,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "текст_написан_RU_EN_готов_к_экспорту"
   },
   {
-    "day": "8",
+    "day": 8,
     "date": "08.10.2026",
     "weekday": "Чт",
     "id": "OCT-08",
@@ -242,13 +242,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "True",
+    "flexible_update_required": true,
     "flex_what_to_check": "Какой именно инструмент генерации/улучшения изображений называем и его реальные возможности/лимиты на дату публикации — не заявлять цену/качество, которые не проверены.",
     "flex_backup_topic": "Резерв: «Что реально можно поправить в слабом фото, а что нет» — тот же навык, честные границы возможностей, без сравнения с фотосессией и без привязки к конкретному инструменту.",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "9",
+    "day": 9,
     "date": "09.10.2026",
     "weekday": "Пт",
     "id": "OCT-09",
@@ -273,13 +273,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "10",
+    "day": 10,
     "date": "10.10.2026",
     "weekday": "Сб",
     "id": "OCT-10",
@@ -304,13 +304,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 карусель-рендер (без HeyGen)",
     "main_metric": "Сохранения + пересылки + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "11",
+    "day": 11,
     "date": "11.10.2026",
     "weekday": "Вс",
     "id": "OCT-11",
@@ -335,13 +335,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "12",
+    "day": 12,
     "date": "12.10.2026",
     "weekday": "Пн",
     "id": "OCT-12",
@@ -366,13 +366,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 карусель-рендер (без HeyGen)",
     "main_metric": "Сохранения + пересылки + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "13",
+    "day": 13,
     "date": "13.10.2026",
     "weekday": "Вт",
     "id": "OCT-13",
@@ -397,13 +397,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "14",
+    "day": 14,
     "date": "14.10.2026",
     "weekday": "Ср",
     "id": "OCT-14",
@@ -428,13 +428,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 карусель-рендер (без HeyGen)",
     "main_metric": "Сохранения + пересылки + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "15",
+    "day": 15,
     "date": "15.10.2026",
     "weekday": "Чт",
     "id": "OCT-15",
@@ -459,13 +459,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "True",
+    "flexible_update_required": true,
     "flex_what_to_check": "Точный список поддерживаемых языков и реальное качество синхронизации на используемой платформе — не заявлять число языков без проверки в актуальной документации платформы.",
     "flex_backup_topic": "Резерв: «Разбор одного шага в пайплайне аватара, который чаще всего ломается» — та же тема, без заявлений о конкретном числе языков.",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "16",
+    "day": 16,
     "date": "16.10.2026",
     "weekday": "Пт",
     "id": "OCT-16",
@@ -490,13 +490,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 карусель-рендер (без HeyGen)",
     "main_metric": "Сохранения + пересылки + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "17",
+    "day": 17,
     "date": "17.10.2026",
     "weekday": "Сб",
     "id": "OCT-17",
@@ -521,13 +521,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "18",
+    "day": 18,
     "date": "18.10.2026",
     "weekday": "Вс",
     "id": "OCT-18",
@@ -552,13 +552,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 карусель-рендер (без HeyGen)",
     "main_metric": "Сохранения + пересылки + подписки",
-    "flexible_update_required": "True",
+    "flexible_update_required": true,
     "flex_what_to_check": "Не допустить непроверенное сравнение с ценой агентства/продакшна — таких данных нет, сравнение по цене в материал не включать вообще.",
     "flex_backup_topic": "Резерв: «Что ИИ берёт на себя в рекламном ролике, а что всё ещё нужно снимать» — тот же честный разбор границ без каких-либо цифр сравнения.",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "19",
+    "day": 19,
     "date": "19.10.2026",
     "weekday": "Пн",
     "id": "OCT-19",
@@ -583,13 +583,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "True",
+    "flexible_update_required": true,
     "flex_what_to_check": "Доступность и реальные возможности конкретного инструмента AI-подкастинга на дату публикации — быстро меняющийся рынок инструментов.",
     "flex_backup_topic": "Резерв: «Как звучит один и тот же текст двумя разными ИИ-голосами» — сравнение без привязки к конкретному непроверенному инструменту-платформе.",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "20",
+    "day": 20,
     "date": "20.10.2026",
     "weekday": "Вт",
     "id": "OCT-20",
@@ -614,13 +614,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 карусель-рендер (без HeyGen)",
     "main_metric": "Сохранения + пересылки + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "21",
+    "day": 21,
     "date": "21.10.2026",
     "weekday": "Ср",
     "id": "OCT-21",
@@ -645,13 +645,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "22",
+    "day": 22,
     "date": "22.10.2026",
     "weekday": "Чт",
     "id": "OCT-22",
@@ -676,13 +676,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "23",
+    "day": 23,
     "date": "23.10.2026",
     "weekday": "Пт",
     "id": "OCT-23",
@@ -707,13 +707,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "True",
+    "flexible_update_required": true,
     "flex_what_to_check": "Доступность и условия конкретной платформы для сборки личного агента на дату публикации.",
     "flex_backup_topic": "Резерв: «Один агент, одна задача: что он умеет прямо сейчас» — то же самое, но без привязки к конкретной непроверенной платформе, обобщённый показ принципа.",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "24",
+    "day": 24,
     "date": "24.10.2026",
     "weekday": "Сб",
     "id": "OCT-24",
@@ -738,13 +738,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 карусель-рендер (без HeyGen)",
     "main_metric": "Сохранения + пересылки + подписки",
-    "flexible_update_required": "True",
+    "flexible_update_required": true,
     "flex_what_to_check": "MCP — активно развивающийся протокол (последняя известная проектная спецификация — 28.07.2026, см. content/reels/2026-09-29/sources.json). Проверить, не вышло ли обновление к дате публикации.",
     "flex_backup_topic": "Резерв: «Как агент вообще выбирает, какой инструмент открыть» — общий принцип без привязки к номеру версии протокола.",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "25",
+    "day": 25,
     "date": "25.10.2026",
     "weekday": "Вс",
     "id": "OCT-25",
@@ -769,13 +769,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "26",
+    "day": 26,
     "date": "26.10.2026",
     "weekday": "Пн",
     "id": "OCT-26",
@@ -800,13 +800,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 карусель-рендер (без HeyGen)",
     "main_metric": "Сохранения + пересылки + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "27",
+    "day": 27,
     "date": "27.10.2026",
     "weekday": "Вт",
     "id": "OCT-27",
@@ -831,13 +831,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "28",
+    "day": 28,
     "date": "28.10.2026",
     "weekday": "Ср",
     "id": "OCT-28",
@@ -862,13 +862,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 карусель-рендер (без HeyGen)",
     "main_metric": "Сохранения + пересылки + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "29",
+    "day": 29,
     "date": "29.10.2026",
     "weekday": "Чт",
     "id": "OCT-29",
@@ -893,13 +893,13 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 HeyGen-генерация + монтаж",
     "main_metric": "Досмотр 72ч + сохранения + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   },
   {
-    "day": "30",
+    "day": 30,
     "date": "30.10.2026",
     "weekday": "Пт",
     "id": "OCT-30",
@@ -924,9 +924,9 @@
     "prep_needed": "Реальный рабочий пример из своей практики",
     "time_credits_estimate": "≈1 карусель-рендер (без HeyGen)",
     "main_metric": "Сохранения + пересылки + подписки",
-    "flexible_update_required": "False",
+    "flexible_update_required": false,
     "flex_what_to_check": "",
     "flex_backup_topic": "",
-    "status": "структура_есть_текст_не_написан"
+    "status": "запланирован_текст_не_написан"
   }
 ]

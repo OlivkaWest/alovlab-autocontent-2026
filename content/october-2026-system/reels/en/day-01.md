@@ -27,23 +27,34 @@ post script that keeps my own voice, not a rewritten one.
 
 Not polished AI copy instead of me. My own voice, just put in order.
 
-[Scene 6 — non-avatar: revision in progress on the RU cut, align once final]
+[Scene 6 — non-avatar: the finished text types into a message field, cursor reaches the end, the send button lights up orange]
+
+[Scene 7 — non-avatar: message sent → "delivered" → the other person replies in one short line — they got it the first time]
+
+Here's the part that's not just about you. Your client reads this in ten seconds and knows exactly
+what to do next — no guessing, no "can you clarify?" reply.
 
 Try it on your next voice note to a client. Don't rewrite it. Dictate it, then structure it.
 
-How to do it step by step — the guide is in Telegram.
+Step by step, with examples — the guide is in Telegram.
 ```
 
 ## Scenes / attachments / cover
-Same scene table, timecodes and attachment needs as `reels/ru/day-01.md` — structure is shared,
-only the audio track and on-screen English captions differ. Cover text: **VOICE NOTE → REAL POST**
+Same scene table and attachment needs as `reels/ru/day-01.md` (scenes 6–7 now show concrete
+in-interface actions: text being typed into a message field, send, delivery status, reply — not a
+vague "align once final"). Only the audio track and on-screen English captions differ. Cover text:
+**VOICE NOTE → REAL POST**
 
 ## Guide link
 G01 (English pages TBD — flagship-style guides in this system are drafted RU-first; EN methodичка
 page count/translation is a separate open dependency, not yet scheduled — see final report).
 
 ## CTA
-In-app only (no IG link restriction bypass): save the post / reply with a keyword. Telegram guide
-delivery for @alov.lab audience — English landing inside Telegram not yet confirmed to exist
-(status: место выдачи не подготовлено for EN specifically — RU Telegram hub is confirmed, EN
-material would need its own confirmed drop point).
+Save the post / comment a keyword — a person replies with the Telegram link in comments/DM, not a
+bot (no comment automation is configured in this project). We're not relying on a bio link here, but
+not because @alov.lab's October restriction is confirmed — it isn't (only @neurumonk's block is
+confirmed in the brief's source materials, checked 30.09.2026; see `captions/IG-LINK-STATUS.md`).
+This is a precaution until someone checks @alov.lab's actual account settings, not a stated fact.
+Separately, Telegram guide delivery for the @alov.lab (EN) audience has its own open gap: English
+landing inside Telegram is not yet confirmed to exist (RU Telegram hub is confirmed; EN material
+needs its own confirmed drop point — see final report).

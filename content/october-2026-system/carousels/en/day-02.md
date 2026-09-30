@@ -23,7 +23,7 @@ Keep it under 150 words, no corporate tone, don't mention competitors.
 Format: three short paragraphs and one concrete next step at the end.
 ```
 9. Before/after: generic draft vs. specific draft naming the coffee shop's real details.
-10. Wrap + CTA: "Build your own prompt frame — same principle for any recurring message." CTA: "Full breakdown + template in Telegram" (IG: save the post, no links this month).
+10. Wrap + CTA: "Build your own prompt frame — same principle for any recurring message." CTA: "Full breakdown + template in Telegram" (IG @alov.lab: save the post / comment "PROMPT", a person replies with the link — not a bot. No bio link here as a precaution; @alov.lab's own October restriction isn't separately confirmed, only @neurumonk's is — see `captions/IG-LINK-STATUS.md`).
 
 ## Caption (IG EN, 300–400 chars)
 A prompt with no role is a letter with no address. It arrives, it doesn't land.

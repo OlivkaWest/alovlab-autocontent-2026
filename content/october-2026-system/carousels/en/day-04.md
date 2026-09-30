@@ -11,7 +11,7 @@ Same 10-slide structure as `carousels/ru/day-04.md`. English text:
 7. #5 Someone else's personal data without consent — phone, address, their messages. Not your call.
 8. What to do instead: redact — "Client A" instead of a name, "N amount" instead of a sum, keep only the task structure.
 9. Check yourself: open your last 10 AI chats — any of the five on that list?
-10. Wrap + CTA: "Not paranoia — basic hygiene for handling other people's data." CTA: checklist card in Telegram (IG: save the post).
+10. Wrap + CTA: "Not paranoia — basic hygiene for handling other people's data." CTA: checklist card in Telegram (IG @alov.lab: save the post / comment "CHECKLIST", a person replies with the link — not a bot; see `captions/IG-LINK-STATUS.md` for this account's unverified restriction status).
 
 ## Caption (IG EN)
 5 things you shouldn't paste into an AI chat. One innocent paste and a client's data is in someone
