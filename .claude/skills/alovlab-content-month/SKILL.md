@@ -5,11 +5,11 @@ description: "Работа с 30-дневным планом мини-уроко
 
 # AlovLab — 30-дневный план мини-уроков (управление)
 
-Работает с планом(ами) в `content/plans/YYYY-MM-DD_30-days/`. Если план не создан — не выдумывать
-структуру заново, а собрать по системе, зафиксированной в `content/plans/2026-09-29_30-days/`
-(эталон): `README.md` (индекс) + `strategy.md` + `calendar.md`/`.csv`/`.xlsx` + `sources.json` +
-`production-manifest.json` + `days/day-NN/{reel.md, heygen-prompt.txt, carousel-ru.md,
-carousel-en.md, workbook.md, workbook.docx, workbook.pdf, telegram.md, quality-check.md}`.
+**Действующий план: `content/october-2026-system/`** — структура: `strategy/` + `calendar/`
+(`calendar.md`/`.csv`/`.xlsx`/`.json`) + `guides/` (реестр + сами методички) + `sources/` +
+`metrics/` + `reels/ru`+`en` + `carousels/ru`+`en` + `captions/` + `manifest.json` (честный статус
+по этапам — единственный источник правды). `content/plans/2026-09-29_30-days/` — **архив**, не
+использовать для новых дат, кроме переиспользования готового Дня 1 («5 настроек ChatGPT»).
 
 ## Команды
 
