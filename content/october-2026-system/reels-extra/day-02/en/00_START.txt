@@ -1,0 +1,38 @@
+AlovLab · Reels for 10/02/2026 (EN, @alov.lab) · START
+
+DATE: October 2, 2026
+TOPIC: "A prompt with no role is a letter with no address" — an extra reel for day 2 (the lead format
+for this day in the calendar is a carousel, unchanged; this reel makes the same point on video for the
+same day, same audience).
+PLACE IN THE PLAN: content/october-2026-system/calendar/calendar.csv, day 2 (OCT-02). Segment:
+freelancer writing to clients. The calendar row itself was not edited — this is an addition by direct
+request.
+
+VIEWER TAKEAWAY: leaves with a ready 4-line prompt frame (role, context, constraints, format) to drop
+into any AI chat for their own recurring business correspondence.
+
+MAIN CTA: "Save this post and comment PROMPT." A person replies with the guide link in Telegram, not a
+bot — no keyword-triggered auto-delivery is set up in this project. No bio link on IG all of October
+(this is a precaution, not a confirmed @alov.lab restriction — only @neurumonk's block is confirmed,
+see captions/IG-LINK-STATUS.md).
+
+WHAT TO PASTE INTO HEYGEN: the whole `01_HEYGEN_AGENT_PROMPT.txt` file, in one message to the agent.
+
+WHAT HEYGEN CREATES NATIVELY (no attached files needed): all on-screen text inserts — the three
+changing storefronts in scene 2, the four role/context/constraints/format chips in scene 3, the
+before/after split card in scene 4. Plain editable text and graphics (NATIVE_TEXT), not a third-party
+interface — the agent builds these itself.
+
+WHAT IS NOT READY (said plainly): the cover. A background was generated (Higgsfield, job
+35a439d8-b2e4-4bff-9bbb-c4010d9ba540), but downloading it and compositing the logo + headline was not
+possible in this session — outbound traffic to the Higgsfield CDN is blocked by this environment's
+network policy. Details and the generated background's link — cover/STATUS.md. The reel can still be
+assembled and posted without a separate cover file — Instagram will pull a preview frame from the video.
+
+GUIDE: there is currently no English-language guide for this topic (G01 exists only in Russian; its EN
+translation is an open, previously flagged dependency — not invented here). The on-screen 4-line
+template shown inside the video itself is the deliverable for this reel — see 04_SOCIAL_CAPTIONS.txt
+for exactly how the CTA is worded so it does not promise a file that does not exist.
+
+STATUS IN ONE LINE: READY FOR HEYGEN ASSEMBLY. The publication package is incomplete — missing the
+cover file (reason above); everything else (captions, honest guide handling) is ready.

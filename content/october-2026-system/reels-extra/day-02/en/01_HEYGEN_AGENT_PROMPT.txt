@@ -1,0 +1,76 @@
+Create one vertical AlovLab reel, 9:16, 1080×1920, from this brief. Use the selected avatar and voice
+of the current AlovLab project (the same one used for the October 1 reel) — do not offer to pick a
+different character or narrator, do not request or invent any ID.
+
+TOPIC: a prompt with no role is a letter with no address. One example for the whole reel: a freelance
+designer writing a business proposal to a small coffee shop owner.
+VIEWER BENEFIT: leaves with a ready 4-line prompt frame (role, context, constraints, format) for their
+own recurring business correspondence.
+HOOK (first line): "A prompt with no role is a letter with no address."
+
+Speak the lines below exactly as written. Do not add a greeting, intro, promises, or decorative
+scenes. Target runtime 30–33 seconds, an estimate, not a measurement (this environment has no access
+to the project's voice to measure actual duration). First build the speech and measure its real
+duration inside your own assembly, then fit the scene lengths to it — do not speed up the voice or cut
+words. Getting the meaning across matters more than hitting 30–33 seconds exactly.
+
+SCENES (detailed breakdown in 02_SCENES.txt; summarized here in one block):
+
+Scene 1 · 0:00–0:04 (estimate) · AVATAR
+Line: "A prompt with no role is a letter with no address. It'll land somewhere. It won't land with
+anyone."
+Visible: avatar looks at camera, a short beat before the line. No on-screen text, nothing covers the
+face.
+
+Scene 2 · 0:04–0:10 (estimate) · AVATAR + NATIVE_TEXT
+Line: "Here's the thing. You ask an AI to write a client proposal. You get text that fits any
+business. Which means it really fits none."
+Visible: next to the avatar (never over the face), the same generic reply text is shown against three
+different storefronts in turn — a coffee shop, a nail studio, an auto shop. The storefront changes
+three times during the scene, timed to the words "any business" / "really" / "none." The reply text
+itself never changes across the three storefronts — that's the point being made. This is plain
+editable text and graphics, not an imitation of a third-party app interface — build it yourself, no
+external file needed.
+
+Scene 3 · 0:10–0:19 (estimate) · AVATAR + NATIVE_TEXT
+Line: "Add four things. Role, who you are in this task. Context, what the client already knows.
+Constraints, what's off the table. Format, what the answer should look like."
+Visible: four text chips appear one at a time, timed to each word — "ROLE" on "role," "CONTEXT" on
+"context," "CONSTRAINTS" on "constraints," "FORMAT" on "format." Chips stay on screen, never cover the
+avatar's face. Simple typography, one accent color (AlovLab orange), no UI imitation.
+
+Scene 4 · 0:19–0:25 (estimate) · NATIVE_TEXT (avatar small in a corner, or voice-over)
+Line: "Same question, same four details, and now it reads like a letter to one specific person, not a
+template for everyone."
+Visible: a full-frame split card. Left: a dull generic draft ("Dear client, our company offers quality
+services..."). Right: a specific draft naming the coffee shop's real details ("Saw your work on
+Instagram, three short paragraphs, one concrete next step"). After the card fully appears, hold a
+roughly 2-second reading pause before cutting away. This is a learning example, not a real client
+exchange — if there's a caption on screen, mark it small as "learning example."
+
+Scene 5 · 0:25–0:29 (estimate) · AVATAR
+Line: "The client reads it and knows right away it was written for them."
+Visible: avatar close-up, calm confident tone, no on-screen text.
+
+Scene 6 · 0:29–0:33 (estimate) · AVATAR
+Final line (do not rephrase): "Save this post and comment PROMPT, you'll get the four-line template."
+Visible: avatar holds camera contact until the line is fully spoken, the shot does not cut early.
+
+SUBTITLES: sync to the actual speech once it's finalized, broken by meaning-phrase, 1–2 lines, no
+stage directions. Never cover the face, the chips, or the split card; on scene 4 either turn subtitles
+off or place them in a safe zone clear of the card's own text.
+
+TRANSITIONS: meaningful cuts tied to a state change (storefront swap, chip appearing, split card
+appearing), not a random zoom or a decorative timer.
+
+FINAL CTA (use verbatim): "Save this post and comment PROMPT, you'll get the four-line template."
+This is the reel's only call to action.
+
+FILES: no external attachments are needed for this reel — all text/graphic inserts (scenes 2–4) are
+built by HeyGen itself as editable text layers. Do not generate an imitation of any third-party app
+interface (ChatGPT or otherwise) — this reel has none and should not invent one.
+
+CHECK BEFORE EXPORT: one task (build the prompt frame), one example (the coffee shop) for the whole
+reel; the split card in scene 4 holds for a reading pause; the final line is spoken completely before
+the shot ends; subtitles never cover the face or the text inserts. Deliver the final MP4 and its
+actual duration.
