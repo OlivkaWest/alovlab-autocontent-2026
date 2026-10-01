@@ -5,16 +5,13 @@ Script, real external attachments (none needed — all inserts are native NATIVE
 avatar/voice (uses the existing project, not re-picked) and editing rules are reconciled between
 01_HEYGEN_AGENT_PROMPT.txt and 02_SCENES.txt.
 
-STATUS: PUBLICATION PACKAGE — NOT COMPLETE.
+STATUS: PUBLICATION PACKAGE — COMPLETE (except the video itself).
 Ready: captions for every platform (04_SOCIAL_CAPTIONS.txt), an honest delivery method (CTA "comment
-PROMPT" — a person replies, no bio link on IG this month).
-Not ready: (1) the cover as a separate file — background generated in Higgsfield (job
-35a439d8-b2e4-4bff-9bbb-c4010d9ba540) but could not be downloaded/composited in this session, network
-policy blocks the Higgsfield CDN (confirmed via this environment's agent-proxy status, not a guess) —
-see ../cover/STATUS.md. Instagram can still pull a preview frame from the video itself. (2) an
-English-language PDF guide — does not exist yet for this topic; not invented here, and the reel's CTA
-does not promise one. The video's own on-screen template is the deliverable. Final MP4 not rendered —
-assembly happens in HeyGen on the user's side; no publication has happened yet.
+PROMPT" — a person replies, no bio link on IG this month), the cover (cover/cover-en.png — Higgsfield
+background, headline and logo composited locally with Pillow; build details in ../cover/STATUS.md).
+Open, honestly flagged gap: no English-language PDF guide exists yet for this topic; not invented
+here, and the reel's CTA does not promise one — the video's own on-screen template is the deliverable.
+Final MP4 not rendered — assembly happens in HeyGen on the user's side; no publication has happened yet.
 
 INTERNAL CHECK (passed):
 - Meaning: one task (build the prompt frame), one example (the coffee shop) for the whole reel.

@@ -23,16 +23,15 @@ changing storefronts in scene 2, the four role/context/constraints/format chips 
 before/after split card in scene 4. Plain editable text and graphics (NATIVE_TEXT), not a third-party
 interface — the agent builds these itself.
 
-WHAT IS NOT READY (said plainly): the cover. A background was generated (Higgsfield, job
-35a439d8-b2e4-4bff-9bbb-c4010d9ba540), but downloading it and compositing the logo + headline was not
-possible in this session — outbound traffic to the Higgsfield CDN is blocked by this environment's
-network policy. Details and the generated background's link — cover/STATUS.md. The reel can still be
-assembled and posted without a separate cover file — Instagram will pull a preview frame from the video.
+COVER: ready — `cover/cover-en.png` (1080×1920). The blank-envelope background with a "A LETTER, NO
+NAME" headline and the AlovLab logo composited on top. How it was built (Higgsfield background, text
+and logo composited locally) — cover/STATUS.md.
 
 GUIDE: there is currently no English-language guide for this topic (G01 exists only in Russian; its EN
 translation is an open, previously flagged dependency — not invented here). The on-screen 4-line
 template shown inside the video itself is the deliverable for this reel — see 04_SOCIAL_CAPTIONS.txt
 for exactly how the CTA is worded so it does not promise a file that does not exist.
 
-STATUS IN ONE LINE: READY FOR HEYGEN ASSEMBLY. The publication package is incomplete — missing the
-cover file (reason above); everything else (captions, honest guide handling) is ready.
+STATUS IN ONE LINE: READY FOR HEYGEN ASSEMBLY. Publication package: cover and captions ready; the
+only honest open gap is the missing English-language PDF guide (not invented — see above), which does
+not block posting since the CTA never promises it.
