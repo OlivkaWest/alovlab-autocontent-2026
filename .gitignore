@@ -141,3 +141,18 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Промежуточный HTML рендера методичек (в git только PDF)
+content-30-days/days/day-*/alovlab-day-*.html
+
+# Промежуточный HTML каруселей (в git только PNG)
+exports/carousels/**/*.html
+
+# Промежуточный HTML методичек (в git только PDF/MD)
+exports/guides/**/*.html
+
+exports/higgsfield-guide/**/*.html
+exports/higgsfield-guide/v2-redesign/pages/
+
+exports/higgsfield-guide/v3-redesign/pages/
+exports/guides/pain-bank/pages/
