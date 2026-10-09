@@ -1,0 +1,37 @@
+AlovLab · Reels Oct 6, 2026 (EN) · Pre-delivery check
+
+STATUS: READY FOR HEYGEN ASSEMBLY.
+Script, real external attachments (none required, all inserts are native NATIVE_TEXT), the selected
+avatar/voice (uses the current project, not re-selected) and editing rules are consistent across
+01_HEYGEN_AGENT_PROMPT.txt and 02_SCENES.txt.
+
+STATUS: PUBLICATION PACKAGE, COMPLETE EXCEPT FOR THE NOTED GAP.
+Ready: platform captions (04_SOCIAL_CAPTIONS.txt), delivery mechanic (CTA "reply FORMAT in the
+comments," a person replies, no link in bio all of October), cover (cover/cover-en.png, purely
+typographic, built without Higgsfield, see ../cover/STATUS.md for how).
+Open gap, stated honestly, not hidden: no English translation of the G02 guide exists yet. This
+version's CTA does not promise a downloadable file; the viewer gets the format template directly on
+screen (scenes 3 and 4) instead of a guide link.
+Final MP4 is not rendered (rendering happens in HeyGen on the user's side), no publication has
+happened yet.
+
+INTERNAL CHECK (passed):
+- Meaning: one task (show the added-format-line technique), one running example (a business answer
+  turning into a table) for the whole video, no topic drift.
+- Value: the viewer leaves with a concrete habit, the closing line names the next step.
+- Feasibility: no scene requires an exact interface, long Cyrillic or Latin text in perspective, or
+  complex hand actions, only the avatar and simple typography (NATIVE_TEXT); the text-to-table
+  transformation is described as a visible animated action, not a static screenshot.
+- Materials: no external files required, no placeholder attachments created.
+- Motion: scenes 2-4 show a real state change (text appearing, smooth transformation into a table,
+  chips appearing one at a time), not a static frame.
+- Timing: 27-29 sec runtime is an estimate, not a measurement (no access to the project's voice to
+  measure it); 01_HEYGEN_AGENT_PROMPT.txt explicitly asks to measure the actual speech inside HeyGen.
+- Appearance: the avatar was not selected or described here, it uses the existing project, out of
+  this package's scope.
+- Voice: zero dashes in the clean speech text in 03_VOICE_AND_CAPTIONS.txt, per GLOBAL-REELS-VOICE-RULE
+  for HeyGen.
+- Text: no corporate jargon, no invented numbers or cases, the example answer text is marked
+  illustrative.
+- Guide: honestly flagged as missing for EN rather than invented or silently dropped.
+- CTA: one, consistent across the video and every caption.

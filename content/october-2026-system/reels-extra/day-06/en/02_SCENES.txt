@@ -1,0 +1,13 @@
+AlovLab · Reels Oct 6, 2026 (EN) · Scene table
+Timing — estimate (not measured: this session has no access to the HeyGen project's voice to measure it).
+
+ID | Time (estimate) | Method | Line verbatim | On-screen text | Visible action | File/source | Result appears | Reading pause | Transition
+1 | 0:00-0:03 | AVATAR | "Don't ask for nicer. Ask for a format." | — | Avatar looks into camera, short beat before the line | none (standard avatar) | — | — | hard cut to scene 2
+2 | 0:03-0:09 | AVATAR + NATIVE_TEXT | "Look. Here's a normal AI answer with no format. Readable. Not usable until you rewrite it yourself." | Plain paragraph of text (illustrative example) | Text appears fully by mid-scene, then stays static | built natively in HeyGen (NATIVE_TEXT), no external file needed | text fully visible by mid-scene | ~1.5 sec | smooth cut into scene 3's transformation
+3 | 0:09-0:15 | AVATAR + NATIVE_TEXT | "Now the same question. I add one line at the end. Format this as a table." | Same text reshapes into a 3-row table (Action / Frequency / Owner) | Smooth visible transformation of paragraph into table, synced to "format this as a table" | built natively in HeyGen (NATIVE_TEXT) | table fully formed by end of scene | ~1 sec | cut to avatar close-up in scene 4
+4 | 0:15-0:20 | AVATAR | "A format is not decoration. It's a specific instruction. Table, numbered list, a template with fields." | Chips "TABLE" → "LIST" → "TEMPLATE" | Chips appear one at a time synced to each word, do not cover the face | built natively in HeyGen (NATIVE_TEXT) | last chip "TEMPLATE" on the word "template" | — | cut to scene 5
+5 | 0:20-0:25 | AVATAR | "Ask for what you actually need on the output side. Don't ask for nicer. Nice is not a format." | — | Avatar close-up, calm confident tone | none | — | — | cut to scene 6
+6 | 0:25-0:29 | AVATAR | "Set a format on your next working prompt. The difference will show right away. The guide for building this into a habit is waiting in Telegram." | — | Avatar holds eye contact until the line fully ends | none | — | frame holds until the line is fully spoken | end of video
+
+The user does not need to read this table to fix the prompt — its content is already consistent with
+01_HEYGEN_AGENT_PROMPT.txt.
