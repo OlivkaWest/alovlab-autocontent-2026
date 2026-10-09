@@ -63,6 +63,13 @@ h2 i{font-style:normal;color:#E1671E}
 .promptbox{background:#1c1712;border-radius:16px;padding:20px 22px;margin-top:14px}
 .promptbox .lbl{font-size:10pt;font-weight:800;letter-spacing:.07em;color:#F2A65A;text-transform:uppercase;margin-bottom:10px}
 .promptbox code{display:block;font-family:'Manrope',sans-serif;font-size:11.3pt;font-weight:500;line-height:1.56;color:#EFE8DD;white-space:pre-wrap}
+.promptbox.sm{padding:15px 18px}
+.promptbox.sm code{font-size:10.5pt}
+.ans{display:flex;gap:10px;align-items:flex-start;background:#FFFFFF;border:1px solid #EBE2D3;border-radius:12px;padding:10px 14px;margin-top:9px}
+.ans .n{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:#F2A65A;color:#fff;font-weight:800;font-size:10.5pt;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.ans p{font-size:10.6pt;font-weight:500;color:#3a362f;line-height:1.4;font-style:italic}
+.oneans{background:#FFFFFF;border:1px solid #EBE2D3;border-radius:12px;padding:12px 16px;margin-top:10px}
+.oneans p{font-size:11pt;font-weight:500;color:#3a362f;line-height:1.42;font-style:italic}
 .note{font-size:10.8pt;font-weight:600;color:#6E6A63;margin-top:10px;line-height:1.4}
 .split{display:flex;gap:12px;margin-top:14px}
 .split .half{flex:1;background:#FFFFFF;border:1px solid #EBE2D3;border-radius:14px;padding:14px 16px}
@@ -107,24 +114,25 @@ def footer():
     return '<div class="footer">' + "".join(
         f'<div class="chip">{svg}<span>{label}</span></div>' for svg, label in chips) + '</div>'
 
+N = 8
 slides = []
 
 # 1 — обложка / хук
 slides.append(f"""<div class="slide has-footer">
- <div class="badge">1 / 6</div>{brand_top()}
+ <div class="badge">1 / {N}</div>{brand_top()}
  <div style="margin-top:72px">
-  <div class="kicker">День 5 · Как работает ответ</div>
+  <div class="kicker">Как работает ответ нейронки</div>
   <h1>ОДИН ВОПРОС<br><i>ДВА РАЗНЫХ ОТВЕТА</i></h1>
   <p class="lead">И это не баг — модель отвечает по-разному каждый раз.</p>
-  <p class="sub">Разбираем, что с этим делать на практике.</p>
+  <p class="sub">Разбираем на конкретном примере одного вопроса.</p>
  </div>
- <div class="retention">Разбираем на конкретном примере  →</div>
+ <div class="retention">Смотри, как это выглядит на практике  →</div>
  {footer()}{sig()}
 </div>""")
 
 # 2 — проблема / наблюдение
 slides.append(f"""<div class="slide">
- <div class="badge">2 / 6</div>{brand_top()}
+ <div class="badge">2 / {N}</div>{brand_top()}
  <div style="margin-top:72px">
   <div class="kicker">Знакомая ситуация</div>
   <h2>Задал тот же вопрос.<br>Получил <i>другой</i> ответ.</h2>
@@ -138,33 +146,75 @@ slides.append(f"""<div class="slide">
    <p>Оба ответа могут быть одинаково правильными. Это просто разные пути к одному результату, а не один верный и один сломанный.</p>
   </div>
  </div>
- <div class="retention">Что с этим делать на практике  →</div>
+ <div class="retention">Вот как это выглядит на одном и том же вопросе  →</div>
  {sig()}
 </div>""")
 
-# 3 — техника / принцип
+# 3 — пример: спросили неправильно
 slides.append(f"""<div class="slide">
- <div class="badge">3 / 6</div>{brand_top()}
+ <div class="badge">3 / {N}</div>{brand_top()}
  <div style="margin-top:72px">
-  <div class="kicker">Что с этим делать</div>
-  <h2>Не бери первый ответ<br>как <i>единственный</i>.</h2>
+  <div class="kicker">Пример · как спросили не так</div>
+  <h2>Один вопрос.<br>Один ответ <i>без выбора</i>.</h2>
+  <div class="promptbox sm">
+   <div class="lbl">Вопрос нейронке</div>
+   <code>Напиши короткий пост в Instagram про скидку 20% на кофе в выходные.</code>
+  </div>
+  <div class="oneans">
+   <p>«Друзья, в эти выходные дарим скидку 20% на все напитки! Ждём вас в гости!»</p>
+  </div>
+  <div class="warn">
+   <div class="lbl">В чём проблема</div>
+   <p>Ответ один — и его сразу приняли как готовый. Не с чем сравнить, не видно, мог ли выйти текст точнее.</p>
+  </div>
+  <p class="illustrative">Учебный пример, не переписка реального клиента AlovLab.</p>
+ </div>
+ <div class="retention">Тот же вопрос, но на один шаг длиннее  →</div>
+ {sig()}
+</div>""")
+
+# 4 — пример: спросили правильно
+slides.append(f"""<div class="slide">
+ <div class="badge">4 / {N}</div>{brand_top()}
+ <div style="margin-top:72px">
+  <div class="kicker">Пример · как спросить правильно</div>
+  <h2>Та же задача.<br>Три ответа <i>на выбор</i>.</h2>
+  <div class="promptbox sm">
+   <div class="lbl">Тот же вопрос + одна строка</div>
+   <code>Напиши короткий пост в Instagram про скидку 20% на кофе в выходные.
+Дай два-три разных варианта, не один. Пронумеруй их.</code>
+  </div>
+  <div class="ans"><div class="n">1</div><p>«В эти выходные кофе с нами на 20% дешевле. Заходи.»</p></div>
+  <div class="ans"><div class="n">2</div><p>«Суббота и воскресенье — скидка 20% на весь кофе. Без предзаказа.»</p></div>
+  <div class="ans"><div class="n">3</div><p>«Хочешь кофе чуть дешевле в выходные? У нас минус 20%.»</p></div>
+ </div>
+ <div class="retention">Выбрали — не угадали с первого раза  →</div>
+ {sig()}
+</div>""")
+
+# 5 — что это даёт
+slides.append(f"""<div class="slide">
+ <div class="badge">5 / {N}</div>{brand_top()}
+ <div style="margin-top:72px">
+  <div class="kicker">Что изменилось</div>
+  <h2>Из трёх видно,<br>какой <i>точнее</i>.</h2>
   <div class="steps" style="margin-top:16px">
-   <div class="step"><div class="n">1</div><div class="t">Для важного текста проси не один ответ, а <b>два-три варианта</b> за один запрос.</div></div>
-   <div class="step"><div class="n">2</div><div class="t">Сравнивай варианты между собой, не оценивай каждый по отдельности.</div></div>
-   <div class="step"><div class="n">3</div><div class="t">Выбирай тот, что точнее отвечает на задачу, а не тот, что пришёл первым.</div></div>
+   <div class="step"><div class="n">1</div><div class="t">Вариант 1 — короче всего, годится для сторис.</div></div>
+   <div class="step"><div class="n">2</div><div class="t">Вариант 2 — с деталью «без предзаказа», снимает лишний вопрос у клиента.</div></div>
+   <div class="step"><div class="n">3</div><div class="t">Вариант 3 — вопросом, подходит, если в блоге обычно живой тон.</div></div>
   </div>
   <div class="warn">
    <div class="lbl">Почему это важно</div>
-   <p>Один вариант — это одна попытка, не факт. Особенно если текст пойдёт клиенту.</p>
+   <p>Один вариант — это одна попытка, не факт. Особенно если текст пойдёт клиенту или в публикацию.</p>
   </div>
  </div>
- <div class="retention">Готовый шаблон для этого  →</div>
+ <div class="retention">Готовый шаблон для своих вопросов  →</div>
  {sig()}
 </div>""")
 
-# 4 — готовый промпт (тот же, что в G02 глава 2)
+# 6 — готовый промпт (тот же, что в G02 глава 2)
 slides.append(f"""<div class="slide">
- <div class="badge">4 / 6</div>{brand_top()}
+ <div class="badge">6 / {N}</div>{brand_top()}
  <div style="margin-top:72px">
   <div class="kicker">Промпт · копируй</div>
   <h2>Шаблон на <i>несколько</i> вариантов</h2>
@@ -173,15 +223,15 @@ slides.append(f"""<div class="slide">
    <code>[твой обычный рабочий запрос]
 Дай два-три разных варианта ответа, не один. Пронумеруй их.</code>
   </div>
-  <p class="note">Для важного текста — выбор из нескольких вариантов, а не единственная попытка. Тот же шаблон — в методичке G02, глава 2.</p>
+  <p class="note">Добавляешь одну строку к любому своему вопросу. Тот же шаблон — в методичке G02, глава 2.</p>
  </div>
- <div class="retention">Разница видна сразу на сравнении  →</div>
+ <div class="retention">Частая ошибка, которую это чинит  →</div>
  {sig()}
 </div>""")
 
-# 5 — до/после + ошибка
+# 7 — до/после + ошибка
 slides.append(f"""<div class="slide">
- <div class="badge">5 / 6</div>{brand_top()}
+ <div class="badge">7 / {N}</div>{brand_top()}
  <div style="margin-top:72px">
   <div class="kicker">До / после</div>
   <h2>Одна попытка <i>или выбор</i></h2>
@@ -202,9 +252,9 @@ slides.append(f"""<div class="slide">
  {sig()}
 </div>""")
 
-# 6 — итог + CTA
+# 8 — итог + CTA
 slides.append(f"""<div class="slide has-footer">
- <div class="badge">6 / 6</div>{brand_top()}
+ <div class="badge">8 / {N}</div>{brand_top()}
  <div style="margin-top:72px">
   <h1 style="font-size:30pt">Два ответа —<br><i>не ошибка, а выбор</i>.</h1>
   <p class="lead" style="margin-top:14px">Попробуй на следующем запросе: попроси не один ответ, а три. Особенно если текст уйдёт клиенту.</p>

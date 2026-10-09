@@ -112,7 +112,7 @@ slides = []
 slides.append(f"""<div class="slide has-footer">
  <div class="badge">1 / 6</div>{brand_top()}
  <div style="margin-top:72px">
-  <div class="kicker">День 9 · Работа с фото</div>
+  <div class="kicker">Работа с фото</div>
   <h1>ПЛОХОЕ ФОТО<br><i>ЕЩЁ НЕ ПРИГОВОР</i></h1>
   <p class="lead">Один промпт по шагам — и снимок с телефона годится для поста.</p>
   <p class="sub">Без фотографа, без нового кадра, без Photoshop.</p>
