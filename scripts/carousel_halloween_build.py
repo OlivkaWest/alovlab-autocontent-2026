@@ -84,7 +84,7 @@ def sig():
     return (f'<div class="sig"><img src="data:image/png;base64,{LOGO}">'
             f'<b>Alov<i>Lab</i></b></div>')
 
-N = 8
+N = 10
 slides = []
 
 # 1 — обложка / хук
@@ -93,49 +93,82 @@ slides.append(f"""<div class="slide">
  <div style="margin-top:72px">
   <div class="kicker">ИИ-аватары · Хэллоуин</div>
   <h1>ИИ МЕНЯЕТ ЛИЦО<br>В КАЖДОЙ СЦЕНЕ.<br><i>ЭТОТ — НЕТ.</i></h1>
-  <p class="lead">Один персонаж. Десять сцен на Хэллоуин. Одно и то же лицо в каждой.</p>
+  <p class="lead">Один персонаж. Семь сцен на Хэллоуин. Полная методичка, как это собрать осенью 2026.</p>
  </div>
- <div class="retention">Как сохранить референс персонажа  →</div>
+ <div class="retention">Приоритет №1 — качество исходника  →</div>
  {sig()}
 </div>""")
 
-# 2 — референс персонажа (детально, по прямому запросу)
+# 2 — приоритет №1: качество исходника
 slides.append(f"""<div class="slide">
  <div class="badge">2 / {N}</div>
  <div style="margin-top:72px">
-  <div class="kicker">Шаг 1 · Референс</div>
-  <h2>Сначала — лицо.<br><i>Потом</i> — костюм.</h2>
+  <div class="kicker">Приоритет №1 · Осень 2026</div>
+  <h2>Сначала — качество кадра,<br>не <i>количество фильтров</i></h2>
   <div class="steps" style="margin-top:10px;gap:10px">
-   <div class="step"><div class="n">1</div><div class="t" style="font-size:11.4pt">Снимай <b>анфас, 3/4 и профиль</b> — не только фронтальный кадр.</div></div>
-   <div class="step"><div class="n">2</div><div class="t" style="font-size:11.4pt"><b>Разное освещение и фон</b> на разных фото — платформа учит лицо, а не контекст одного кадра.</div></div>
-   <div class="step"><div class="n">3</div><div class="t" style="font-size:11.4pt"><b>Нейтральное выражение</b> хотя бы в половине референсов — эмоции добавит сцена, не базовое лицо.</div></div>
-   <div class="step"><div class="n">4</div><div class="t" style="font-size:11.4pt">Один и тот же человек на всех референсах — <b>не смешивай</b> с другими лицами в одной подборке.</div></div>
-   <div class="step"><div class="n">5</div><div class="t" style="font-size:11.4pt">Минимум <b>5 фото</b> для обучения переиспользуемого аватара — по факту этой же недели, 11 фото хватило с запасом.</div></div>
+   <div class="step"><div class="n">1</div><div class="t" style="font-size:11.4pt">Резкий портрет, без фильтров и ретуши, которая меняет форму лица.</div></div>
+   <div class="step"><div class="n">2</div><div class="t" style="font-size:11.4pt">Ровный естественный свет — без теней, перекрывающих часть лица, без очков.</div></div>
+   <div class="step"><div class="n">3</div><div class="t" style="font-size:11.4pt">Простой нейтральный фон — не отвлекает модель от самого лица.</div></div>
+   <div class="step"><div class="n">4</div><div class="t" style="font-size:11.4pt">Разрешение от ~1024 px по короткой стороне — на мелком кадре модель теряет детали.</div></div>
   </div>
+  <p class="note">По отраслевым гайдам по референсам (сверено на нескольких независимых источниках) — не выдумано.</p>
  </div>
- <div class="retention">Разовое фото или свой аватар?  →</div>
+ <div class="retention">Сколько фото и в каких ракурсах  →</div>
  {sig()}
 </div>""")
 
-# 3 — два пути
+# 3 — сколько фото / два пути
 slides.append(f"""<div class="slide">
  <div class="badge">3 / {N}</div>
  <div style="margin-top:72px">
-  <div class="kicker">Два способа</div>
-  <h2>Разовое фото —<br>или <i>свой аватар?</i></h2>
+  <div class="kicker">Сколько фото нужно</div>
+  <h2>Два пути — и у каждого<br><i>своё</i> число кадров</h2>
   <div class="cards">
-   <div class="card"><div class="lbl">Разовая генерация</div><p>Одно референс-фото, быстрый результат. Хорошо для одной картинки — лицо может немного плыть от сцены к сцене.</p></div>
-   <div class="card sand"><div class="lbl">Обученный аватар</div><p>5-20 фото, обучение около 10 минут. Лицо стабильно узнаваемо в любой новой сцене — то, что нужно для серии.</p></div>
+   <div class="card"><div class="lbl">Быстрая серия</div><p>2-6 фото: анфас + в полный рост, без обучения. Хватает для короткой подборки.</p></div>
+   <div class="card sand"><div class="lbl">Точный персонаж</div><p>5-20 фото, разные ракурсы (анфас, 3/4, профиль), разный свет и фон — обучаешь один раз.</p></div>
   </div>
-  <p class="note">Для одной картинки достаточно первого пути. Для серии на Хэллоуин (несколько сцен подряд) — второй держит лицо стабильнее.</p>
+  <p class="note">Разрыв между путями в 2026 году сократился, но для точного повторяющегося лица в серии из разных сцен обучение всё ещё держит стабильнее.</p>
  </div>
- <div class="retention">Один персонаж, разные роли  →</div>
+ <div class="retention">Что явно писать в промпте  →</div>
  {sig()}
 </div>""")
 
-# 4 — сцены / разнообразие
+# 4 — что явно писать в промпте
 slides.append(f"""<div class="slide">
  <div class="badge">4 / {N}</div>
+ <div style="margin-top:72px">
+  <div class="kicker">Что явно писать в промпте</div>
+  <h2>Модель понимает<br><i>конкретику</i>, не эмоции</h2>
+  <div class="steps" style="margin-top:10px;gap:10px">
+   <div class="step"><div class="n">1</div><div class="t" style="font-size:11.4pt">Перечисляй, что <b>нельзя менять</b>: форма лица, нос, брови, губы, цвет глаз, длина и цвет волос.</div></div>
+   <div class="step"><div class="n">2</div><div class="t" style="font-size:11.4pt">Описывай сцену, свет и позу точно — без общих слов вроде «красиво» или «атмосферно».</div></div>
+   <div class="step"><div class="n">3</div><div class="t" style="font-size:11.4pt">Пиши связным текстом, не набором тегов через запятую — так модель держит контекст лучше.</div></div>
+   <div class="step"><div class="n">4</div><div class="t" style="font-size:11.4pt">Разделяй явно: что статично (лицо), а что меняется (костюм, сцена, свет).</div></div>
+  </div>
+ </div>
+ <div class="retention">Сохрани персонажа по имени  →</div>
+ {sig()}
+</div>""")
+
+# 5 — персонаж как состояние
+slides.append(f"""<div class="slide">
+ <div class="badge">5 / {N}</div>
+ <div style="margin-top:72px">
+  <div class="kicker">Рабочий приём</div>
+  <h2>Сохрани персонажа<br>по <i>имени</i>, не переписывай</h2>
+  <div class="card sand">
+   <div class="lbl">Зачем</div>
+   <p>Если платформа позволяет сохранить референс или аватар под именем — зови его по имени в каждом новом промпте, не описывай заново своими словами.</p>
+  </div>
+  <p class="note">Так непохожесть между кадрами не растёт от случайной перефразировки — один раз описал, дальше переиспользуешь, а не пересобираешь текст с нуля для каждой сцены.</p>
+ </div>
+ <div class="retention">Один персонаж, семь сцен  →</div>
+ {sig()}
+</div>""")
+
+# 6 — сцены / разнообразие
+slides.append(f"""<div class="slide">
+ <div class="badge">6 / {N}</div>
  <div style="margin-top:72px">
   <div class="kicker">Один персонаж, разные сцены</div>
   <h2>Семь хэллоуинских<br>ролей — <i>без смены лица</i></h2>
@@ -149,9 +182,9 @@ slides.append(f"""<div class="slide">
  {sig()}
 </div>""")
 
-# 5 — частая ошибка → фикс
+# 7 — частая ошибка → фикс
 slides.append(f"""<div class="slide">
- <div class="badge">5 / {N}</div>
+ <div class="badge">7 / {N}</div>
  <div style="margin-top:72px">
   <div class="kicker">Частая ошибка → фикс</div>
   <h2>Лицо <i>плывёт</i><br>от сцены к сцене</h2>
@@ -168,28 +201,29 @@ slides.append(f"""<div class="slide">
  {sig()}
 </div>""")
 
-# 6 — промпт
+# 8 — промпт
 slides.append(f"""<div class="slide">
- <div class="badge">6 / {N}</div>
+ <div class="badge">8 / {N}</div>
  <div style="margin-top:72px">
   <div class="kicker">Копируй и используй</div>
   <h2>Промпт для сцены<br>с <i>тем же лицом</i></h2>
   <div class="promptbox">
    <div class="lbl">Image-gen / identity-ref</div>
    <code>Portrait of this person/character, now dressed as [костюм: vampire /
-witch / mad scientist], in [сцена: foggy graveyard at night], same
-facial features and proportions as reference, identity preserved,
+witch / mad scientist], in [сцена: foggy graveyard at night].
+Do not change: face shape, nose, eyebrows, lips, eye color, hair
+length and color. Same identity and proportions as reference,
 Halloween atmospheric lighting, photorealistic</code>
   </div>
-  <p class="sub">Меняешь только то, что в скобках — костюм и сцену. Остальной текст держит лицо неизменным.</p>
+  <p class="sub">Меняешь только то, что в скобках — костюм и сцену. Строка «do not change» держит лицо неизменным.</p>
  </div>
  <div class="retention">Проверка перед публикацией  →</div>
  {sig()}
 </div>""")
 
-# 7 — чек-лист перед публикацией
+# 9 — чек-лист перед публикацией
 slides.append(f"""<div class="slide">
- <div class="badge">7 / {N}</div>
+ <div class="badge">9 / {N}</div>
  <div style="margin-top:72px">
   <div class="kicker">Проверка перед публикацией</div>
   <h2>5 вещей, которые <i>сверяешь</i></h2>
@@ -205,9 +239,9 @@ slides.append(f"""<div class="slide">
  {sig()}
 </div>""")
 
-# 8 — итог + CTA
+# 10 — итог + CTA
 slides.append(f"""<div class="slide">
- <div class="badge">8 / {N}</div>
+ <div class="badge">10 / {N}</div>
  <div style="margin-top:72px">
   <h1 style="font-size:29pt">ОДИН ПЕРСОНАЖ<br><i>ЛЮБАЯ СЦЕНА</i></h1>
   <p class="lead" style="margin-top:10px">Референс один раз, сцен — сколько хватит фантазии на Хэллоуин.</p>
