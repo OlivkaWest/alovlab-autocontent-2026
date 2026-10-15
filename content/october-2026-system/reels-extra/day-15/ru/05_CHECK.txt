@@ -6,7 +6,7 @@ AlovLab · Reels 15.10.2026 (RU) · Проверка перед выдачей
 01_HEYGEN_AGENT_PROMPT.txt и 02_SCENES.txt.
 
 СТАТУС: ПАКЕТ ПУБЛИКАЦИИ — ПОЛНЫЙ.
-Готово: методичка (guide/G06-avatar-i-golos-workbook.pdf, 17 страниц, визуально проверена), подписи
+Готово: методичка (guide/G06-avatar-i-golos-workbook.pdf, 18 страниц, визуально проверена), подписи
 для всех площадок (04_SOCIAL_CAPTIONS.txt), способ выдачи (CTA "напиши ГОЛОС в комментариях" —
 отвечает человек, ссылок в шапке IG нет весь октябрь), обложка (cover/cover-ru.png — чисто
 типографическая, без Higgsfield, см. ../cover/STATUS.md).
