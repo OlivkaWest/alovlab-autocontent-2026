@@ -131,7 +131,7 @@ LOC_PROMPT = ("Ты редактор-локализатор сценариев �
 slides = []
 
 # 1 — обложка / хук
-slides.append(f"""<div class="slide has-footer">
+slides.append(f"""<div class="slide">
  <div class="badge">1 / 6</div>
  <div style="margin-top:72px">
   <div class="kicker">ИИ-аватары</div>
@@ -141,7 +141,7 @@ slides.append(f"""<div class="slide has-footer">
   <p class="illustrative">Иллюстративный пример перевода одной фразы, не результат реального проекта.</p>
  </div>
  <div class="retention">Разбираем пайплайн по шагам  →</div>
- {footer()}{sig()}
+ {sig()}
 </div>""")
 
 # 2 — проблема / было-стало
@@ -219,7 +219,7 @@ slides.append(f"""<div class="slide">
 </div>""")
 
 # 6 — итог + один CTA
-slides.append(f"""<div class="slide has-footer">
+slides.append(f"""<div class="slide">
  <div class="badge">6 / 6</div>
  <div style="margin-top:72px">
   <h1 style="font-size:29pt">ОДИН СЦЕНАРИЙ<br><i>ЛЮБОЙ ЯЗЫК</i></h1>
@@ -231,7 +231,7 @@ slides.append(f"""<div class="slide has-footer">
    <p>«Локализация сценария» — в Telegram, t.me/AlovLab, в закрепе.</p>
   </div>
  </div>
- {footer()}{sig()}
+ {sig()}
 </div>""")
 
 html = ("<!doctype html><html lang=ru><head><meta charset=utf-8>"
