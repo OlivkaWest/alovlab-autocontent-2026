@@ -84,6 +84,16 @@ h2 i{font-style:normal;color:#E1671E}
  border:1px solid #EBE2D3;border-radius:14px;padding:14px 16px}
 .chain b{font-size:11pt;font-weight:800;color:#20242B;background:#FBEFE0;border-radius:9px;padding:6px 11px}
 .chain .a{color:#E1671E;font-weight:800;font-size:13pt}
+.langrow{display:flex;gap:9px;margin-top:14px}
+.langrow .lc{flex:1;background:#FFFFFF;border:1px solid #EBE2D3;border-radius:12px;padding:11px 12px;
+ box-shadow:0 2px 10px rgba(32,20,10,.04)}
+.langrow .lc .code{font-size:9.5pt;font-weight:800;color:#E1671E;letter-spacing:.06em}
+.langrow .lc .txt{font-size:11.5pt;font-weight:700;color:#20242B;margin-top:3px;line-height:1.3}
+.promptbox{background:#1E1812;border-radius:16px;padding:17px 19px;margin-top:14px}
+.promptbox .lbl{display:inline-block;background:#E1671E;color:#1E1812;font-size:9.5pt;font-weight:800;
+ letter-spacing:.04em;text-transform:uppercase;border-radius:8px;padding:4px 10px;margin-bottom:10px}
+.promptbox code{display:block;font-family:'Courier New',monospace;font-size:9.6pt;font-weight:600;
+ color:#F3E9DA;line-height:1.52;white-space:pre-wrap}
 """
 
 def brand_top():
@@ -105,116 +115,120 @@ def footer():
     return '<div class="footer">' + "".join(
         f'<div class="chip">{svg}<span>{label}</span></div>' for svg, label in chips) + '</div>'
 
+def langrow(ru, en, es):
+    return (f'<div class="langrow">'
+            f'<div class="lc"><div class="code">RU</div><div class="txt">{ru}</div></div>'
+            f'<div class="lc"><div class="code">EN</div><div class="txt">{en}</div></div>'
+            f'<div class="lc"><div class="code">ES</div><div class="txt">{es}</div></div></div>')
+
+LOC_PROMPT = ("Ты редактор-локализатор сценариев для видео с аватаром.\n"
+"Сценарий на русском: [вставь текст].\n"
+"Адаптируй под [целевой язык] — сохрани смысл и тон, не переводи дословно.\n"
+"Не трогай: [название бренда, имена, цифры].\n"
+"Не длиннее оригинала больше чем на 15% — иначе собьётся синхронизация губ.\n"
+"Выдай: адаптированный текст + список мест, где пришлось перефразировать, и почему.")
+
 slides = []
 
 # 1 — обложка / хук
 slides.append(f"""<div class="slide has-footer">
- <div class="badge">1 / 6</div>{brand_top()}
+ <div class="badge">1 / 6</div>
  <div style="margin-top:72px">
   <div class="kicker">ИИ-аватары</div>
   <h1>ЭТОТ ДИКТОР<br><i>НЕ ЧЕЛОВЕК</i></h1>
   <p class="lead">И говорит на языке, которого не знает.</p>
-  <p class="sub">Один сценарий. Любой рынок на выходе.</p>
+  {langrow("Попробуй бесплатно", "Try it for free", "Pruébalo gratis")}
+  <p class="illustrative">Иллюстративный пример перевода одной фразы, не результат реального проекта.</p>
  </div>
  <div class="retention">Разбираем пайплайн по шагам  →</div>
  {footer()}{sig()}
 </div>""")
 
-# 2 — проблема
+# 2 — проблема / было-стало
 slides.append(f"""<div class="slide">
- <div class="badge">2 / 6</div>{brand_top()}
+ <div class="badge">2 / 6</div>
  <div style="margin-top:72px">
-  <div class="kicker">Знакомая ситуация</div>
-  <h2>Ролик готов.<br>Но только на <i>одном языке</i>.</h2>
-  <p class="sub">И эта граница держит бизнес внутри одного рынка.</p>
+  <div class="kicker">Было vs стало</div>
+  <h2>Три рынка —<br><i>три студии?</i></h2>
+  <p class="sub">Вот что меняется, если локализуешь одну запись вместо новой на каждый рынок.</p>
   <div class="card">
-   <div class="lbl">Что происходит обычно</div>
-   <p>Хочешь выйти на другой рынок — нужен новый диктор, новая запись, новая студия. Для каждого языка заново, с нуля.</p>
+   <div class="lbl">Было</div>
+   <p>3 новых рынка → 3 студии, 3 диктора, 3 отдельных монтажа. Каждый — с нуля, заново от сценария до финального рендера.</p>
   </div>
   <div class="card sand">
-   <div class="lbl">Почему это не разовая проблема</div>
-   <p>Контент растёт быстрее, чем бюджет на озвучку. Каждый новый язык — это снова актёр, студия и монтаж с нуля.</p>
+   <div class="lbl">Стало</div>
+   <p>3 новых рынка → 1 запись + пайплайн локализации. Один проект, три языка на выходе, без повторной студии.</p>
   </div>
  </div>
- <div class="retention">Есть пайплайн, который это снимает  →</div>
+ <div class="retention">Как устроен этот пайплайн  →</div>
  {sig()}
 </div>""")
 
-# 3 — пайплайн / алгоритм
+# 3 — пайплайн / 4 шага
 slides.append(f"""<div class="slide">
- <div class="badge">3 / 6</div>{brand_top()}
+ <div class="badge">3 / 6</div>
  <div style="margin-top:72px">
-  <div class="kicker">Пайплайн · 3 шага</div>
+  <div class="kicker">Пайплайн · 4 шага</div>
   <h2>Один сценарий.<br><i>Любой язык</i> на выходе.</h2>
-  <div class="steps" style="margin-top:14px">
-   <div class="step"><div class="n">1</div><div class="t">Записываешь сценарий <b>один раз</b> — аватар говорит его голосом, который ты выбрал.</div></div>
-   <div class="step"><div class="n">2</div><div class="t">Пайплайн переводит текст и подстраивает <b>движение губ</b> под новый язык.</div></div>
-   <div class="step"><div class="n">3</div><div class="t">На выходе готовое видео на другом языке — <b>без студии</b> и без нового актёра озвучки.</div></div>
+  <div class="steps" style="margin-top:12px">
+   <div class="step"><div class="n">1</div><div class="t"><b>Исходник.</b> Записываешь сценарий один раз, на своём языке, обычным голосом.</div></div>
+   <div class="step"><div class="n">2</div><div class="t"><b>Адаптация текста.</b> Перевод под рынок не дословный — сохраняет смысл, тон и термины бренда.</div></div>
+   <div class="step"><div class="n">3</div><div class="t"><b>Дубляж и синхронизация.</b> Голос озвучивает новый текст, губы подстраиваются под него.</div></div>
+   <div class="step"><div class="n">4</div><div class="t"><b>Проверка.</b> Смотришь короткий тестовый фрагмент на целевом языке перед полным рендером.</div></div>
   </div>
   <div class="chain">
-   <b>сценарий</b><span class="a">→</span><b>аватар</b><span class="a">→</span><b>перевод + губы</b><span class="a">→</span><b>новый язык</b>
+   <b>исходник</b><span class="a">→</span><b>адаптация</b><span class="a">→</span><b>дубляж+синхро</b><span class="a">→</span><b>проверка</b>
   </div>
  </div>
- <div class="retention">Но здесь есть то, что нужно проверять  →</div>
+ <div class="retention">Но это не значит «нажал кнопку и готово»  →</div>
  {sig()}
 </div>""")
 
-# 4 — честный нюанс / ошибка+фикс
+# 4 — 5 конкретных проверок
 slides.append(f"""<div class="slide">
- <div class="badge">4 / 6</div>{brand_top()}
+ <div class="badge">4 / 6</div>
  <div style="margin-top:72px">
-  <div class="kicker">Частая ошибка → фикс</div>
-  <h2>Не всё <i>одинаково</i> гладко</h2>
-  <div class="warn">
-   <div class="lbl">Ошибка</div>
-   <p>Считать, что результат одинаково хорош на любом языке — нажал кнопку и готово.</p>
-  </div>
-  <div class="card">
-   <div class="lbl">Как на самом деле</div>
-   <p>Синхронизация губ и звучание сильнее на распространённых языках, слабее на редких. Разница между платформами и парами языков тоже есть.</p>
-  </div>
-  <div class="card sand">
-   <div class="lbl">Фикс</div>
-   <p>Перед тем как показывать аудитории, проверяй результат на коротком фрагменте — на том языке и той платформе, с которой реально работаешь.</p>
+  <div class="kicker">Проверка перед публикацией</div>
+  <h2>5 вещей, которые <i>проверяешь</i> перед показом</h2>
+  <div class="steps" style="margin-top:10px;gap:9px">
+   <div class="step"><div class="n">1</div><div class="t" style="font-size:11.3pt">Синхронизация губ выглядит естественно на крупном плане лица.</div></div>
+   <div class="step"><div class="n">2</div><div class="t" style="font-size:11.3pt">Перевод не исказил смысл и не тронул название бренда.</div></div>
+   <div class="step"><div class="n">3</div><div class="t" style="font-size:11.3pt">Паузы и интонация соответствуют смыслу — не слишком быстро и не слишком медленно.</div></div>
+   <div class="step"><div class="n">4</div><div class="t" style="font-size:11.3pt">Тестовый фрагмент (10-15 сек) проверен человеком, который знает целевой язык.</div></div>
+   <div class="step"><div class="n">5</div><div class="t" style="font-size:11.3pt">Полный ролик пересмотрен в нескольких случайных местах, не только с начала.</div></div>
   </div>
  </div>
- <div class="retention">Где этот пайплайн уже работает  →</div>
+ <div class="retention">Готовый промпт для шага «адаптация»  →</div>
  {sig()}
 </div>""")
 
-# 5 — бизнес-мост (Studio, show-not-tell)
+# 5 — промпт AlovLab (копипаст, заменяет бизнес-слайд)
 slides.append(f"""<div class="slide">
- <div class="badge">5 / 6</div>{brand_top()}
+ <div class="badge">5 / 6</div>
  <div style="margin-top:72px">
-  <div class="kicker">Где это уже работает</div>
-  <h2>AlovLab Studio:<br><i>аватары и дикторы</i></h2>
-  <div class="card sand">
-   <div class="lbl">Цифровые двойники, 90+ языков</div>
-   <p>Реклама, обучающий контент, корпоративные ролики — одна запись становится материалом сразу для нескольких рынков.</p>
+  <div class="kicker">Копируй и используй</div>
+  <h2>Промпт AlovLab<br><i>Локализация сценария</i></h2>
+  <div class="promptbox">
+   <div class="lbl">ChatGPT / Claude</div>
+   <code>{LOC_PROMPT}</code>
   </div>
-  <div class="card">
-   <div class="lbl">Плюс рядом</div>
-   <p>Озвучка и дубляж, voice cloning, подкасты, агенты и автоматизация контента — четыре направления одной студии.</p>
-  </div>
-  <p class="note">Цену Studio здесь не называем — на сайте её нет, считается индивидуально под задачу.</p>
+  <p class="sub">Используешь до того, как текст уйдёт в HeyGen или ElevenLabs — на шаге «адаптация текста» из пайплайна.</p>
  </div>
- <div class="retention">Применимо и без бюджета студии  →</div>
+ <div class="retention">Что получаешь на выходе  →</div>
  {sig()}
 </div>""")
 
-# 6 — итог + CTA
+# 6 — итог + один CTA
 slides.append(f"""<div class="slide has-footer">
- <div class="badge">6 / 6</div>{brand_top()}
+ <div class="badge">6 / 6</div>
  <div style="margin-top:72px">
-  <h1 style="font-size:29pt">ОДИН ЯЗЫК<br><i>НЕ ПОТОЛОК</i></h1>
-  <p class="lead" style="margin-top:12px">Сценарий, записанный один раз, может звучать на рынке, где ты физически не был.</p>
-  <div class="card sand" style="margin-top:16px">
-   <div class="lbl">Себе и команде</div>
-   <p>Напиши «ГОЛОС» в комментариях — расскажу, с чего начать именно под твою задачу.</p>
-  </div>
-  <div class="card" style="margin-top:10px">
-   <div class="lbl">Бизнесу</div>
-   <p>Нужен такой аватар под бренд — бриф в Telegram, @alovlab. Ответ за 24 часа.</p>
+  <h1 style="font-size:29pt">ОДИН СЦЕНАРИЙ<br><i>ЛЮБОЙ ЯЗЫК</i></h1>
+  <p class="lead" style="margin-top:10px">Сценарий, записанный один раз, может звучать на рынке, где ты физически не был.</p>
+  {langrow("Попробуй бесплатно", "Try it for free", "Pruébalo gratis")}
+  <p class="illustrative">Иллюстративный пример, не результат реального проекта.</p>
+  <div class="card sand" style="margin-top:12px">
+   <div class="lbl">Забери промпт</div>
+   <p>«Локализация сценария» — в Telegram, t.me/AlovLab, в закрепе.</p>
   </div>
  </div>
  {footer()}{sig()}
