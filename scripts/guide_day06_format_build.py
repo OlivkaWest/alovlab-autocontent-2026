@@ -40,6 +40,11 @@ a.tocref:hover{text-decoration:underline}
 .scriptbox .sn span{font-weight:800;font-size:10.5pt;color:var(--ink)}
 .scriptbox code{display:block;font-family:ui-monospace,Menlo,monospace;font-size:9.6pt;line-height:1.5;color:#8a5a2a;background:#f1e9db;border-radius:8px;padding:9px 11px;margin-top:4px}
 .scriptbox p{font-size:9.3pt;color:var(--muted);margin:5px 0 0;max-width:none}
+.warn{background:var(--o-tint);border:1px solid #f2d3bf;border-radius:12px;padding:14px 16px;margin:10px 0}
+.warn .h{font-weight:800;font-size:9pt;letter-spacing:.06em;text-transform:uppercase;color:var(--o);margin-bottom:6px}
+.warn p{font-size:10.5pt;color:var(--ink);line-height:1.5;margin:0;max-width:none}
+.warn ul{margin:4px 0 0}
+.warn li{font-size:10.3pt;color:var(--ink);line-height:1.48;max-width:none}
 """
 CSS = V2CSS + EXTRA
 TOPIC = "Формат ответа: промпты и скрипты"
