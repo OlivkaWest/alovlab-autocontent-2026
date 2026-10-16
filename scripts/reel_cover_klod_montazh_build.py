@@ -52,7 +52,7 @@ html = f"""<!doctype html><html lang=ru><head><meta charset=utf-8><style>{CSS}</
   <div class="brand"><img src="data:image/png;base64,{LOGO}"><b>Alov<i>Lab</i></b></div>
   <div class="mid">
     <div class="kick">Монтаж</div>
-    <div class="ttl">МОНТАЖКУ Я<br><i>ДАВНО НЕ ОТКРЫВАЛ.</i></div>
+    <div class="ttl">Я ЗАБИЛ<br><i>НА МОНТАЖ.</i></div>
   </div>
   <div class="sub">Монтирует агент. Я только ставлю задачу и проверяю результат</div>
   <div class="badge">Reels · Конвейер, а не генерации</div>
