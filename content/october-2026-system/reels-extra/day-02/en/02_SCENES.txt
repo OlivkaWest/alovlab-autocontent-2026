@@ -1,0 +1,13 @@
+AlovLab · Reels 10/02/2026 (EN) · Scene table
+Timing — estimate (not measured: this session has no access to the project's HeyGen voice to measure it).
+
+ID | Time (est.) | Method | Line, verbatim | On-screen text | Visible action | File/source | Result appears | Reading pause | Transition
+1 | 0:00–0:04 | AVATAR | "A prompt with no role is a letter with no address. It'll land somewhere. It won't land with anyone." | — | Avatar looks at camera, short beat before the line | none (standard avatar) | — | — | hard cut to scene 2
+2 | 0:04–0:10 | AVATAR + NATIVE_TEXT | "Here's the thing. You ask an AI to write a client proposal. You get text that fits any business. Which means it really fits none." | Same generic reply text | Storefront background swaps 3x (coffee shop → nail studio → auto shop), reply text stays identical | built natively in HeyGen (NATIVE_TEXT), no external file | text visible from scene start | — | storefront swap timed to speech, then cut to scene 3
+3 | 0:10–0:19 | AVATAR + NATIVE_TEXT | "Add four things. Role, who you are in this task. Context, what the client already knows. Constraints, what's off the table. Format, what the answer should look like." | Chips "ROLE" → "CONTEXT" → "CONSTRAINTS" → "FORMAT" | Chips appear one at a time in sync with each word | built natively in HeyGen (NATIVE_TEXT) | last chip "FORMAT" on the word "format" | 1 sec after last chip | cut to split card in scene 4
+4 | 0:19–0:25 | NATIVE_TEXT (avatar small or voice-over) | "Same question, same four details, and now it reads like a letter to one specific person, not a template for everyone." | Split card: dull generic draft (left) vs. specific coffee-shop draft (right), small "learning example" label | Card reveals fully, then holds static for reading | built natively in HeyGen (NATIVE_TEXT) | card fully revealed by mid-scene | ≈2 sec after full reveal | smooth cut to avatar in scene 5
+5 | 0:25–0:29 | AVATAR | "The client reads it and knows right away it was written for them." | — | Avatar close-up, calm tone | none | — | — | cut to scene 6
+6 | 0:29–0:33 | AVATAR | "Save this post and comment PROMPT, you'll get the four-line template." | — | Avatar holds camera contact to the end of the line | none | — | shot holds until the line fully ends | end of reel
+
+The user doesn't need to read this table to fix the prompt — its content is already reconciled with
+01_HEYGEN_AGENT_PROMPT.txt.

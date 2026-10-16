@@ -1,0 +1,36 @@
+AlovLab · Reels 10/02/2026 (EN) · Clean speech text + subtitles
+
+CLEAN SPEECH TEXT (no stage directions, ready for voice):
+
+A prompt with no role is a letter with no address. It'll land somewhere. It won't land with anyone.
+Here's the thing. You ask an AI to write a client proposal. You get text that fits any business.
+Which means it really fits none.
+Add four things. Role, who you are in this task. Context, what the client already knows.
+Constraints, what's off the table. Format, what the answer should look like.
+Same question, same four details, and now it reads like a letter to one specific person, not a
+template for everyone.
+The client reads it and knows right away it was written for them.
+Save this post and comment PROMPT, you'll get the four-line template.
+
+SUBTITLES (broken by meaning-phrase; no SRT timing given — HeyGen syncs to the actual speech, an
+approximate SRT is not passed off as an exact one):
+
+1. A prompt with no role is a letter with no address.
+2. It'll land somewhere. It won't land with anyone.
+3. You ask an AI to write a client proposal.
+4. You get text that fits any business.
+5. Which means it really fits none.
+6. Add four things.
+7. Role — who you are in this task.
+8. Context — what the client already knows.
+9. Constraints — what's off the table.
+10. Format — what the answer should look like.
+11. Same question, same four details.
+12. Now it reads like a letter to one specific person.
+13. Not a template for everyone.
+14. The client reads it and knows right away it was written for them.
+15. Save this post and comment PROMPT, you'll get the four-line template.
+
+Note: dashes after "Role/Context/Constraints/Format" in the subtitles are a visual label separator,
+not part of the spoken voiceover text — the no-dash rule applies to the VOICEOVER TEXT above, which
+has none.
