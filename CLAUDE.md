@@ -327,6 +327,16 @@ CTA — одной строкой: «забирай в комментариях 
 
 ---
 
+## Приложение Д. Подкасты для ElevenLabs — обязательный формат
+
+> **⚡⚡⚡ ALOVLAB PODCAST ACADEMY (с 16.10.2026, высший приоритет):**
+> `content/rules/ALOVLAB-PODCAST-ACADEMY.md`, скилл `.claude/skills/alovlab-podcast/SKILL.md`.
+> К каждому образовательному Reels/карусели/методичке готовить отдельный аудиоподкаст для
+> ElevenLabs: 11-12 минут (1400-1700 слов), текст для озвучки без markdown/тире/заголовков/ссылок/
+> скобок-заполнителей — копируется прямо в ElevenLabs. Четыре файла на выпуск: готовый текст,
+> production notes, бонус-промпты, описание для публикации. Команды: `/alovlab-podcast`,
+> `/alovlab-podcast-from-reel`, `/alovlab-podcast-from-guide`, `/alovlab-podcast-review`.
+
 ## Приложение В. Методички / гайды (премиум-PDF) — обязательное правило
 
 > **⚡⚡⚡ ALOVLAB ACADEMY STANDARD (с 16.10.2026, высший приоритет для методичек, привязанных к
