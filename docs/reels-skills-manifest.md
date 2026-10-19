@@ -38,6 +38,9 @@
 | `find-broll` | louisedesadeleer/b-roll-finder | 36b8a56 | MIT | Подбор b-roll по транскрипту | Не найден |
 | `video-perception` | jordanrendric/claude-video-vision | 4a4f990 | MIT | Извлечение кадров + транскрипция для анализа видео | Не найден |
 | `higgsfield` | OSideMedia/higgsfield-ai-prompt-skill | 7075497 | MIT | Промпт-инженерия под Higgsfield (MCSLA) | Не найден. Дополняет, не заменяет уже подключённый MCP `mcp__higgsfield__*` |
+| `video_toolkit` | digitalsamba/claude-code-video-toolkit | 959e0fc | MIT | Оркестратор: сценарий→озвучка→музыка→визуал→рендер | Не найден |
+| `ffmpeg` | digitalsamba/claude-code-video-toolkit | 959e0fc | MIT | Справочник паттернов ffmpeg под этот тулкит | Не найден |
+| `moviepy` | digitalsamba/claude-code-video-toolkit | 959e0fc | MIT | Python-композиция видео (альтернатива Remotion) | Не найден |
 
 ## Проверены по названию, НЕ установлены (сознательное решение)
 
