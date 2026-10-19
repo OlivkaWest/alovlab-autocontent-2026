@@ -19,6 +19,12 @@
       "skillPath": "skills/embedded-captions/SKILL.md",
       "computedHash": "002ecd86409f69934acd6c624b3242480d472ea5b54b2988ee74f75799fb99c4"
     },
+    "ffmpeg": {
+      "source": "digitalsamba/claude-code-video-toolkit",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/ffmpeg/SKILL.md",
+      "computedHash": "51fa05bc18bb2691e622aefd1d8ec6d4d96a9e9c44cdf599003c9d6003d11a07"
+    },
     "find-broll": {
       "source": "louisedesadeleer/b-roll-finder",
       "sourceType": "github",
@@ -79,6 +85,12 @@
       "skillPath": "skills/motion-graphics/SKILL.md",
       "computedHash": "1e222908adda01c8eed92dec934363973b6207ff15716a67653435f671f97241"
     },
+    "moviepy": {
+      "source": "digitalsamba/claude-code-video-toolkit",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/moviepy/SKILL.md",
+      "computedHash": "c12930bd1e0b75e04e5595267ad24603dac7349c3ae933b759de068d77de96ef"
+    },
     "remotion-best-practices": {
       "source": "remotion-dev/skills",
       "sourceType": "github",
@@ -132,6 +144,12 @@
       "sourceType": "github",
       "skillPath": "SKILL.md",
       "computedHash": "896d55ce2c26c3d0f6d5598c34eb882f7d5c6e98fc09aa44b55d4c7e2ac357a5"
+    },
+    "video_toolkit": {
+      "source": "digitalsamba/claude-code-video-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/openclaw-video-toolkit/SKILL.md",
+      "computedHash": "e066efc175aa93f6767f36c06c397e0aec0932ec263f3585aabd4b9a5d623d56"
     },
     "web-design-guidelines": {
       "source": "vercel-labs/agent-skills",
