@@ -1,0 +1,30 @@
+AlovLab · Reels 10/02/2026 (EN) · Platform captions
+(A separate post from day 2's carousel — same day, same example, different format. Text is not a copy
+of the carousel caption.)
+
+## Instagram EN (@alov.lab), 300–400 characters
+A prompt with no role is a letter with no address. It lands somewhere, it lands with no one.
+Showed it on video: the same AI reply doesn't actually fit any of three different businesses. Here's
+what to add so the answer reads like it was written for your specific client.
+**CTA:** save this post / comment "PROMPT" — a person replies with the link, not a bot. No bio link
+this month as a precaution; @alov.lab's own restriction isn't separately confirmed — see
+captions/IG-LINK-STATUS.md.
+
+## Telegram (t.me/AlovLab) — if posted to the RU-hub channel for EN followers
+Video version of today's topic: same technique as the carousel, but walked through in real time —
+role, context, constraints, format, on one freelance-proposal example.
+**Note on the guide:** there is currently no English-language PDF for this topic (G01 exists in
+Russian only; EN translation is an open dependency, not invented here). The 4-line template itself is
+shown fully on screen in the video — that's the deliverable for this reel.
+
+## VK post (vk.com/alovlab)
+A video take on today's technique: why a role-less prompt underperforms, and the 4-line frame that
+fixes it, on a real business-proposal example.
+
+## VK clip (short description)
+A prompt with no role is a letter with no address. Walked through on a client proposal.
+
+## YouTube Shorts
+Title: Why ChatGPT sounds generic (and the 4-line fix)
+Description: The same AI reply doesn't actually fit any of three different businesses. Here's the
+4-part frame — role, context, constraints, format — shown on one real proposal example.

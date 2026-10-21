@@ -1,0 +1,31 @@
+AlovLab · Reels Oct 15, 2026 (EN) · Platform captions
+
+## Instagram EN (@alov.lab), 300-400 characters
+This narrator isn't human. And it speaks a language it doesn't know.
+Write the script once, a pipeline translates the text and adjusts the lip movement for the new
+language. No studio, no new voice actor.
+Honest note: it isn't equally smooth everywhere, lip sync is stronger for common languages, weaker
+for rare ones. Check a short clip before showing it to your whole audience.
+**CTA:** save the post / reply with VOICE in the comments, a person replies, not a bot. No link in
+bio all of October (status unverified for this account specifically, same cautious fallback as
+@neurumonk, see RU side's captions/IG-LINK-STATUS.md).
+
+## Telegram (t.me/AlovLab)
+This narrator isn't human. And it speaks a language it doesn't know.
+Today's video: the AI-dubbing pipeline, step by step, script, translation, lip-sync adjustment for
+the new language. Plus the honest part most people skip: quality differs between languages.
+**Status:** no dedicated guide for this topic exists yet (G06 is unwritten). A short starting point
+is in the comments under the post instead.
+
+## VK post (vk.com/alovlab)
+Today's Reels: how an AI avatar dubs a video in a language it doesn't know, the pipeline behind text
+translation and lip-sync adjustment. And honestly, where it works less well.
+
+## VK clip (short description)
+One script, any language on output. The AI-dubbing pipeline, step by step.
+
+## YouTube Shorts
+Title: How an AI avatar speaks a language it doesn't know
+Description: Write the script once, a pipeline translates the text and adjusts the lip movement for
+the new language. Showing the steps, and honestly where quality is weaker. Full breakdown in the
+comments on AlovLab's video.

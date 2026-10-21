@@ -1,0 +1,79 @@
+Create one vertical AlovLab video, 9:16, 1080x1920, following this brief. Use the current AlovLab
+project's selected avatar and voice (the same one used in prior videos) — do not suggest another
+character or narrator, do not request or substitute any ID.
+
+TOPIC: don't ask for "nicer," ask for a format. The same question to an AI with no format (a wall of
+text, readable, not usable without a rewrite) and with one added line at the end ("format this as a
+table") — the result is ready to use immediately.
+VIEWER BENEFIT: leaves with the habit of adding one format line to the end of a working prompt
+instead of rewriting the answer by hand.
+HOOK (first line): "Don't ask for nicer. Ask for a format."
+
+Deliver the lines below verbatim. There are no dashes in the lines, do not add any yourself when
+voicing them. Do not add a greeting, an intro, promises, or decorative scenes. Target runtime is
+27-30 seconds, an estimate, not a measurement (this environment has no access to the project's voice
+to measure actual duration). Generate the speech first, measure its actual duration inside your own
+build, then fit scene durations to it: do not speed up the voice, do not cut lines short. Keeping the
+thought intact matters more than hitting 27-30 seconds exactly.
+
+SCENES (detailed breakdown in 02_SCENES.txt; summarized here as one block):
+
+Scene 1 · 0:00-0:03 (estimate) · AVATAR
+Line: "Don't ask for nicer. Ask for a format."
+Visible: avatar looking into the camera, a short beat before the line. No on-screen text, nothing
+covers the face.
+
+Scene 2 · 0:03-0:09 (estimate) · AVATAR + NATIVE_TEXT
+Line: "Look. Here's a normal AI answer with no format. Readable. Not usable until you rewrite it
+yourself."
+Visible: next to the avatar (not over the face), a plain paragraph of text appears, resembling a
+typical chatbot answer to a business question (illustrative example, not a real conversation): "To
+grow sales, you need to improve product quality, develop the team, listen to customers, constantly
+analyze the market, track trends, and adapt to them in time." The text appears fully by mid-scene,
+then stays static for reading. This is ordinary editable graphics and text, not an imitation of a
+third-party app's interface — build it yourself with your own tools, no external file is needed.
+
+Scene 3 · 0:09-0:15 (estimate) · AVATAR + NATIVE_TEXT
+Line: "Now the same question. I add one line at the end. Format this as a table."
+Visible: the same text block from scene 2 visibly reorganizes into a clean table with three rows and
+clear column headers (for example "Action", "Frequency", "Owner") with short illustrative values in
+the cells. The transformation is smooth and visible, synced to the words "format this as a table,"
+not an instant cut, an animated reshaping of text into a grid.
+
+Scene 4 · 0:15-0:20 (estimate) · AVATAR
+Line: "A format is not decoration. It's a specific instruction. Table, numbered list, a template
+with fields."
+Visible: avatar in close-up. Next to the avatar (not over the face), three short text chips appear
+one at a time, "TABLE", "LIST", "TEMPLATE", synced to the matching words. Simple typography, one
+accent color (AlovLab orange), no interface imitation.
+
+Scene 5 · 0:20-0:25 (estimate) · AVATAR
+Line: "Ask for what you actually need on the output side. Don't ask for nicer. Nice is not a
+format."
+Visible: avatar in close-up, calm confident tone, no on-screen text.
+
+Scene 6 · 0:25-0:29 (estimate) · AVATAR
+Line (final, do not paraphrase): "Set a format on your next working prompt. The difference will show
+right away. The guide for building this into a habit is waiting in Telegram."
+Visible: avatar holds eye contact with the camera until the line fully ends, the frame does not cut
+before the line is complete.
+
+CAPTIONS: sync to the actual speech after it is finalized, by meaning-based phrases, 1-2 lines, no
+stage directions. Do not cover the face or the text inserts; on scenes 2-3 (text block and table)
+either turn captions off or place them in a safe zone that does not overlap the insert's text.
+
+TRANSITIONS: meaningful cuts on state changes (text block appearing, transformation into a table,
+chips appearing one by one), not a random zoom or a decorative countdown.
+
+FINAL CALL TO ACTION (take without paraphrasing): "The guide for building this into a habit is
+waiting in Telegram." There is no separate spoken "follow" or "save" in the voiceover itself — the
+save-and-comment-keyword mechanic is described in the post caption, not in the video's spoken text.
+
+FILES: no external attachments are needed for this video — all text and graphic inserts (scenes 2-4)
+are built by HeyGen itself as editable text layers. Do not generate an imitation of a third-party
+app's interface (ChatGPT or otherwise) — this video does not include one and should not.
+
+PRE-EXPORT CHECK: one task (show the technique of adding a format line), one running example (a
+business answer turning into a table) for the whole video; the text-to-table transformation is
+visible and smooth, not an instant swap; the final line is spoken fully before the frame ends;
+captions do not cover the face or the text inserts. Deliver the final MP4 and its actual duration.
