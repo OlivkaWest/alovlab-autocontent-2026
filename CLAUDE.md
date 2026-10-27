@@ -177,8 +177,21 @@ Reels-демонстрация  →  комментарий под постом 
 > VOICEOVER TEXT · SCENES · ON SCREEN TEXT · CTA**; VOICEOVER TEXT готов к прямой вставке в HeyGen (без техпометок,
 > без канцелярита, без AI-штампов, одна фраза = одна мысль, хук как начало истории). Перед выдачей — HeyGen-check.
 
-> **⚡⚡⚡ ALOVLAB REELS DIRECTOR STANDARD (с 21.10.2026, высший приоритет для написания диалогов Reels,
-> дополняет две записи выше, не заменяет):** `content/rules/ALOVLAB-REELS-DIRECTOR-STANDARD.md`, скилл
+> **⚡⚡⚡ ALOVLAB HEYGEN VIDEO AGENT DIRECTOR (с 27.10.2026, высший приоритет для формата вывода
+> `/reel` и `/reel-duo`, НЕ затрагивает команду «Рилс дня»):** `content/rules/ALOVLAB-HEYGEN-VIDEO-
+> AGENT-DIRECTOR.md`. Основная площадка генерации — **HeyGen Video Agent**, не отдельная генерация
+> аватара + ручной монтаж. Результат `/reel` и `/reel-duo` теперь — один цельный master-промпт
+> (шаблон `templates/heygen-video-agent-master.md`), не пакет из 6 файлов
+> (`ALOVLAB-HEYGEN-REELS-STANDARD-v2.md` §10 — формат файлов остаётся историческим для уже
+> выпущенных дней, не для новых `/reel`). Новые команды: `/heygen-director` · `/heygen-review` ·
+> `/heygen-fix`. **«Рилс дня» остаётся исключительно за `content/rules/NEIROMONAH-DOVODIM-DO-DELA.md`
+> / скиллом `neiromonah-dovodim-do-dela`, в своём 5-частном формате** — решение пользователя
+> 27.10.2026, два дня уже выпущены в этом формате. Голос, запрет тире, запрет выбора аватара/голоса,
+> правила конфликт-диалога для двух аватаров — без изменений, см. записи ниже.
+
+> **⚡⚡⚡ ALOVLAB REELS DIRECTOR STANDARD (с 21.10.2026, высший приоритет для содержания диалогов
+> Reels — живая речь, режим двух аватаров, конфликт-диалог; формат ВЫВОДА для `/reel`/`/reel-duo`
+> теперь задаёт запись выше):** `content/rules/ALOVLAB-REELS-DIRECTOR-STANDARD.md`, скилл
 > `.claude/skills/alovlab-heygen-director/SKILL.md`. Добавляет: планку живой разговорной речи выше
 > базовой голосовой гигиены (ноль «нейросетевого» звучания) и новый **РЕЖИМ B — два аватара**
 > (`/reel-duo`): Нейромонах + второй персонаж, диалог строится на **конфликте мнений**, не на
