@@ -5,9 +5,17 @@
 прямому запросу пользователя («карусель дня» → «собери»), на активном плане carousel-слота нет
 (content/strategy/CONTENT-PLAN.md не ведётся с сентября), поэтому используется та же CORE IDEA.
 Светлый премиум-инфографик (GLOBAL-CAROUSEL-RULE §13-Б), тот же стиль/компоненты, что в
-carousel_day19_build.py. 6 слайдов 1080×1350 (4:5), RU + EN.
+carousel_day19_build.py. 7 слайдов 1080×1350 (4:5), RU + EN.
+
+v2 (правка по запросу пользователя «что нужно изменить... экспертность, значимость, понятность,
+нужность»): добавлен слайд 4 — схема наложения силуэтов (метод показан, не только описан; честно
+подписана как схема принципа, не как реальный результат генерации), усилена формулировка причины
+(технически точнее: промпт описывает сцену, не форму) и ставки на слайдах 2 и 7 (что теряешь, если
+не проверил). Было 6 слайдов, стало 7 — новый слайд не вытесняет старый контент, а добавляется.
+
 Честно: демонстрация на нейтральном предмете (керамическая кружка), реального клиентского кейса
-нет — метод и промпт рабочие, не привязаны к выдуманному заказу.
+нет — метод и промпт рабочие, не привязаны к выдуманному заказу. Схема наложения силуэтов —
+иллюстрация принципа (SVG-диаграмма), не кадр из реальной генерации.
 Запуск:
   python3 scripts/carousel_dovodim_day06_build.py
   NODE_PATH=/opt/node22/lib/node_modules node scripts/carousel_shoot.js <ru_html> <ru_outdir>
@@ -61,6 +69,8 @@ h2 i{font-style:normal;color:#E1671E}
 .step .t{font-size:12.3pt;font-weight:600;color:#20242B;line-height:1.38;padding-top:2px}
 .step .t b{color:#E1671E}
 .note{font-size:10.8pt;font-weight:600;color:#6E6A63;margin-top:10px;line-height:1.4}
+.stake{background:#FCEEEA;border:1.5px solid #EFC7BB;border-radius:14px;padding:12px 15px;margin-top:12px}
+.stake p{font-size:11.3pt;font-weight:600;color:#7A2E1C;line-height:1.4}
 .retention{position:absolute;left:36px;right:36px;bottom:56px;font-size:12.5pt;font-weight:700;color:#E1671E}
 .sig{position:absolute;bottom:22px;left:36px;display:flex;align-items:center;gap:8px}
 .sig img{width:26px;height:26px}
@@ -84,41 +94,68 @@ h2 i{font-style:normal;color:#E1671E}
 .prompt .plbl .copy{font-weight:700;font-size:9pt;letter-spacing:.08em;text-transform:uppercase;color:#cbb39d}
 .prompt code{display:block;font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace;font-size:10.3pt;
  line-height:1.56;white-space:pre-wrap;color:#f2eadf}
+.diagwrap{background:#FFFFFF;border:1px solid #EBE2D3;border-radius:16px;padding:16px 16px 14px;margin-top:12px;
+ box-shadow:0 2px 10px rgba(32,20,10,.04)}
+.diagwrap svg{display:block;width:100%;height:auto}
+.diagcap{font-size:11pt;font-weight:600;color:#3a362f;line-height:1.42;margin-top:12px}
+.legend{display:flex;gap:18px;margin-top:10px}
+.legend span.row{display:flex;align-items:center;gap:7px;font-size:10.5pt;font-weight:700;color:#20242B}
+.legend .sw{width:22px;height:0;border-top:4px solid #20242B}
+.legend .sw.dash{border-top:4px dashed #E1671E}
 """
 
 def sig():
     return (f'<div class="sig"><img src="data:image/png;base64,{LOGO}">'
             f'<b>Alov<i>Lab</i></b></div>')
 
+def diagram(lang):
+    label = "ЗДЕСЬ РАЗОШЛОСЬ" if lang == "ru" else "MISMATCH HERE"
+    leg_a = "исходник" if lang == "ru" else "source"
+    leg_b = "генерация" if lang == "ru" else "generation"
+    svg = f"""<svg viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg">
+  <rect x="150" y="30" width="140" height="170" rx="18" fill="none" stroke="#20242B" stroke-width="5"/>
+  <path d="M290,75 C340,75 340,155 290,155" fill="none" stroke="#20242B" stroke-width="5" stroke-linecap="round"/>
+  <path d="M290,68 C362,62 362,162 290,168" fill="none" stroke="#E1671E" stroke-width="5"
+        stroke-dasharray="10 8" stroke-linecap="round"/>
+  <ellipse cx="347" cy="70" rx="42" ry="30" fill="none" stroke="#E1671E" stroke-width="2" stroke-dasharray="4 4"/>
+  <line x1="386" y1="60" x2="418" y2="38" stroke="#E1671E" stroke-width="2"/>
+  <circle cx="418" cy="38" r="3" fill="#E1671E"/>
+  <text x="300" y="26" font-family="Manrope" font-weight="800" font-size="15" fill="#E1671E">{label}</text>
+</svg>"""
+    legend = (f'<div class="legend"><span class="row"><span class="sw"></span>{leg_a}</span>'
+              f'<span class="row"><span class="sw dash"></span>{leg_b}</span></div>')
+    return f'<div class="diagwrap">{svg}{legend}</div>'
+
 def build(lang):
     slides = []
+    N = 7
     if lang == "ru":
         # 1 — обложка / конфликт
         slides.append(f"""<div class="slide">
- <div class="badge">1 / 6</div>
+ <div class="badge">1 / {N}</div>
  <div style="margin-top:72px">
   <div class="kicker">Товарные генерации</div>
   <h1>РЕКЛАМА<br>КРАСИВАЯ.<br><i>ТОВАР —<br>ДРУГОЙ.</i></h1>
-  <p class="lead">Как проверить генерацию, прежде чем сдать клиенту.</p>
+  <p class="lead">Так клиент получает не то, что видел в рекламе — и сверяет именно товар, не текст.</p>
  </div>
  <div class="retention">Почему так выходит  →</div>
  {sig()}
 </div>""")
-        # 2 — причина
+        # 2 — причина (технически точнее) + ставки
         slides.append(f"""<div class="slide">
- <div class="badge">2 / 6</div>
+ <div class="badge">2 / {N}</div>
  <div style="margin-top:72px">
-  <div class="kicker">Разрушаем миф</div>
-  <h2>Нейросеть<br>дорисовывает <i>то,<br>на что не смотрят.</i></h2>
-  <p class="lead" style="font-size:12pt">Чаще всего плывёт то, что не в фокусе промпта: форма ручки, застёжка, носик, пропорции.</p>
-  <div class="note">Текст в кадре выглядит правильно. Форма — уже нет.</div>
+  <div class="kicker">Почему так выходит</div>
+  <h2>Промпт описывает<br>сцену. <i>Не форму.</i></h2>
+  <p class="lead" style="font-size:12pt">Цвет, свет, фон — модель держит в фокусе то, что ты написал словами. Ручку, застёжку, носик — дорисовывает по своим шаблонам, не по твоему фото.</p>
+  <div class="stake"><p>Текст в кадре выглядит правильно. Товар — уже нет. А клиент сверяет именно товар.</p></div>
  </div>
- <div class="retention">Метод проверки  →</div>
+ <div class="retention">Авторский метод проверки  →</div>
  {sig()}
 </div>""")
         # 3 — техника / авторский метод
         slides.append(f"""<div class="slide">
- <div class="badge">3 / 6</div>
+ <div class="badge">3 / {N}</div>
  <div style="margin-top:72px">
   <div class="kicker">Авторский метод</div>
   <h2>Правило <i>трёх<br>точек</i></h2>
@@ -128,12 +165,24 @@ def build(lang):
    <div class="step"><div class="n">3</div><div class="t"><b>Пропорции.</b> Ширина к высоте — сверяй с исходником, не на глаз.</div></div>
   </div>
  </div>
+ <div class="retention">Как это выглядит на деле  →</div>
+ {sig()}
+</div>""")
+        # 4 — НОВЫЙ: схема наложения силуэтов (точка 1 метода, показана, не только описана)
+        slides.append(f"""<div class="slide">
+ <div class="badge">4 / {N}</div>
+ <div style="margin-top:72px">
+  <div class="kicker">Как это выглядит</div>
+  <h2>Силуэт расходится<br><i>здесь</i></h2>
+  {diagram("ru")}
+  <div class="diagcap">Исходник и генерация наложены друг на друга — ручка уже не та. Это и есть точка 1 метода: силуэт. Схема принципа, не кадр реальной генерации.</div>
+ </div>
  <div class="retention">Рабочий промпт  →</div>
  {sig()}
 </div>""")
-        # 4 — промпт
+        # 5 — промпт
         slides.append(f"""<div class="slide">
- <div class="badge">4 / 6</div>
+ <div class="badge">5 / {N}</div>
  <div style="margin-top:72px">
   <div class="kicker">Сохрани этот промпт</div>
   <h2>Добавь в конец<br>любого <i>промпта<br>товара</i></h2>
@@ -150,9 +199,9 @@ def build(lang):
  <div class="retention">Если несовпадение найдено  →</div>
  {sig()}
 </div>""")
-        # 5 — ошибка + фикс
+        # 6 — ошибка + фикс
         slides.append(f"""<div class="slide">
- <div class="badge">5 / 6</div>
+ <div class="badge">6 / {N}</div>
  <div style="margin-top:72px">
   <div class="kicker">Ошибка → фикс</div>
   <h2>Нашёл<br>несовпадение —<br><i>что делать</i></h2>
@@ -168,12 +217,12 @@ def build(lang):
  <div class="retention">Сохрани чек-лист  →</div>
  {sig()}
 </div>""")
-        # 6 — финал + CTA
+        # 7 — финал + CTA (усилена необходимость)
         slides.append(f"""<div class="slide">
- <div class="badge">6 / 6</div>
+ <div class="badge">7 / {N}</div>
  <div style="margin-top:72px">
   <h1 style="font-size:29pt">СОХРАНИ<i>.</i></h1>
-  <p class="lead" style="margin-top:10px">Проверяй форму товара по правилу трёх точек до того, как отправишь клиенту.</p>
+  <p class="lead" style="margin-top:10px">Проверяй форму товара по правилу трёх точек — иначе это сделает клиент, и не в твою пользу.</p>
   <div class="card sand" style="margin-top:16px">
    <div class="lbl">Шаблон проверки</div>
    <p>Чек-лист и промпт целиком — в закрепе в Telegram.</p>
@@ -184,28 +233,28 @@ def build(lang):
     else:
         # EN
         slides.append(f"""<div class="slide">
- <div class="badge">1 / 6</div>
+ <div class="badge">1 / {N}</div>
  <div style="margin-top:72px">
   <div class="kicker">Product generations</div>
   <h1>THE AD<br>LOOKS GREAT.<br><i>THE PRODUCT<br>DOESN'T MATCH.</i></h1>
-  <p class="lead">How to check a generation before you ship it.</p>
+  <p class="lead">That's what the client gets instead of what the ad showed — and they check the product, not the copy.</p>
  </div>
  <div class="retention">Why it happens  →</div>
  {sig()}
 </div>""")
         slides.append(f"""<div class="slide">
- <div class="badge">2 / 6</div>
+ <div class="badge">2 / {N}</div>
  <div style="margin-top:72px">
-  <div class="kicker">Breaking the myth</div>
-  <h2>The model<br>redraws <i>what<br>nobody's watching.</i></h2>
-  <p class="lead" style="font-size:12pt">It's usually the stuff outside the prompt's focus: handle shape, clasp, spout, proportions.</p>
-  <div class="note">The copy in frame reads fine. The shape already doesn't.</div>
+  <div class="kicker">Why it happens</div>
+  <h2>The prompt describes<br>the scene. <i>Not the shape.</i></h2>
+  <p class="lead" style="font-size:12pt">Color, light, background — the model keeps what you wrote in words in focus. The handle, the clasp, the spout — it redraws those from its own templates, not from your photo.</p>
+  <div class="stake"><p>The copy in frame reads fine. The product already doesn't. And the client checks the product.</p></div>
  </div>
- <div class="retention">The check method  →</div>
+ <div class="retention">The method  →</div>
  {sig()}
 </div>""")
         slides.append(f"""<div class="slide">
- <div class="badge">3 / 6</div>
+ <div class="badge">3 / {N}</div>
  <div style="margin-top:72px">
   <div class="kicker">The method</div>
   <h2>The three-point<br><i>rule</i></h2>
@@ -215,11 +264,22 @@ def build(lang):
    <div class="step"><div class="n">3</div><div class="t"><b>Proportions.</b> Width to height against the source, not by eye.</div></div>
   </div>
  </div>
+ <div class="retention">See it in practice  →</div>
+ {sig()}
+</div>""")
+        slides.append(f"""<div class="slide">
+ <div class="badge">4 / {N}</div>
+ <div style="margin-top:72px">
+  <div class="kicker">What it looks like</div>
+  <h2>The silhouette splits<br><i>right here</i></h2>
+  {diagram("en")}
+  <div class="diagcap">Source and generation overlaid — the handle isn't the same anymore. That's point one of the method: silhouette. A principle diagram, not a frame from a real generation.</div>
+ </div>
  <div class="retention">The working prompt  →</div>
  {sig()}
 </div>""")
         slides.append(f"""<div class="slide">
- <div class="badge">4 / 6</div>
+ <div class="badge">5 / {N}</div>
  <div style="margin-top:72px">
   <div class="kicker">Save this prompt</div>
   <h2>Append this to<br>any <i>product<br>prompt</i></h2>
@@ -238,7 +298,7 @@ composition. No deviation from the original geometry.</code>
  {sig()}
 </div>""")
         slides.append(f"""<div class="slide">
- <div class="badge">5 / 6</div>
+ <div class="badge">6 / {N}</div>
  <div style="margin-top:72px">
   <div class="kicker">Mistake → fix</div>
   <h2>Found a<br>mismatch —<br><i>what to do</i></h2>
@@ -255,10 +315,10 @@ composition. No deviation from the original geometry.</code>
  {sig()}
 </div>""")
         slides.append(f"""<div class="slide">
- <div class="badge">6 / 6</div>
+ <div class="badge">7 / {N}</div>
  <div style="margin-top:72px">
   <h1 style="font-size:29pt">SAVE<i>.</i></h1>
-  <p class="lead" style="margin-top:10px">Check the product shape with the three-point rule before you send it to the client.</p>
+  <p class="lead" style="margin-top:10px">Check the product shape with the three-point rule — or the client will, and not in your favor.</p>
   <div class="card sand" style="margin-top:16px">
    <div class="lbl">Check template</div>
    <p>The full checklist and prompt — pinned on Telegram.</p>
