@@ -1,0 +1,73 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:'Mr';src:url('file:///home/user/alovlab-autocontent-2026/assets/fonts/manrope-cyrillic-400.woff2') format('woff2');font-weight:400}
+@font-face{font-family:'Mr';src:url('file:///home/user/alovlab-autocontent-2026/assets/fonts/manrope-cyrillic-500.woff2') format('woff2');font-weight:500}
+@font-face{font-family:'Mr';src:url('file:///home/user/alovlab-autocontent-2026/assets/fonts/manrope-cyrillic-700.woff2') format('woff2');font-weight:700}
+@font-face{font-family:'Mr';src:url('file:///home/user/alovlab-autocontent-2026/assets/fonts/manrope-cyrillic-800.woff2') format('woff2');font-weight:800}
+@font-face{font-family:'MrL';src:url('file:///home/user/alovlab-autocontent-2026/assets/fonts/manrope-latin-400.woff2') format('woff2');font-weight:400}
+@font-face{font-family:'MrL';src:url('file:///home/user/alovlab-autocontent-2026/assets/fonts/manrope-latin-700.woff2') format('woff2');font-weight:700}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Mr','MrL',system-ui,sans-serif}
+html,body{background:#1a1915}
+#panel{width:1600px;height:1000px;background:#262523;color:#ECE9E1;position:relative;overflow:hidden}
+/* top bar */
+.top{height:70px;display:flex;align-items:center;gap:16px;padding:0 26px;border-bottom:1px solid #35332f;background:#242320}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:20px;color:#f3f0ea}
+.spark{width:22px;height:22px;color:#D97757}
+.model{margin-left:6px;display:flex;align-items:center;gap:7px;background:#302e2a;border:1px solid #3c3a35;border-radius:10px;padding:8px 13px;font-weight:700;font-size:15px;color:#efece6;position:relative}
+.model .car{color:#a49d90;font-size:12px}
+/* model dropdown */
+.dd{position:absolute;top:60px;left:210px;background:#2c2b27;border:1px solid #3c3a35;border-radius:12px;padding:7px;width:260px;box-shadow:0 18px 50px rgba(0,0,0,.5);z-index:5}
+.dd .it{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:8px;font-size:15px;color:#e9e6df}
+.dd .it.sel{background:#35332e}
+.dd .it .ch{width:16px;color:#D97757;font-weight:800}
+.dd .it small{margin-left:auto;color:#8f887b;font-size:12px}
+/* chat */
+.chat{padding:34px 120px 0}
+.u{display:flex;justify-content:flex-end;margin-bottom:26px}
+.u .b{background:#32302b;border:1px solid #3b392f;border-radius:16px;padding:15px 19px;font-size:19px;line-height:1.5;max-width:70%;color:#f0ede6}
+.a{display:flex;gap:14px}
+.a .m{width:30px;height:30px;flex:none;color:#D97757;margin-top:3px}
+.a .body{flex:1}
+.a .body .h{font-weight:800;font-size:22px;margin-bottom:14px;color:#f5f2ec}
+.card{background:#2b2a26;border:1px solid #38362f;border-radius:16px;overflow:hidden}
+.row{display:grid;grid-template-columns:210px 1fr;gap:16px;padding:16px 22px;border-bottom:1px solid #33312b;align-items:baseline}
+.row:last-child{border-bottom:0}
+.row .k{font-weight:800;font-size:16px;letter-spacing:.02em;color:#D97757;text-transform:uppercase}
+.row .v{font-size:18px;line-height:1.45;color:#e7e3db}
+.row.gap{background:#3a2c22}
+.row.gap .k{color:#ff9a5a}
+.row.gap .v{color:#ffd9c2;font-weight:700}
+.cursor{display:inline-block;width:11px;height:20px;background:#D97757;transform:translateY(3px);margin-left:3px;border-radius:2px}
+/* input */
+.inp{position:absolute;left:120px;right:120px;bottom:34px;height:64px;background:#2f2d29;border:1px solid #3c3a34;border-radius:16px;display:flex;align-items:center;padding:0 20px;color:#8f887b;font-size:17px}
+.inp .send{margin-left:auto;width:38px;height:38px;border-radius:10px;background:#D97757;display:flex;align-items:center;justify-content:center;color:#1a1512;font-weight:800}
+</style></head>
+<body><div id="panel">
+  <div class="top">
+    <span class="brand"><svg class="spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg>Claude</span>
+    <span class="model">Claude Opus 5 <span class="car">▾</span></span>
+    <div class="dd">
+      <div class="it sel"><span class="ch">✓</span> Claude Opus 5 <small>новее</small></div>
+      <div class="it"><span class="ch"></span> Claude Sonnet 5</div>
+      <div class="it"><span class="ch"></span> Claude Haiku 4.5</div>
+      <div class="it"><span class="ch"></span> Claude Fable 5.1</div>
+    </div>
+  </div>
+  <div class="chat">
+    <div class="u"><div class="b">Разбери конкурента по ссылке: оффер, аудитория, хуки, воронка и где у него дыры.</div></div>
+    <div class="a">
+      <svg class="m" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg>
+      <div class="body">
+        <div class="h">Разбор конкурента готов:</div>
+        <div class="card">
+          <div class="row"><div class="k">Оффер</div><div class="v">что продаёт и как формулирует ценность</div></div>
+          <div class="row"><div class="k">Аудитория</div><div class="v">на кого нацелен, боли и язык</div></div>
+          <div class="row"><div class="k">Хуки</div><div class="v">чем цепляет в первых строках (типы)</div></div>
+          <div class="row"><div class="k">Воронка</div><div class="v">куда ведёт и чем закрывает</div></div>
+          <div class="row gap"><div class="k">Гэпы</div><div class="v">чего НЕ делает — твой ход <span class="cursor"></span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="inp">Спросить Claude…<span class="send">↑</span></div>
+</div></body></html>

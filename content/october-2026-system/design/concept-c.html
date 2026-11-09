@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset=utf-8><style>
+*{margin:0;padding:0;box-sizing:border-box}
+@page{size:A4;margin:0}
+body{font-family:Georgia,'Times New Roman',serif;background:#1a1a1a}
+.page{position:relative;width:210mm;height:297mm;background:#FBFAF7;overflow:hidden;
+ display:flex;page-break-after:always}
+.page:last-child{page-break-after:auto}
+.tab{width:14mm;background:#141210;flex:0 0 auto;display:flex;align-items:center;justify-content:center}
+.tab span{writing-mode:vertical-rl;color:#DA5F1E;font-family:'Courier New',monospace;font-weight:700;
+ font-size:9pt;letter-spacing:.15em;text-transform:uppercase}
+.body-c{flex:1;padding:16mm 14mm;display:flex;flex-direction:column}
+.cover-c{background:#141210;color:#EDE7DC}
+.cover-c .body-c{justify-content:center}
+.cover-c .kick{font-family:'Courier New',monospace;font-size:9pt;letter-spacing:.2em;color:#DA5F1E;margin-bottom:6mm}
+.cover-c h1{font-size:27pt;line-height:1.12;font-weight:700;max-width:15ch}
+.cover-c .sub{margin-top:8mm;font-size:11pt;line-height:1.5;color:#c9c1b2;max-width:34ch}
+.mhead{font-family:'Courier New',monospace;font-size:8pt;letter-spacing:.12em;text-transform:uppercase;
+ color:#8a8378;border-bottom:1px solid #d9d3c4;padding-bottom:3mm;margin-bottom:6mm;display:flex;justify-content:space-between}
+.two-col{column-count:2;column-gap:9mm}
+h2.fm{font-size:15pt;font-weight:700;color:#141210;margin:0 0 3mm;break-after:avoid}
+p.fm{font-size:9.3pt;line-height:1.5;color:#2b271f;margin:0 0 4mm}
+.step-fm{font-size:9.3pt;line-height:1.5;margin:0 0 3mm;padding-left:12px;border-left:2px solid #DA5F1E}
+.prompt-fm{background:#fff;border:1px solid #d9d3c4;border-left:3px solid #141210;padding:4mm 5mm;margin:4mm 0;break-inside:avoid}
+.prompt-fm .t{font-family:'Courier New',monospace;font-size:7.5pt;letter-spacing:.08em;text-transform:uppercase;color:#8a8378;margin-bottom:2mm}
+.prompt-fm code{font-family:'Courier New',monospace;font-size:8.3pt;line-height:1.5;color:#242018;white-space:pre-wrap}
+.foot-fm{margin-top:auto;padding-top:4mm;border-top:1px solid #d9d3c4;font-family:'Courier New',monospace;
+ font-size:7.5pt;color:#8a8378;display:flex;justify-content:space-between}
+</style></head><body>
+<section class="page cover-c"><div class="tab"><span>ГЛАВА 01</span></div><div class="body-c">
+  <div class="kick">AlovLab · Field Manual · Дни 1-3</div>
+  <h1>Голосовое → сценарий</h1>
+  <p class="sub">Для кого: авторы и фрилансеры, которым легче объяснить голосом, чем написать. Результат: черновик поста из голосового сообщения за 5 минут.</p>
+</div></section>
+<section class="page"><div class="tab"><span>ГЛАВА 01 · СТР 02</span></div><div class="body-c">
+  <div class="mhead"><span>01.1 МЕТОД</span><span>PROMPT-POMOSHNIK.G01</span></div>
+  <div class="two-col">
+    <h2 class="fm">Голосовое → сценарий</h2>
+    <p class="fm">Расшифровка голосового — сырьё, не готовый текст. Промпт не переписывает её красиво, а собирает в структуру поста, сохраняя формулировки автора.</p>
+    <div class="step-fm"><b>01.</b> Запиши голосовое, как будто отвечаешь клиенту.</div>
+    <div class="step-fm"><b>02.</b> Расшифруй любым доступным способом.</div>
+    <div class="step-fm"><b>03.</b> Вставь в шаблон ниже, получи структуру.</div>
+    <div class="prompt-fm"><div class="t">Шаблон 01.1</div><code>Вот расшифровка моего голосового сообщения: [вставить текст расшифровки].
+Собери из неё сценарий поста: хук в первой строке, основная мысль, один пример, один призыв.
+Сохрани мои формулировки и порядок мыслей, где это возможно. Не заменяй мою речь на гладкий обобщённый текст.
+Если где-то мысль оборвана — оставь пометку [уточнить], не додумывай за меня.</code></div>
+    <p class="fm"><b>Результат:</b> Черновик, который узнаваем как свой, а не как версия нейросети.</p>
+  </div>
+  <div class="foot-fm"><span>AlovLab · Field Manual — образец</span><span>02</span></div>
+</div></section>
+</body></html>

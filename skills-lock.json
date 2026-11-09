@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-browser": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "skillPath": "skills/agent-browser/SKILL.md",
+      "computedHash": "548a1f92c7ff55081c65ec1577ff5136beb1d0f58252d448d5bd43f05fefc703"
+    },
+    "clipify": {
+      "source": "louisedesadeleer/clipify",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "dcc9fa55382b92f4e9d792981a2871a41bd82af5ebb702af6a2afa83f9c5305d"
+    },
+    "embedded-captions": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/embedded-captions/SKILL.md",
+      "computedHash": "002ecd86409f69934acd6c624b3242480d472ea5b54b2988ee74f75799fb99c4"
+    },
+    "ffmpeg": {
+      "source": "digitalsamba/claude-code-video-toolkit",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/ffmpeg/SKILL.md",
+      "computedHash": "51fa05bc18bb2691e622aefd1d8ec6d4d96a9e9c44cdf599003c9d6003d11a07"
+    },
+    "find-broll": {
+      "source": "louisedesadeleer/b-roll-finder",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "0686304417627963ef25a302c393c03d0914314d53a79dfdb8cce8163453d27f"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "computedHash": "913b9d37d0d54047dd65222bb8c67b2bf04e3cb87dcad1729068d7a8b2c8c396"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "4eabc66183767153e404b39d1b839b1c37f2d82d86f0a0d7e880a579d8d62336"
+    },
+    "higgsfield": {
+      "source": "OSideMedia/higgsfield-ai-prompt-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "72737e0bb4a4fbb24087fa6b673979f3d571a65c4a6e68f881aa9a8b324506a7"
+    },
+    "hyperframes": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes/SKILL.md",
+      "computedHash": "3a61dc3e64736867866316fd3123a9ebd803b83f57e286296b78b319938732ca"
+    },
+    "hyperframes-audio": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes-audio/SKILL.md",
+      "computedHash": "fed70bda20b7480227413f6876682d8ba4935aa069b5491642d55141d9508b24"
+    },
+    "hyperframes-cli": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes-cli/SKILL.md",
+      "computedHash": "bbf98574319ce0b24f5d6b1e5f380e0299e298504402bcc1b8e0bbdc28b65414"
+    },
+    "hyperframes-core": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes-core/SKILL.md",
+      "computedHash": "c9c7e45910fc11189097e23d804adee814e2647b1c486d959fd1acb54a3fbf04"
+    },
+    "mcp-builder": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/mcp-builder/SKILL.md",
+      "computedHash": "826e46adf81e1372282e205c34e1a2ee876e72148007726e4a2512599d2fef7b"
+    },
+    "motion-graphics": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/motion-graphics/SKILL.md",
+      "computedHash": "1e222908adda01c8eed92dec934363973b6207ff15716a67653435f671f97241"
+    },
+    "moviepy": {
+      "source": "digitalsamba/claude-code-video-toolkit",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/moviepy/SKILL.md",
+      "computedHash": "c12930bd1e0b75e04e5595267ad24603dac7349c3ae933b759de068d77de96ef"
+    },
+    "remotion-best-practices": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-best-practices/SKILL.md",
+      "computedHash": "c2f1c22a68d1965d3c43b870b0632a074de82053df45bfb5fc58d77e9d907a2c"
+    },
+    "remotion-captions": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-captions/SKILL.md",
+      "computedHash": "b442a369e5f06c8e756c9e5bc15369efc7b466948e5e614da9e5fb1139cfc552"
+    },
+    "remotion-create": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-create/SKILL.md",
+      "computedHash": "72f37735bd577cb1f9d8cbc6385985b494578cdeb709fb7b32e39cb1ed8199b8"
+    },
+    "remotion-multimedia": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-multimedia/SKILL.md",
+      "computedHash": "f24336f9deaef5aea6d736f82b5f6c47714d619153002a42845688368863c726"
+    },
+    "remotion-render": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-render/SKILL.md",
+      "computedHash": "1220831c3630ec455ad37300fdb0f796d42cb121239a05516b68747e6701eafa"
+    },
+    "shorts": {
+      "source": "agricidaniel/claude-shorts",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "f07bacbe7e6fefd6952c498721f83fd74f8326e7547a999efc1734d31abce67f"
+    },
+    "video-perception": {
+      "source": "jordanrendric/claude-video-vision",
+      "sourceType": "github",
+      "skillPath": "skills/video-perception/SKILL.md",
+      "computedHash": "c237299411a3f137ab02a53d25b0a076c00c9db81cc918113d2591fd4391f60d"
+    },
+    "video-shotcraft": {
+      "source": "Vincentwei1021/video-shotcraft",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "7675d6f3b5b033fe0a8d77766de972a266306e026c68aa9aeec223da66e3f27e"
+    },
+    "video-use": {
+      "source": "browser-use/video-use",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "896d55ce2c26c3d0f6d5598c34eb882f7d5c6e98fc09aa44b55d4c7e2ac357a5"
+    },
+    "video_toolkit": {
+      "source": "digitalsamba/claude-code-video-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/openclaw-video-toolkit/SKILL.md",
+      "computedHash": "e066efc175aa93f6767f36c06c397e0aec0932ec263f3585aabd4b9a5d623d56"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
+    }
+  }
+}

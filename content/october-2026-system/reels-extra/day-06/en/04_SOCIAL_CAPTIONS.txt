@@ -1,0 +1,28 @@
+AlovLab · Reels Oct 6, 2026 (EN) · Platform captions
+
+## Instagram EN (@alov.lab), 300-400 characters
+Don't ask the AI for "nicer." Ask for a format.
+Same request, two results. No format: a wall of text, readable, not usable without a rewrite. One
+added line, "format this as a table": ready to use right away. Showed the difference on video.
+**CTA:** save the post / reply with FORMAT in the comments — a person replies with the link, not a
+bot. No link in bio all of October (status unverified for this account specifically, same cautious
+fallback as @neurumonk — see RU side's captions/IG-LINK-STATUS.md).
+
+## Telegram (t.me/AlovLab)
+Don't ask for "nicer." Ask for a format.
+Today's video: one request, two results, with and without one added format line. The difference
+shows immediately. Full template straight from the video, no separate guide for this one yet (EN
+translation of the deeper guide is on the open-task list).
+
+## VK post (vk.com/alovlab)
+Today's Reels: why "nicer" doesn't work as a request, and what to add at the end of your prompt so
+the answer arrives ready to use. Template is right there in the video.
+
+## VK clip (short description)
+One request, two results. With a format and without. The difference, on screen.
+
+## YouTube Shorts
+Title: Why you keep rewriting ChatGPT's answer (fix it with one line)
+Description: The same request to an AI gives a wall of text with no format, and a ready table with
+one added line, "format this as a table." Showing the difference on screen. Full breakdown on
+AlovLab's Telegram.

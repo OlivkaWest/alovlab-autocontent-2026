@@ -1,0 +1,13 @@
+AlovLab · Reels Oct 15, 2026 (EN) · Scene table
+Timing — estimate (not measured: this session has no access to the HeyGen project's voice to measure it).
+
+ID | Time (estimate) | Method | Line verbatim | On-screen text | Visible action | File/source | Result appears | Reading pause | Transition
+1 | 0:00-0:03 | AVATAR | "This narrator isn't human. And it speaks a language it doesn't know." | — | Avatar looks into camera, short beat before the line | none (standard avatar) | — | — | hard cut to scene 2
+2 | 0:03-0:10 | AVATAR + NATIVE_TEXT | "Recorded a video in one language. Need another market? Same studio, same actor, starting over again." | Video icon + flag labels RU/EN/ES appear one at a time | Icon "resets" (dims/relights) with each new flag label | built natively in HeyGen (NATIVE_TEXT), no external file needed | last label visible by end of scene | ~1 sec | cut to chip chain in scene 3
+3 | 0:10-0:17 | AVATAR + NATIVE_TEXT | "Write the script once. Then a pipeline translates the text and adjusts the lip movement for the new language." | Chips "SCRIPT" → "AVATAR" → "NEW LANGUAGE" with arrows | Chips appear one at a time synced to speech, do not cover the face | built natively in HeyGen (NATIVE_TEXT) | last chip "NEW LANGUAGE" by end of scene | 1 sec | cut to avatar close-up in scene 4
+4 | 0:17-0:22 | AVATAR | "But it isn't equally smooth everywhere. Lip sync is stronger for common languages, weaker for rare ones." | — | Avatar close-up, calm more serious tone | none | — | — | cut to scene 5
+5 | 0:22-0:26 | AVATAR | "Check the result on a short clip before showing it to your whole audience." | — | Avatar close-up, confident tone | none | — | — | cut to scene 6
+6 | 0:26-0:30 | AVATAR | "How to set this up for your own case, I'll tell you in the comments under this post." | — | Avatar holds eye contact until the line fully ends | none | — | frame holds until the line is fully spoken | end of video
+
+The user does not need to read this table to fix the prompt — its content is already consistent with
+01_HEYGEN_AGENT_PROMPT.txt.

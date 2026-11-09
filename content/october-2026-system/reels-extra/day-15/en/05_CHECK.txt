@@ -1,0 +1,36 @@
+AlovLab · Reels Oct 15, 2026 (EN) · Pre-delivery check
+
+STATUS: READY FOR HEYGEN ASSEMBLY.
+Script, real external attachments (none required, all inserts are native NATIVE_TEXT), the selected
+avatar/voice (uses the current project, not re-selected) and editing rules are consistent across
+01_HEYGEN_AGENT_PROMPT.txt and 02_SCENES.txt.
+
+STATUS: PUBLICATION PACKAGE, COMPLETE EXCEPT FOR THE GUIDE (missing project-wide for this topic).
+Ready: platform captions (04_SOCIAL_CAPTIONS.txt), delivery mechanic (CTA "reply VOICE in the
+comments," a person replies, no link in bio all of October), cover (cover/cover-en.png, purely
+typographic, built without Higgsfield, see ../cover/STATUS.md).
+Open gap, stated honestly, not hidden: no G06 guide exists yet for this topic in either language.
+This version's CTA does not promise a downloadable file; the viewer gets a short pointer in the
+comments instead.
+Final MP4 is not rendered (rendering happens in HeyGen on the user's side), no publication has
+happened yet.
+
+INTERNAL CHECK (passed):
+- Meaning: one task (show the AI-dubbing pipeline), no topic drift, the honest caveat in scene 4 is
+  stated plainly, not hidden.
+- Value: the viewer leaves understanding the pipeline steps and a clear criterion for when to check
+  the result before wider use.
+- Numbers: no specific language count or quality percentage for any third-party platform anywhere in
+  this package, verified against 00_START.txt, which explains why.
+- Feasibility: no scene requires an exact interface, long text in perspective, or complex hand
+  actions, only the avatar and simple typography (NATIVE_TEXT): flag labels and chips.
+- Materials: no external files required, no placeholder attachments created.
+- Motion: scenes 2-3 show a real state change (flag labels appearing one at a time, chips appearing
+  one at a time), not a static frame.
+- Timing: 27-30 sec runtime is an estimate, not a measurement (no access to the project's voice to
+  measure it); 01_HEYGEN_AGENT_PROMPT.txt explicitly asks to measure the actual speech inside HeyGen.
+- Appearance: the avatar was not selected or described here, it uses the existing project.
+- Voice: zero dashes in the clean speech text in 03_VOICE_AND_CAPTIONS.txt, per GLOBAL-REELS-VOICE-RULE.
+- Text: no corporate jargon, no invented numbers or cases.
+- Guide: honestly flagged as missing (G06), not invented or silently dropped.
+- CTA: one, consistent across the video and every caption.

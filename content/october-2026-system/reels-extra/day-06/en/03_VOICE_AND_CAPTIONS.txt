@@ -1,0 +1,37 @@
+AlovLab · Reels Oct 6, 2026 (EN) · Clean speech text + captions
+
+CLEAN SPEECH TEXT (no director notes, voice-ready, no dashes):
+
+Don't ask for nicer. Ask for a format.
+Look. Here's a normal AI answer with no format. Readable. Not usable until you rewrite it yourself.
+Now the same question. I add one line at the end. Format this as a table.
+A format is not decoration. It's a specific instruction. Table, numbered list, a template with
+fields.
+Ask for what you actually need on the output side. Don't ask for nicer. Nice is not a format.
+Set a format on your next working prompt. The difference will show right away. The guide for
+building this into a habit is waiting in Telegram.
+
+CAPTIONS (split by meaning-based phrases, no SRT timing set — HeyGen syncs to the actual speech, an
+approximate SRT is not presented here as exact):
+
+1. Don't ask for nicer.
+2. Ask for a format.
+3. Look.
+4. Here's a normal AI answer with no format.
+5. Readable.
+6. Not usable until you rewrite it yourself.
+7. Now the same question.
+8. I add one line at the end.
+9. Format this as a table.
+10. A format is not decoration.
+11. It's a specific instruction.
+12. Table, numbered list, a template with fields.
+13. Ask for what you actually need on the output side.
+14. Don't ask for nicer.
+15. Nice is not a format.
+16. Set a format on your next working prompt.
+17. The difference will show right away.
+18. The guide for building this into a habit is waiting in Telegram.
+
+Note: there is no dash anywhere in the speech text above (unlike this file's own labels) — required
+by GLOBAL-REELS-VOICE-RULE for HeyGen.

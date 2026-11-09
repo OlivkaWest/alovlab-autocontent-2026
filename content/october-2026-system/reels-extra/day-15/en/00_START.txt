@@ -1,0 +1,41 @@
+AlovLab · Reels for Oct 15, 2026 (EN, @alov.lab) · START
+
+DATE: October 15, 2026
+TOPIC: "This narrator isn't human. And it speaks a language it doesn't know." Day 15's lead format in
+the calendar is Reels (OCT-15), the script was unwritten (`status: запланирован_текст_не_написан`) —
+this package closes that gap with a full v2.0 standard production package.
+PLACE IN THE PLAN: content/october-2026-system/calendar/calendar.csv, day 15 (OCT-15, RU calendar —
+there is no separate EN calendar row, same day/topic). Segment: anyone who needs a narrator in
+another language.
+
+VIEWER TAKEAWAY: understands the AI-dubbing pipeline (script, text translation, lip-movement
+adjustment, video in the new language) and can judge for themselves whether it fits their case,
+including the honest caveat that quality differs between languages.
+
+HONESTY ABOUT NUMBERS (mandatory, calendar requirement, flex_what_to_check): the exact list of
+languages any AI platform supports, and the real sync quality, were not verified — network access to
+platform documentation (api.heygen.com, docs.heygen.com) was unavailable in the preparation
+environment, and a web search returned conflicting figures across sources (a spread from "40+" to
+"175+" for the same platform). So neither the video nor the captions state a specific third-party
+language count. The only number in this package's family is "90+ languages" for AlovLab Studio (see
+carousels-extra/day-15, a confirmed CLAUDE.md fact) — it is not used inside this video itself.
+
+MAIN CTA: "Save the post / reply with VOICE in the comments." A person replies with a link or advice
+in Telegram, not a bot, no automated keyword delivery is set up in this project. No link in the bio
+all of October (status unverified for this account specifically, same cautious fallback as
+@neurumonk, see RU side's captions/IG-LINK-STATUS.md).
+
+WHAT TO PASTE INTO HEYGEN: the file 01_HEYGEN_AGENT_PROMPT.txt in full, as one message to the agent.
+
+WHAT HEYGEN BUILDS NATIVELY (no attached files needed): the video icon with flag labels (scene 2) and
+the pipeline chip chain (scene 3). Ordinary editable graphics and text (NATIVE_TEXT), not an exact
+third-party interface — the agent builds this itself.
+
+COVER: ready — cover/cover-en.png (1080x1920). Dark typographic background (no Higgsfield, same
+approach as day 6's cover, see cover/STATUS.md).
+
+GUIDE: G06 is unwritten — an honest open gap, not invented here, consistent with carousels-extra/day-15's
+carousel.md. The CTA does not promise a PDF; the viewer gets a short pointer in the comments instead.
+
+STATUS IN ONE LINE: READY FOR HEYGEN ASSEMBLY. Publication package complete except for the guide gap
+noted above (project-wide gap for this topic, not specific to this package).
