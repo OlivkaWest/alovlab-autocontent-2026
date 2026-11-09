@@ -110,7 +110,7 @@ export const S4Build: React.FC = () => {
               justifyContent: "center",
             }}
           >
-            <Character pose="thinking" size={300} />
+            <Character pose="thinking" clipId="s4" size={300} />
           </div>
         </>
       )}
@@ -269,7 +269,9 @@ export const S4Build: React.FC = () => {
       )}
 
       <div style={{ position: "absolute", bottom: 20, right: 28 }}>
-        {phase4 || phase5 ? <Character pose="shock" size={190} /> : null}
+        {phase4 || phase5 ? (
+          <Character pose="shock" clipId="s4" size={190} />
+        ) : null}
       </div>
     </Bg>
   );

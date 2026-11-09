@@ -1,5 +1,6 @@
 import React from "react";
-import { interpolate, useCurrentFrame, staticFile } from "remotion";
+import { interpolate, useCurrentFrame, staticFile, OffthreadVideo } from "remotion";
+import assets from "../data/assets.json";
 
 export const COLORS = {
   bg: "#E9E1D3",
@@ -131,44 +132,83 @@ const POSES = [
 ] as const;
 export type Pose = (typeof POSES)[number];
 
+const PlaceholderCircle: React.FC<{ size: number; label: string }> = ({
+  size,
+  label,
+}) => (
+  <div
+    style={{
+      width: size,
+      height: size,
+      borderRadius: "50%",
+      background: "#D8CCB0",
+      border: `4px solid ${COLORS.ink}`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: size * 0.4,
+      fontWeight: 700,
+      color: COLORS.ink,
+    }}
+    title={`placeholder for ${label}`}
+  >
+    И
+  </div>
+);
+
 /**
- * Falls back to a labeled placeholder circle when the real PNG (generated
- * from character-prompts.md with Identity Lock) isn't in public/character/ yet.
+ * Three-step fallback, decided once up front (not at React render time) by
+ * `scripts/check-assets.js`, which scans public/character/ before every
+ * `npm run render`/`npm run studio` and writes src/data/assets.json. A
+ * missing file is never referenced by src — OffthreadVideo/img error on a
+ * 404 mid-render in ways that are slow or hang the renderer, so the choice
+ * has to be made from a known file listing, not from an onError handler:
+ * 1. HeyGen clip (real felt avatar, talking) — public/character/<clipId>.mp4
+ * 2. Static illustrated pose PNG (Identity Lock) — public/character/<pose>.png
+ * 3. Labeled placeholder circle.
  */
-export const Character: React.FC<{ pose: Pose; size?: number }> = ({
-  pose,
-  size = 300,
-}) => {
-  const [missing, setMissing] = React.useState(false);
-  if (missing) {
+export const Character: React.FC<{
+  pose: Pose;
+  clipId?: string;
+  size?: number;
+}> = ({ pose, clipId, size = 300 }) => {
+  const hasClip = Boolean(clipId && (assets.clips as Record<string, boolean>)[clipId]);
+  const hasPose = Boolean((assets.poses as Record<string, boolean>)[pose]);
+
+  if (hasClip && clipId) {
     return (
       <div
         style={{
           width: size,
           height: size,
           borderRadius: "50%",
-          background: "#D8CCB0",
+          overflow: "hidden",
           border: `4px solid ${COLORS.ink}`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: size * 0.4,
-          fontWeight: 700,
-          color: COLORS.ink,
+          boxShadow: "0 14px 24px rgba(43,38,33,0.25)",
         }}
-        title={`placeholder for ${pose}`}
       >
-        И
+        <OffthreadVideo
+          src={staticFile(`character/${clipId}.mp4`)}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
       </div>
     );
   }
-  return (
-    <img
-      src={staticFile(`character/${pose}.png`)}
-      width={size}
-      height={size}
-      style={{ objectFit: "contain" }}
-      onError={() => setMissing(true)}
-    />
-  );
+
+  if (hasPose) {
+    return (
+      <img
+        src={staticFile(`character/${pose}.png`)}
+        width={size}
+        height={size}
+        style={{ objectFit: "contain" }}
+      />
+    );
+  }
+
+  return <PlaceholderCircle size={size} label={clipId ?? pose} />;
 };

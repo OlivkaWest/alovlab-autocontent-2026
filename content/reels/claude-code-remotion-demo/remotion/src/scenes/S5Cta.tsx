@@ -131,7 +131,7 @@ export const S5Cta: React.FC = () => {
       </div>
 
       <div style={{ position: "absolute", bottom: 40, right: 30 }}>
-        <Character pose="pointup" size={260} />
+        <Character pose="pointup" clipId="s5" size={260} />
       </div>
     </Bg>
   );

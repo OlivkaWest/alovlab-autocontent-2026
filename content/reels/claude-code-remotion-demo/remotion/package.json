@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "studio": "remotion studio src/index.ts",
-    "render": "remotion render src/index.ts Collage render/collage.mp4"
+    "check-assets": "node scripts/check-assets.js",
+    "studio": "npm run check-assets && remotion studio src/index.ts",
+    "render": "npm run check-assets && remotion render src/index.ts Collage render/collage.mp4"
   },
   "dependencies": {
     "@remotion/cli": "4.0.286",

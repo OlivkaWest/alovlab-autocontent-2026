@@ -85,7 +85,7 @@ export const S1Title: React.FC = () => {
       </div>
 
       <div style={{ position: "absolute", bottom: 60, right: 40 }}>
-        <Character pose="neutral" size={300} />
+        <Character pose="neutral" clipId="s1" size={300} />
       </div>
     </Bg>
   );

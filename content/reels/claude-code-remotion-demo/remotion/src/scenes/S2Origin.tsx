@@ -129,7 +129,7 @@ export const S2Origin: React.FC = () => {
       </div>
 
       <div style={{ position: "absolute", bottom: 44, right: 30 }}>
-        <Character pose="thumbsup" size={260} />
+        <Character pose="thumbsup" clipId="s2" size={260} />
       </div>
     </Bg>
   );

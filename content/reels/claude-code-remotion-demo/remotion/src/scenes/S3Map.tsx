@@ -125,7 +125,7 @@ export const S3Map: React.FC = () => {
       </div>
 
       <div style={{ position: "absolute", bottom: 50, right: 36 }}>
-        <Character pose="pointing" size={260} />
+        <Character pose="pointing" clipId="s3" size={260} />
       </div>
     </Bg>
   );
