@@ -1,0 +1,7 @@
+Build a Python Telegram bot project for consultation lead capture.
+
+Flow: /start → one of three topics → name → contact → confirmation → private lead message to the admin. Add /cancel at each step. Handle blank input, unexpected message types, repeated /start, and failures when notifying the admin.
+
+Read the token and admin chat ID from environment variables. Keep secrets out of source code, logs, and Git. Return bot.py, requirements.txt, an empty .env.example, .gitignore, and a README with run commands for Windows and macOS/Linux. Use long polling for the local prototype; do not enable a webhook at the same time.
+
+Describe four manual tests: /start, blank response, /cancel, and admin receipt of a lead. Do not claim a successful integration test without a real token. Separately explain hosting: environment secrets, process restart, and error monitoring. Show the file plan and flow before the implementation.

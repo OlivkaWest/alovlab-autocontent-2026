@@ -1,0 +1,34 @@
+AlovLab · Reels for Oct 6, 2026 (EN, @alov.lab) · START
+
+DATE: October 6, 2026
+TOPIC: "Don't ask for nicer. Ask for a format." Day 6's lead format in the calendar is already Reels
+(not an extra, like day 2) — this package takes the existing draft script (reels/en/day-06.md) to a
+full v2.0 standard production package, ready for direct HeyGen assembly.
+PLACE IN THE PLAN: content/october-2026-system/calendar/calendar.csv, day 6 (OCT-06, RU calendar —
+there is no separate EN calendar row, same day/topic). Segment: anyone who gets an AI answer and
+rewrites it by hand.
+
+VIEWER TAKEAWAY: leaves with a concrete habit — one added line at the end of a familiar prompt
+("format this as a table", "as a list", "as a template with fields") turns an unusable answer into
+something ready to use right away.
+
+MAIN CTA: "Save the post / reply with FORMAT in the comments." A person replies with the Telegram
+link, not a bot — no automated keyword delivery is set up in this project. No link in the bio all of
+October (status per account — see RU side's captions/IG-LINK-STATUS.md; @alov.lab's own status is
+unverified, same cautious fallback applied, see note below).
+
+WHAT TO PASTE INTO HEYGEN: the file 01_HEYGEN_AGENT_PROMPT.txt in full, as one message to the agent.
+
+WHAT HEYGEN BUILDS NATIVELY (no attached files needed): the text block in scene 2 (plain wall of
+text) and its transformation into a table in scene 3. Ordinary editable graphics and text
+(NATIVE_TEXT), not an exact third-party interface — the agent builds this itself.
+
+COVER: ready — cover/cover-en.png (1080x1920). Dark typographic background, no photo (built without
+Higgsfield, see cover/STATUS.md for why and how).
+
+GUIDE: no English translation of G02 exists yet — open gap, not invented here. This EN version does
+not promise a downloadable guide; the viewer gets the format template directly on screen in scene 3
+and 4 instead.
+
+STATUS IN ONE LINE: READY FOR HEYGEN ASSEMBLY. Publication package complete except for the guide
+translation gap noted above.

@@ -1,0 +1,82 @@
+Create one vertical AlovLab video, 9:16, 1080x1920, following this brief. Use the current AlovLab
+project's selected avatar and voice (the same one used in prior videos) — do not suggest another
+character or narrator, do not request or substitute any ID.
+
+TOPIC: the pipeline behind an AI avatar that dubs content in a language it doesn't "know" — write the
+script once, then a pipeline translates the text and adjusts the lip movement for the new language.
+VIEWER BENEFIT: understands the pipeline steps and can judge for themselves whether it fits their
+case, including the honest caveat that quality differs between languages.
+HOOK (first line): "This narrator isn't human. And it speaks a language it doesn't know."
+
+Deliver the lines below verbatim. There are no dashes in the lines, do not add any yourself when
+voicing them. Do not add a greeting, an intro, promises, or decorative scenes. Target runtime is
+27-30 seconds, an estimate, not a measurement (this environment has no access to the project's voice
+to measure actual duration). Generate the speech first, measure its actual duration inside your own
+build, then fit scene durations to it: do not speed up the voice, do not cut lines short. Keeping the
+thought intact matters more than hitting 27-30 seconds exactly.
+
+HONESTY ABOUT NUMBERS (mandatory): never state a specific number of languages supported by any AI
+dubbing platform anywhere in this video, and never claim a specific percentage or degree of sync
+quality — exact figures for third-party platforms were not verified when this brief was prepared
+(network access to platform documentation was unavailable). Speak about it qualitatively: "stronger
+for common languages, weaker for rare ones," with no numbers.
+
+SCENES (detailed breakdown in 02_SCENES.txt; summarized here as one block):
+
+Scene 1 · 0:00-0:03 (estimate) · AVATAR
+Line: "This narrator isn't human. And it speaks a language it doesn't know."
+Visible: avatar looking into the camera, a short beat before the line. No on-screen text, nothing
+covers the face.
+
+Scene 2 · 0:03-0:10 (estimate) · AVATAR + NATIVE_TEXT
+Line: "Recorded a video in one language. Need another market? Same studio, same actor, starting over
+again."
+Visible: next to the avatar (not over the face), a single video-thumbnail icon appears, and language
+flag labels (for example RU, EN, ES) are added one at a time next to it; each new label is paired
+with a brief visual "reset" of the icon (it dims and relights), illustrating literally "starting over
+for each language." This is ordinary editable graphics and text, not an imitation of a third-party
+app's interface — build it yourself with your own tools, no external file is needed.
+
+Scene 3 · 0:10-0:17 (estimate) · AVATAR + NATIVE_TEXT
+Line: "Write the script once. Then a pipeline translates the text and adjusts the lip movement for
+the new language."
+Visible: three text chips appear one at a time in sync with the line, "SCRIPT," then "AVATAR,"
+then "NEW LANGUAGE," connected by arrows. Chips stay on screen, do not cover the avatar's face.
+Simple typography, one accent color (AlovLab orange), no interface imitation.
+
+Scene 4 · 0:17-0:22 (estimate) · AVATAR
+Line: "But it isn't equally smooth everywhere. Lip sync is stronger for common languages, weaker for
+rare ones."
+Visible: avatar in close-up, calm, slightly more serious tone (an honest caveat, not an ad). No
+on-screen text.
+
+Scene 5 · 0:22-0:26 (estimate) · AVATAR
+Line: "Check the result on a short clip before showing it to your whole audience."
+Visible: avatar in close-up, confident tone, no on-screen text.
+
+Scene 6 · 0:26-0:30 (estimate) · AVATAR
+Line (final, do not paraphrase): "How to set this up for your own case, I'll tell you in the comments
+under this post."
+Visible: avatar holds eye contact with the camera until the line fully ends, the frame does not cut
+before the line is complete.
+
+CAPTIONS: sync to the actual speech after it is finalized, by meaning-based phrases, 1-2 lines, no
+stage directions. Do not cover the face or the text inserts; on scenes 2-3 (video icon with flag
+labels, chip chain) either turn captions off or place them in a safe zone that does not overlap the
+insert's text.
+
+TRANSITIONS: meaningful cuts on state changes (a new flag label appearing, a chip appearing), not a
+random zoom or a decorative countdown.
+
+FINAL CALL TO ACTION (take without paraphrasing): "How to set this up for your own case, I'll tell
+you in the comments under this post." This is the video's only CTA — a person replies, not a bot and
+not an automated keyword delivery.
+
+FILES: no external attachments are needed for this video — all text and graphic inserts (scenes 2-3)
+are built by HeyGen itself as editable text layers. Do not generate an imitation of a third-party
+app's interface (ChatGPT, HeyGen, or otherwise) — this video does not include one and should not.
+
+PRE-EXPORT CHECK: one task (show the AI-dubbing pipeline), no specific numbers about languages or
+quality percentages anywhere; the honest caveat in scene 4 is delivered calmly, not as a sales pitch;
+the final line is spoken fully before the frame ends; captions do not cover the face or the text
+inserts. Deliver the final MP4 and its actual duration.

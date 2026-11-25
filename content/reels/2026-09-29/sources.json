@@ -1,0 +1,68 @@
+{
+  "research_date": "2026-09-29",
+  "search_window": "проверка 29.09.2026, часовой пояс не зафиксирован средой (сессия облачная)",
+  "tooling_note": "WebSearch/WebFetch — только текстовый поиск и парсинг страниц. Нет доступа к Instagram/TikTok/YouTube статистике напрямую (нет API-ключей, нет браузера с логином). Поэтому просмотры конкретных Reels/Shorts по большинству тем недоступны — это ограничение инструментов, не решение не проверять.",
+  "topics": [
+    {
+      "id": "sora-api-shutdown",
+      "claim": "OpenAI закрыла Sora API 24 сентября 2026, после объявления в марте 2026 (полгода уведомления). Экономика: около $1M/день расходов, около $2.1M выручки за всё время работы, падение активных пользователей.",
+      "category": "B",
+      "category_note": "Подтверждено несколькими независимыми источниками (включая официальный OpenAI Help Center) — это реальное новостное событие. НЕ категория A: нет данных о том, что тема уже дала вирусные Reels с видимыми просмотрами — это про факт, не про подтверждённый интерес аудитории к формату.",
+      "freshness": "5 дней от даты закрытия API до даты проверки — внутри окна 7 дней",
+      "sources": [
+        {"title": "What to know about the Sora discontinuation", "url": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation", "publisher": "OpenAI Help Center (первичный источник)"},
+        {"title": "OpenAI sets two-stage Sora shutdown with app closing April 2026 and API following in September", "url": "https://the-decoder.com/openai-sets-two-stage-sora-shutdown-with-app-closing-april-2026-and-api-following-in-september/", "publisher": "The Decoder"},
+        {"title": "Sora API shuts down September 24: What users should do", "url": "https://www.newsbytesapp.com/news/science/sora-api-shuts-down-september-24-what-users-should-do/story", "publisher": "NewsBytes"},
+        {"title": "OpenAI Shuts Down the Sora API With No Replacement in Sight", "url": "https://beingguru.com/openai-shuts-down-the-sora-api-with-no-replacement-in-sight/", "publisher": "BeingGuru"}
+      ],
+      "views_data": "недоступны — не про конкретное видео, про новостное событие"
+    },
+    {
+      "id": "mcp-agents-20pct",
+      "claim": "На платформе honeycomb.io около 20% всех интерактивных запросов в месяц теперь выполняют агенты через MCP. Новая спецификация MCP (stateless-архитектура) вышла 28 июля 2026. Enterprise-Managed Authorization уже приняли Anthropic, Microsoft, Okta.",
+      "category": "C",
+      "category_note": "Реальные факты, но НЕ свежая новость (спецификация от 28.07.2026, больше 7 дней назад) — использую как справочный контекст для объяснительного ролика, не выдаю за горячий тренд.",
+      "freshness": "старше окна 7 дней, честно используется как эвергрин-факт",
+      "sources": [
+        {"title": "AI Model Context Protocol Adds Centralised Auth for Enterprise", "url": "https://www.infoq.com/news/2026/07/mcp-ema-enterprise-auth/", "publisher": "InfoQ"},
+        {"title": "The 2026-07-28 Specification", "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28/", "publisher": "Model Context Protocol (официальный блог)"}
+      ],
+      "views_data": "недоступны"
+    },
+    {
+      "id": "ai-freelance-income",
+      "claim": "Топ-ниша фриланса с ИИ в 2026 — агенты для отделов продаж, 80–300 тыс ₽/мес. Спрос на специалистов с навыками нейросетей в РФ вырос на 50% за 2 года (данные HeadHunter за 2025). Рынок отходит от простого «сделаю нейросетью» к пониманию бизнес-задачи.",
+      "category": "C",
+      "category_note": "Эвергрин-тема, агрегированные данные из нескольких СМИ/блогов, не единичное дэйтированное событие.",
+      "freshness": "не привязано к конкретной дате, используется как фоновый факт",
+      "sources": [
+        {"title": "Как заработать на нейросетях в 2026 году", "url": "https://career.hh.ru/article/kak-zarabotat-na-ii", "publisher": "HeadHunter career"},
+        {"title": "Фрилансеры и искусственный интеллект: как меняется рынок труда в 2026 году", "url": "https://finance.mail.ru/article/stalo-izvestno-kak-ii-vliyaet-na-frilanserov-69229301/", "publisher": "Mail.ru Finance"}
+      ],
+      "views_data": "недоступны"
+    },
+    {
+      "id": "claude-skill-doctor",
+      "claim": "В начале сентября 2026 вышла команда /skill-doctor в Claude Code — показывает стоимость и частоту использования каждого скилла в контексте.",
+      "category": "B",
+      "category_note": "Подтверждённый релиз, но узкая аудитория (разработчики Claude Code) — под вопросом соответствие широкой аудитории AlovLab, поэтому не взял в тройку.",
+      "freshness": "начало сентября, в пределах ~4 недель",
+      "sources": [{"title": "What's new - Claude Code Docs", "url": "https://code.claude.com/docs/en/whats-new", "publisher": "Anthropic (официальная документация)"}],
+      "views_data": "недоступны"
+    },
+    {
+      "id": "chatgpt-live-voice-plugins",
+      "claim": "23 сентября 2026 ChatGPT Live получил поддержку плагинов в голосовом режиме на web/iOS/Android.",
+      "category": "B",
+      "category_note": "Свежий подтверждённый релиз, но слабая связь с бизнес/маркетинг аудиторией AlovLab — консьюмерская фича.",
+      "freshness": "6 дней от даты проверки",
+      "sources": [{"title": "ChatGPT Updates by OpenAI - September 2026", "url": "https://releasebot.io/updates/openai/chatgpt", "publisher": "Releasebot (агрегатор официальных release notes)"}],
+      "views_data": "недоступны"
+    }
+  ],
+  "not_used_and_why": [
+    "ChatGPT credit score tracking / health data summaries — консьюмерские фичи для рынка США, нет применения для бизнес-аудитории AlovLab, нет визуального демо-потенциала.",
+    "GPT-6 Sol/Luna image encoding bug fix (25.09) — слишком техническая новость, не даёт зрителю пользы или зрелищности.",
+    "Общие листинги «топ AI-инструментов 2026» на TikTok — насыщенная, невыделяющаяся тема, дублирует контент тысяч других авторов без нового угла."
+  ]
+}

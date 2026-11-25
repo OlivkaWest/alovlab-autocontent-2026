@@ -1,0 +1,33 @@
+AlovLab · Reels Oct 15, 2026 (EN) · Clean speech text + captions
+
+CLEAN SPEECH TEXT (no director notes, voice-ready, no dashes):
+
+This narrator isn't human. And it speaks a language it doesn't know.
+Recorded a video in one language. Need another market? Same studio, same actor, starting over again.
+Write the script once. Then a pipeline translates the text and adjusts the lip movement for the new
+language.
+But it isn't equally smooth everywhere. Lip sync is stronger for common languages, weaker for rare
+ones.
+Check the result on a short clip before showing it to your whole audience.
+How to set this up for your own case, I'll tell you in the comments under this post.
+
+CAPTIONS (split by meaning-based phrases, no SRT timing set, HeyGen syncs to the actual speech, an
+approximate SRT is not presented here as exact):
+
+1. This narrator isn't human.
+2. And it speaks a language it doesn't know.
+3. Recorded a video in one language.
+4. Need another market?
+5. Same studio, same actor, starting over again.
+6. Write the script once.
+7. Then a pipeline translates the text.
+8. And adjusts the lip movement for the new language.
+9. But it isn't equally smooth everywhere.
+10. Lip sync is stronger for common languages.
+11. Weaker for rare ones.
+12. Check the result on a short clip.
+13. Before showing it to your whole audience.
+14. How to set this up for your own case, I'll tell you in the comments under this post.
+
+Note: zero dashes anywhere in the speech text above (unlike this file's own labels), required by
+GLOBAL-REELS-VOICE-RULE for HeyGen.
